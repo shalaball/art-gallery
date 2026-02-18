@@ -5,7 +5,7 @@ const LABELS = [
   "Before the show",   // Slide 1  DSC_0005
   "Solitaire",         // Slide 2  DSC_0006
   "Walking to the Track", // Slide 3  DSC_0007
-  "Untitled 4",        // Slide 4  DSC_0008
+  "Getting ready for the jump", // Slide 4  DSC_0008
   "Untitled 5",        // Slide 5  DSC_0009
   "Untitled 6",        // Slide 6  DSC_0010
   "Untitled 7",        // Slide 7  DSC_0011
