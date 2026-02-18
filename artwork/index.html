@@ -34,18 +34,19 @@
     }
 
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
       gap: 32px;
       padding: 24px 32px 48px;
       max-width: 1400px;
       margin: 0 auto;
+      justify-content: center;
     }
 
     .gallery-item {
       cursor: pointer;
       background: #d8d8d8;
-      display: flex;
+      display: inline-flex;
       flex-direction: column;
     }
 
@@ -55,9 +56,10 @@
     }
 
     .gallery-item img {
-      width: 100%;
-      height: auto;
       display: block;
+      max-width: 400px;
+      width: auto;
+      height: auto;
       transition: transform 0.35s ease, opacity 0.35s ease;
       opacity: 0.88;
     }
