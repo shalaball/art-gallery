@@ -2,7 +2,7 @@
 // Order matches the photos left-to-right, top-to-bottom in the gallery.
 
 const LABELS = [
-  "Untitled 1",        // Slide 1  IMG_2997
+  "Storm on the Sea",  // Slide 1  IMG_2997
   "Untitled 2",        // Slide 2  IMG_3189
   "Untitled 3",        // Slide 3  IMG_3233
   "Untitled 4",        // Slide 4  IMG_3424
