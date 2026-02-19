@@ -4,77 +4,135 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Art Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: #f0f0f0;
+      background: #fff;
       color: #222;
-      font-family: Georgia, serif;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
       min-height: 100vh;
     }
 
+    nav {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 2rem 0;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: #222; }
+
     header {
       text-align: center;
-      padding: 2.5rem 1rem 1.5rem;
+      padding: 4rem 1rem 1rem;
+    }
+
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 3.5rem;
       letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-size: 1.6rem;
       color: #222;
     }
 
-    .description {
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto 3rem;
-      padding: 0 1rem;
-      font-size: 1rem;
-      color: #333;
-      line-height: 1.6;
+    header p {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-top: 0.75rem;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: #ccc;
+      margin: 2rem auto;
     }
 
     .gallery-list {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      max-width: 680px;
+      align-items: center;
+      gap: 1rem;
+      max-width: 480px;
       margin: 0 auto;
-      padding: 0 1rem 4rem;
+      padding: 0 2rem 6rem;
     }
 
     .gallery-link {
       display: block;
-      padding: 1.5rem 2rem;
-      background: #1e1e1e;
-      color: #fff;
+      width: 100%;
+      padding: 1.2rem 2rem;
+      text-align: center;
       text-decoration: none;
-      font-size: 1.1rem;
-      letter-spacing: 0.05em;
-      transition: background 0.2s;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #222;
+      transition: background 0.25s;
     }
 
     .gallery-link:hover {
-      background: #2a2a2a;
+      background: #555;
     }
 
     .gallery-link span {
       display: block;
-      font-size: 0.8rem;
-      color: #888;
+      font-size: 0.65rem;
+      color: #aaa;
       margin-top: 0.3rem;
+      letter-spacing: 0.1em;
       font-style: italic;
-      letter-spacing: 0.03em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: #ccc;
+      text-transform: uppercase;
     }
   </style>
 </head>
 <body>
 
-<header>Art Gallery</header>
+<nav>
+  <a href="artwork/">Artwork</a>
+  <a href="artwork2/">Artwork 2</a>
+</nav>
+
+<header>
+  <h1>Art Gallery</h1>
+  <p>A curated collection</p>
+</header>
+
+<div class="divider"></div>
 
 <div class="gallery-list">
-<a class="gallery-link" href="artwork/">Artwork</a>
+  <a class="gallery-link" href="artwork/">Artwork</a>
   <a class="gallery-link" href="artwork2/">Artwork 2</a>
 </div>
+
+<footer>&copy; 2025 Art Gallery</footer>
 
 </body>
 </html>
