@@ -4,76 +4,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Artwork</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: #f0f0f0;
+      background: #fff;
       color: #222;
-      font-family: Georgia, serif;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
       min-height: 100vh;
     }
 
+    nav {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 2rem 0;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active { color: #222; }
+
     header {
       text-align: center;
-      padding: 2.5rem 1rem 1.5rem;
+      padding: 4rem 1rem 1rem;
+    }
+
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 3rem;
       letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-size: 1.6rem;
       color: #222;
     }
 
-    .description {
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto 2rem;
-      padding: 0 1rem;
-      font-size: 1rem;
-      color: #333;
-      line-height: 1.6;
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: #ccc;
+      margin: 2rem auto;
     }
 
     .gallery {
       columns: 2;
-      column-gap: 32px;
-      padding: 24px 32px 48px;
+      column-gap: 2rem;
+      padding: 1rem 3rem 5rem;
       max-width: 1100px;
       margin: 0 auto;
     }
 
     .gallery-item {
       cursor: pointer;
-      background: transparent;
       display: block;
       break-inside: avoid;
-      margin-bottom: 32px;
+      margin-bottom: 2rem;
     }
 
     .img-wrap {
       overflow: hidden;
-      border: 4px solid #aaa;
+      line-height: 0;
     }
 
     .gallery-item img {
       display: block;
       width: 100%;
       height: auto;
-      transition: transform 0.35s ease, opacity 0.35s ease;
-      opacity: 0.88;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.04);
+      transition: opacity 0.3s ease;
       opacity: 1;
     }
 
+    .gallery-item:hover img {
+      opacity: 0.85;
+    }
+
     .label {
-      padding: 0.65rem 0.75rem 0.75rem;
-      font-size: 0.82rem;
-      color: #333;
-      text-align: center;
-      letter-spacing: 0.05em;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
       font-style: italic;
+      color: #888;
+      text-align: center;
+      padding: 0.6rem 0 0;
+      letter-spacing: 0.05em;
     }
 
     /* Lightbox */
@@ -81,7 +102,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.93);
+      background: rgba(255,255,255,0.97);
       z-index: 1000;
       align-items: center;
       justify-content: center;
@@ -89,24 +110,22 @@
       gap: 1rem;
     }
 
-    #lightbox.open {
-      display: flex;
-    }
+    #lightbox.open { display: flex; }
 
     #lightbox img {
-      max-width: 90vw;
-      max-height: 82vh;
+      max-width: 88vw;
+      max-height: 80vh;
       object-fit: contain;
       display: block;
-      user-select: none;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.12);
     }
 
     #lb-label {
-      font-size: 0.85rem;
-      color: #aaa;
-      letter-spacing: 0.06em;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
       font-style: italic;
-      min-height: 1.2em;
+      color: #888;
+      letter-spacing: 0.05em;
     }
 
     .lb-btn {
@@ -115,48 +134,68 @@
       transform: translateY(-50%);
       background: none;
       border: none;
-      color: rgba(255,255,255,0.6);
+      color: #bbb;
       font-size: 2.5rem;
       cursor: pointer;
       padding: 1rem;
-      line-height: 1;
       transition: color 0.2s;
-      user-select: none;
     }
 
-    .lb-btn:hover { color: #fff; }
-    #lb-prev { left: 0.5rem; }
-    #lb-next { right: 0.5rem; }
+    .lb-btn:hover { color: #222; }
+    #lb-prev { left: 1rem; }
+    #lb-next { right: 1rem; }
 
     #lb-close {
       position: fixed;
-      top: 1rem;
-      right: 1.5rem;
+      top: 1.5rem;
+      right: 2rem;
       background: none;
       border: none;
-      color: rgba(255,255,255,0.6);
-      font-size: 2rem;
+      color: #bbb;
+      font-size: 1.5rem;
       cursor: pointer;
-      line-height: 1;
+      letter-spacing: 0.1em;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
       transition: color 0.2s;
     }
 
-    #lb-close:hover { color: #fff; }
+    #lb-close:hover { color: #222; }
 
     #lb-counter {
       position: fixed;
-      bottom: 1.2rem;
+      bottom: 1.5rem;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      color: #555;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: #bbb;
+      text-transform: uppercase;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: #ccc;
+      text-transform: uppercase;
     }
   </style>
 </head>
 <body>
 
-<header>Artwork</header>
+<nav>
+  <a href="../">Home</a>
+  <a href="../artwork/" class="active">Artwork</a>
+  <a href="../artwork2/">Artwork 2</a>
+</nav>
+
+<header>
+  <h1>Artwork</h1>
+</header>
+
+<div class="divider"></div>
 
 <div class="gallery" id="gallery">
 
@@ -178,6 +217,8 @@
   <div id="lb-counter"></div>
 </div>
 
+<footer>&copy; 2025 Art Gallery</footer>
+
 <script src="labels.js"></script>
 <script>
   const items = Array.from(document.querySelectorAll('.gallery-item'));
@@ -185,6 +226,7 @@
   items.forEach((item, i) => {
     item.querySelector('.label').textContent = LABELS[i] || '';
   });
+
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lb-img');
   const lbLabel = document.getElementById('lb-label');
@@ -209,23 +251,14 @@
     lbImg.src = '';
   }
 
-  function prev() {
-    current = (current - 1 + items.length) % items.length;
-    show(current);
-  }
-
-  function next() {
-    current = (current + 1) % items.length;
-    show(current);
-  }
+  function prev() { current = (current - 1 + items.length) % items.length; show(current); }
+  function next() { current = (current + 1) % items.length; show(current); }
 
   items.forEach((item, i) => item.addEventListener('click', () => open(i)));
   document.getElementById('lb-close').addEventListener('click', close);
   document.getElementById('lb-prev').addEventListener('click', prev);
   document.getElementById('lb-next').addEventListener('click', next);
-
   lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
-
   document.addEventListener('keydown', e => {
     if (!lightbox.classList.contains('open')) return;
     if (e.key === 'Escape') close();
