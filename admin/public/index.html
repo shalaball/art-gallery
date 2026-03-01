@@ -72,6 +72,7 @@ async function init() {
     data = await res.json();
     renderSidebar();
     selectHome();
+    initMainDragListeners();
   } catch (e) {
     renderEmptyMain('Failed to load content: ' + e.message);
   }
@@ -271,6 +272,15 @@ function renderEmptyMain(msg) {
 }
 
 function renderMain(page) {
+  // Restore saved zoom levels so the admin thumbnails reflect what's on the live site
+  page.photos.forEach(ph => {
+    if (ph.zoom && ph.zoom !== 1) {
+      thumbZoomLevel[ph.filename] = Math.round(Math.log(ph.zoom) / Math.log(1.3));
+    } else {
+      delete thumbZoomLevel[ph.filename];
+    }
+  });
+
   const typeLabel = page.type === 'masonry' ? 'Masonry grid' : 'Single column';
   const count     = page.photos.length;
 
@@ -302,8 +312,7 @@ function renderMain(page) {
     ${page.photos.length === 0 ? `
       <div class="upload-zone" onclick="document.querySelector('.photo-grid').previousElementSibling.querySelector('input').click()"
            ondragover="event.preventDefault();this.classList.add('drag-over')"
-           ondragleave="this.classList.remove('drag-over')"
-           ondrop="handleFileDrop(event)">
+           ondragleave="this.classList.remove('drag-over')">
         Drop photos here or click to upload
       </div>
     ` : ''}
@@ -312,6 +321,21 @@ function renderMain(page) {
       <span class="save-status" id="save-status"></span>
     </div>
   `;
+
+  // Persistent drop overlay — survives innerHTML replacement
+  const overlay = document.createElement('div');
+  overlay.id = 'drop-overlay';
+  overlay.textContent = 'Drop photos to upload';
+  document.getElementById('main').appendChild(overlay);
+
+  // Apply saved zoom to each thumbnail
+  document.querySelectorAll('.photo-card').forEach(card => {
+    const filename = card.dataset.filename;
+    const level = thumbZoomLevel[filename] || 0;
+    if (level !== 0) {
+      card.querySelector('.photo-thumb').style.transform = `scale(${Math.pow(1.3, level)})`;
+    }
+  });
 
   initSortable();
   markClean();
@@ -335,6 +359,14 @@ function renderCard(page, photo) {
       <button class="remove-btn" title="Remove photo" onclick="removePhoto('${esc(photo.filename)}')">×</button>
       <img class="photo-thumb" src="${thumb}" alt="${esc(photo.filename)}" loading="lazy">
       <div class="card-body">
+        <div class="rotate-row">
+          <button class="rotate-btn" title="Rotate left" onclick="rotatePhoto('${esc(photo.filename)}','ccw')">↺</button>
+          <button class="rotate-btn" title="Rotate right" onclick="rotatePhoto('${esc(photo.filename)}','cw')">↻</button>
+        </div>
+        <div class="rotate-row">
+          <button class="rotate-btn" title="Zoom out" onclick="zoomThumb('${esc(photo.filename)}',-1)">−</button>
+          <button class="rotate-btn" title="Zoom in" onclick="zoomThumb('${esc(photo.filename)}',+1)">+</button>
+        </div>
         ${inputs}
         <div class="card-filename">${esc(photo.filename)}</div>
       </div>
@@ -369,13 +401,15 @@ function collectState() {
   const cards = document.querySelectorAll('.photo-card');
   page.photos = Array.from(cards).map(card => {
     const filename = card.dataset.filename;
+    const zoom = parseFloat((Math.pow(1.3, thumbZoomLevel[filename] || 0)).toFixed(4));
     if (page.type === 'masonry') {
-      return { filename, caption: card.querySelector('.caption-input').value };
+      return { filename, caption: card.querySelector('.caption-input').value, zoom };
     } else {
       return {
         filename,
         title: card.querySelector('.title-input').value,
         desc:  card.querySelector('.desc-input').value,
+        zoom,
       };
     }
   });
@@ -400,6 +434,25 @@ async function saveChanges() {
 
 // ── Upload ─────────────────────────────────────────────────────────────────────
 
+function getFilesFromDrop(e) {
+  const files = [];
+  // dataTransfer.items works with Apple Photos drag; .files works with Finder
+  if (e.dataTransfer.items) {
+    for (const item of e.dataTransfer.items) {
+      if (item.kind === 'file') {
+        const f = item.getAsFile();
+        if (f && f.type.startsWith('image/')) files.push(f);
+      }
+    }
+  }
+  if (files.length === 0) {
+    for (const f of e.dataTransfer.files) {
+      if (f.type.startsWith('image/')) files.push(f);
+    }
+  }
+  return files;
+}
+
 async function uploadPhotos(files) {
   if (!files || files.length === 0) return;
   const formData = new FormData();
@@ -419,10 +472,39 @@ async function uploadPhotos(files) {
   }
 }
 
-function handleFileDrop(e) {
-  e.preventDefault();
-  e.currentTarget.classList.remove('drag-over');
-  uploadPhotos(e.dataTransfer.files);
+function initMainDragListeners() {
+  const main = document.getElementById('main');
+  let dragDepth = 0;
+
+  main.addEventListener('dragenter', (e) => {
+    if (!currentPageId || currentPageId === 'home') return;
+    e.preventDefault();
+    dragDepth++;
+    const overlay = document.getElementById('drop-overlay');
+    if (overlay) overlay.classList.add('visible');
+  });
+
+  main.addEventListener('dragover', (e) => {
+    if (!currentPageId || currentPageId === 'home') return;
+    e.preventDefault();
+  });
+
+  main.addEventListener('dragleave', () => {
+    dragDepth = Math.max(0, dragDepth - 1);
+    if (dragDepth === 0) {
+      const overlay = document.getElementById('drop-overlay');
+      if (overlay) overlay.classList.remove('visible');
+    }
+  });
+
+  main.addEventListener('drop', (e) => {
+    if (!currentPageId || currentPageId === 'home') return;
+    e.preventDefault();
+    dragDepth = 0;
+    const overlay = document.getElementById('drop-overlay');
+    if (overlay) overlay.classList.remove('visible');
+    uploadPhotos(getFilesFromDrop(e));
+  });
 }
 
 // ── Delete page ────────────────────────────────────────────────────────────────
@@ -439,6 +521,41 @@ async function deletePage(pageId) {
 }
 
 // ── Remove photo ───────────────────────────────────────────────────────────────
+
+async function rotatePhoto(filename, direction) {
+  try {
+    const res = await fetch(`/api/rotate/${currentPageId}/${encodeURIComponent(filename)}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ direction }),
+    });
+    if (res.ok) {
+      // Refresh just this thumbnail without reloading the whole page
+      const card = document.querySelector(`.photo-card[data-filename="${CSS.escape(filename)}"]`);
+      if (card) {
+        const img = card.querySelector('.photo-thumb');
+        img.src = img.src.split('?')[0] + '?t=' + Date.now();
+      }
+    } else {
+      const r = await res.json();
+      setStatus('Rotate error: ' + r.error, false, true);
+    }
+  } catch (e) {
+    setStatus('Rotate error: ' + e.message, false, true);
+  }
+}
+
+const thumbZoomLevel = {};  // filename → integer step (0 = default)
+
+function zoomThumb(filename, delta) {
+  const card = document.querySelector(`.photo-card[data-filename="${CSS.escape(filename)}"]`);
+  if (!card) return;
+  const current = thumbZoomLevel[filename] || 0;
+  const next = Math.max(-3, Math.min(6, current + delta));
+  thumbZoomLevel[filename] = next;
+  const scale = Math.pow(1.3, next);
+  card.querySelector('.photo-thumb').style.transform = `scale(${scale})`;
+}
 
 async function removePhoto(filename) {
   if (!confirm(`Remove "${filename}" from this page?\n(The photo file will be deleted.)`)) return;
