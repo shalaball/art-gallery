@@ -1,8 +1,9 @@
-const express = require('express');
-const multer  = require('multer');
-const sharp   = require('sharp');
-const fs      = require('fs');
-const path    = require('path');
+const express      = require('express');
+const multer       = require('multer');
+const sharp        = require('sharp');
+const heicConvert  = require('heic-convert');
+const fs           = require('fs');
+const path         = require('path');
 const { exec } = require('child_process');
 
 const app        = express();
@@ -211,6 +212,18 @@ const BODY_FONT_PARAMS = {
   'Raleway':    'family=Raleway:wght@300;400',
 };
 
+// ─── HEIC helper ──────────────────────────────────────────────────────────────
+
+// Returns a Buffer (if HEIC) or the original file path (if not) for sharp to consume.
+async function toSharpInput(filePath) {
+  const buf = await fs.promises.readFile(filePath);
+  // HEIC/HEIF files have 'ftyp' at byte offset 4
+  if (buf.length >= 8 && buf.subarray(4, 8).toString('ascii') === 'ftyp') {
+    return Buffer.from(await heicConvert({ buffer: buf, format: 'JPEG', quality: 1 }));
+  }
+  return filePath;
+}
+
 // ─── API routes ───────────────────────────────────────────────────────────────
 
 // Get all content
@@ -274,7 +287,9 @@ app.post('/api/upload/:page', upload.array('photos'), async (req, res) => {
       const dest     = path.join(photosDir, filename);
 
       // Auto-rotate from EXIF, resize to max 2000px, 85% JPEG quality
-      await sharp(file.path)
+      // toSharpInput converts HEIC/HEIF to a JPEG buffer first if needed
+      const input = await toSharpInput(file.path);
+      await sharp(input)
         .rotate()
         .resize({ width: 2000, height: 2000, fit: 'inside', withoutEnlargement: true })
         .jpeg({ quality: 85 })
