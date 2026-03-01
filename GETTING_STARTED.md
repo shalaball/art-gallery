@@ -91,8 +91,16 @@ The **Publish on GitHub** button runs `git push` under the hood. The new compute
 
 ## Stopping the Server
 
-Press `Ctrl+C` in the Terminal window, or simply close it.
+Press `Ctrl+C` in the Terminal window, or simply close it. You can also use the **✕ Quit** button in the admin UI.
 
 ## Starting Again Later
 
 Double-click **`Art-gallery.command`** in the `art-gallery` folder.
+
+## Getting the Latest Changes
+
+If changes were made on another computer and published, run this inside the `art-gallery` folder to sync them locally:
+
+```bash
+git pull
+```
