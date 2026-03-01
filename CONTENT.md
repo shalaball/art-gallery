@@ -11,7 +11,7 @@
 |------|------|-----|
 | Home | Art Gallery | https://shalaball.com/ |
 | New Art | New Art | https://shalaball.com/page-1/ |
-| Art on Display | Art on Display | https://shalaball.com/page-3/ |
+| San Francisco Art on Display | San Francisco Art on Display | https://shalaball.com/page-3/ |
 | San Diego Art | San Diego Art | https://shalaball.com/page-2/ |
 
 ---
@@ -31,7 +31,7 @@
 
 ---
 
-## Art on Display Page (`page-3/`)
+## San Francisco Art on Display Page (`page-3/`)
 
 > Layout: Two-column masonry grid. Photos load in the order listed. Caption appears below each photo.
 
