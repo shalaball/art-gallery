@@ -40,7 +40,21 @@ A Terminal window will open, install any missing dependencies automatically, sta
 
 ---
 
-## 2a. Launching from the Terminal (alternative)
+## 2a. Add to Applications (optional)
+
+To launch the app from Spotlight or the Dock like any other Mac app:
+
+1. In Finder, open the `art-gallery` folder
+2. Right-click **`Art Gallery Admin.app`** → **Make Alias**
+3. Drag the alias into your `/Applications` folder
+
+You can then launch it from Spotlight (`Cmd+Space` → type "Art Gallery Admin") or pin it to the Dock.
+
+> **First launch only:** Right-click the app → **Open** → click **Open** to allow it past Gatekeeper.
+
+---
+
+## 2b. Launching from the Terminal (alternative)
 
 If you prefer the command line:
 
