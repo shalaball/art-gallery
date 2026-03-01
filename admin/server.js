@@ -540,11 +540,15 @@ app.post('/api/quit', (_req, res) => {
 // Push to GitHub
 app.post('/api/push', (req, res) => {
   const { message = 'Update gallery content' } = req.body;
-  const cmd = `git -C "${GALLERY}" add -A && git -C "${GALLERY}" commit -m "${message.replace(/"/g, '\\"')}" && git -C "${GALLERY}" push`;
+  const msg = message.replace(/"/g, '\\"');
+  // Stage and commit local changes (commit may be a no-op if nothing changed),
+  // then pull --rebase to bring in remote commits, then push.
+  const cmd = `git -C "${GALLERY}" add -A ; git -C "${GALLERY}" commit -m "${msg}" ; git -C "${GALLERY}" pull --rebase && git -C "${GALLERY}" push`;
   exec(cmd, (err, stdout, stderr) => {
+    const output = (stdout + stderr).trim();
     res.json({
-      ok: !err || stderr.includes('Everything up-to-date'),
-      output: (stdout + stderr).trim(),
+      ok: !err || output.includes('Everything up-to-date'),
+      output,
       error: err ? err.message : null
     });
   });
