@@ -699,6 +699,15 @@ function markClean() {
   unsaved = false;
   const el = document.getElementById('save-status');
   if (el) { el.textContent = 'All changes saved'; el.className = 'save-status saved'; }
+  const btn = document.getElementById('sidebar-save-btn');
+  if (btn) {
+    btn.textContent = '✓ Saved';
+    btn.classList.add('saved');
+    setTimeout(() => {
+      btn.textContent = 'Save Changes';
+      btn.classList.remove('saved');
+    }, 1500);
+  }
 }
 
 function checkUnsaved() {

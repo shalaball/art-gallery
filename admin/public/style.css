@@ -153,6 +153,11 @@ aside {
   transition: background 0.15s;
 }
 .sidebar-save-btn:hover { background: #444; }
+.sidebar-save-btn:active { transform: scale(0.97); }
+.sidebar-save-btn.saved {
+  background: #2e7d32;
+  transition: background 0s;
+}
 
 /* ── Main ────────────────────────────────────────────────── */
 
