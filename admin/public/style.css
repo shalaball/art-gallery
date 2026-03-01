@@ -262,6 +262,11 @@ main {
 
 .remove-btn:hover { background: #c44; }
 
+.thumb-wrap {
+  overflow: hidden;
+  line-height: 0;
+}
+
 .photo-thumb {
   width: 100%;
   aspect-ratio: 4/3;

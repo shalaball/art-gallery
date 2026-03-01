@@ -357,7 +357,9 @@ function renderCard(page, photo) {
     <div class="photo-card" data-filename="${esc(photo.filename)}">
       <div class="drag-handle" title="Drag to reorder">⠿</div>
       <button class="remove-btn" title="Remove photo" onclick="removePhoto('${esc(photo.filename)}')">×</button>
-      <img class="photo-thumb" src="${thumb}" alt="${esc(photo.filename)}" loading="lazy">
+      <div class="thumb-wrap">
+        <img class="photo-thumb" src="${thumb}" alt="${esc(photo.filename)}" loading="lazy">
+      </div>
       <div class="card-body">
         <div class="rotate-row">
           <button class="rotate-btn" title="Rotate left" onclick="rotatePhoto('${esc(photo.filename)}','ccw')">↺</button>
