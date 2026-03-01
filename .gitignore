@@ -1,3 +1,5 @@
 .DS_Store
-admin/
+admin/.env
+admin/node_modules/
+admin/uploads_tmp/
 mockup.html

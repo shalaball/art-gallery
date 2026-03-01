@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shala Gallery Admin</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.3/Sortable.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Shala Gallery Admin</h1>
+  <div class="actions">
+    <button class="btn btn-ghost" onclick="openPreview()">⎋ Preview</button>
+    <button class="btn btn-primary" id="push-btn" onclick="pushToGithub()">↑ Publish on GitHub</button>
+    <button class="btn btn-ghost" onclick="quitApp()">✕ Quit</button>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside>
+    <div class="sidebar-label">Pages</div>
+    <ul class="page-list" id="page-list"></ul>
+    <button class="new-page-btn" onclick="openNewPageModal()">+ New Page</button>
+    <button class="sidebar-save-btn" id="sidebar-save-btn" onclick="saveCurrentPage()">Save Changes</button>
+  </aside>
+
+  <main id="main">
+    <div class="empty-state">
+      <p>Loading…</p>
+    </div>
+  </main>
+
+</div>
+
+<div class="push-log" id="push-log"></div>
+
+<!-- New Page Modal -->
+<div class="modal-overlay" id="new-page-modal">
+  <div class="modal">
+    <h3>New Gallery Page</h3>
+    <label>Page Name</label>
+    <input type="text" id="new-page-name" placeholder="e.g. Watercolors">
+    <label>Layout</label>
+    <select id="new-page-type">
+      <option value="masonry">Masonry grid (two columns)</option>
+      <option value="single">Single column (centered, 720px)</option>
+    </select>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeNewPageModal()">Cancel</button>
+      <button class="btn btn-dark" onclick="createPage()">Create Page</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── State ──────────────────────────────────────────────────────────────────────
+
+let data          = null;  // { pages: [...] }
+let currentPageId = null;
+let sortable      = null;
+let sidebarSortable = null;
+let unsaved       = false;
+
+// ── Init ───────────────────────────────────────────────────────────────────────
+
+async function init() {
+  try {
+    const res = await fetch('/api/content');
+    data = await res.json();
+    renderSidebar();
+    selectHome();
+  } catch (e) {
+    renderEmptyMain('Failed to load content: ' + e.message);
+  }
+}
+
+// ── Sidebar ────────────────────────────────────────────────────────────────────
+
+function renderSidebar() {
+  const list = document.getElementById('page-list');
+  const homeItem = `
+    <li class="${currentPageId === 'home' ? 'active' : ''}" onclick="selectHome()">
+      <span class="page-icon">⌂</span> Home
+    </li>`;
+  const pageItems = data.pages.map(p => `
+    <li class="${p.id === currentPageId ? 'active' : ''}" data-id="${esc(p.id)}" onclick="selectPage('${esc(p.id)}')">
+      <span class="page-icon">▤</span> ${esc(p.name)}
+    </li>
+  `).join('');
+  list.innerHTML = homeItem + pageItems;
+
+  // Sidebar drag-to-reorder (skip Home item at index 0)
+  if (sidebarSortable) sidebarSortable.destroy();
+  sidebarSortable = new Sortable(list, {
+    animation: 150,
+    filter: 'li:first-child',
+    onEnd: async () => {
+      const pageIds = Array.from(list.querySelectorAll('li[data-id]')).map(li => li.dataset.id);
+      await fetch('/api/reorder', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pageIds }),
+      });
+      const r = await fetch('/api/content');
+      data = await r.json();
+    },
+  });
+}
+
+// ── Select home ────────────────────────────────────────────────────────────────
+
+async function selectHome() {
+  if (!checkUnsaved()) return;
+  currentPageId = 'home';
+  unsaved = false;
+  renderSidebar();
+  renderEmptyMain('Loading…');
+  try {
+    const [homeRes, settingsRes] = await Promise.all([fetch('/api/home'), fetch('/api/settings')]);
+    const home     = await homeRes.json();
+    const settings = await settingsRes.json();
+    renderHomeMain(home, settings);
+  } catch (e) {
+    renderEmptyMain('Failed to load home page: ' + e.message);
+  }
+}
+
+function renderHomeMain(home, settings = {}) {
+  const lbl  = `style="display:block;font-size:11px;font-weight:700;color:#aaa;letter-spacing:.07em;text-transform:uppercase;margin-bottom:6px"`;
+  const inp  = `style="width:100%;border:1px solid #e0e0e0;border-radius:4px;padding:8px 10px;font-size:14px;font-family:inherit;outline:none;background:#fafafa"`;
+  const sel  = `style="width:100%;border:1px solid #e0e0e0;border-radius:4px;padding:7px 10px;font-size:13px;font-family:inherit;outline:none;background:#fafafa;color:#222"`;
+  const bg   = settings.bgColor   || '#ffffff';
+  const tc   = settings.textColor || '#222222';
+  const tf    = settings.titleFont || 'Cormorant Garamond';
+  const bf    = settings.bodyFont  || 'Montserrat';
+  const tSz   = settings.titleSize != null ? settings.titleSize : 3;
+  const bSz   = settings.bodySize  != null ? settings.bodySize  : 14;
+  const titleOpts = ['Cormorant Garamond','Playfair Display','EB Garamond','Lora']
+    .map(f => `<option${f===tf?' selected':''}>${f}</option>`).join('');
+  const bodyOpts  = ['Montserrat','Lato','Open Sans','Raleway']
+    .map(f => `<option${f===bf?' selected':''}>${f}</option>`).join('');
+
+  document.getElementById('main').innerHTML = `
+    <div class="page-header">
+      <div class="page-header-left">
+        <h2>Home</h2>
+        <div class="page-sub">Site title, subtitle, footer, and design</div>
+      </div>
+    </div>
+
+    <div style="max-width:520px">
+      <div style="margin-bottom:20px">
+        <label ${lbl}>Site Title</label>
+        <input id="home-title" type="text" value="${esc(home.title)}" ${inp} oninput="markUnsaved()">
+      </div>
+      <div style="margin-bottom:20px">
+        <label ${lbl}>Subtitle</label>
+        <input id="home-subtitle" type="text" value="${esc(home.subtitle)}" ${inp} oninput="markUnsaved()">
+      </div>
+      <div style="margin-bottom:32px">
+        <label ${lbl}>Footer Text</label>
+        <input id="home-footer" type="text" value="${esc(home.footer)}" ${inp} oninput="markUnsaved()">
+      </div>
+
+      <div style="border-top:1px solid #eee;padding-top:24px;margin-bottom:24px">
+        <div style="font-size:11px;font-weight:700;color:#aaa;letter-spacing:.07em;text-transform:uppercase;margin-bottom:20px">Design Settings</div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px">
+          <div>
+            <label ${lbl}>Background Color</label>
+            <div style="display:flex;align-items:center;gap:8px">
+              <input type="color" id="design-bg" value="${bg}"
+                oninput="syncColorText('design-bg','design-bg-text');markUnsaved()"
+                style="width:36px;height:34px;border:1px solid #e0e0e0;border-radius:4px;padding:2px;cursor:pointer;background:none">
+              <input type="text" id="design-bg-text" value="${bg}"
+                oninput="syncColorPicker('design-bg-text','design-bg');markUnsaved()"
+                style="width:90px;border:1px solid #e0e0e0;border-radius:4px;padding:8px 10px;font-size:13px;font-family:monospace;outline:none;background:#fafafa">
+            </div>
+          </div>
+          <div>
+            <label ${lbl}>Text Color</label>
+            <div style="display:flex;align-items:center;gap:8px">
+              <input type="color" id="design-text" value="${tc}"
+                oninput="syncColorText('design-text','design-text-text');markUnsaved()"
+                style="width:36px;height:34px;border:1px solid #e0e0e0;border-radius:4px;padding:2px;cursor:pointer;background:none">
+              <input type="text" id="design-text-text" value="${tc}"
+                oninput="syncColorPicker('design-text-text','design-text');markUnsaved()"
+                style="width:90px;border:1px solid #e0e0e0;border-radius:4px;padding:8px 10px;font-size:13px;font-family:monospace;outline:none;background:#fafafa">
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:16px">
+          <label ${lbl}>Title Font</label>
+          <div style="display:flex;align-items:center;gap:8px">
+            <select id="design-title-font" ${sel} style="flex:1" oninput="markUnsaved()">${titleOpts}</select>
+            <input type="number" id="design-title-size" value="${tSz}" min="1.5" max="6" step="0.25"
+              oninput="markUnsaved()"
+              style="width:64px;border:1px solid #e0e0e0;border-radius:4px;padding:7px 8px;font-size:13px;font-family:inherit;outline:none;background:#fafafa;text-align:center">
+            <span style="font-size:11px;color:#999;white-space:nowrap">rem</span>
+          </div>
+        </div>
+        <div style="margin-bottom:8px">
+          <label ${lbl}>Body Font</label>
+          <div style="display:flex;align-items:center;gap:8px">
+            <select id="design-body-font" ${sel} style="flex:1" oninput="markUnsaved()">${bodyOpts}</select>
+            <input type="number" id="design-body-size" value="${bSz}" min="10" max="22" step="1"
+              oninput="markUnsaved()"
+              style="width:64px;border:1px solid #e0e0e0;border-radius:4px;padding:7px 8px;font-size:13px;font-family:inherit;outline:none;background:#fafafa;text-align:center">
+            <span style="font-size:11px;color:#999;white-space:nowrap">px</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="save-bar">
+      <span class="save-status" id="save-status"></span>
+    </div>
+  `;
+}
+
+async function saveHome() {
+  const homePayload = {
+    title:    document.getElementById('home-title').value,
+    subtitle: document.getElementById('home-subtitle').value,
+    footer:   document.getElementById('home-footer').value,
+  };
+  const requests = [
+    fetch('/api/home', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(homePayload) }),
+  ];
+  if (document.getElementById('design-bg')) {
+    const designPayload = {
+      bgColor:   document.getElementById('design-bg-text').value,
+      textColor: document.getElementById('design-text-text').value,
+      titleFont: document.getElementById('design-title-font').value,
+      bodyFont:  document.getElementById('design-body-font').value,
+      titleSize: parseFloat(document.getElementById('design-title-size').value),
+      bodySize:  parseInt(document.getElementById('design-body-size').value),
+    };
+    requests.push(
+      fetch('/api/settings', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(designPayload) })
+    );
+  }
+  try {
+    const results = await Promise.all(requests);
+    if (results.every(r => r.ok)) markClean();
+    else setStatus('Error saving', false, true);
+  } catch (e) {
+    setStatus('Error: ' + e.message, false, true);
+  }
+}
+
+// ── Select page ────────────────────────────────────────────────────────────────
+
+function selectPage(pageId) {
+  if (!checkUnsaved()) return;
+  unsaved = false;
+  currentPageId = pageId;
+  const page = data.pages.find(p => p.id === pageId);
+  renderSidebar();
+  renderMain(page);
+}
+
+// ── Main area ──────────────────────────────────────────────────────────────────
+
+function renderEmptyMain(msg) {
+  document.getElementById('main').innerHTML = `<div class="empty-state"><p>${esc(msg)}</p></div>`;
+}
+
+function renderMain(page) {
+  const typeLabel = page.type === 'masonry' ? 'Masonry grid' : 'Single column';
+  const count     = page.photos.length;
+
+  document.getElementById('main').innerHTML = `
+    <div class="page-header">
+      <div class="page-header-left">
+        <input id="page-name-input" type="text" value="${esc(page.name)}"
+          style="font-size:17px;font-weight:600;border:none;border-bottom:2px solid transparent;
+                 outline:none;padding:2px 0;background:transparent;width:280px;font-family:inherit"
+          oninput="markUnsaved()"
+          onfocus="this.style.borderBottomColor='#ccc'"
+          onblur="this.style.borderBottomColor='transparent'"
+          title="Page display name — edit and Save to rename">
+        <div class="page-sub">${typeLabel} · ${count} photo${count !== 1 ? 's' : ''}</div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-danger btn-sm" onclick="deletePage('${esc(page.id)}')">Delete Page</button>
+        <label class="btn btn-dark btn-sm" style="cursor:pointer">
+          + Upload Photos
+          <input type="file" accept="image/*" multiple style="display:none" onchange="uploadPhotos(this.files)">
+        </label>
+      </div>
+    </div>
+
+    <div class="photo-grid" id="photo-grid">
+      ${page.photos.map(ph => renderCard(page, ph)).join('')}
+    </div>
+
+    ${page.photos.length === 0 ? `
+      <div class="upload-zone" onclick="document.querySelector('.photo-grid').previousElementSibling.querySelector('input').click()"
+           ondragover="event.preventDefault();this.classList.add('drag-over')"
+           ondragleave="this.classList.remove('drag-over')"
+           ondrop="handleFileDrop(event)">
+        Drop photos here or click to upload
+      </div>
+    ` : ''}
+
+    <div class="save-bar">
+      <span class="save-status" id="save-status"></span>
+    </div>
+  `;
+
+  initSortable();
+  markClean();
+}
+
+// ── Photo card ─────────────────────────────────────────────────────────────────
+
+function renderCard(page, photo) {
+  const thumb = `/preview/${page.dir}/photos/${esc(photo.filename)}`;
+  const inputs = page.type === 'masonry'
+    ? `<label>Caption</label>
+       <input type="text" class="caption-input" value="${esc(photo.caption || '')}" placeholder="Caption…" oninput="markUnsaved()">`
+    : `<label>Title</label>
+       <input type="text" class="title-input" value="${esc(photo.title || '')}" placeholder="Title…" oninput="markUnsaved()">
+       <label>Description</label>
+       <input type="text" class="desc-input" value="${esc(photo.desc || '')}" placeholder="Optional description…" oninput="markUnsaved()">`;
+
+  return `
+    <div class="photo-card" data-filename="${esc(photo.filename)}">
+      <div class="drag-handle" title="Drag to reorder">⠿</div>
+      <button class="remove-btn" title="Remove photo" onclick="removePhoto('${esc(photo.filename)}')">×</button>
+      <img class="photo-thumb" src="${thumb}" alt="${esc(photo.filename)}" loading="lazy">
+      <div class="card-body">
+        ${inputs}
+        <div class="card-filename">${esc(photo.filename)}</div>
+      </div>
+    </div>
+  `;
+}
+
+// ── SortableJS ─────────────────────────────────────────────────────────────────
+
+function initSortable() {
+  const grid = document.getElementById('photo-grid');
+  if (!grid) return;
+  if (sortable) sortable.destroy();
+  sortable = new Sortable(grid, {
+    animation: 150,
+    handle: '.drag-handle',
+    ghostClass: 'sortable-ghost',
+    dragClass: 'sortable-drag',
+    onEnd: markUnsaved
+  });
+}
+
+// ── Collect state from DOM ─────────────────────────────────────────────────────
+
+function collectState() {
+  const page  = data.pages.find(p => p.id === currentPageId);
+
+  // Collect page name if it was edited
+  const nameInput = document.getElementById('page-name-input');
+  if (nameInput) page.name = nameInput.value;
+
+  const cards = document.querySelectorAll('.photo-card');
+  page.photos = Array.from(cards).map(card => {
+    const filename = card.dataset.filename;
+    if (page.type === 'masonry') {
+      return { filename, caption: card.querySelector('.caption-input').value };
+    } else {
+      return {
+        filename,
+        title: card.querySelector('.title-input').value,
+        desc:  card.querySelector('.desc-input').value,
+      };
+    }
+  });
+}
+
+// ── Save ───────────────────────────────────────────────────────────────────────
+
+async function saveChanges() {
+  collectState();
+  try {
+    const res = await fetch('/api/content', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (res.ok) markClean();
+    else setStatus('Error saving — check the console', false, true);
+  } catch (e) {
+    setStatus('Network error: ' + e.message, false, true);
+  }
+}
+
+// ── Upload ─────────────────────────────────────────────────────────────────────
+
+async function uploadPhotos(files) {
+  if (!files || files.length === 0) return;
+  const formData = new FormData();
+  for (const f of files) formData.append('photos', f);
+  setStatus(`Uploading ${files.length} photo(s)…`);
+  try {
+    const res    = await fetch(`/api/upload/${currentPageId}`, { method: 'POST', body: formData });
+    const result = await res.json();
+    if (result.ok) {
+      await reloadAndRefresh();
+      setStatus(`✓ Uploaded ${result.added.length} photo(s)`, true);
+    } else {
+      setStatus('Upload error: ' + result.error, false, true);
+    }
+  } catch (e) {
+    setStatus('Upload error: ' + e.message, false, true);
+  }
+}
+
+function handleFileDrop(e) {
+  e.preventDefault();
+  e.currentTarget.classList.remove('drag-over');
+  uploadPhotos(e.dataTransfer.files);
+}
+
+// ── Delete page ────────────────────────────────────────────────────────────────
+
+async function deletePage(pageId) {
+  const page = data.pages.find(p => p.id === pageId);
+  if (!confirm(`Delete the page "${page.name}"?\n\nThis permanently deletes all its photos and content.`)) return;
+  const res = await fetch(`/api/page/${pageId}`, { method: 'DELETE' });
+  if (res.ok) {
+    unsaved = false;
+    await reloadAndRefresh();
+    selectHome();
+  }
+}
+
+// ── Remove photo ───────────────────────────────────────────────────────────────
+
+async function removePhoto(filename) {
+  if (!confirm(`Remove "${filename}" from this page?\n(The photo file will be deleted.)`)) return;
+  try {
+    const res = await fetch(`/api/photo/${currentPageId}/${encodeURIComponent(filename)}`, { method: 'DELETE' });
+    if (res.ok) {
+      await reloadAndRefresh();
+      setStatus('✓ Photo removed', true);
+    }
+  } catch (e) {
+    setStatus('Error: ' + e.message, false, true);
+  }
+}
+
+// ── Reload ─────────────────────────────────────────────────────────────────────
+
+async function reloadAndRefresh() {
+  const res = await fetch('/api/content');
+  data = await res.json();
+  renderSidebar();
+  const page = data.pages.find(p => p.id === currentPageId);
+  if (page) renderMain(page);
+}
+
+// ── New page modal ─────────────────────────────────────────────────────────────
+
+function openNewPageModal() {
+  document.getElementById('new-page-name').value = '';
+  document.getElementById('new-page-modal').classList.add('open');
+  document.getElementById('new-page-name').focus();
+}
+
+function closeNewPageModal() {
+  document.getElementById('new-page-modal').classList.remove('open');
+}
+
+async function createPage() {
+  const name = document.getElementById('new-page-name').value.trim();
+  const type = document.getElementById('new-page-type').value;
+  if (!name) { alert('Please enter a page name.'); return; }
+
+  try {
+    const res    = await fetch('/api/page', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, type }),
+    });
+    const result = await res.json();
+    if (result.ok) {
+      closeNewPageModal();
+      await reloadAndRefresh();
+      selectPage(result.dir);
+      setStatus(`✓ Created page "${name}"`, true);
+    } else {
+      alert('Error: ' + result.error);
+    }
+  } catch (e) {
+    alert('Error: ' + e.message);
+  }
+}
+
+// ── Preview ────────────────────────────────────────────────────────────────────
+
+async function quitApp() {
+  if (!confirm('Quit the admin server?')) return;
+  await fetch('/api/quit', { method: 'POST' }).catch(() => {});
+  document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;color:#aaa">Server stopped. You can close this tab.</div>';
+}
+
+function openPreview() {
+  const url = (!currentPageId || currentPageId === 'home')
+    ? '/preview/'
+    : `/preview/${currentPageId}/`;
+  window.open(url, '_blank');
+}
+
+// ── Push to GitHub ─────────────────────────────────────────────────────────────
+
+async function pushToGithub() {
+  if (!confirm('Push to GitHub and publish live?\n\nThis will make all saved changes visible at shalaball.com within ~30 seconds.')) return;
+
+  const log = document.getElementById('push-log');
+  const btn = document.getElementById('push-btn');
+  btn.disabled = true;
+  btn.textContent = 'Pushing…';
+  log.classList.add('visible');
+  log.textContent = '$ git add -A && git commit && git push\n';
+
+  try {
+    const res    = await fetch('/api/push', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({}),
+    });
+    const result = await res.json();
+    log.textContent += result.output || '(no output)';
+    if (result.ok) log.textContent += '\n\n✓ Done — live in ~30 seconds.';
+    else           log.textContent += '\n\n✗ Push failed.';
+  } catch (e) {
+    log.textContent += '\n✗ Error: ' + e.message;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '↑ Publish on GitHub';
+  }
+}
+
+// ── Status helpers ─────────────────────────────────────────────────────────────
+
+function markUnsaved() {
+  unsaved = true;
+  const el = document.getElementById('save-status');
+  if (el) { el.textContent = 'Unsaved changes'; el.className = 'save-status unsaved'; }
+}
+
+function markClean() {
+  unsaved = false;
+  const el = document.getElementById('save-status');
+  if (el) { el.textContent = 'All changes saved'; el.className = 'save-status saved'; }
+}
+
+function checkUnsaved() {
+  if (!unsaved) return true;
+  return confirm('You have unsaved changes. Leave without saving?');
+}
+
+function saveCurrentPage() {
+  if (currentPageId === 'home') saveHome();
+  else saveChanges();
+}
+
+function setStatus(msg, ok, err) {
+  const el = document.getElementById('save-status');
+  if (!el) return;
+  el.textContent = msg;
+  el.className = 'save-status' + (ok ? ' saved' : err ? ' unsaved' : '');
+}
+
+// ── Color picker sync ──────────────────────────────────────────────────────────
+
+function syncColorText(pickerId, textId) {
+  document.getElementById(textId).value = document.getElementById(pickerId).value;
+}
+
+function syncColorPicker(textId, pickerId) {
+  const val = document.getElementById(textId).value;
+  if (/^#[a-fA-F0-9]{6}$/.test(val)) document.getElementById(pickerId).value = val;
+}
+
+// ── Utilities ──────────────────────────────────────────────────────────────────
+
+function esc(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+// ── Modal close on backdrop click ──────────────────────────────────────────────
+
+document.getElementById('new-page-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeNewPageModal();
+});
+
+document.getElementById('new-page-name').addEventListener('keydown', e => {
+  if (e.key === 'Enter') createPage();
+  if (e.key === 'Escape') closeNewPageModal();
+});
+
+// ── Keyboard shortcuts ─────────────────────────────────────────────────────────
+
+document.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 's') {
+    e.preventDefault();
+    saveCurrentPage();
+  }
+});
+
+window.addEventListener('beforeunload', e => {
+  if (unsaved) { e.preventDefault(); e.returnValue = ''; }
+});
+
+// ── Start ──────────────────────────────────────────────────────────────────────
+
+init();
+</script>
+</body>
+</html>
