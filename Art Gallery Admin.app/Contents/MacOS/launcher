@@ -1,0 +1,11 @@
+#!/bin/bash
+# Resolve the art-gallery directory (three levels up from Contents/MacOS/)
+GALLERY_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+SCRIPT="$GALLERY_DIR/Art-gallery.command"
+
+osascript <<APPLESCRIPT
+tell application "Terminal"
+    activate
+    do script "\"$SCRIPT\""
+end tell
+APPLESCRIPT
