@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Art</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #ffffff;
+      color: #222;
+      font-size: 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 2rem 0;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active { color: #222; }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem 1rem;
+    }
+
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 3.25rem;
+      letter-spacing: 0.15em;
+      color: #222;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: #ccc;
+      margin: 2rem auto;
+    }
+
+    .gallery {
+      columns: 2;
+      column-gap: 2rem;
+      padding: 1rem 3rem 5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      cursor: pointer;
+      display: block;
+      break-inside: avoid;
+      margin-bottom: 2rem;
+    }
+
+    .img-wrap {
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .gallery-item img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: opacity 0.3s ease;
+      opacity: 1;
+    }
+
+    .gallery-item:hover img {
+      opacity: 0.85;
+    }
+
+    .label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #888;
+      text-align: center;
+      padding: 0.6rem 0 0;
+      letter-spacing: 0.05em;
+    }
+
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(255,255,255,0.97);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    #lightbox.open { display: flex; }
+
+    #lightbox img {
+      max-width: 88vw;
+      max-height: 80vh;
+      object-fit: contain;
+      display: block;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+    }
+
+    #lb-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: #888;
+      letter-spacing: 0.05em;
+    }
+
+    .lb-btn {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #bbb;
+      font-size: 2.5rem;
+      cursor: pointer;
+      padding: 1rem;
+      transition: color 0.2s;
+    }
+
+    .lb-btn:hover { color: #222; }
+    #lb-prev { left: 1rem; }
+    #lb-next { right: 1rem; }
+
+    #lb-close {
+      position: fixed;
+      top: 1.5rem;
+      right: 2rem;
+      background: none;
+      border: none;
+      color: #bbb;
+      font-size: 1.5rem;
+      cursor: pointer;
+      letter-spacing: 0.1em;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+
+    #lb-close:hover { color: #222; }
+
+    #lb-counter {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: #bbb;
+      text-transform: uppercase;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: #ccc;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../">Home</a>
+  <a href="../page-1/" class="active">New Art</a>
+  <a href="../page-3/">Art on Display</a>
+  <a href="../page-2/">Work in Progress</a>
+</nav>
+
+<header>
+  <h1>New Art</h1>
+</header>
+
+<div class="divider"></div>
+
+<div class="gallery" id="gallery"></div>
+
+<div id="lightbox">
+  <button id="lb-close" aria-label="Close">&#x2715;</button>
+  <button id="lb-prev" class="lb-btn" aria-label="Previous">&#x2039;</button>
+  <img id="lb-img" src="" alt="">
+  <div id="lb-label"></div>
+  <button id="lb-next" class="lb-btn" aria-label="Next">&#x203a;</button>
+  <div id="lb-counter"></div>
+</div>
+
+<footer>&copy; 2025 Art Gallery</footer>
+
+<script src="labels.js"></script>
+<script>
+  const gallery = document.getElementById('gallery');
+  LABELS.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'gallery-item';
+    div.innerHTML = `<div class="img-wrap"><img src="photos/${item.filename}" loading="lazy" alt="${item.caption || ''}"></div><p class="label">${item.caption || ''}</p>`;
+    gallery.appendChild(div);
+  });
+  const items = Array.from(document.querySelectorAll('.gallery-item'));
+
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbLabel = document.getElementById('lb-label');
+  const lbCounter = document.getElementById('lb-counter');
+  let current = 0;
+
+  function show(index) {
+    const item = items[index];
+    lbImg.src = item.querySelector('img').src;
+    lbLabel.textContent = item.querySelector('.label').textContent;
+    lbCounter.textContent = (index + 1) + ' / ' + items.length;
+  }
+
+  function open(index) {
+    current = index;
+    show(current);
+    lightbox.classList.add('open');
+  }
+
+  function close() {
+    lightbox.classList.remove('open');
+    lbImg.src = '';
+  }
+
+  function prev() { current = (current - 1 + items.length) % items.length; show(current); }
+  function next() { current = (current + 1) % items.length; show(current); }
+
+  items.forEach((item, i) => item.addEventListener('click', () => open(i)));
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-prev').addEventListener('click', prev);
+  document.getElementById('lb-next').addEventListener('click', next);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+</script>
+
+</body>
+</html>
