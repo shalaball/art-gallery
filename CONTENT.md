@@ -18,7 +18,7 @@
 
 ## New Art Page (`page-1/`)
 
-> Layout: Two-column masonry grid. Photos load in the order listed. Caption appears below each photo.
+> Layout: Single-column centered, max 720px. Photos load in the order listed. Caption appears below each photo.
 
 | Order | Filename | Caption |
 |-------|----------|---------|
@@ -34,7 +34,7 @@
 
 ## Art on Display in San Francisco Page (`page-3/`)
 
-> Layout: Two-column masonry grid. Photos load in the order listed. Caption appears below each photo.
+> Layout: Single-column centered, max 720px. Photos load in the order listed. Caption appears below each photo.
 
 | Order | Filename | Caption |
 |-------|----------|---------|
