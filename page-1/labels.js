@@ -8,4 +8,5 @@ const LABELS = [
   { filename: "IMG_3424.jpeg", caption: "Untitled 4" },
   { filename: "IMG_3469.jpeg", caption: "Untitled 5" },
   { filename: "IMG_9358.jpeg", caption: "Untitled 6" },
+  { filename: "22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg", caption: "Untitled" },
 ];
