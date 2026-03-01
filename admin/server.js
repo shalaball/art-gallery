@@ -14,7 +14,10 @@ const UPLOAD_TMP = path.join(__dirname, 'uploads_tmp');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/preview', express.static(GALLERY));
+app.use('/preview', (_req, res, next) => {
+  res.set('Cache-Control', 'no-store');
+  next();
+}, express.static(GALLERY));
 
 // ─── CONTENT.md parser ────────────────────────────────────────────────────────
 
@@ -422,7 +425,7 @@ app.get('/api/home', (req, res) => {
     const title    = (html.match(/<h1>([^<]*)<\/h1>/)    || [])[1] || '';
     const subtitle = (html.match(/<header>[^]*?<p>([^<]*)<\/p>/) || [])[1] || '';
     const footer   = (html.match(/<footer>([^<]*)<\/footer>/)  || [])[1] || '';
-    res.json({ title, subtitle, footer });
+    res.json({ title, subtitle, footer, repoPath: GALLERY });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
