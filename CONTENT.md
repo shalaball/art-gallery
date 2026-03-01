@@ -12,7 +12,7 @@
 | Home | Art Gallery | https://shalaball.com/ |
 | New Art | New Art | https://shalaball.com/page-1/ |
 | Art on Display | Art on Display | https://shalaball.com/page-3/ |
-| Work in Progress | Work in Progress | https://shalaball.com/page-2/ |
+| San Diego Art | San Diego Art | https://shalaball.com/page-2/ |
 
 ---
 
@@ -41,7 +41,7 @@
 
 ---
 
-## Work in Progress Page (`page-2/`)
+## San Diego Art Page (`page-2/`)
 
 > Layout: Single-column centered, max 720px. Photos display in the order listed. Title and optional description appear below each photo.
 
