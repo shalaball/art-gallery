@@ -103,14 +103,16 @@ function rebuildLabels(data) {
 
     let entries, content;
     if (p.type === 'masonry') {
-      entries = p.photos.map(ph =>
-        `  { filename: ${JSON.stringify(ph.filename)}, caption: ${JSON.stringify(ph.caption || '')} },`
-      ).join('\n');
+      entries = p.photos.map(ph => {
+        const zoom = ph.zoom && ph.zoom !== 1 ? `, zoom: ${ph.zoom}` : '';
+        return `  { filename: ${JSON.stringify(ph.filename)}, caption: ${JSON.stringify(ph.caption || '')}${zoom} },`;
+      }).join('\n');
       content = `// Auto-generated from CONTENT.md — do not edit directly.\n// To update labels or order, use the admin UI or edit CONTENT.md.\n\nconst LABELS = [\n${entries}\n];\n`;
     } else {
-      entries = p.photos.map(ph =>
-        `  { filename: ${JSON.stringify(ph.filename)}, title: ${JSON.stringify(ph.title || '')}, desc: ${JSON.stringify(ph.desc || '')} },`
-      ).join('\n');
+      entries = p.photos.map(ph => {
+        const zoom = ph.zoom && ph.zoom !== 1 ? `, zoom: ${ph.zoom}` : '';
+        return `  { filename: ${JSON.stringify(ph.filename)}, title: ${JSON.stringify(ph.title || '')}, desc: ${JSON.stringify(ph.desc || '')}${zoom} },`;
+      }).join('\n');
       content = `// Auto-generated from CONTENT.md — do not edit directly.\n// To update labels or order, use the admin UI or edit CONTENT.md.\n\nconst LABELS = [\n${entries}\n];\n`;
     }
 
@@ -216,6 +218,19 @@ app.get('/api/content', (req, res) => {
   try {
     const raw  = fs.readFileSync(CONTENT_MD, 'utf8');
     const data = parseContent(raw);
+
+    // Merge zoom values from labels.js (zoom is stored there, not in CONTENT.md)
+    for (const p of data.pages) {
+      const labelsPath = path.join(GALLERY, p.dir, 'labels.js');
+      if (!fs.existsSync(labelsPath)) continue;
+      const src = fs.readFileSync(labelsPath, 'utf8');
+      const zoomMap = {};
+      for (const m of src.matchAll(/filename:\s*"([^"]+)"[^}]*zoom:\s*([0-9.]+)/g)) {
+        zoomMap[m[1]] = parseFloat(m[2]);
+      }
+      for (const ph of p.photos) ph.zoom = zoomMap[ph.filename] || 1;
+    }
+
     res.json(data);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -258,8 +273,9 @@ app.post('/api/upload/:page', upload.array('photos'), async (req, res) => {
       const filename = file.originalname;
       const dest     = path.join(photosDir, filename);
 
-      // Compress: resize to max 2000px on longest side, 85% JPEG quality
+      // Auto-rotate from EXIF, resize to max 2000px, 85% JPEG quality
       await sharp(file.path)
+        .rotate()
         .resize({ width: 2000, height: 2000, fit: 'inside', withoutEnlargement: true })
         .jpeg({ quality: 85 })
         .toFile(dest);
@@ -471,6 +487,26 @@ app.post('/api/settings', (req, res) => {
       }
       fs.writeFileSync(filePath, html);
     }
+    res.json({ ok: true });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Rotate a photo in-place
+app.post('/api/rotate/:page/:filename', async (req, res) => {
+  try {
+    const { page, filename } = req.params;
+    const { direction } = req.body; // 'cw' or 'ccw'
+    const photoPath = path.join(GALLERY, page, 'photos', filename);
+
+    if (!fs.existsSync(photoPath)) return res.status(404).json({ error: 'Photo not found' });
+
+    const degrees = direction === 'ccw' ? -90 : 90;
+    const tmp = photoPath + '.tmp.jpg';
+    await sharp(photoPath).rotate(degrees).jpeg({ quality: 85 }).toFile(tmp);
+    fs.renameSync(tmp, photoPath);
+
     res.json({ ok: true });
   } catch (err) {
     res.status(500).json({ error: err.message });

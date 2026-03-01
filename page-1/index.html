@@ -218,7 +218,8 @@
   LABELS.forEach(item => {
     const div = document.createElement('div');
     div.className = 'gallery-item';
-    div.innerHTML = `<div class="img-wrap"><img src="photos/${item.filename}" loading="lazy" alt="${item.caption || ''}"></div><p class="label">${item.caption || ''}</p>`;
+    const zoom = (item.zoom && item.zoom !== 1) ? ` style="transform:scale(${item.zoom})"` : '';
+    div.innerHTML = `<div class="img-wrap"><img src="photos/${item.filename}" loading="lazy" alt="${item.caption || ''}"${zoom}></div><p class="label">${item.caption || ''}</p>`;
     gallery.appendChild(div);
   });
   const items = Array.from(document.querySelectorAll('.gallery-item'));
