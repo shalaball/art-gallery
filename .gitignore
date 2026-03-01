@@ -1,5 +1,6 @@
 .DS_Store
 admin/.env
 admin/node_modules/
+admin/package-lock.json
 admin/uploads_tmp/
 mockup.html
