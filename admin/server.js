@@ -81,7 +81,7 @@ function serializeContent(data) {
   for (const p of data.pages) {
     out += `\n---\n\n## ${p.name} Page (\`${p.dir}/\`)\n\n`;
     if (p.type === 'masonry') {
-      out += `> Layout: Two-column masonry grid. Photos load in the order listed. Caption appears below each photo.\n\n`;
+      out += `> Layout: Single-column centered, max 720px. Photos load in the order listed. Caption appears below each photo.\n\n`;
       out += `| Order | Filename | Caption |\n|-------|----------|---------|\n`;
       p.photos.forEach((ph, i) => {
         out += `| ${i + 1} | ${ph.filename} | ${ph.caption || ''} |\n`;
