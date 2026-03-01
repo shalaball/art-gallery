@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artwork</title>
+  <title>Art on Display</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: #fff;
+      background: #ffffff;
       color: #222;
+      font-size: 18px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 300;
       min-height: 100vh;
@@ -43,7 +44,7 @@
     header h1 {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
-      font-size: 3rem;
+      font-size: 3.25rem;
       letter-spacing: 0.15em;
       color: #222;
     }
@@ -187,26 +188,18 @@
 
 <nav>
   <a href="../">Home</a>
-  <a href="../artwork/" class="active">Artwork</a>
-  <a href="../artwork2/">Artwork 2</a>
+  <a href="../page-1/">New Art</a>
+  <a href="../page-3/" class="active">Art on Display</a>
+  <a href="../page-2/">Work in Progress</a>
 </nav>
 
 <header>
-  <h1>Artwork</h1>
+  <h1>Art on Display</h1>
 </header>
 
 <div class="divider"></div>
 
-<div class="gallery" id="gallery">
-
-  <div class="gallery-item"><div class="img-wrap"><img src="photos/IMG_2997.jpeg" loading="lazy" alt=""></div><p class="label"></p></div>
-  <div class="gallery-item"><div class="img-wrap"><img src="photos/IMG_3189.jpeg" loading="lazy" alt=""></div><p class="label"></p></div>
-  <div class="gallery-item"><div class="img-wrap"><img src="photos/IMG_3233.jpeg" loading="lazy" alt=""></div><p class="label"></p></div>
-  <div class="gallery-item"><div class="img-wrap"><img src="photos/IMG_3424.jpeg" loading="lazy" alt=""></div><p class="label"></p></div>
-  <div class="gallery-item"><div class="img-wrap"><img src="photos/IMG_3469.jpeg" loading="lazy" alt=""></div><p class="label"></p></div>
-  <div class="gallery-item"><div class="img-wrap"><img src="photos/IMG_9358.jpeg" loading="lazy" alt=""></div><p class="label"></p></div>
-
-</div>
+<div class="gallery" id="gallery"></div>
 
 <div id="lightbox">
   <button id="lb-close" aria-label="Close">&#x2715;</button>
@@ -221,11 +214,14 @@
 
 <script src="labels.js"></script>
 <script>
-  const items = Array.from(document.querySelectorAll('.gallery-item'));
-
-  items.forEach((item, i) => {
-    item.querySelector('.label').textContent = LABELS[i] || '';
+  const gallery = document.getElementById('gallery');
+  LABELS.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'gallery-item';
+    div.innerHTML = `<div class="img-wrap"><img src="photos/${item.filename}" loading="lazy" alt="${item.caption || ''}"></div><p class="label">${item.caption || ''}</p>`;
+    gallery.appendChild(div);
   });
+  const items = Array.from(document.querySelectorAll('.gallery-item'));
 
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lb-img');
