@@ -23,8 +23,8 @@
 | Order | Filename | Caption |
 |-------|----------|---------|
 | 1 | IMG_2997.jpeg | Storm on the Sea |
-| 2 | IMG_3189.jpeg | Untitled 2 |
-| 3 | IMG_3233.jpeg | Untitled 3 |
+| 2 | IMG_3233.jpeg | Untitled 3 |
+| 3 | IMG_3189.jpeg | Untitled 2 |
 | 4 | IMG_3424.jpeg | Untitled 4 |
 | 5 | IMG_3469.jpeg | Untitled 5 |
 | 6 | IMG_9358.jpeg | Untitled 6 |
