@@ -1,0 +1,14 @@
+{
+  "name": "shala-gallery-admin",
+  "version": "1.0.0",
+  "description": "Local admin UI for Shala Gallery",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.33.0"
+  }
+}
