@@ -11,7 +11,7 @@
 |------|------|-----|
 | Home | Art Gallery | https://shalaball.com/ |
 | New Art | New Art | https://shalaball.com/page-1/ |
-| San Francisco Art on Display | San Francisco Art on Display | https://shalaball.com/page-3/ |
+| Art on Display | Art on Display | https://shalaball.com/page-3/ |
 | San Diego Art | San Diego Art | https://shalaball.com/page-2/ |
 
 ---
@@ -31,16 +31,17 @@
 
 ---
 
-## San Francisco Art on Display Page (`page-3/`)
+## Art on Display Page (`page-3/`)
 
 > Layout: Two-column masonry grid. Photos load in the order listed. Caption appears below each photo.
 
 | Order | Filename | Caption |
 |-------|----------|---------|
 | 1 | 92E9922F-C7CC-43F4-91BE-6429FA133B09_1_105_c.jpeg | Infinity and Beyond |
-| 2 | IMG_2266.jpeg | Untitled |
-| 3 | AD8AA7B4-3B33-4D75-A3FB-A279C6B9C08F_1_105_c.jpeg | Untitled |
-| 4 | IMG_2367.jpeg | Untitled |
+| 2 | IMG_5991.jpeg | For Helen |
+| 3 | IMG_6219.jpeg | square |
+| 4 | IMG_6221.jpeg | Untitled |
+| 5 | IMG_6201.jpeg | Untitled |
 
 ---
 
