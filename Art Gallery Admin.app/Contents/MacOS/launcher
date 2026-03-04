@@ -1,11 +1,33 @@
 #!/bin/bash
-# Resolve the art-gallery directory (three levels up from Contents/MacOS/)
-GALLERY_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
-SCRIPT="$GALLERY_DIR/Art-gallery.command"
+# Starts the Shala Gallery admin server silently in the background.
 
-osascript <<APPLESCRIPT
-tell application "Terminal"
-    activate
-    do script "\"$SCRIPT\""
-end tell
-APPLESCRIPT
+GALLERY_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+ADMIN_DIR="$GALLERY_DIR/admin"
+LOG="$ADMIN_DIR/server.log"
+
+# If server is already running, just open the browser
+if curl -s http://localhost:3000 > /dev/null 2>&1; then
+  open http://localhost:3000
+  exit 0
+fi
+
+cd "$ADMIN_DIR"
+
+# Install dependencies silently if needed
+if [ ! -d "node_modules" ]; then
+  npm install >> "$LOG" 2>&1
+fi
+
+# Start server in background, detached from this script
+nohup npm start >> "$LOG" 2>&1 &
+disown
+
+# Wait up to 10s for server to be ready
+for i in $(seq 1 20); do
+  sleep 0.5
+  if curl -s http://localhost:3000 > /dev/null 2>&1; then
+    break
+  fi
+done
+
+open http://localhost:3000

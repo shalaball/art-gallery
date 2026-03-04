@@ -3,4 +3,5 @@ admin/.env
 admin/node_modules/
 admin/package-lock.json
 admin/uploads_tmp/
+admin/server.log
 mockup.html
