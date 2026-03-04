@@ -9,6 +9,7 @@ if [ ! -f "$NPM" ]; then NPM=/opt/homebrew/bin/npm; fi
 GALLERY_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 ADMIN_DIR="$GALLERY_DIR/admin"
 LOG="$ADMIN_DIR/server.log"
+WID_FILE=/tmp/.shala_gallery_wid
 
 # If already running, just open browser
 if curl -s http://localhost:3000 > /dev/null 2>&1; then
@@ -16,14 +17,24 @@ if curl -s http://localhost:3000 > /dev/null 2>&1; then
   exit 0
 fi
 
-# Open Terminal (has Documents access), start node in background, then force-close the window.
+# Open Terminal (has Documents access), capture window ID, start server in background.
 osascript << OSASCRIPT
 tell application "Terminal"
-    set t to do script "cd '$ADMIN_DIR' && ([ -d node_modules ] || '$NPM' install >> '$LOG' 2>&1) && nohup '$NODE' server.js >> '$LOG' 2>&1 & disown; exit 0"
-    delay 2
-    close (window of t)
+    set t to do script ""
+    set wID to id of (window of t)
+    do shell script "echo " & wID & " > $WID_FILE"
+    set theCmd to "cd '$ADMIN_DIR' && ([ -d node_modules ] || '$NPM' install >> '$LOG' 2>&1) && nohup '$NODE' server.js >> '$LOG' 2>&1 & disown; exit 0"
+    do script theCmd in t
 end tell
 OSASCRIPT
+
+# Wait 2s for shell to exit, then close the Terminal window by its saved ID
+sleep 2
+WINDOW_ID=$(cat "$WID_FILE" 2>/dev/null)
+if [ -n "$WINDOW_ID" ]; then
+  osascript -e "tell application \"Terminal\" to close (first window whose id is $WINDOW_ID)"
+  rm -f "$WID_FILE"
+fi
 
 # Wait up to 30s for server to be ready
 for i in $(seq 1 60); do
