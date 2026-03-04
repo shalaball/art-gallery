@@ -222,18 +222,21 @@ async function assignToPage(filename, selectEl) {
     });
     const result = await res.json();
     if (result.ok) {
+      const pageName = data.pages.find(p => p.id === pageId)?.name || pageId;
+      // Sync data from server so navigating to the page shows the new photo
+      // and Save Changes doesn't overwrite the assignment with stale state
+      const contentRes = await fetch('/api/content');
+      data = await contentRes.json();
       // Update the "Used on:" tag line directly on the affected card
       const card = document.querySelector(`.lib-card[data-filename="${CSS.escape(filename)}"]`);
       if (card) {
         const pagesDiv = card.querySelector('.lib-pages');
-        const page = data.pages.find(p => p.id === pageId);
-        const pageName = page ? page.name : pageId;
         const cur = pagesDiv.textContent;
         pagesDiv.textContent = cur === 'Not on any page'
           ? 'Used on: ' + pageName
           : cur + ', ' + pageName;
       }
-      setStatus(`✓ Added to ${data.pages.find(p => p.id === pageId)?.name || pageId}`, true);
+      setStatus(`✓ Added to ${pageName}`, true);
     } else {
       setStatus('Error: ' + result.error, false, true);
     }
@@ -870,7 +873,7 @@ function checkUnsaved() {
 
 function saveCurrentPage() {
   if (currentPageId === 'home') saveHome();
-  else saveChanges();
+  else if (currentPageId !== 'library') saveChanges();
 }
 
 function setStatus(msg, ok, err) {
