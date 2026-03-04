@@ -8,9 +8,11 @@ const { exec } = require('child_process');
 
 const app        = express();
 const PORT       = 3000;
-const GALLERY    = path.resolve(__dirname, '..');
+// When running as a packaged Electron app, __dirname points inside the .app bundle.
+// electron-main.js sets GALLERY_DIR to the actual art-gallery folder in that case.
+const GALLERY    = process.env.GALLERY_DIR || path.resolve(__dirname, '..');
 const CONTENT_MD = path.join(GALLERY, 'CONTENT.md');
-const UPLOAD_TMP = path.join(__dirname, 'uploads_tmp');
+const UPLOAD_TMP = path.join(GALLERY, 'admin', 'uploads_tmp');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));

@@ -1,5 +1,6 @@
-const { app, BrowserWindow, dialog } = require('electron');
+const { app, BrowserWindow } = require('electron');
 const http = require('http');
+const path = require('path');
 
 // Ensure git and node are findable in PATH when launched as a packaged .app
 process.env.PATH = [
@@ -9,6 +10,12 @@ process.env.PATH = [
   '/bin',
   process.env.PATH
 ].join(':');
+
+// When packaged, __dirname is inside the .app bundle (Contents/Resources/app/).
+// Point server.js at the actual art-gallery folder (4 levels up from __dirname).
+if (app.isPackaged) {
+  process.env.GALLERY_DIR = path.resolve(__dirname, '../../../..');
+}
 
 // Start the Express server
 require('./server.js');
