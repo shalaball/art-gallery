@@ -61,7 +61,19 @@
 					<key>COMMAND_STRING</key>
 					<string>export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 
-ADMIN_DIR="$HOME/Documents/dev/ShalaWebSite/art-gallery/admin"
+CONFIG="$HOME/.artgalleryadmin"
+
+# Load saved path
+if [ -f "$CONFIG" ]; then
+  ADMIN_DIR=$(cat "$CONFIG")
+fi
+
+# If path doesn't exist, ask user to select it
+if [ ! -d "$ADMIN_DIR" ]; then
+  ADMIN_DIR=$(osascript -e 'tell application "Finder" to POSIX path of (choose folder with prompt "Select the art-gallery/admin folder:" default location (path to documents folder))' 2>/dev/null)
+  ADMIN_DIR="${ADMIN_DIR%/}"
+  echo "$ADMIN_DIR" &gt; "$CONFIG"
+fi
 
 cd "$ADMIN_DIR" || exit 1
 
