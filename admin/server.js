@@ -44,7 +44,7 @@ function parseContent(raw) {
 
       const photos = [];
       while (j < lines.length && lines[j].startsWith('|')) {
-        const cols = lines[j].split('|').map(c => c.trim()).filter(Boolean);
+        const cols = lines[j].split('|').slice(1, -1).map(c => c.trim());
         if (cols.length >= 3 && /^\d+$/.test(cols[0])) {
           if (hasDesc) {
             photos.push({ filename: cols[1], title: cols[2], desc: cols[3] || '' });
