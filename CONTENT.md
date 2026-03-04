@@ -11,7 +11,7 @@
 |------|------|-----|
 | Home | Art Gallery | https://shalaball.com/ |
 | New Art | New Art | https://shalaball.com/page-1/ |
-| Art on Display in San Francisco | Art on Display in San Francisco | https://shalaball.com/page-3/ |
+| Art on Display in SF | Art on Display in SF | https://shalaball.com/page-3/ |
 | San Diego Art | San Diego Art | https://shalaball.com/page-2/ |
 
 ---
@@ -36,7 +36,7 @@
 
 ---
 
-## Art on Display in San Francisco Page (`page-3/`)
+## Art on Display in SF Page (`page-3/`)
 
 > Layout: Single-column centered, max 720px. Photos display in the order listed. Title and optional description appear below each photo.
 
