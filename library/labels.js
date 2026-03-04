@@ -1,6 +1,7 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
+  { filename: "IMG_2368.jpeg", title: "", desc: "" },
   { filename: "IMG_6236.jpeg", title: "", desc: "" },
   { filename: "IMG_6221.jpeg", title: "", desc: "" },
   { filename: "IMG_6219.jpeg", title: "", desc: "" },

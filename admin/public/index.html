@@ -177,6 +177,9 @@ async function renderLibraryMain(items) {
         </label>
       </div>
     </div>
+    <div class="save-bar" style="margin-bottom:16px">
+      <span class="save-status" id="save-status"></span>
+    </div>
     <div class="lib-grid">${cards || '<p style="color:#aaa;padding:2rem">No photos in library yet.</p>'}</div>
   `;
 
@@ -219,11 +222,18 @@ async function assignToPage(filename, selectEl) {
     });
     const result = await res.json();
     if (result.ok) {
-      // Refresh library view and content data
-      const [libRes, contentRes] = await Promise.all([fetch('/api/library'), fetch('/api/content')]);
-      data = await contentRes.json();
-      renderLibraryMain(await libRes.json());
-      setStatus(`✓ Added to page`, true);
+      // Update the "Used on:" tag line directly on the affected card
+      const card = document.querySelector(`.lib-card[data-filename="${CSS.escape(filename)}"]`);
+      if (card) {
+        const pagesDiv = card.querySelector('.lib-pages');
+        const page = data.pages.find(p => p.id === pageId);
+        const pageName = page ? page.name : pageId;
+        const cur = pagesDiv.textContent;
+        pagesDiv.textContent = cur === 'Not on any page'
+          ? 'Used on: ' + pageName
+          : cur + ', ' + pageName;
+      }
+      setStatus(`✓ Added to ${data.pages.find(p => p.id === pageId)?.name || pageId}`, true);
     } else {
       setStatus('Error: ' + result.error, false, true);
     }
@@ -252,7 +262,7 @@ async function deleteFromLibrary(filename, pages) {
     if (result.ok) {
       const [libRes, contentRes] = await Promise.all([fetch('/api/library'), fetch('/api/content')]);
       data = await contentRes.json();
-      renderLibraryMain(await libRes.json());
+      await renderLibraryMain(await libRes.json());
       setStatus('✓ Deleted from library', true);
     } else {
       setStatus('Error: ' + result.error, false, true);
