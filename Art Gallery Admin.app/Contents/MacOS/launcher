@@ -1,11 +1,8 @@
 #!/bin/bash
 # Starts the Shala Gallery admin server silently in the background.
 
-# Use full paths to node/npm to avoid PATH issues when launched as .app
 NODE=/usr/local/bin/node
 NPM=/usr/local/bin/npm
-
-# Fall back to Homebrew (Apple Silicon)
 if [ ! -f "$NODE" ]; then NODE=/opt/homebrew/bin/node; fi
 if [ ! -f "$NPM" ]; then NPM=/opt/homebrew/bin/npm; fi
 
@@ -20,14 +17,14 @@ if curl -s http://localhost:3000 > /dev/null 2>&1; then
   exit 0
 fi
 
-# Install dependencies silently if needed
+# Install dependencies if needed
 if [ ! -d "$ADMIN_DIR/node_modules" ]; then
-  cd "$ADMIN_DIR" && "$NPM" install >> "$LOG" 2>&1
+  osascript -e "do shell script \"$NPM --prefix '$ADMIN_DIR' install >> '$LOG' 2>&1\""
 fi
 
-# Start server in background using absolute path (avoids uv_cwd EPERM in .app sandbox)
-nohup "$NODE" "$SERVER" >> "$LOG" 2>&1 &
-disown
+# Launch node via osascript so it runs with full user file permissions
+# (bare .app shell scripts are blocked from accessing ~/Documents by macOS TCC)
+osascript -e "do shell script \"$NODE '$SERVER' >> '$LOG' 2>&1 &\""
 
 # Wait up to 10s for server to be ready
 for i in $(seq 1 20); do
