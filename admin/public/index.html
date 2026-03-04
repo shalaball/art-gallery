@@ -151,12 +151,12 @@ async function renderLibraryMain(items) {
         <div class="lib-info">
           <div class="lib-filename">${esc(item.filename)}</div>
           <div class="lib-pages">${usedOn}</div>
-        </div>
-        <div class="lib-actions">
           <select class="lib-page-select" onchange="assignToPage('${esc(item.filename)}', this)">
             <option value="">Add to page…</option>
             ${pageOptions}
           </select>
+        </div>
+        <div class="lib-actions">
           <button class="btn btn-ghost" style="font-size:14px;padding:4px 10px;color:#c00"
             onclick="deleteFromLibrary('${esc(item.filename)}', ${JSON.stringify(item.pages)})">Delete</button>
         </div>

@@ -522,7 +522,7 @@ main {
 
 .lib-pages {
   font-size: 13px;
-  color: #999;
+  color: #222;
   margin-top: 4px;
 }
 
@@ -541,4 +541,6 @@ main {
   background: #fafafa;
   color: #555;
   cursor: pointer;
+  margin-top: 8px;
+  display: block;
 }
