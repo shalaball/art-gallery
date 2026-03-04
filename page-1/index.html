@@ -87,13 +87,25 @@
       opacity: 0.85;
     }
 
-    .label {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.95rem;
-      font-style: italic;
-      color: #888;
+    .caption {
+      margin-top: 1rem;
       text-align: center;
-      padding: 0.6rem 0 0;
+    }
+
+    .caption .title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: #222;
+    }
+
+    .caption .desc {
+      font-size: 0.75rem;
+      color: #aaa;
+      font-style: italic;
+      margin-top: 0.4rem;
+      line-height: 1.6;
       letter-spacing: 0.05em;
     }
 
@@ -218,7 +230,7 @@
     const div = document.createElement('div');
     div.className = 'gallery-item';
     const zoom = (item.zoom && item.zoom !== 1) ? ` style="transform:scale(${item.zoom})"` : '';
-    div.innerHTML = `<div class="img-wrap"><img src="photos/${item.filename}" loading="lazy" alt="${item.caption || ''}"${zoom}></div><p class="label">${item.caption || ''}</p>`;
+    div.innerHTML = `<div class="img-wrap"><img src="/photos/${item.filename}" loading="lazy" alt="${item.title || ''}"${zoom}></div><div class="caption"><div class="title">${item.title || ''}</div><div class="desc">${item.desc || ''}</div></div>`;
     gallery.appendChild(div);
   });
   const items = Array.from(document.querySelectorAll('.gallery-item'));
@@ -232,7 +244,7 @@
   function show(index) {
     const item = items[index];
     lbImg.src = item.querySelector('img').src;
-    lbLabel.textContent = item.querySelector('.label').textContent;
+    lbLabel.textContent = item.querySelector('.title').textContent;
     lbCounter.textContent = (index + 1) + ' / ' + items.length;
   }
 

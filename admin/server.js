@@ -39,23 +39,24 @@ function parseContent(raw) {
       if (j >= lines.length) { i++; continue; }
 
       const headerCols = lines[j].split('|').map(c => c.trim()).filter(Boolean);
-      const isSingle   = headerCols.includes('Description');
+      const hasDesc    = headerCols.includes('Description');
       j += 2; // skip separator
 
       const photos = [];
       while (j < lines.length && lines[j].startsWith('|')) {
         const cols = lines[j].split('|').map(c => c.trim()).filter(Boolean);
         if (cols.length >= 3 && /^\d+$/.test(cols[0])) {
-          if (isSingle) {
+          if (hasDesc) {
             photos.push({ filename: cols[1], title: cols[2], desc: cols[3] || '' });
           } else {
-            photos.push({ filename: cols[1], caption: cols[2] });
+            // Caption column treated as title for backwards compatibility
+            photos.push({ filename: cols[1], title: cols[2], desc: '' });
           }
         }
         j++;
       }
 
-      pages.push({ id: dir, name, dir, type: isSingle ? 'single' : 'masonry', photos });
+      pages.push({ id: dir, name, dir, photos });
       i = j;
       continue;
     }
@@ -80,19 +81,11 @@ function serializeContent(data) {
 
   for (const p of data.pages) {
     out += `\n---\n\n## ${p.name} Page (\`${p.dir}/\`)\n\n`;
-    if (p.type === 'masonry') {
-      out += `> Layout: Single-column centered, max 720px. Photos load in the order listed. Caption appears below each photo.\n\n`;
-      out += `| Order | Filename | Caption |\n|-------|----------|---------|\n`;
-      p.photos.forEach((ph, i) => {
-        out += `| ${i + 1} | ${ph.filename} | ${ph.caption || ''} |\n`;
-      });
-    } else {
-      out += `> Layout: Single-column centered, max 720px. Photos display in the order listed. Title and optional description appear below each photo.\n\n`;
-      out += `| Order | Filename | Title | Description |\n|-------|----------|-------|-------------|\n`;
-      p.photos.forEach((ph, i) => {
-        out += `| ${i + 1} | ${ph.filename} | ${ph.title || ''} | ${ph.desc || ''} |\n`;
-      });
-    }
+    out += `> Layout: Single-column centered, max 720px. Photos display in the order listed. Title and optional description appear below each photo.\n\n`;
+    out += `| Order | Filename | Title | Description |\n|-------|----------|-------|-------------|\n`;
+    p.photos.forEach((ph, i) => {
+      out += `| ${i + 1} | ${ph.filename} | ${ph.title || ''} | ${ph.desc || ''} |\n`;
+    });
   }
 
   return out;
@@ -105,21 +98,11 @@ function rebuildLabels(data) {
     const dest = path.join(GALLERY, p.dir, 'labels.js');
     if (!fs.existsSync(path.dirname(dest))) continue;
 
-    let entries, content;
-    if (p.type === 'masonry') {
-      entries = p.photos.map(ph => {
-        const zoom = ph.zoom && ph.zoom !== 1 ? `, zoom: ${ph.zoom}` : '';
-        return `  { filename: ${JSON.stringify(ph.filename)}, caption: ${JSON.stringify(ph.caption || '')}${zoom} },`;
-      }).join('\n');
-      content = `// Auto-generated from CONTENT.md — do not edit directly.\n// To update labels or order, use the admin UI or edit CONTENT.md.\n\nconst LABELS = [\n${entries}\n];\n`;
-    } else {
-      entries = p.photos.map(ph => {
-        const zoom = ph.zoom && ph.zoom !== 1 ? `, zoom: ${ph.zoom}` : '';
-        return `  { filename: ${JSON.stringify(ph.filename)}, title: ${JSON.stringify(ph.title || '')}, desc: ${JSON.stringify(ph.desc || '')}${zoom} },`;
-      }).join('\n');
-      content = `// Auto-generated from CONTENT.md — do not edit directly.\n// To update labels or order, use the admin UI or edit CONTENT.md.\n\nconst LABELS = [\n${entries}\n];\n`;
-    }
-
+    const entries = p.photos.map(ph => {
+      const zoom = ph.zoom && ph.zoom !== 1 ? `, zoom: ${ph.zoom}` : '';
+      return `  { filename: ${JSON.stringify(ph.filename)}, title: ${JSON.stringify(ph.title || '')}, desc: ${JSON.stringify(ph.desc || '')}${zoom} },`;
+    }).join('\n');
+    const content = `// Auto-generated from CONTENT.md — do not edit directly.\n// To update labels or order, use the admin UI or edit CONTENT.md.\n\nconst LABELS = [\n${entries}\n];\n`;
     fs.writeFileSync(dest, content);
   }
 }
@@ -172,7 +155,7 @@ function updateNav(data) {
 // ─── New page HTML generator ──────────────────────────────────────────────────
 
 function buildPageHtml(newPage, allPages) {
-  const template = newPage.type === 'masonry' ? 'page-1' : 'page-2';
+  const template = 'page-2';
   let html = fs.readFileSync(path.join(GALLERY, template, 'index.html'), 'utf8');
 
   // Update title and h1
@@ -269,14 +252,24 @@ app.post('/api/content', (req, res) => {
 
 // Upload photos to a page (compresses to max 2000px / 85% JPEG quality)
 const upload = multer({ dest: UPLOAD_TMP });
+// Returns a unique filename in GALLERY/photos/, appending -2, -3, etc. if needed.
+function uniqueLibraryFilename(originalName) {
+  const photosDir = path.join(GALLERY, 'photos');
+  const ext  = path.extname(originalName);
+  const base = path.basename(originalName, ext);
+  let candidate = originalName;
+  let n = 2;
+  while (fs.existsSync(path.join(photosDir, candidate))) {
+    candidate = `${base}-${n}${ext}`;
+    n++;
+  }
+  return candidate;
+}
+
 app.post('/api/upload/:page', upload.array('photos'), async (req, res) => {
   try {
     const { page } = req.params;
-    const photosDir = path.join(GALLERY, page, 'photos');
-
-    if (!fs.existsSync(photosDir)) {
-      return res.status(400).json({ error: `Page "${page}" not found` });
-    }
+    const photosDir = path.join(GALLERY, 'photos');
 
     const raw      = fs.readFileSync(CONTENT_MD, 'utf8');
     const data     = parseContent(raw);
@@ -286,7 +279,8 @@ app.post('/api/upload/:page', upload.array('photos'), async (req, res) => {
 
     const added = [];
     for (const file of req.files) {
-      const filename = file.originalname;
+      // Use a unique filename in the shared library (auto-rename duplicates)
+      const filename = uniqueLibraryFilename(file.originalname);
       const dest     = path.join(photosDir, filename);
 
       // Auto-rotate from EXIF, resize to max 2000px, 85% JPEG quality
@@ -299,18 +293,13 @@ app.post('/api/upload/:page', upload.array('photos'), async (req, res) => {
         .toFile(dest);
       fs.unlinkSync(file.path);
 
-      if (!pageData.photos.find(p => p.filename === filename)) {
-        if (pageData.type === 'masonry') {
-          pageData.photos.push({ filename, caption: 'Untitled' });
-        } else {
-          pageData.photos.push({ filename, title: 'Untitled', desc: '' });
-        }
-        added.push(filename);
-      }
+      pageData.photos.push({ filename, title: 'Untitled', desc: '' });
+      added.push(filename);
     }
 
     fs.writeFileSync(CONTENT_MD, serializeContent(data));
     rebuildLabels(data);
+    rebuildLibraryLabels();
     res.json({ ok: true, added });
   } catch (err) {
     for (const file of req.files || []) {
@@ -320,14 +309,10 @@ app.post('/api/upload/:page', upload.array('photos'), async (req, res) => {
   }
 });
 
-// Delete a photo
+// Remove a photo from a page (file stays in library)
 app.delete('/api/photo/:page/:filename', (req, res) => {
   try {
     const { page, filename } = req.params;
-    const photoPath = path.join(GALLERY, page, 'photos', filename);
-
-    if (fs.existsSync(photoPath)) fs.unlinkSync(photoPath);
-
     const raw  = fs.readFileSync(CONTENT_MD, 'utf8');
     const data = parseContent(raw);
     const pageData = data.pages.find(p => p.id === page);
@@ -344,8 +329,8 @@ app.delete('/api/photo/:page/:filename', (req, res) => {
 // Create a new page
 app.post('/api/page', (req, res) => {
   try {
-    const { name, type } = req.body;
-    if (!name || !type) return res.status(400).json({ error: 'name and type required' });
+    const { name } = req.body;
+    if (!name) return res.status(400).json({ error: 'name required' });
 
     const dir    = name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
     const newDir = path.join(GALLERY, dir);
@@ -360,7 +345,7 @@ app.post('/api/page', (req, res) => {
     // Add to CONTENT.md
     const raw  = fs.readFileSync(CONTENT_MD, 'utf8');
     const data = parseContent(raw);
-    const newPage = { id: dir, name, dir, type, photos: [] };
+    const newPage = { id: dir, name, dir, photos: [] };
     data.pages.push(newPage);
 
     // Write index.html (before updateNav so template is in place)
@@ -514,9 +499,9 @@ app.post('/api/settings', (req, res) => {
 // Rotate a photo in-place
 app.post('/api/rotate/:page/:filename', async (req, res) => {
   try {
-    const { page, filename } = req.params;
+    const { filename } = req.params;
     const { direction } = req.body; // 'cw' or 'ccw'
-    const photoPath = path.join(GALLERY, page, 'photos', filename);
+    const photoPath = path.join(GALLERY, 'photos', filename);
 
     if (!fs.existsSync(photoPath)) return res.status(404).json({ error: 'Photo not found' });
 
@@ -524,6 +509,145 @@ app.post('/api/rotate/:page/:filename', async (req, res) => {
     const tmp = photoPath + '.tmp.jpg';
     await sharp(photoPath).rotate(degrees).jpeg({ quality: 85 }).toFile(tmp);
     fs.renameSync(tmp, photoPath);
+
+    res.json({ ok: true });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Upload photos to library only (no page assignment)
+app.post('/api/upload-library', upload.array('photos'), async (req, res) => {
+  try {
+    const added = [];
+    for (const file of req.files) {
+      const filename = uniqueLibraryFilename(file.originalname);
+      const dest     = path.join(GALLERY, 'photos', filename);
+      const input    = await toSharpInput(file.path);
+      await sharp(input)
+        .rotate()
+        .resize({ width: 2000, height: 2000, fit: 'inside', withoutEnlargement: true })
+        .jpeg({ quality: 85 })
+        .toFile(dest);
+      fs.unlinkSync(file.path);
+      added.push(filename);
+    }
+    rebuildLibraryLabels();
+    res.json({ ok: true, added });
+  } catch (err) {
+    for (const file of req.files || []) {
+      try { fs.unlinkSync(file.path); } catch (_) {}
+    }
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ─── Library helpers ──────────────────────────────────────────────────────────
+
+const PHOTOS_DIR = path.join(GALLERY, 'photos');
+
+function rebuildLibraryLabels() {
+  if (!fs.existsSync(PHOTOS_DIR)) return;
+  const files = fs.readdirSync(PHOTOS_DIR)
+    .filter(f => /\.(jpe?g|png|gif|webp|heic|heif)$/i.test(f))
+    .map(f => ({ filename: f, mtime: fs.statSync(path.join(PHOTOS_DIR, f)).mtimeMs }))
+    .sort((a, b) => b.mtime - a.mtime);
+
+  const entries = files.map(f =>
+    `  { filename: ${JSON.stringify(f.filename)}, title: "", desc: "" },`
+  ).join('\n');
+  const content = `// Auto-generated — do not edit directly.\n\nconst LABELS = [\n${entries}\n];\n`;
+
+  const libDir = path.join(GALLERY, 'library');
+  if (!fs.existsSync(libDir)) fs.mkdirSync(libDir);
+  fs.writeFileSync(path.join(libDir, 'labels.js'), content);
+}
+
+// Get library (all photos + page assignments)
+app.get('/api/library', (req, res) => {
+  try {
+    if (!fs.existsSync(PHOTOS_DIR)) return res.json([]);
+    const raw  = fs.readFileSync(CONTENT_MD, 'utf8');
+    const data = parseContent(raw);
+
+    // Build a map: filename → list of page ids that reference it
+    const pageMap = {};
+    for (const p of data.pages) {
+      for (const ph of p.photos) {
+        if (!pageMap[ph.filename]) pageMap[ph.filename] = [];
+        pageMap[ph.filename].push(p.id);
+      }
+    }
+
+    const files = fs.readdirSync(PHOTOS_DIR)
+      .filter(f => /\.(jpe?g|png|gif|webp|heic|heif)$/i.test(f))
+      .map(f => ({
+        filename: f,
+        mtime: fs.statSync(path.join(PHOTOS_DIR, f)).mtimeMs,
+        pages: pageMap[f] || [],
+      }))
+      .sort((a, b) => b.mtime - a.mtime);
+
+    res.json(files);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Delete a photo from the library (and all page references)
+app.delete('/api/library/:filename', (req, res) => {
+  try {
+    const { filename } = req.params;
+    const { force } = req.query;
+    const raw  = fs.readFileSync(CONTENT_MD, 'utf8');
+    const data = parseContent(raw);
+
+    // Find which pages reference this file
+    const referencedBy = data.pages
+      .filter(p => p.photos.some(ph => ph.filename === filename))
+      .map(p => p.id);
+
+    if (referencedBy.length > 0 && !force) {
+      return res.json({ ok: false, referencedBy });
+    }
+
+    // Remove from all pages
+    for (const p of data.pages) {
+      p.photos = p.photos.filter(ph => ph.filename !== filename);
+    }
+    fs.writeFileSync(CONTENT_MD, serializeContent(data));
+    rebuildLabels(data);
+
+    // Delete the file
+    const filePath = path.join(PHOTOS_DIR, filename);
+    if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+
+    rebuildLibraryLabels();
+    res.json({ ok: true });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Assign a library photo to a page
+app.post('/api/library/assign', (req, res) => {
+  try {
+    const { filename, pageId } = req.body;
+    if (!filename || !pageId) return res.status(400).json({ error: 'filename and pageId required' });
+
+    const filePath = path.join(PHOTOS_DIR, filename);
+    if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'Photo not in library' });
+
+    const raw  = fs.readFileSync(CONTENT_MD, 'utf8');
+    const data = parseContent(raw);
+    const pageData = data.pages.find(p => p.id === pageId);
+    if (!pageData) return res.status(404).json({ error: 'Page not found' });
+
+    if (!pageData.photos.find(p => p.filename === filename)) {
+      pageData.photos.push({ filename, title: '', desc: '' });
+      fs.writeFileSync(CONTENT_MD, serializeContent(data));
+      rebuildLabels(data);
+    }
 
     res.json({ ok: true });
   } catch (err) {
