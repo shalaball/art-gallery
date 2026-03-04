@@ -11,7 +11,8 @@ if [ ! -d "node_modules" ]; then
   npm install
 fi
 
-# Open browser once the server is ready
-(sleep 1.5 && open http://localhost:3000) &
-
-npm start
+# Start server in background and open browser
+nohup node server.js >> "$ADMIN_DIR/server.log" 2>&1 &
+disown
+sleep 1.5
+open http://localhost:3000
