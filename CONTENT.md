@@ -32,7 +32,6 @@
 | 8 | image.jpeg | Untitled |  |
 | 9 | IMG_2368.jpeg |  |  |
 | 10 | IMG_6221.jpeg |  |  |
-| 11 | IMG_6227.jpeg |  |  |
 
 ---
 

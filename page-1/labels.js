@@ -12,5 +12,4 @@ const LABELS = [
   { filename: "image.jpeg", title: "Untitled", desc: "" },
   { filename: "IMG_2368.jpeg", title: "", desc: "" },
   { filename: "IMG_6221.jpeg", title: "", desc: "" },
-  { filename: "IMG_6227.jpeg", title: "", desc: "" },
 ];
