@@ -1,8 +1,13 @@
 #!/bin/bash
 # Starts the Shala Gallery admin server silently in the background.
 
-# Ensure common node/npm locations are in PATH
-export PATH="/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin:$PATH"
+# Use full paths to node/npm to avoid PATH issues when launched as .app
+NPM=/usr/local/bin/npm
+NODE=/usr/local/bin/node
+
+# Fall back to Homebrew (Apple Silicon)
+if [ ! -f "$NPM" ]; then NPM=/opt/homebrew/bin/npm; fi
+if [ ! -f "$NODE" ]; then NODE=/opt/homebrew/bin/node; fi
 
 GALLERY_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 ADMIN_DIR="$GALLERY_DIR/admin"
@@ -18,11 +23,11 @@ cd "$ADMIN_DIR"
 
 # Install dependencies silently if needed
 if [ ! -d "node_modules" ]; then
-  npm install >> "$LOG" 2>&1
+  "$NPM" install >> "$LOG" 2>&1
 fi
 
 # Start server in background, detached from this script
-nohup npm start >> "$LOG" 2>&1 &
+nohup "$NODE" server.js >> "$LOG" 2>&1 &
 disown
 
 # Wait up to 10s for server to be ready
