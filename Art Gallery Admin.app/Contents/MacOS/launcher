@@ -1,6 +1,9 @@
 #!/bin/bash
 # Starts the Shala Gallery admin server silently in the background.
 
+# Ensure common node/npm locations are in PATH
+export PATH="/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin:$PATH"
+
 GALLERY_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 ADMIN_DIR="$GALLERY_DIR/admin"
 LOG="$ADMIN_DIR/server.log"
