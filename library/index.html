@@ -21,7 +21,7 @@
       display: flex;
       justify-content: center;
       padding: 2rem 2rem 0;
-      gap: 2.5rem;
+      gap: 0;
     }
 
     nav a {
@@ -32,8 +32,11 @@
       color: #888;
       text-decoration: none;
       transition: color 0.2s;
+      padding: 0 1.25rem;
     }
 
+    nav a:first-child { padding-left: 0; }
+    nav a + a { border-left: 1px solid #ccc; }
     nav a:hover { color: #222; }
 
     header {
