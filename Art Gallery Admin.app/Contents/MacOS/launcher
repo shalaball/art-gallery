@@ -2,15 +2,16 @@
 # Starts the Shala Gallery admin server silently in the background.
 
 # Use full paths to node/npm to avoid PATH issues when launched as .app
-NPM=/usr/local/bin/npm
 NODE=/usr/local/bin/node
+NPM=/usr/local/bin/npm
 
 # Fall back to Homebrew (Apple Silicon)
-if [ ! -f "$NPM" ]; then NPM=/opt/homebrew/bin/npm; fi
 if [ ! -f "$NODE" ]; then NODE=/opt/homebrew/bin/node; fi
+if [ ! -f "$NPM" ]; then NPM=/opt/homebrew/bin/npm; fi
 
 GALLERY_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 ADMIN_DIR="$GALLERY_DIR/admin"
+SERVER="$ADMIN_DIR/server.js"
 LOG="$ADMIN_DIR/server.log"
 
 # If server is already running, just open the browser
@@ -19,15 +20,13 @@ if curl -s http://localhost:3000 > /dev/null 2>&1; then
   exit 0
 fi
 
-cd "$ADMIN_DIR"
-
 # Install dependencies silently if needed
-if [ ! -d "node_modules" ]; then
-  "$NPM" install >> "$LOG" 2>&1
+if [ ! -d "$ADMIN_DIR/node_modules" ]; then
+  cd "$ADMIN_DIR" && "$NPM" install >> "$LOG" 2>&1
 fi
 
-# Start server in background, detached from this script
-nohup "$NODE" server.js >> "$LOG" 2>&1 &
+# Start server in background using absolute path (avoids uv_cwd EPERM in .app sandbox)
+nohup "$NODE" "$SERVER" >> "$LOG" 2>&1 &
 disown
 
 # Wait up to 10s for server to be ready
