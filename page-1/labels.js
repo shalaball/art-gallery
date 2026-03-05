@@ -10,6 +10,5 @@ const LABELS = [
   { filename: "IMG_3424.jpeg", title: "Untitled 4", desc: "" },
   { filename: "IMG_9358.jpeg", title: "Untitled 6", desc: "" },
   { filename: "image.jpeg", title: "Untitled", desc: "" },
-  { filename: "IMG_2368.jpeg", title: "", desc: "" },
   { filename: "IMG_6221.jpeg", title: "", desc: "" },
 ];

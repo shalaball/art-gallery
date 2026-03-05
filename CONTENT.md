@@ -30,8 +30,7 @@
 | 6 | IMG_3424.jpeg | Untitled 4 |  |
 | 7 | IMG_9358.jpeg | Untitled 6 |  |
 | 8 | image.jpeg | Untitled |  |
-| 9 | IMG_2368.jpeg |  |  |
-| 10 | IMG_6221.jpeg |  |  |
+| 9 | IMG_6221.jpeg |  |  |
 
 ---
 
