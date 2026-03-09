@@ -18,4 +18,5 @@ const LABELS = [
   { filename: "IMG_3234.jpeg", title: "Untitled", desc: "" },
   { filename: "IMG_6370.jpeg", title: "The Hidden Princess", desc: "Acrylic on Canvas, 24\" x 48\"" },
   { filename: "IMG_6371.jpeg", title: "", desc: "" },
+  { filename: "IMG_6379.jpeg", title: "", desc: "" },
 ];

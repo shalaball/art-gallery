@@ -73,3 +73,4 @@
 | 14 | IMG_3234.jpeg | Untitled |  |
 | 15 | IMG_6370.jpeg | The Hidden Princess | Acrylic on Canvas, 24" x 48" |
 | 16 | IMG_6371.jpeg |  |  |
+| 17 | IMG_6379.jpeg |  |  |
