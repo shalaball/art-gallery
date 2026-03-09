@@ -1,11 +1,15 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
+  { filename: "IMG_6157.heic", title: "", desc: "" },
+  { filename: "IMG_6376.jpeg", title: "", desc: "" },
+  { filename: "IMG_3453-2.jpeg", title: "", desc: "" },
+  { filename: "IMG_3424.jpeg", title: "", desc: "" },
+  { filename: "IMG_2997.jpeg", title: "", desc: "" },
   { filename: "IMG_6379.jpeg", title: "", desc: "" },
   { filename: "IMG_6371.jpeg", title: "", desc: "" },
   { filename: "IMG_6370.jpeg", title: "", desc: "" },
   { filename: "IMG_3234.jpeg", title: "", desc: "" },
-  { filename: "IMG_3453-2.jpeg", title: "", desc: "" },
   { filename: "IMG_0019.jpeg", title: "", desc: "" },
   { filename: "IMG_0861-2.jpeg", title: "", desc: "" },
   { filename: "IMG_4195.jpeg", title: "", desc: "" },
@@ -26,7 +30,6 @@ const LABELS = [
   { filename: "IMG_3622.jpeg", title: "", desc: "" },
   { filename: "IMG_3792.jpeg", title: "", desc: "" },
   { filename: "IMG_4869.jpeg", title: "", desc: "" },
-  { filename: "IMG_6146.jpeg", title: "", desc: "" },
   { filename: "IMG_6219-2.jpeg", title: "", desc: "" },
   { filename: "IMG_6304.jpeg", title: "", desc: "" },
   { filename: "image.jpeg", title: "", desc: "" },
@@ -36,10 +39,8 @@ const LABELS = [
   { filename: "IMG_6201.jpeg", title: "", desc: "" },
   { filename: "IMG_5991.jpeg", title: "", desc: "" },
   { filename: "IMG_3469.jpeg", title: "", desc: "" },
-  { filename: "IMG_3424.jpeg", title: "", desc: "" },
   { filename: "IMG_3233.jpeg", title: "", desc: "" },
   { filename: "IMG_3189.jpeg", title: "", desc: "" },
-  { filename: "IMG_2997.jpeg", title: "", desc: "" },
   { filename: "92E9922F-C7CC-43F4-91BE-6429FA133B09_1_105_c.jpeg", title: "", desc: "" },
   { filename: "22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg", title: "", desc: "" },
 ];

@@ -58,19 +58,19 @@
 | Order | Filename | Title | Description |
 |-------|----------|-------|-------------|
 | 1 | IMG_2997.jpeg | Storm on the Sea |  |
-| 2 | IMG_3424.jpeg | Untitled 4 |  |
-| 3 | IMG_3469.jpeg | Untitled 5 |  |
-| 4 | IMG_3233.jpeg | Duane |  |
-| 5 | IMG_6346.jpeg | Untitled |  |
-| 6 | IMG_6350.jpeg | Untitled |  |
-| 7 | IMG_6344.jpeg | Untitled |  |
-| 8 | IMG_6146-2.jpeg | Untitled |  |
-| 9 | IMG_6369.jpeg | Untitled |  |
-| 10 | IMG_4195.jpeg | Untitled |  |
-| 11 | IMG_0861-2.jpeg | Untitled |  |
-| 12 | IMG_0019.jpeg | Untitled |  |
-| 13 | IMG_3453-2.jpeg | Untitled |  |
-| 14 | IMG_3234.jpeg | Untitled |  |
-| 15 | IMG_6370.jpeg | The Hidden Princess | Acrylic on Canvas, 24" x 48" |
-| 16 | IMG_6371.jpeg |  |  |
-| 17 | IMG_6379.jpeg |  |  |
+| 2 | IMG_6371.jpeg |  |  |
+| 3 | IMG_3424.jpeg | Untitled 4 |  |
+| 4 | IMG_3469.jpeg | Untitled 5 |  |
+| 5 | IMG_3233.jpeg | Duane |  |
+| 6 | IMG_3234.jpeg | Untitled |  |
+| 7 | IMG_6346.jpeg | Untitled |  |
+| 8 | IMG_3453-2.jpeg | Untitled |  |
+| 9 | IMG_6379.jpeg |  |  |
+| 10 | IMG_6344.jpeg | Untitled |  |
+| 11 | IMG_6157.heic |  |  |
+| 12 | IMG_6376.jpeg |  |  |
+| 13 | IMG_6369.jpeg | Untitled |  |
+| 14 | IMG_0861-2.jpeg | Untitled |  |
+| 15 | IMG_6350.jpeg | Untitled |  |
+| 16 | IMG_0019.jpeg | Untitled |  |
+| 17 | IMG_6370.jpeg | The Hidden Princess | Acrylic on Canvas, 24" x 48" |
