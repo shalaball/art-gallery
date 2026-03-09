@@ -12,7 +12,7 @@
 | Home | Art Gallery | https://shalaball.com/ |
 | New Art | New Art | https://shalaball.com/page-1/ |
 | Art on Display in SF | Art on Display in SF | https://shalaball.com/page-3/ |
-| San Diego Art | San Diego Art | https://shalaball.com/page-2/ |
+| San Diego on Display | San Diego on Display | https://shalaball.com/page-2/ |
 
 ---
 
@@ -49,15 +49,25 @@
 
 ---
 
-## San Diego Art Page (`page-2/`)
+## San Diego on Display Page (`page-2/`)
 
 > Layout: Single-column centered, max 720px. Photos display in the order listed. Title and optional description appear below each photo.
 
 | Order | Filename | Title | Description |
 |-------|----------|-------|-------------|
 | 1 | IMG_2997.jpeg | Storm on the Sea |  |
-| 2 | IMG_3189.jpeg | The Delta |  |
+| 2 | IMG_3189.jpeg | The Delta | Acrylic on Canvas 48x60 |
 | 3 | IMG_3424.jpeg | Untitled 4 |  |
 | 4 | IMG_3469.jpeg | Untitled 5 |  |
-| 5 | IMG_3233.jpeg | Untitled 3 |  |
-| 6 | IMG_9358.jpeg | Untitled 6 |  |
+| 5 | IMG_3233.jpeg | Duane |  |
+| 6 | IMG_6366.jpeg | Untitled |  |
+| 7 | IMG_6346.jpeg | Untitled |  |
+| 8 | IMG_6350.jpeg | Untitled |  |
+| 9 | IMG_6344.jpeg | Untitled |  |
+| 10 | IMG_6146-2.jpeg | Untitled |  |
+| 11 | IMG_6369.jpeg | Untitled |  |
+| 12 | IMG_4195.jpeg | Untitled |  |
+| 13 | IMG_0861-2.jpeg | Untitled |  |
+| 14 | IMG_0019.jpeg | Untitled |  |
+| 15 | IMG_3453-2.jpeg | Untitled |  |
+| 16 | IMG_3234.jpeg | Untitled |  |
