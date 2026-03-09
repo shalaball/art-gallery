@@ -3,7 +3,6 @@
 
 const LABELS = [
   { filename: "IMG_2997.jpeg", title: "Storm on the Sea", desc: "" },
-  { filename: "IMG_3189.jpeg", title: "The Delta", desc: "Acrylic on Canvas 48x60" },
   { filename: "IMG_3424.jpeg", title: "Untitled 4", desc: "" },
   { filename: "IMG_3469.jpeg", title: "Untitled 5", desc: "" },
   { filename: "IMG_3233.jpeg", title: "Duane", desc: "" },
