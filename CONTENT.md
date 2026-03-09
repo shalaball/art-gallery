@@ -65,9 +65,9 @@
 | 5 | IMG_3233.jpeg | Duane |  |
 | 6 | IMG_3234.jpeg | Untitled |  |
 | 7 | IMG_6346.jpeg | Untitled |  |
-| 8 | IMG_3453-2.jpeg | Untitled |  |
-| 9 | IMG_6379.jpeg |  |  |
-| 10 | IMG_6344.jpeg | Untitled |  |
+| 8 | IMG_6344.jpeg | Untitled |  |
+| 9 | IMG_3453-2.jpeg | Untitled |  |
+| 10 | IMG_6379.jpeg |  |  |
 | 11 | IMG_6157.heic |  |  |
 | 12 | IMG_6376.jpeg |  |  |
 | 13 | IMG_6369.jpeg | Untitled |  |

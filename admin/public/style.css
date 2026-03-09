@@ -220,6 +220,13 @@ main {
 
 .photo-grid.two-column {
   grid-template-columns: 1fr 1fr;
+  max-width: 820px;
+  gap: 28px;
+}
+
+.photo-grid.two-column .photo-thumb {
+  aspect-ratio: unset;
+  height: 180px;
 }
 
 .photo-card {
