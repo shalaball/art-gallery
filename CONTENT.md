@@ -46,6 +46,7 @@
 | 4 | IMG_6221.jpeg | Untitled |  |
 | 5 | IMG_6201.jpeg | Untitled |  |
 | 6 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F |  |
+| 7 | IMG_0861-2.jpeg |  |  |
 
 ---
 
@@ -60,14 +61,14 @@
 | 3 | IMG_3424.jpeg | Untitled 4 |  |
 | 4 | IMG_3469.jpeg | Untitled 5 |  |
 | 5 | IMG_3233.jpeg | Duane |  |
-| 6 | IMG_6366.jpeg | Untitled |  |
-| 7 | IMG_6346.jpeg | Untitled |  |
-| 8 | IMG_6350.jpeg | Untitled |  |
-| 9 | IMG_6344.jpeg | Untitled |  |
-| 10 | IMG_6146-2.jpeg | Untitled |  |
-| 11 | IMG_6369.jpeg | Untitled |  |
-| 12 | IMG_4195.jpeg | Untitled |  |
-| 13 | IMG_0861-2.jpeg | Untitled |  |
-| 14 | IMG_0019.jpeg | Untitled |  |
-| 15 | IMG_3453-2.jpeg | Untitled |  |
-| 16 | IMG_3234.jpeg | Untitled |  |
+| 6 | IMG_6346.jpeg | Untitled |  |
+| 7 | IMG_6350.jpeg | Untitled |  |
+| 8 | IMG_6344.jpeg | Untitled |  |
+| 9 | IMG_6146-2.jpeg | Untitled |  |
+| 10 | IMG_6369.jpeg | Untitled |  |
+| 11 | IMG_4195.jpeg | Untitled |  |
+| 12 | IMG_0861-2.jpeg | Untitled |  |
+| 13 | IMG_0019.jpeg | Untitled |  |
+| 14 | IMG_3453-2.jpeg | Untitled |  |
+| 15 | IMG_3234.jpeg | Untitled |  |
+| 16 | IMG_6370.jpeg | The Hidden Princess | Acrylic on Canvas, 24" x 48" |

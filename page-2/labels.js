@@ -7,7 +7,6 @@ const LABELS = [
   { filename: "IMG_3424.jpeg", title: "Untitled 4", desc: "" },
   { filename: "IMG_3469.jpeg", title: "Untitled 5", desc: "" },
   { filename: "IMG_3233.jpeg", title: "Duane", desc: "" },
-  { filename: "IMG_6366.jpeg", title: "Untitled", desc: "" },
   { filename: "IMG_6346.jpeg", title: "Untitled", desc: "" },
   { filename: "IMG_6350.jpeg", title: "Untitled", desc: "" },
   { filename: "IMG_6344.jpeg", title: "Untitled", desc: "" },
@@ -18,4 +17,5 @@ const LABELS = [
   { filename: "IMG_0019.jpeg", title: "Untitled", desc: "" },
   { filename: "IMG_3453-2.jpeg", title: "Untitled", desc: "" },
   { filename: "IMG_3234.jpeg", title: "Untitled", desc: "" },
+  { filename: "IMG_6370.jpeg", title: "The Hidden Princess", desc: "Acrylic on Canvas, 24\" x 48\"" },
 ];
