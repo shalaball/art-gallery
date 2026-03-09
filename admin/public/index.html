@@ -546,6 +546,7 @@ function renderCard(page, photo) {
         </div>
         ${inputs}
         <div class="card-filename">${esc(photo.filename)}</div>
+        <a class="download-btn" href="/preview/photos/${esc(photo.filename)}" download="${esc(photo.filename)}" title="Download original">⬇ Download</a>
       </div>
     </div>
   `;
