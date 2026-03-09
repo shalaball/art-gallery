@@ -18,5 +18,6 @@ const LABELS = [
   { filename: "IMG_0861-2.jpeg", title: "Untitled", desc: "" },
   { filename: "IMG_6350.jpeg", title: "Untitled", desc: "" },
   { filename: "IMG_0019.jpeg", title: "Untitled", desc: "" },
-  { filename: "IMG_6370.jpeg", title: "The Hidden Princess", desc: "Acrylic on Canvas, 24\" x 48\"" },
+  { filename: "IMG_0725.heic", title: "Th Hidden Princess (Collab with Carter Hackett)", desc: "" },
+  { filename: "IMG_6370.jpeg", title: "The Hidden Princess (Collab with Carter Hackett)", desc: "Acrylic on Canvas, 24\" x 48\"" },
 ];

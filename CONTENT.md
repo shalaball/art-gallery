@@ -74,4 +74,5 @@
 | 14 | IMG_0861-2.jpeg | Untitled |  |
 | 15 | IMG_6350.jpeg | Untitled |  |
 | 16 | IMG_0019.jpeg | Untitled |  |
-| 17 | IMG_6370.jpeg | The Hidden Princess | Acrylic on Canvas, 24" x 48" |
+| 17 | IMG_0725.heic | Th Hidden Princess (Collab with Carter Hackett) |  |
+| 18 | IMG_6370.jpeg | The Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 24" x 48" |
