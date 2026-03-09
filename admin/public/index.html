@@ -472,9 +472,10 @@ function renderMain(page) {
       </div>
       <div class="actions">
         <button class="btn btn-danger btn-sm" onclick="deletePage('${esc(page.id)}')">Delete Page</button>
-        <button class="btn btn-dark btn-sm" onclick="toggleLayout('${esc(page.id)}', '${page.layout === 'two-column' ? 'one-column' : 'two-column'}')">
-          Layout: ${page.layout === 'two-column' ? 'Two Column' : 'One Column'}
-        </button>
+        <select class="btn btn-dark btn-sm" onchange="toggleLayout('${esc(page.id)}', this.value)" style="cursor:pointer">
+          <option value="one-column" ${page.layout !== 'two-column' ? 'selected' : ''}>One Column</option>
+          <option value="two-column" ${page.layout === 'two-column' ? 'selected' : ''}>Two Column</option>
+        </select>
         <label class="btn btn-dark btn-sm" style="cursor:pointer">
           + Upload Photos
           <input type="file" accept="image/*" multiple style="display:none" onchange="uploadPhotos(this.files)">
