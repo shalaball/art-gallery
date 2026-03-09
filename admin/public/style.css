@@ -213,6 +213,15 @@ main {
   margin-bottom: 20px;
 }
 
+.photo-grid.one-column {
+  grid-template-columns: 1fr;
+  max-width: 720px;
+}
+
+.photo-grid.two-column {
+  grid-template-columns: 1fr 1fr;
+}
+
 .photo-card {
   background: #fff;
   border: 1px solid #e2e2e2;

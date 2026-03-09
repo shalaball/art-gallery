@@ -248,6 +248,14 @@ app.get('/api/content', (req, res) => {
       for (const ph of p.photos) ph.zoom = zoomMap[ph.filename] || 1;
     }
 
+    // Detect layout from each page's index.html
+    for (const p of data.pages) {
+      const pageFile = path.join(GALLERY, p.dir, 'index.html');
+      if (!fs.existsSync(pageFile)) { p.layout = 'one-column'; continue; }
+      const html = fs.readFileSync(pageFile, 'utf8');
+      p.layout = /grid-template-columns:\s*1fr\s+1fr/.test(html) ? 'two-column' : 'one-column';
+    }
+
     res.json(data);
   } catch (err) {
     res.status(500).json({ error: err.message });

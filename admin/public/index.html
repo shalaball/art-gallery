@@ -479,7 +479,7 @@ function renderMain(page) {
       </div>
     </div>
 
-    <div class="photo-grid" id="photo-grid">
+    <div class="photo-grid${page.layout === 'two-column' ? ' two-column' : ''}" id="photo-grid">
       ${page.photos.map(ph => renderCard(page, ph)).join('')}
     </div>
 
