@@ -5,5 +5,6 @@ admin/package-lock.json
 admin/uploads_tmp/
 admin/server.log
 admin/dist/
+admin/Art Admin-darwin-arm64/
 Art Gallery Admin.app/
 mockup.html
