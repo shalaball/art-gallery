@@ -73,6 +73,27 @@
       cursor: pointer;
     }
 
+    .gallery.two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem 4rem;
+      padding: 1rem 3rem 6rem;
+      max-width: 1400px;
+      align-items: start;
+    }
+
+    .gallery.two-column .gallery-item {
+      max-width: none;
+    }
+
+    @media (max-width: 768px) {
+      .gallery.two-column {
+        grid-template-columns: 1fr;
+        max-width: 720px;
+        padding: 1rem 2rem 6rem;
+      }
+    }
+
     .img-wrap {
       overflow: hidden;
       line-height: 0;

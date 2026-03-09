@@ -60,22 +60,34 @@
     }
 
     .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5rem;
+      padding: 1rem 2rem 6rem;
+    }
+
+    .gallery-item {
+      width: 100%;
+      max-width: 720px;
+      cursor: pointer;
+    }
+
+    .gallery.two-column {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem 4rem;
       padding: 1rem 3rem 6rem;
       max-width: 1400px;
-      margin: 0 auto;
+      align-items: start;
     }
 
-    .gallery-item {
-      width: 100%;
-      cursor: pointer;
+    .gallery.two-column .gallery-item {
+      max-width: none;
     }
 
-    /* Mobile: single column */
     @media (max-width: 768px) {
-      .gallery {
+      .gallery.two-column {
         grid-template-columns: 1fr;
         max-width: 720px;
         padding: 1rem 2rem 6rem;
@@ -222,7 +234,7 @@
 
 <div class="divider"></div>
 
-<div class="gallery" id="gallery"></div>
+<div class="gallery two-column" id="gallery"></div>
 
 <div id="lightbox">
   <button id="lb-close" aria-label="Close">&#x2715;</button>

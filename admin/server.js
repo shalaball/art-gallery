@@ -180,7 +180,9 @@ function buildPageHtml(newPage, allPages) {
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${newPage.name}</title>`);
   html = html.replace(/(<h1>)[^<]*(<\/h1>)/, `$1${newPage.name}$2`);
 
-  // Clear the gallery div (it's already empty after our earlier edit, but just in case)
+  // New pages default to one-column
+  html = html.replace(/class="gallery two-column"/, 'class="gallery"');
+  // Clear the gallery div
   html = html.replace(/<div class="gallery" id="gallery">[\s\S]*?<\/div>/, '<div class="gallery" id="gallery"></div>');
 
   // Nav will be set by updateNav() after the page is added
@@ -253,10 +255,29 @@ app.get('/api/content', (req, res) => {
       const pageFile = path.join(GALLERY, p.dir, 'index.html');
       if (!fs.existsSync(pageFile)) { p.layout = 'one-column'; continue; }
       const html = fs.readFileSync(pageFile, 'utf8');
-      p.layout = /grid-template-columns:\s*1fr\s+1fr/.test(html) ? 'two-column' : 'one-column';
+      p.layout = /class="gallery two-column"/.test(html) ? 'two-column' : 'one-column';
     }
 
     res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Toggle page layout between one-column and two-column
+app.post('/api/layout/:pageId', (req, res) => {
+  try {
+    const { layout } = req.body;
+    const pageFile = path.join(GALLERY, req.params.pageId, 'index.html');
+    if (!fs.existsSync(pageFile)) return res.status(404).json({ error: 'Page not found' });
+    let html = fs.readFileSync(pageFile, 'utf8');
+    if (layout === 'two-column') {
+      html = html.replace(/class="gallery"/, 'class="gallery two-column"');
+    } else {
+      html = html.replace(/class="gallery two-column"/, 'class="gallery"');
+    }
+    fs.writeFileSync(pageFile, html);
+    res.json({ ok: true, layout });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
