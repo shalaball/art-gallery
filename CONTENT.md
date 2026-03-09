@@ -40,14 +40,15 @@
 
 | Order | Filename | Title | Description |
 |-------|----------|-------|-------------|
-| 1 | 92E9922F-C7CC-43F4-91BE-6429FA133B09_1_105_c.jpeg | Infinity and Beyond |  |
-| 2 | IMG_5991.jpeg | For Helen |  |
-| 3 | IMG_6219.jpeg | square |  |
-| 4 | IMG_6221.jpeg | Untitled |  |
-| 5 | IMG_6201.jpeg | Untitled |  |
-| 6 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F |  |
+| 1 | 92E9922F-C7CC-43F4-91BE-6429FA133B09_1_105_c.jpeg | Helix Becoming | Acrylic on Canvas, 24"x48" |
+| 2 | IMG_5991.jpeg | Greenland's House | Acrylic Ink on Paper, 5"x7" |
+| 3 | IMG_6219.jpeg | Etude #1 | Acrylic on Canvas, 11"x14" |
+| 4 | IMG_6221.jpeg | Strata I - III | Paper |
+| 5 | IMG_6201.jpeg | When the River Became Two | Acrylic on Canvas, Diptych 36"x36" |
+| 6 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage, 11"x14" |
 | 7 | IMG_0861-2.jpeg |  |  |
-| 8 | IMG_0570.jpeg |  |  |
+| 8 | IMG_0570.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
+| 9 | AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
 
 ---
 
