@@ -47,6 +47,7 @@
 | 5 | IMG_6201.jpeg | Untitled |  |
 | 6 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F |  |
 | 7 | IMG_0861-2.jpeg |  |  |
+| 8 | IMG_0570.jpeg |  |  |
 
 ---
 
@@ -72,3 +73,4 @@
 | 14 | IMG_3453-2.jpeg | Untitled |  |
 | 15 | IMG_3234.jpeg | Untitled |  |
 | 16 | IMG_6370.jpeg | The Hidden Princess | Acrylic on Canvas, 24" x 48" |
+| 17 | IMG_6371.jpeg |  |  |
