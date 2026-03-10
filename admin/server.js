@@ -125,8 +125,11 @@ function rebuildPageTitles(data) {
 // ─── Nav updater (for new pages) ─────────────────────────────────────────────
 
 function updateNav(data) {
+  // Read about page title dynamically so nav reflects whatever the admin has set
+  const aboutTitle = readAbout().title || 'About the Artist';
+
   // Build nav link list for each context
-  const homeNavLinks     = [...data.pages.map(p => `  <a href="${p.dir}/">${p.name}</a>`), '  <a href="library/">All</a>', '  <a href="about/">About</a>'].join('\n');
+  const homeNavLinks     = [...data.pages.map(p => `  <a href="${p.dir}/">${p.name}</a>`), '  <a href="library/">All</a>', `  <a href="about/">${aboutTitle}</a>`].join('\n');
   const homeGalleryLinks = [...data.pages.map(p => `  <a class="gallery-link" href="${p.dir}/">${p.name}</a>`), '  <a class="gallery-link" href="library/">All</a>'].join('\n');
 
   // Update home index.html
@@ -141,7 +144,7 @@ function updateNav(data) {
     `  <a href="../">Home</a>`,
     ...data.pages.map(q => `  <a href="../${q.dir}/">${q.name}</a>`),
     `  <a href="../library/" class="active">All</a>`,
-    `  <a href="../about/">About</a>`
+    `  <a href="../about/">${aboutTitle}</a>`
   ].join('\n');
 
   // Update library/index.html nav
@@ -164,21 +167,21 @@ function updateNav(data) {
         `  <a href="../${q.dir}/"${q.id === p.id ? ' class="active"' : ''}>${q.name}</a>`
       ),
       `  <a href="../library/">All</a>`,
-      `  <a href="../about/">About</a>`
+      `  <a href="../about/">${aboutTitle}</a>`
     ].join('\n');
 
     html = html.replace(/(<nav>)([\s\S]*?)(<\/nav>)/, `$1\n${galleryNavLinks}\n$3`);
     fs.writeFileSync(pageFile, html);
   }
 
-  // Update about/index.html nav
+  // Update about/index.html nav (active on About)
   const aboutFile = path.join(GALLERY, 'about', 'index.html');
   if (fs.existsSync(aboutFile)) {
     const aboutNavLinks = [
       `  <a href="../">Home</a>`,
       ...data.pages.map(q => `  <a href="../${q.dir}/">${q.name}</a>`),
       `  <a href="../library/">All</a>`,
-      `  <a href="../about/" class="active">About</a>`
+      `  <a href="../about/" class="active">${aboutTitle}</a>`
     ].join('\n');
     let aboutHtml = fs.readFileSync(aboutFile, 'utf8');
     aboutHtml = aboutHtml.replace(/(<nav>)([\s\S]*?)(<\/nav>)/, `$1\n${aboutNavLinks}\n$3`);
@@ -766,7 +769,7 @@ app.post('/api/about', (req, res) => {
     };
     writeAbout(updated);
 
-    // Update <h1> in about/index.html
+    // Update <h1> and <title> in about/index.html
     const aboutFile = path.join(GALLERY, 'about', 'index.html');
     if (fs.existsSync(aboutFile)) {
       let html = fs.readFileSync(aboutFile, 'utf8');
@@ -774,6 +777,11 @@ app.post('/api/about', (req, res) => {
       html = html.replace(/(<title>)[^<]*(<\/title>)/, `$1${updated.title}$2`);
       fs.writeFileSync(aboutFile, html);
     }
+
+    // Rebuild nav on all pages so the About link text stays in sync
+    const raw  = fs.readFileSync(CONTENT_MD, 'utf8');
+    const data = parseContent(raw);
+    updateNav(data);
 
     res.json({ ok: true });
   } catch (err) {
