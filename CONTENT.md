@@ -67,8 +67,8 @@
 | 6 | IMG_6379.jpeg |  |  |
 | 7 | IMG_6157.heic |  |  |
 | 8 | IMG_6376.jpeg |  |  |
-| 9 | IMG_0725.heic | Th Hidden Princess (Collab with Carter Hackett) |  |
-| 10 | IMG_6370.jpeg | The Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 24" x 48" |
+| 9 | IMG_0725.heic | Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 24" x48" |
+| 10 | IMG_6370.jpeg | Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 24" x 48" |
 | 11 | IMG_6386.jpeg | The Last Bright Conversation | Acrylic on Canvas, 48"x60" |
 | 12 | IMG_6387.jpeg | The Last Bright Conversation | Acrylic on Canvas, 40"x60" |
 | 13 | IMG_6346.jpeg | Wildflowers Don't Care Where They Grow | Acrylic on Canvas. 36" x 36" |
