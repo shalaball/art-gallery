@@ -75,12 +75,11 @@
 | 12 | 8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg | The Last Bright Conversation | Acrylic on Canvas, 48" x 60" |
 | 13 | IMG_6346.jpeg | Wildflowers Don't Care Where They Grow | Acrylic on Canvas. 36" x 36" |
 | 14 | 62009220-FFE9-4148-9A41-C63545910216.png | Wildflowers Don't Care Where They Grow | Acrylic on Canvas. 36" x 36" |
-| 15 | IMG_6369.jpeg | Untitled |  |
-| 16 | IMG_0861-2.jpeg | Untitled |  |
-| 17 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper,  |
-| 18 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper,  |
+| 15 | FullSizeRender.heic | Cobalt Basin | Acrylic on Canvas, 40" x 60" |
+| 16 | IMG_6382.jpeg | Cobalt Basin | Acrylic on Canvas, 40" x 60" |
+| 17 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper, |
+| 18 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper, |
 | 19 | IMG_6452.jpeg | Cyanotype Study # 14 | Cyanotype, "14" x 20" |
-| 20 | FullSizeRender.heic | Cobalt Basin | Acrylic on Canvas, 40" x 60" |
 
 ---
 
