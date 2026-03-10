@@ -13,6 +13,7 @@
 | New Art | New Art | https://shalaball.com/page-1/ |
 | On Display in the San Francisco Bay Area | On Display in the San Francisco Bay Area | https://shalaball.com/page-3/ |
 | On Display in San Diego | On Display in San Diego | https://shalaball.com/page-2/ |
+| All | All | https://shalaball.com/all/ |
 
 ---
 
@@ -78,3 +79,60 @@
 | 17 | IMG_6344.jpeg | Untitled |  |
 | 18 | IMG_6350.jpeg | Untitled |  |
 | 19 | IMG_0019.jpeg | Untitled |  |
+
+---
+
+## All Page (`all/`)
+
+> Layout: Single-column centered, max 720px. Photos display in the order listed. Title and optional description appear below each photo.
+
+| Order | Filename | Title | Description |
+|-------|----------|-------|-------------|
+| 1 | CCEB4742-B019-4881-8737-D6D343421707.jpeg |  |  |
+| 2 | 4A337D8A-B83D-43EE-88E4-0E5619611D8C.jpeg |  |  |
+| 3 | IMG_6387.jpeg |  |  |
+| 4 | IMG_6386.jpeg |  |  |
+| 5 | image (3).png |  |  |
+| 6 | IMG_0725.heic |  |  |
+| 7 | AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg |  |  |
+| 8 | IMG_6157.heic |  |  |
+| 9 | IMG_6376.jpeg |  |  |
+| 10 | IMG_3453-2.jpeg |  |  |
+| 11 | IMG_3424.jpeg |  |  |
+| 12 | IMG_2997.jpeg |  |  |
+| 13 | IMG_6379.jpeg |  |  |
+| 14 | IMG_6371.jpeg |  |  |
+| 15 | IMG_6370.jpeg |  |  |
+| 16 | IMG_3234.jpeg |  |  |
+| 17 | IMG_0019.jpeg |  |  |
+| 18 | IMG_0861-2.jpeg |  |  |
+| 19 | IMG_4195.jpeg |  |  |
+| 20 | IMG_6369.jpeg |  |  |
+| 21 | IMG_3568.jpeg |  |  |
+| 22 | IMG_6146-2.jpeg |  |  |
+| 23 | IMG_6344.jpeg |  |  |
+| 24 | IMG_6350.jpeg |  |  |
+| 25 | IMG_6346.jpeg |  |  |
+| 26 | IMG_3233-2.jpeg |  |  |
+| 27 | IMG_3425.jpeg |  |  |
+| 28 | IMG_3427.jpeg |  |  |
+| 29 | IMG_3453.jpeg |  |  |
+| 30 | IMG_3471.jpeg |  |  |
+| 31 | IMG_3473.jpeg |  |  |
+| 32 | IMG_0570.jpeg |  |  |
+| 33 | IMG_0861.jpeg |  |  |
+| 34 | IMG_3622.jpeg |  |  |
+| 35 | IMG_3792.jpeg |  |  |
+| 36 | IMG_4869.jpeg |  |  |
+| 37 | IMG_6304.jpeg |  |  |
+| 38 | image.jpeg |  |  |
+| 39 | IMG_9358.jpeg |  |  |
+| 40 | IMG_6221.jpeg |  |  |
+| 41 | IMG_6219.jpeg |  |  |
+| 42 | IMG_6201.jpeg |  |  |
+| 43 | IMG_5991.jpeg |  |  |
+| 44 | IMG_3469.jpeg |  |  |
+| 45 | IMG_3233.jpeg |  |  |
+| 46 | IMG_3189.jpeg |  |  |
+| 47 | 92E9922F-C7CC-43F4-91BE-6429FA133B09_1_105_c.jpeg |  |  |
+| 48 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg |  |  |

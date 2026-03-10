@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photo Library</title>
+  <title>All</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,7 +37,7 @@
 
     nav a:first-child { padding-left: 0; }
     nav a + a { border-left: 1px solid #ccc; }
-    nav a:hover { color: #222; }
+    nav a:hover, nav a.active { color: #222; }
 
     header {
       text-align: center;
@@ -73,21 +73,42 @@
       cursor: pointer;
     }
 
+    .gallery.two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem 4rem;
+      padding: 1rem 3rem 6rem;
+      max-width: 1400px;
+      align-items: start;
+    }
+
+    .gallery.two-column .gallery-item {
+      max-width: none;
+    }
+
+    @media (max-width: 768px) {
+      .gallery.two-column {
+        grid-template-columns: 1fr;
+        max-width: 720px;
+        padding: 1rem 2rem 6rem;
+      }
+    }
+
     .img-wrap {
       overflow: hidden;
       line-height: 0;
     }
 
     .gallery-item img {
+      display: block;
       width: 100%;
       height: auto;
-      display: block;
       transition: opacity 0.3s ease;
       opacity: 1;
     }
 
     .gallery-item:hover img {
-      opacity: 0.88;
+      opacity: 0.85;
     }
 
     .caption {
@@ -169,6 +190,7 @@
       color: #bbb;
       font-size: 1.5rem;
       cursor: pointer;
+      letter-spacing: 0.1em;
       font-family: 'Montserrat', sans-serif;
       font-weight: 300;
       transition: color 0.2s;
@@ -204,12 +226,12 @@
   <a href="../page-1/">New Art</a>
   <a href="../page-3/">On Display in the San Francisco Bay Area</a>
   <a href="../page-2/">On Display in San Diego</a>
-  <a href="../all/">All</a>
+  <a href="../all/" class="active">All</a>
   <a href="../about/">About the Artist</a>
 </nav>
 
 <header>
-  <h1>Photo Library</h1>
+  <h1>All</h1>
 </header>
 
 <div class="divider"></div>
@@ -225,7 +247,7 @@
   <div id="lb-counter"></div>
 </div>
 
-<footer>&copy; 2025 Art Gallery</footer>
+<footer>&copy; 2025 Shala Ball</footer>
 
 <script src="labels.js"></script>
 <script>
@@ -234,7 +256,7 @@
     const div = document.createElement('div');
     div.className = 'gallery-item';
     const zoom = (item.zoom && item.zoom !== 1) ? ` style="transform:scale(${item.zoom})"` : '';
-    div.innerHTML = `<div class="img-wrap"><img src="../photos/${item.filename}" loading="lazy" alt="${item.title || item.filename}"${zoom}></div><div class="caption"><div class="title">${item.title || ''}</div><div class="desc">${item.desc || ''}</div></div>`;
+    div.innerHTML = `<div class="img-wrap"><img src="../photos/${item.filename}" loading="lazy" alt="${item.title || ''}"${zoom}></div><div class="caption"><div class="title">${item.title || ''}</div><div class="desc">${item.desc || ''}</div></div>`;
     gallery.appendChild(div);
   });
   const items = Array.from(document.querySelectorAll('.gallery-item'));

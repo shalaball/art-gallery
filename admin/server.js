@@ -129,8 +129,8 @@ function updateNav(data) {
   const aboutTitle = readAbout().title || 'About the Artist';
 
   // Build nav link list for each context
-  const homeNavLinks     = [...data.pages.map(p => `  <a href="${p.dir}/">${p.name}</a>`), '  <a href="library/">All</a>', `  <a href="about/">${aboutTitle}</a>`].join('\n');
-  const homeGalleryLinks = [...data.pages.map(p => `  <a class="gallery-link" href="${p.dir}/">${p.name}</a>`), '  <a class="gallery-link" href="library/">All</a>'].join('\n');
+  const homeNavLinks     = [...data.pages.map(p => `  <a href="${p.dir}/">${p.name}</a>`), `  <a href="about/">${aboutTitle}</a>`].join('\n');
+  const homeGalleryLinks = data.pages.map(p => `  <a class="gallery-link" href="${p.dir}/">${p.name}</a>`).join('\n');
 
   // Update home index.html
   const homeFile = path.join(GALLERY, 'index.html');
@@ -139,11 +139,10 @@ function updateNav(data) {
   homeHtml = homeHtml.replace(/(<div class="gallery-list">)([\s\S]*?)(<\/div>)/, `$1\n${homeGalleryLinks}\n$3`);
   fs.writeFileSync(homeFile, homeHtml);
 
-  // Build shared gallery nav (without active class, used for library page)
+  // Build shared gallery nav (used for library page — library is admin-only, no active item)
   const sharedGalleryNavLinks = [
     `  <a href="../">Home</a>`,
     ...data.pages.map(q => `  <a href="../${q.dir}/">${q.name}</a>`),
-    `  <a href="../library/" class="active">All</a>`,
     `  <a href="../about/">${aboutTitle}</a>`
   ].join('\n');
 
@@ -166,7 +165,6 @@ function updateNav(data) {
       ...data.pages.map(q =>
         `  <a href="../${q.dir}/"${q.id === p.id ? ' class="active"' : ''}>${q.name}</a>`
       ),
-      `  <a href="../library/">All</a>`,
       `  <a href="../about/">${aboutTitle}</a>`
     ].join('\n');
 
@@ -180,7 +178,6 @@ function updateNav(data) {
     const aboutNavLinks = [
       `  <a href="../">Home</a>`,
       ...data.pages.map(q => `  <a href="../${q.dir}/">${q.name}</a>`),
-      `  <a href="../library/">All</a>`,
       `  <a href="../about/" class="active">${aboutTitle}</a>`
     ].join('\n');
     let aboutHtml = fs.readFileSync(aboutFile, 'utf8');
