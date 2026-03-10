@@ -2,7 +2,6 @@
 // To update labels or order, use the admin UI or edit CONTENT.md.
 
 const LABELS = [
-  { filename: "CCEB4742-B019-4881-8737-D6D343421707.jpeg", title: "", desc: "" },
   { filename: "4A337D8A-B83D-43EE-88E4-0E5619611D8C.jpeg", title: "", desc: "" },
   { filename: "IMG_6387.jpeg", title: "", desc: "" },
   { filename: "IMG_6386.jpeg", title: "", desc: "" },
@@ -17,7 +16,6 @@ const LABELS = [
   { filename: "IMG_6379.jpeg", title: "", desc: "" },
   { filename: "IMG_6371.jpeg", title: "", desc: "" },
   { filename: "IMG_6370.jpeg", title: "", desc: "" },
-  { filename: "IMG_3234.jpeg", title: "", desc: "" },
   { filename: "IMG_0019.jpeg", title: "", desc: "" },
   { filename: "IMG_0861-2.jpeg", title: "", desc: "" },
   { filename: "IMG_4195.jpeg", title: "", desc: "" },
