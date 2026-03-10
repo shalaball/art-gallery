@@ -89,6 +89,9 @@ function renderSidebar() {
     </li>
     <li class="${currentPageId === 'library' ? 'active' : ''}" onclick="selectLibrary()">
       <span class="page-icon">⊞</span> Library
+    </li>
+    <li class="${currentPageId === 'about' ? 'active' : ''}" onclick="selectAbout()">
+      <span class="page-icon">✦</span> About the Artist
     </li>`;
   const pageItems = data.pages.map(p => `
     <li class="${p.id === currentPageId ? 'active' : ''}" data-id="${esc(p.id)}" onclick="selectPage('${esc(p.id)}')">
@@ -431,6 +434,122 @@ async function saveHome() {
   }
 }
 
+// ── About page ─────────────────────────────────────────────────────────────────
+
+async function selectAbout() {
+  if (!checkUnsaved()) return;
+  currentPageId = 'about';
+  unsaved = false;
+  renderSidebar();
+  renderEmptyMain('Loading…');
+  try {
+    const res   = await fetch('/api/about');
+    const about = await res.json();
+    renderAboutMain(about);
+  } catch (e) {
+    renderEmptyMain('Failed to load About page: ' + e.message);
+  }
+}
+
+function renderAboutMain(about) {
+  const lbl = `style="display:block;font-size:13px;font-weight:700;color:#aaa;letter-spacing:.07em;text-transform:uppercase;margin-bottom:6px"`;
+  const inp = `style="width:100%;border:1px solid #e0e0e0;border-radius:4px;padding:8px 10px;font-size:16px;font-family:inherit;outline:none;background:#fafafa"`;
+  const photoSrc = about.photo ? `/preview/photos/${esc(about.photo)}?t=${Date.now()}` : '';
+
+  document.getElementById('main').innerHTML = `
+    <div class="page-header">
+      <div class="page-header-left">
+        <h2>About the Artist</h2>
+        <div class="page-sub">Bio, photo, and call-to-action</div>
+      </div>
+    </div>
+
+    <div style="max-width:600px">
+
+      <div style="margin-bottom:24px">
+        <label ${lbl}>Artist Photo</label>
+        <div style="display:flex;align-items:flex-start;gap:16px">
+          <div id="about-photo-preview" style="width:120px;height:150px;background:#e8e8e8;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:12px;color:#aaa">
+            ${photoSrc ? `<img src="${photoSrc}" style="width:100%;height:100%;object-fit:cover" alt="Artist photo">` : 'No photo'}
+          </div>
+          <div>
+            <label class="btn btn-dark btn-sm" style="cursor:pointer;display:inline-block;margin-bottom:8px">
+              Upload Photo
+              <input type="file" accept="image/*" style="display:none" onchange="uploadAboutPhoto(this.files[0])">
+            </label>
+            <div style="font-size:12px;color:#aaa;line-height:1.6">${about.photo ? esc(about.photo) : 'No photo uploaded yet'}</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px">
+        <label ${lbl}>Page Title</label>
+        <input id="about-title" type="text" value="${esc(about.title || 'About the Artist')}" ${inp} oninput="markUnsaved()">
+      </div>
+
+      <div style="margin-bottom:20px">
+        <label ${lbl}>Bio</label>
+        <textarea id="about-bio" rows="12"
+          style="width:100%;border:1px solid #e0e0e0;border-radius:4px;padding:8px 10px;font-size:15px;font-family:inherit;outline:none;background:#fafafa;resize:vertical;line-height:1.6"
+          oninput="markUnsaved()">${esc(about.bio || '')}</textarea>
+        <div style="font-size:12px;color:#aaa;margin-top:4px">Separate paragraphs with a blank line.</div>
+      </div>
+
+      <div style="margin-bottom:32px">
+        <label ${lbl}>Button Text</label>
+        <input id="about-btn-text" type="text" value="${esc(about.buttonText || 'Explore my Gallery')}" ${inp} oninput="markUnsaved()">
+      </div>
+
+    </div>
+
+    <div class="save-bar">
+      <span class="save-status" id="save-status"></span>
+    </div>
+  `;
+  markClean();
+}
+
+async function saveAbout() {
+  const payload = {
+    title:      document.getElementById('about-title').value,
+    bio:        document.getElementById('about-bio').value,
+    buttonText: document.getElementById('about-btn-text').value,
+  };
+  try {
+    const res = await fetch('/api/about', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (res.ok) markClean();
+    else setStatus('Error saving', false, true);
+  } catch (e) {
+    setStatus('Error: ' + e.message, false, true);
+  }
+}
+
+async function uploadAboutPhoto(file) {
+  if (!file) return;
+  const formData = new FormData();
+  formData.append('photo', file);
+  setStatus('Uploading photo…');
+  try {
+    const res    = await fetch('/api/upload-about', { method: 'POST', body: formData });
+    const result = await res.json();
+    if (result.ok) {
+      // Refresh the about editor to show the new photo
+      const aboutRes = await fetch('/api/about');
+      const about    = await aboutRes.json();
+      renderAboutMain(about);
+      setStatus('✓ Photo uploaded', true);
+    } else {
+      setStatus('Upload error: ' + result.error, false, true);
+    }
+  } catch (e) {
+    setStatus('Upload error: ' + e.message, false, true);
+  }
+}
+
 // ── Select page ────────────────────────────────────────────────────────────────
 
 function selectPage(pageId) {
@@ -652,7 +771,7 @@ function initMainDragListeners() {
   const main = document.getElementById('main');
   let dragDepth = 0;
 
-  const isDroppable = () => currentPageId && currentPageId !== 'home';
+  const isDroppable = () => currentPageId && currentPageId !== 'home' && currentPageId !== 'about';
 
   main.addEventListener('dragenter', (e) => {
     if (!isDroppable()) return;
@@ -828,6 +947,7 @@ async function openPreview() {
   window.open(url, '_blank');
 }
 
+
 // ── Push to GitHub ─────────────────────────────────────────────────────────────
 
 async function pushToGithub() {
@@ -893,6 +1013,7 @@ function checkUnsaved() {
 
 function saveCurrentPage() {
   if (currentPageId === 'home') saveHome();
+  else if (currentPageId === 'about') saveAbout();
   else if (currentPageId !== 'library') saveChanges();
 }
 

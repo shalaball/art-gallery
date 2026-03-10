@@ -7,7 +7,7 @@ const path         = require('path');
 const { exec } = require('child_process');
 
 const app        = express();
-const PORT       = 3000;
+const PORT       = process.env.PORT || 3000;
 // When running as a packaged Electron app, __dirname points inside the .app bundle.
 // electron-main.js sets GALLERY_DIR to the actual art-gallery folder in that case.
 const GALLERY    = process.env.GALLERY_DIR || path.resolve(__dirname, '..');
@@ -126,7 +126,7 @@ function rebuildPageTitles(data) {
 
 function updateNav(data) {
   // Build nav link list for each context
-  const homeNavLinks     = [...data.pages.map(p => `  <a href="${p.dir}/">${p.name}</a>`), '  <a href="library/">All</a>'].join('\n');
+  const homeNavLinks     = [...data.pages.map(p => `  <a href="${p.dir}/">${p.name}</a>`), '  <a href="library/">All</a>', '  <a href="about/">About</a>'].join('\n');
   const homeGalleryLinks = [...data.pages.map(p => `  <a class="gallery-link" href="${p.dir}/">${p.name}</a>`), '  <a class="gallery-link" href="library/">All</a>'].join('\n');
 
   // Update home index.html
@@ -140,7 +140,8 @@ function updateNav(data) {
   const sharedGalleryNavLinks = [
     `  <a href="../">Home</a>`,
     ...data.pages.map(q => `  <a href="../${q.dir}/">${q.name}</a>`),
-    `  <a href="../library/" class="active">All</a>`
+    `  <a href="../library/" class="active">All</a>`,
+    `  <a href="../about/">About</a>`
   ].join('\n');
 
   // Update library/index.html nav
@@ -162,11 +163,26 @@ function updateNav(data) {
       ...data.pages.map(q =>
         `  <a href="../${q.dir}/"${q.id === p.id ? ' class="active"' : ''}>${q.name}</a>`
       ),
-      `  <a href="../library/">All</a>`
+      `  <a href="../library/">All</a>`,
+      `  <a href="../about/">About</a>`
     ].join('\n');
 
     html = html.replace(/(<nav>)([\s\S]*?)(<\/nav>)/, `$1\n${galleryNavLinks}\n$3`);
     fs.writeFileSync(pageFile, html);
+  }
+
+  // Update about/index.html nav
+  const aboutFile = path.join(GALLERY, 'about', 'index.html');
+  if (fs.existsSync(aboutFile)) {
+    const aboutNavLinks = [
+      `  <a href="../">Home</a>`,
+      ...data.pages.map(q => `  <a href="../${q.dir}/">${q.name}</a>`),
+      `  <a href="../library/">All</a>`,
+      `  <a href="../about/" class="active">About</a>`
+    ].join('\n');
+    let aboutHtml = fs.readFileSync(aboutFile, 'utf8');
+    aboutHtml = aboutHtml.replace(/(<nav>)([\s\S]*?)(<\/nav>)/, `$1\n${aboutNavLinks}\n$3`);
+    fs.writeFileSync(aboutFile, aboutHtml);
   }
 }
 
@@ -199,6 +215,10 @@ function getAllHtmlFiles() {
     const f = path.join(GALLERY, p.dir, 'index.html');
     if (fs.existsSync(f)) files.push(f);
   }
+  const libraryFile = path.join(GALLERY, 'library', 'index.html');
+  if (fs.existsSync(libraryFile)) files.push(libraryFile);
+  const aboutFile = path.join(GALLERY, 'about', 'index.html');
+  if (fs.existsSync(aboutFile)) files.push(aboutFile);
   return files;
 }
 
@@ -698,6 +718,90 @@ app.post('/api/library/assign', (req, res) => {
 
     res.json({ ok: true });
   } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ─── About page ───────────────────────────────────────────────────────────────
+
+const ABOUT_JS = path.join(GALLERY, 'about', 'about.js');
+
+function readAbout() {
+  if (!fs.existsSync(ABOUT_JS)) {
+    return { photo: '', title: 'About the Artist', bio: '', buttonText: 'Explore my Gallery' };
+  }
+  const src = fs.readFileSync(ABOUT_JS, 'utf8');
+  const photo      = (src.match(/photo:\s*"([^"]*)"/)      || [])[1] || '';
+  const title      = (src.match(/title:\s*"([^"]*)"/)      || [])[1] || 'About the Artist';
+  const buttonText = (src.match(/buttonText:\s*"([^"]*)"/) || [])[1] || 'Explore my Gallery';
+  const bioMatch   = src.match(/bio:\s*"([\s\S]*?)",\n\s+buttonText/);
+  const bio        = bioMatch ? bioMatch[1].replace(/\\n/g, '\n') : '';
+  return { photo, title, bio, buttonText };
+}
+
+function writeAbout(about) {
+  const escapedBio = (about.bio || '').replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n');
+  const content =
+`// About page data — edit via admin UI or directly here.\n\nconst ABOUT = {\n  photo: ${JSON.stringify(about.photo || '')},\n  title: ${JSON.stringify(about.title || 'About the Artist')},\n  bio: "${escapedBio}",\n  buttonText: ${JSON.stringify(about.buttonText || 'Explore my Gallery')}\n};\n`;
+  fs.writeFileSync(ABOUT_JS, content);
+}
+
+app.get('/api/about', (req, res) => {
+  try {
+    res.json(readAbout());
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/api/about', (req, res) => {
+  try {
+    const { photo, title, bio, buttonText } = req.body;
+    const current = readAbout();
+    const updated = {
+      photo:      photo      !== undefined ? photo      : current.photo,
+      title:      title      !== undefined ? title      : current.title,
+      bio:        bio        !== undefined ? bio        : current.bio,
+      buttonText: buttonText !== undefined ? buttonText : current.buttonText,
+    };
+    writeAbout(updated);
+
+    // Update <h1> in about/index.html
+    const aboutFile = path.join(GALLERY, 'about', 'index.html');
+    if (fs.existsSync(aboutFile)) {
+      let html = fs.readFileSync(aboutFile, 'utf8');
+      html = html.replace(/(<h1[^>]*>)[^<]*(<\/h1>)/, `$1${updated.title}$2`);
+      html = html.replace(/(<title>)[^<]*(<\/title>)/, `$1${updated.title}$2`);
+      fs.writeFileSync(aboutFile, html);
+    }
+
+    res.json({ ok: true });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/api/upload-about', upload.single('photo'), async (req, res) => {
+  try {
+    if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
+    const filename = uniqueLibraryFilename(req.file.originalname);
+    const dest     = path.join(GALLERY, 'photos', filename);
+    const input    = await toSharpInput(req.file.path);
+    await sharp(input)
+      .rotate()
+      .resize({ width: 2000, height: 2000, fit: 'inside', withoutEnlargement: true })
+      .jpeg({ quality: 85 })
+      .toFile(dest);
+    fs.unlinkSync(req.file.path);
+
+    // Save filename to about.js
+    const current = readAbout();
+    writeAbout({ ...current, photo: filename });
+
+    rebuildLibraryLabels();
+    res.json({ ok: true, filename });
+  } catch (err) {
+    if (req.file) try { fs.unlinkSync(req.file.path); } catch (_) {}
     res.status(500).json({ error: err.message });
   }
 });

@@ -1,0 +1,13 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Art Gallery Admin",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["server.js"],
+      "cwd": "admin",
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}
