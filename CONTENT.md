@@ -61,27 +61,26 @@
 
 | Order | Filename | Title | Description |
 |-------|----------|-------|-------------|
-| 1 | IMG_2997.jpeg | Storm on the Sea |  |
-| 2 | IMG_6371.jpeg |  |  |
-| 3 | IMG_3424.jpeg | Untitled 4 |  |
-| 4 | IMG_3469.jpeg | Untitled 5 |  |
-| 5 | IMG_3453-2.jpeg | Untitled |  |
-| 6 | IMG_6379.jpeg |  |  |
-| 7 | IMG_6157.heic |  |  |
-| 8 | IMG_6376.jpeg |  |  |
-| 9 | IMG_0725.heic | Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 24" x48" |
+| 1 | IMG_6410-2.jpeg | Too Wild for Still Water | Acrylic on Canvas, 48" x 60" |
+| 2 | IMG_6371.jpeg | Too Wild for Still Water | Acrylic on Canvas, 48" x 60" |
+| 3 | 3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg | Amber Passage | Acrylic on Canvas, 40" x 60" |
+| 4 | IMG_6463.jpeg | Amber Passage | Acrylic on Canvas, 40" x 60" |
+| 5 | IMG_6418.jpeg | Fire Mother | Acrylic on Canvas, 40" x 60" |
+| 6 | IMG_6379.jpeg | Fire Mother | Acrylic on Canvas, 40" x 60" |
+| 7 | IMG_6157.heic | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
+| 8 | IMG_6376.jpeg | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
+| 9 | IMG_0725.heic | Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 24" x 48" |
 | 10 | IMG_6370.jpeg | Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 24" x 48" |
-| 11 | IMG_6386.jpeg | The Last Bright Conversation | Acrylic on Canvas, 48"x60" |
-| 12 | IMG_6387.jpeg | The Last Bright Conversation | Acrylic on Canvas, 40"x60" |
+| 11 | IMG_6386.jpeg | The Last Bright Conversation | Acrylic on Canvas, 48" x 60" |
+| 12 | 8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg | The Last Bright Conversation | Acrylic on Canvas, 48" x 60" |
 | 13 | IMG_6346.jpeg | Wildflowers Don't Care Where They Grow | Acrylic on Canvas. 36" x 36" |
-| 14 | 4A337D8A-B83D-43EE-88E4-0E5619611D8C.jpeg | Wildflowers Don't Care Where They Grow | Acrylic on Canvas, 36" x 36" |
+| 14 | 62009220-FFE9-4148-9A41-C63545910216.png | Wildflowers Don't Care Where They Grow | Acrylic on Canvas. 36" x 36" |
 | 15 | IMG_6369.jpeg | Untitled |  |
 | 16 | IMG_0861-2.jpeg | Untitled |  |
-| 17 | IMG_6344.jpeg | Untitled |  |
-| 18 | IMG_6350.jpeg | Untitled |  |
-| 19 | IMG_0019.jpeg | Untitled |  |
-| 20 | IMG_6410.jpeg |  |  |
-| 21 | IMG_6410-2.jpeg |  |  |
+| 17 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper,  |
+| 18 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper,  |
+| 19 | IMG_6452.jpeg | Cyanotype Study # 14 | Cyanotype, "14" x 20" |
+| 20 | FullSizeRender.heic | Cobalt Basin | Acrylic on Canvas, 40" x 60" |
 
 ---
 
