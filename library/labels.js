@@ -1,6 +1,10 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
+  { filename: "4A337D8A-B83D-43EE-88E4-0E5619611D8C.jpeg", title: "", desc: "" },
+  { filename: "IMG_6387.jpeg", title: "", desc: "" },
+  { filename: "IMG_6386.jpeg", title: "", desc: "" },
+  { filename: "image (3).png", title: "", desc: "" },
   { filename: "IMG_0725.heic", title: "", desc: "" },
   { filename: "AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg", title: "", desc: "" },
   { filename: "IMG_6157.heic", title: "", desc: "" },

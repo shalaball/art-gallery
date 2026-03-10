@@ -31,6 +31,7 @@
 | 7 | IMG_9358.jpeg | Untitled 6 |  |
 | 8 | image.jpeg | Untitled |  |
 | 9 | IMG_6221.jpeg |  |  |
+| 10 | image (3).png |  |  |
 
 ---
 
@@ -62,17 +63,18 @@
 | 2 | IMG_6371.jpeg |  |  |
 | 3 | IMG_3424.jpeg | Untitled 4 |  |
 | 4 | IMG_3469.jpeg | Untitled 5 |  |
-| 5 | IMG_3233.jpeg | Duane |  |
-| 6 | IMG_3234.jpeg | Untitled |  |
-| 7 | IMG_6346.jpeg | Untitled |  |
-| 8 | IMG_6344.jpeg | Untitled |  |
-| 9 | IMG_3453-2.jpeg | Untitled |  |
-| 10 | IMG_6379.jpeg |  |  |
-| 11 | IMG_6157.heic |  |  |
-| 12 | IMG_6376.jpeg |  |  |
-| 13 | IMG_6369.jpeg | Untitled |  |
-| 14 | IMG_0861-2.jpeg | Untitled |  |
-| 15 | IMG_6350.jpeg | Untitled |  |
-| 16 | IMG_0019.jpeg | Untitled |  |
-| 17 | IMG_0725.heic | Th Hidden Princess (Collab with Carter Hackett) |  |
-| 18 | IMG_6370.jpeg | The Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 24" x 48" |
+| 5 | IMG_3453-2.jpeg | Untitled |  |
+| 6 | IMG_6379.jpeg |  |  |
+| 7 | IMG_6157.heic |  |  |
+| 8 | IMG_6376.jpeg |  |  |
+| 9 | IMG_0725.heic | Th Hidden Princess (Collab with Carter Hackett) |  |
+| 10 | IMG_6370.jpeg | The Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 24" x 48" |
+| 11 | IMG_6386.jpeg | The Last Bright Conversation | Acrylic on Canvas, 48"x60" |
+| 12 | IMG_6387.jpeg | The Last Bright Conversation | Acrylic on Canvas, 40"x60" |
+| 13 | IMG_6346.jpeg | Untitled |  |
+| 14 | 4A337D8A-B83D-43EE-88E4-0E5619611D8C.jpeg | Untitled |  |
+| 15 | IMG_6369.jpeg | Untitled |  |
+| 16 | IMG_0861-2.jpeg | Untitled |  |
+| 17 | IMG_6344.jpeg | Untitled |  |
+| 18 | IMG_6350.jpeg | Untitled |  |
+| 19 | IMG_0019.jpeg | Untitled |  |
