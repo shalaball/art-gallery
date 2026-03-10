@@ -4,6 +4,10 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ADMIN_DIR="$SCRIPT_DIR/admin"
 
+# Pull latest changes from GitHub
+echo "Syncing with GitHub..."
+git -C "$SCRIPT_DIR" pull --rebase
+
 # Kill any running server
 pkill -f "node server.js" 2>/dev/null
 sleep 0.5
