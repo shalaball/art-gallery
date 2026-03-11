@@ -91,19 +91,19 @@
 
 | Order | Filename | Title | Description |
 |-------|----------|-------|-------------|
-| 1 | IMG_6386.jpeg |  |  |
-| 2 | image (3).png |  |  |
-| 3 | IMG_0725.heic |  |  |
+| 1 | IMG_6386.jpeg | The Last Bright Conversation | Acrylic on Canvas, 60" x 48" |
+| 2 | image (3).png |  | Acrylic on Canvas, 60" x 40" |
+| 3 | IMG_0725.heic | Hidden Princess (Collab With Carter Hackett | Acrylic on Canvas, 48" x 24" |
 | 4 | AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg |  |  |
-| 5 | IMG_6157.heic |  |  |
-| 6 | IMG_6376.jpeg |  |  |
-| 7 | IMG_6379.jpeg |  |  |
-| 8 | IMG_6371.jpeg |  |  |
-| 9 | IMG_6370.jpeg |  |  |
+| 5 | IMG_6157.heic |  | Acrylic on Canvas, 40" x 60" |
+| 6 | IMG_6376.jpeg |  | Acrylic on Canvas, 40" x 60" |
+| 7 | IMG_6379.jpeg |  | Acrylic on Canvas, 60" x 40" |
+| 8 | IMG_6371.jpeg |  | Acrylic on Canvas, 60" x 48" |
+| 9 | IMG_6370.jpeg | Hidden Princess (Collab With Carter Hackett | Acrylic on Canvas, 48" x 24" |
 | 10 | IMG_0861-2.jpeg |  |  |
 | 11 | IMG_4195.jpeg |  |  |
 | 12 | IMG_6369.jpeg |  |  |
-| 13 | IMG_3568.jpeg |  |  |
+| 13 | IMG_3568.jpeg |  | Acrylic on Canvas, 60" x 40" |
 | 14 | IMG_6344.jpeg |  |  |
 | 15 | IMG_6350.jpeg |  |  |
 | 16 | IMG_6346.jpeg |  |  |
@@ -112,20 +112,17 @@
 | 19 | IMG_0570.jpeg |  |  |
 | 20 | IMG_0861.jpeg |  |  |
 | 21 | IMG_3622.jpeg |  |  |
-| 22 | IMG_3792.jpeg |  |  |
-| 23 | IMG_4869.jpeg |  |  |
-| 24 | IMG_6304.jpeg |  |  |
-| 25 | image.jpeg |  |  |
-| 26 | IMG_9358.jpeg |  |  |
-| 27 | IMG_6221.jpeg |  |  |
-| 28 | IMG_6219.jpeg |  |  |
-| 29 | IMG_6201.jpeg |  |  |
-| 30 | IMG_5991.jpeg |  |  |
-| 31 | IMG_3469.jpeg |  |  |
-| 32 | IMG_3233.jpeg |  |  |
-| 33 | IMG_3189.jpeg |  |  |
-| 34 | 92E9922F-C7CC-43F4-91BE-6429FA133B09_1_105_c.jpeg |  |  |
-| 35 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg |  |  |
+| 22 | IMG_4869.jpeg |  |  |
+| 23 | IMG_6304.jpeg |  |  |
+| 24 | image.jpeg |  | Acrylic on Canvas, 60" x 48" |
+| 25 | IMG_9358.jpeg |  |  |
+| 26 | IMG_6221.jpeg |  |  |
+| 27 | IMG_6219.jpeg |  |  |
+| 28 | IMG_6201.jpeg |  |  |
+| 29 | IMG_5991.jpeg | Greenland's House | Acrylic Ink on Paper, 8" x 10" |
+| 30 | IMG_3189.jpeg |  | Acrylic on Canvas, 60" x 48" |
+| 31 | 92E9922F-C7CC-43F4-91BE-6429FA133B09_1_105_c.jpeg | Helix Becoming | Acrylic on Canvas, 24" x 48" |
+| 32 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage |
 
 ---
 
