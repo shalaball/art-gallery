@@ -42,16 +42,16 @@
 
 | Order | Filename | Title | Description |
 |-------|----------|-------|-------------|
-| 1 | IMG_6046.jpeg | Helix Becoming | Acrylic on Canvas, 24" x 48" |
+| 1 | IMG_6046.jpeg | Helix Becoming | Acrylic on Canvas, 48" x 24" |
 | 2 | IMG_6201.jpeg | When the River Became Two | Acrylic on Canvas, Diptych 36"x36" |
 | 3 | IMG_6221.jpeg | Strata I - III | Paper |
 | 4 | IMG_5991.jpeg | Greenland's House | Acrylic Ink on Paper, 5"x7" |
-| 5 | IMG_6219.jpeg | Etude #12 | Acrylic on Canvas, 11"x14" |
-| 6 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage, 11"x14" |
+| 5 | IMG_6219.jpeg | Etude #12 | Acrylic on Canvas, 14"x11" |
+| 6 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage, 14"x11" |
 | 7 | IMG_0570.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
 | 8 | AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
 | 9 | IMG_0861-2.jpeg |  |  |
-| 10 | IMG_4195.jpeg | Upon Reflection | Acrylic on Canvas, 11" x14" |
+| 10 | IMG_4195.jpeg | Upon Reflection | Acrylic on Canvas, 14" x11" |
 
 ---
 
@@ -61,27 +61,27 @@
 
 | Order | Filename | Title | Description |
 |-------|----------|-------|-------------|
-| 1 | IMG_6410-2.jpeg | Too Wild for Still Water | Acrylic on Canvas, 48" x 60" |
-| 2 | IMG_6371.jpeg | Too Wild for Still Water | Acrylic on Canvas, 48" x 60" |
-| 3 | 3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg | Amber Passage | Acrylic on Canvas, 40" x 60" |
-| 4 | IMG_6463.jpeg | Amber Passage | Acrylic on Canvas, 40" x 60" |
-| 5 | IMG_6418.jpeg | Fire Mother | Acrylic on Canvas, 40" x 60" |
-| 6 | IMG_6379.jpeg | Fire Mother | Acrylic on Canvas, 40" x 60" |
+| 1 | IMG_6410-2.jpeg | Too Wild for Still Water | Acrylic on Canvas, 60" x 48" |
+| 2 | IMG_6371.jpeg | Too Wild for Still Water | Acrylic on Canvas, 60" x 48" |
+| 3 | 3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg | Amber Passage | Acrylic on Canvas, 60" x 40" |
+| 4 | IMG_6463.jpeg | Amber Passage | Acrylic on Canvas, 60" x 40" |
+| 5 | IMG_6418.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
+| 6 | IMG_6379.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
 | 7 | IMG_6157.heic | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
 | 8 | IMG_6376.jpeg | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
-| 9 | IMG_0725.heic | Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 24" x 48" |
-| 10 | IMG_6370.jpeg | Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 24" x 48" |
-| 11 | IMG_6386.jpeg | The Last Bright Conversation | Acrylic on Canvas, 48" x 60" |
-| 12 | 8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg | The Last Bright Conversation | Acrylic on Canvas, 48" x 60" |
-| 13 | IMG_6346.jpeg | Wildflowers Don't Care Where They Grow | Acrylic on Canvas. 36" x 36" |
-| 14 | 62009220-FFE9-4148-9A41-C63545910216.png | Wildflowers Don't Care Where They Grow | Acrylic on Canvas. 36" x 36" |
-| 15 | FullSizeRender.heic | Cobalt Basin | Acrylic on Canvas, 40" x 60" |
-| 16 | IMG_6382.jpeg | Cobalt Basin | Acrylic on Canvas, 40" x 60" |
+| 9 | IMG_0725.heic | Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 48" x 24" |
+| 10 | IMG_6370.jpeg | Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 48" x 24" |
+| 11 | IMG_6386.jpeg | The Last Bright Conversation | Acrylic on Canvas, 60" x 48" |
+| 12 | 8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg | The Last Bright Conversation | Acrylic on Canvas, 60" x 48" |
+| 13 | IMG_6346.jpeg | Wildflowers Don't Care Where They Grow | Acrylic on Canvas, 36" x 36" |
+| 14 | 62009220-FFE9-4148-9A41-C63545910216.png | Wildflowers Don't Care Where They Grow | Acrylic on Canvas, 36" x 36" |
+| 15 | FullSizeRender.heic | Cobalt Basin | Acrylic on Canvas, 60" x 40" |
+| 16 | IMG_6382.jpeg | Cobalt Basin | Acrylic on Canvas, 60" x 40" |
 | 17 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper, |
 | 18 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper, |
-| 19 | IMG_3473.jpeg |  |  |
-| 20 | IMG_3471.jpeg |  |  |
-| 21 | IMG_6452.jpeg | Cyanotype Study # 14 | Cyanotype, "14" x 20" |
+| 19 | IMG_3473.jpeg | Verdant Arc | Acrylic on Canvas, 36" x 24" |
+| 20 | IMG_3471.jpeg | Verdant Bloom | Acrylic on Canvas, 36" x 24" |
+| 21 | IMG_6452.jpeg | Cyanotype Study #8 | Cyanotype, 20" x 14" |
 
 ---
 
