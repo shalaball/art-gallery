@@ -77,8 +77,8 @@
 | 12 | 8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg | The Last Bright Conversation | Acrylic on Canvas, 60" x 48" |
 | 13 | IMG_6346.jpeg | Wildflowers Don't Care Where They Grow | Acrylic on Canvas, 36" x 36" |
 | 14 | 62009220-FFE9-4148-9A41-C63545910216.png | Wildflowers Don't Care Where They Grow | Acrylic on Canvas, 36" x 36" |
-| 15 | FullSizeRender.heic | Cobalt Canyon / RiverDance | Acrylic on Canvas, 60" x 40" |
-| 16 | IMG_6382.jpeg | Cobalt Canyon / RiverDance | Acrylic on Canvas, 60" x 40" |
+| 15 | FullSizeRender.heic | Cobalt Canyon | Acrylic on Canvas, 60" x 40" |
+| 16 | IMG_6382.jpeg | Cobalt Canyon | Acrylic on Canvas, 60" x 40" |
 | 17 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper, |
 | 18 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper, |
 | 19 | IMG_3473.jpeg | Verdant Arc | Acrylic on Canvas, 36" x 24" |
@@ -110,8 +110,8 @@
 | 14 | IMG_6379.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
 | 15 | IMG_6346.jpeg | Wildflowers Don't Care Where They Grow | Acrylic on Canvas, 36" x 36" |
 | 16 | 62009220-FFE9-4148-9A41-C63545910216.png | Wildflowers Don't Care Where They Grow |  |
-| 17 | FullSizeRender.heic | Cobalt Canyon / RiverDance | Acrylic on Canvas, 60" x 40" |
-| 18 | IMG_3568.jpeg | Cobalt Canyon / RiverDance | Acrylic on Canvas, 60" x 40" |
+| 17 | FullSizeRender.heic | Cobalt Canyon  | Acrylic on Canvas, 60" x 40" |
+| 18 | IMG_3568.jpeg | Cobalt Canyon | Acrylic on Canvas, 60" x 40" |
 | 19 | IMG_3473.jpeg | Verdant Arc | Acrylic on Canvas, 24" x 36" |
 | 20 | IMG_3471.jpeg | Verdant Bloom | Acrylic on Canvas, 24" x 36" |
 | 21 | IMG_0570.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4" x 6" |
