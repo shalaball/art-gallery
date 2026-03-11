@@ -34,6 +34,7 @@
 | 8 | image.jpeg | Untitled |  |
 | 9 | IMG_6221.jpeg |  |  |
 | 10 | image (3).png |  |  |
+| 11 | IMG_6046.jpeg |  |  |
 
 ---
 
@@ -43,15 +44,16 @@
 
 | Order | Filename | Title | Description |
 |-------|----------|-------|-------------|
-| 1 | 92E9922F-C7CC-43F4-91BE-6429FA133B09_1_105_c.jpeg | Helix Becoming | Acrylic on Canvas, 24"x48" |
-| 2 | IMG_5991.jpeg | Greenland's House | Acrylic Ink on Paper, 5"x7" |
-| 3 | IMG_6219.jpeg | Etude #1 | Acrylic on Canvas, 11"x14" |
-| 4 | IMG_6221.jpeg | Strata I - III | Paper |
-| 5 | IMG_6201.jpeg | When the River Became Two | Acrylic on Canvas, Diptych 36"x36" |
+| 1 | IMG_6046.jpeg | Helix Becoming | Acrylic on Canvas, 24" x 48" |
+| 2 | IMG_6201.jpeg | When the River Became Two | Acrylic on Canvas, Diptych 36"x36" |
+| 3 | IMG_6221.jpeg | Strata I - III | Paper |
+| 4 | IMG_5991.jpeg | Greenland's House | Acrylic Ink on Paper, 5"x7" |
+| 5 | IMG_6219.jpeg | Etude #12 | Acrylic on Canvas, 11"x14" |
 | 6 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage, 11"x14" |
-| 7 | IMG_0861-2.jpeg |  |  |
-| 8 | IMG_0570.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
-| 9 | AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
+| 7 | IMG_0570.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
+| 8 | AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
+| 9 | IMG_0861-2.jpeg |  |  |
+| 10 | IMG_4195.jpeg |  |  |
 
 ---
 
@@ -89,52 +91,43 @@
 
 | Order | Filename | Title | Description |
 |-------|----------|-------|-------------|
-| 1 | 4A337D8A-B83D-43EE-88E4-0E5619611D8C.jpeg |  |  |
-| 2 | IMG_6387.jpeg |  |  |
-| 3 | IMG_6386.jpeg |  |  |
-| 4 | image (3).png |  |  |
-| 5 | IMG_0725.heic |  |  |
-| 6 | AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg |  |  |
-| 7 | IMG_6157.heic |  |  |
-| 8 | IMG_6376.jpeg |  |  |
-| 9 | IMG_3453-2.jpeg |  |  |
-| 10 | IMG_3424.jpeg |  |  |
-| 11 | IMG_2997.jpeg |  |  |
-| 12 | IMG_6379.jpeg |  |  |
-| 13 | IMG_6371.jpeg |  |  |
-| 14 | IMG_6370.jpeg |  |  |
-| 15 | IMG_0019.jpeg |  |  |
-| 16 | IMG_0861-2.jpeg |  |  |
-| 17 | IMG_4195.jpeg |  |  |
-| 18 | IMG_6369.jpeg |  |  |
-| 19 | IMG_3568.jpeg |  |  |
-| 20 | IMG_6146-2.jpeg |  |  |
-| 21 | IMG_6344.jpeg |  |  |
-| 22 | IMG_6350.jpeg |  |  |
-| 23 | IMG_6346.jpeg |  |  |
-| 24 | IMG_3233-2.jpeg |  |  |
-| 25 | IMG_3425.jpeg |  |  |
-| 26 | IMG_3427.jpeg |  |  |
-| 27 | IMG_3453.jpeg |  |  |
-| 28 | IMG_3471.jpeg |  |  |
-| 29 | IMG_3473.jpeg |  |  |
-| 30 | IMG_0570.jpeg |  |  |
-| 31 | IMG_0861.jpeg |  |  |
-| 32 | IMG_3622.jpeg |  |  |
-| 33 | IMG_3792.jpeg |  |  |
-| 34 | IMG_4869.jpeg |  |  |
-| 35 | IMG_6304.jpeg |  |  |
-| 36 | image.jpeg |  |  |
-| 37 | IMG_9358.jpeg |  |  |
-| 38 | IMG_6221.jpeg |  |  |
-| 39 | IMG_6219.jpeg |  |  |
-| 40 | IMG_6201.jpeg |  |  |
-| 41 | IMG_5991.jpeg |  |  |
-| 42 | IMG_3469.jpeg |  |  |
-| 43 | IMG_3233.jpeg |  |  |
-| 44 | IMG_3189.jpeg |  |  |
-| 45 | 92E9922F-C7CC-43F4-91BE-6429FA133B09_1_105_c.jpeg |  |  |
-| 46 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg |  |  |
+| 1 | IMG_6386.jpeg |  |  |
+| 2 | image (3).png |  |  |
+| 3 | IMG_0725.heic |  |  |
+| 4 | AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg |  |  |
+| 5 | IMG_6157.heic |  |  |
+| 6 | IMG_6376.jpeg |  |  |
+| 7 | IMG_6379.jpeg |  |  |
+| 8 | IMG_6371.jpeg |  |  |
+| 9 | IMG_6370.jpeg |  |  |
+| 10 | IMG_0861-2.jpeg |  |  |
+| 11 | IMG_4195.jpeg |  |  |
+| 12 | IMG_6369.jpeg |  |  |
+| 13 | IMG_3568.jpeg |  |  |
+| 14 | IMG_6344.jpeg |  |  |
+| 15 | IMG_6350.jpeg |  |  |
+| 16 | IMG_6346.jpeg |  |  |
+| 17 | IMG_3425.jpeg |  |  |
+| 18 | IMG_3427.jpeg |  |  |
+| 19 | IMG_3471.jpeg |  |  |
+| 20 | IMG_3473.jpeg |  |  |
+| 21 | IMG_0570.jpeg |  |  |
+| 22 | IMG_0861.jpeg |  |  |
+| 23 | IMG_3622.jpeg |  |  |
+| 24 | IMG_3792.jpeg |  |  |
+| 25 | IMG_4869.jpeg |  |  |
+| 26 | IMG_6304.jpeg |  |  |
+| 27 | image.jpeg |  |  |
+| 28 | IMG_9358.jpeg |  |  |
+| 29 | IMG_6221.jpeg |  |  |
+| 30 | IMG_6219.jpeg |  |  |
+| 31 | IMG_6201.jpeg |  |  |
+| 32 | IMG_5991.jpeg |  |  |
+| 33 | IMG_3469.jpeg |  |  |
+| 34 | IMG_3233.jpeg |  |  |
+| 35 | IMG_3189.jpeg |  |  |
+| 36 | 92E9922F-C7CC-43F4-91BE-6429FA133B09_1_105_c.jpeg |  |  |
+| 37 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg |  |  |
 
 ---
 
