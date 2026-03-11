@@ -20,5 +20,7 @@ const LABELS = [
   { filename: "IMG_6382.jpeg", title: "Cobalt Basin", desc: "Acrylic on Canvas, 40\" x 60\"" },
   { filename: "IMG_6344.jpeg", title: "Simple Song", desc: "Alcohol Ink on Yupo Paper," },
   { filename: "IMG_6350.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper," },
+  { filename: "IMG_3473.jpeg", title: "", desc: "" },
+  { filename: "IMG_3471.jpeg", title: "", desc: "" },
   { filename: "IMG_6452.jpeg", title: "Cyanotype Study # 14", desc: "Cyanotype, \"14\" x 20\"" },
 ];
