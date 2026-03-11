@@ -11,6 +11,6 @@ const LABELS = [
   { filename: "IMG_0570.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x6\"" },
   { filename: "AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x6\"" },
   { filename: "22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg", title: "Saturday on the F", desc: "Photo Collage, 14\"x11\"" },
-  { filename: "IMG_0861-2.jpeg", title: "Untitled", desc: "Acrylic on Canvas, 36\" x 36\"" },
+  { filename: "IMG_0861-2.jpeg", title: "Moss Over Iron", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "IMG_4195.jpeg", title: "Upon Reflection", desc: "Acrylic on Canvas, 14\" x11\"" },
 ];

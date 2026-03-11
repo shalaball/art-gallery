@@ -51,7 +51,7 @@
 | 7 | IMG_0570.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
 | 8 | AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
 | 9 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage, 14"x11" |
-| 10 | IMG_0861-2.jpeg | Untitled | Acrylic on Canvas, 36" x 36" |
+| 10 | IMG_0861-2.jpeg | Moss Over Iron | Acrylic on Canvas, 36" x 36" |
 | 11 | IMG_4195.jpeg | Upon Reflection | Acrylic on Canvas, 14" x11" |
 
 ---
@@ -119,16 +119,15 @@
 | 24 | IMG_4195.jpeg | Upon Reflection | Acrylic on Canvas, 14" x 11" |
 | 25 | IMG_9358.jpeg | Strata I - III | Paper Series |
 | 26 | IMG_6221.jpeg | Strata I - III | Paper Series |
-| 27 | IMG_0861.jpeg |  |  |
-| 28 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper |
-| 29 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper |
-| 30 | IMG_3622.jpeg |  |  |
-| 31 | IMG_4869.jpeg | Untitled | Ink on Paper Collage |
-| 32 | IMG_6369.jpeg | Triana | Acrylic on Paper |
-| 33 | IMG_5991.jpeg | Greenland's House | Acrylic Ink on Paper, 8" x 10" |
-| 34 | 92E9922F-C7CC-43F4-91BE-6429FA133B09_1_105_c.jpeg | Helix Becoming | Acrylic on Canvas, 24" x 48" |
-| 35 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage |
-| 36 | IMG_6452.jpeg | Paper Tiles | Cyanotype on Paper, 20" x 14" |
+| 27 | IMG_5991.jpeg | Greenland's House | Acrylic Ink on Paper, 8" x 10" |
+| 28 | IMG_0861.jpeg | Moss Over Iron | Acrylic on Canvas, 36" x 36" |
+| 29 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper |
+| 30 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper |
+| 31 | IMG_3622.jpeg | Catalonian Dream | Ink on Paper |
+| 32 | IMG_4869.jpeg | Untitled | Ink on Paper Collage |
+| 33 | IMG_6369.jpeg | Triana District | Acrylic on Paper |
+| 34 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage |
+| 35 | IMG_6452.jpeg | Paper Tiles | Cyanotype on Paper, 20" x 14" |
 
 ---
 
