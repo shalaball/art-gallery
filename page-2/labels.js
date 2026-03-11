@@ -7,7 +7,7 @@ const LABELS = [
   { filename: "3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg", title: "Paper Planes / No Borders", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "IMG_6463.jpeg", title: "Paper Planes / No Borders", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "IMG_6418.jpeg", title: "Fire Mother", desc: "Acrylic on Canvas, 60\" x 40\"" },
-  { filename: "IMG_6379.jpeg", title: "Fire Mother", desc: "Acrylic on Canvas, 60\" x 40\"" },
+  { filename: "IMG_6379-2.jpeg", title: "Fire Mother", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "IMG_6157.heic", title: "Emerald Audrey", desc: "Acrylic on Canvas, 40\" x 60\"" },
   { filename: "IMG_6376.jpeg", title: "Emerald Audrey", desc: "Acrylic on Canvas, 40\" x 60\"" },
   { filename: "IMG_0725.heic", title: "Hidden Princess (Collab with Carter Hackett)", desc: "Acrylic on Canvas, 48\" x 24\"" },

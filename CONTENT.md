@@ -68,7 +68,7 @@
 | 3 | 3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg | Paper Planes / No Borders | Acrylic on Canvas, 60" x 40" |
 | 4 | IMG_6463.jpeg | Paper Planes / No Borders | Acrylic on Canvas, 60" x 40" |
 | 5 | IMG_6418.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
-| 6 | IMG_6379.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
+| 6 | IMG_6379-2.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
 | 7 | IMG_6157.heic | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
 | 8 | IMG_6376.jpeg | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
 | 9 | IMG_0725.heic | Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 48" x 24" |
@@ -107,7 +107,7 @@
 | 11 | IMG_6157.heic | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
 | 12 | IMG_6376.jpeg | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
 | 13 | IMG_6418.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
-| 14 | IMG_6379.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
+| 14 | IMG_6379-2.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
 | 15 | IMG_6346.jpeg | Wildflowers Don't Care Where They Grow | Acrylic on Canvas, 36" x 36" |
 | 16 | 62009220-FFE9-4148-9A41-C63545910216.png | Wildflowers Don't Care Where They Grow |  |
 | 17 | FullSizeRender.heic | Cobalt River Canyon | Acrylic on Canvas, 60" x 40" |

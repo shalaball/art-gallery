@@ -15,7 +15,7 @@ const LABELS = [
   { filename: "IMG_6157.heic", title: "Emerald Audrey", desc: "Acrylic on Canvas, 40\" x 60\"" },
   { filename: "IMG_6376.jpeg", title: "Emerald Audrey", desc: "Acrylic on Canvas, 40\" x 60\"" },
   { filename: "IMG_6418.jpeg", title: "Fire Mother", desc: "Acrylic on Canvas, 60\" x 40\"" },
-  { filename: "IMG_6379.jpeg", title: "Fire Mother", desc: "Acrylic on Canvas, 60\" x 40\"" },
+  { filename: "IMG_6379-2.jpeg", title: "Fire Mother", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "IMG_6346.jpeg", title: "Wildflowers Don't Care Where They Grow", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "62009220-FFE9-4148-9A41-C63545910216.png", title: "Wildflowers Don't Care Where They Grow", desc: "" },
   { filename: "FullSizeRender.heic", title: "Cobalt River Canyon", desc: "Acrylic on Canvas, 60\" x 40\"" },
