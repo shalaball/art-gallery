@@ -3,8 +3,8 @@
 
 const LABELS = [
   { filename: "IMG_6386.jpeg", title: "The Last Bright Conversation", desc: "Acrylic on Canvas, 60\" x 48\"" },
-  { filename: "8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg", title: "The Last Bright Conversation", desc: "rylic on Canvas, 60\" x 48\"" },
-  { filename: "IMG_6046.jpeg", title: "Helix Becoming", desc: "Acrylic on Canvas, 48\" x 24\"" },
+  { filename: "8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg", title: "The Last Bright Conversation", desc: "Acrylic on Canvas, 60\" x 48\"" },
+  { filename: "IMG_6046.jpeg", title: "Helix Becoming", desc: "Acrylic on Canvas, 24\" x 48\"" },
   { filename: "IMG_6201.jpeg", title: "When the River Became Two", desc: "Acrylic on Canvas, 36\" x 36\" Diptych" },
   { filename: "IMG_6410-2.jpeg", title: "Too Wild for Still Water", desc: "Acrylic on Canvas, 60\" x 48\"" },
   { filename: "IMG_6371.jpeg", title: "Too Wild for Still Water", desc: "Acrylic on Canvas, 60\" x 48\"" },
@@ -29,12 +29,12 @@ const LABELS = [
   { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: "Paper Series" },
   { filename: "IMG_6221.jpeg", title: "Strata I - III", desc: "Paper Series" },
   { filename: "IMG_5991.jpeg", title: "Greenland's House", desc: "Acrylic Ink on Paper, 8\" x 10\"" },
-  { filename: "IMG_0861.jpeg", title: "Moss Over Iron", desc: "Acrylic on Canvas, 36\" x 36\"" },
+  { filename: "IMG_0861.jpeg", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "IMG_6344.jpeg", title: "Simple Song", desc: "Alcohol Ink on Yupo Paper" },
   { filename: "IMG_6350.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper" },
+  { filename: "IMG_6369.jpeg", title: "Triana District", desc: "Acrylic on Paper" },
   { filename: "IMG_3622.jpeg", title: "Catalonian Dream", desc: "Ink on Paper" },
   { filename: "IMG_4869.jpeg", title: "Untitled #3", desc: "Ink on Paper Collage" },
-  { filename: "IMG_6369.jpeg", title: "Triana District", desc: "Acrylic on Paper" },
   { filename: "22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg", title: "Saturday on the F", desc: "Photo Collage" },
   { filename: "IMG_6452.jpeg", title: "Paper Tiles", desc: "Cyanotype on Paper, 20\" x 14\"" },
 ];

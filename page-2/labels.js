@@ -23,5 +23,4 @@ const LABELS = [
   { filename: "IMG_3473.jpeg", title: "Verdant Arc", desc: "Acrylic on Canvas, 36\" x 24\"" },
   { filename: "IMG_3471.jpeg", title: "Verdant Bloom", desc: "Acrylic on Canvas, 36\" x 24\"" },
   { filename: "IMG_6452.jpeg", title: "Cyanotype Study #8", desc: "Cyanotype, 20\" x 14\"" },
-  { filename: "IMG_3568.jpeg", title: "", desc: "" },
 ];
