@@ -65,8 +65,8 @@
 |-------|----------|-------|-------------|
 | 1 | IMG_6410-2.jpeg | Too Wild for Still Water | Acrylic on Canvas, 60" x 48" |
 | 2 | IMG_6371.jpeg | Too Wild for Still Water | Acrylic on Canvas, 60" x 48" |
-| 3 | 3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg | Amber Passage | Acrylic on Canvas, 60" x 40" |
-| 4 | IMG_6463.jpeg | Amber Passage | Acrylic on Canvas, 60" x 40" |
+| 3 | 3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg | Paper Planes / No Borders | Acrylic on Canvas, 60" x 40" |
+| 4 | IMG_6463.jpeg | Paper Planes / No Borders | Acrylic on Canvas, 60" x 40" |
 | 5 | IMG_6418.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
 | 6 | IMG_6379.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
 | 7 | IMG_6157.heic | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
@@ -100,8 +100,8 @@
 | 4 | IMG_6201.jpeg | When the River Became Two | Acrylic on Canvas, 36" x 36" Diptych |
 | 5 | IMG_6410-2.jpeg | Too Wild for Still Water | Acrylic on Canvas, 60" x 48" |
 | 6 | IMG_6371.jpeg | Too Wild for Still Water | Acrylic on Canvas, 60" x 48" |
-| 7 | 3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg | Amber Crossing | Acrylic on Canvas, 60" x 40" |
-| 8 | image (3).png | Amber Crossing | Acrylic on Canvas, 60" x 40" |
+| 7 | 3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg | Paper Planes / No Borders | Acrylic on Canvas, 60" x 40" |
+| 8 | image (3).png | Paper Planes / No Borders | Acrylic on Canvas, 60" x 40" |
 | 9 | IMG_0725.heic | Hidden Princess (Collab With Carter Hackett | Acrylic on Canvas, 48" x 24" |
 | 10 | IMG_6370.jpeg | Hidden Princess (Collab With Carter Hackett | Acrylic on Canvas, 48" x 24" |
 | 11 | IMG_6157.heic | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
