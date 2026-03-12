@@ -24,7 +24,7 @@ const LABELS = [
   { filename: "IMG_6481.jpeg", title: "Verdant Arc", desc: "Acrylic on Canvas, 48\" x32\"" },
   { filename: "IMG_0570.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\" x 6\"" },
   { filename: "AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg", title: "The Secret Red", desc: "hol Ink on Yupo Paper, 4\" x 6\"" },
-  { filename: "IMG_6219.jpeg", title: "Etude #8", desc: "Acrylic on Canvas, 14\" x 11\"" },
+  { filename: "IMG_6219.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\" x 11\"" },
   { filename: "IMG_4195.jpeg", title: "Upon Reflection", desc: "Acrylic on Canvas, 14\" x 11\"" },
   { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: "Paper Series" },
   { filename: "IMG_6221.jpeg", title: "Strata I - III", desc: "Paper Series" },

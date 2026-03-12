@@ -43,7 +43,7 @@
 | 3 | IMG_9358.jpeg | Strata I - III | Paper Series |
 | 4 | IMG_6221.jpeg | Strata I - III | Paper Series |
 | 5 | IMG_5991.jpeg | Greenland's House | Acrylic Ink on Paper, 8"x10" |
-| 6 | IMG_6219.jpeg | Etude #12 | Acrylic on Canvas, 14"x11" |
+| 6 | IMG_6219.jpeg | Impromptu #4 | Acrylic on Canvas, 14"x11" |
 | 7 | IMG_0570.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
 | 8 | AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
 | 9 | IMG_4195.jpeg | Upon Reflection | Acrylic on Canvas, 14" x11" |
@@ -112,7 +112,7 @@
 | 20 | IMG_6481.jpeg | Verdant Arc | Acrylic on Canvas, 48" x32" |
 | 21 | IMG_0570.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4" x 6" |
 | 22 | AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg | The Secret Red | hol Ink on Yupo Paper, 4" x 6" |
-| 23 | IMG_6219.jpeg | Etude #8 | Acrylic on Canvas, 14" x 11" |
+| 23 | IMG_6219.jpeg | Impromptu #4 | Acrylic on Canvas, 14" x 11" |
 | 24 | IMG_4195.jpeg | Upon Reflection | Acrylic on Canvas, 14" x 11" |
 | 25 | IMG_9358.jpeg | Strata I - III | Paper Series |
 | 26 | IMG_6221.jpeg | Strata I - III | Paper Series |
