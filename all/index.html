@@ -217,6 +217,30 @@
       color: #ccc;
       text-transform: uppercase;
     }
+
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: none;
+      border: 1px solid #ccc;
+      color: #aaa;
+      font-size: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, color 0.2s, border-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    #back-to-top.visible { opacity: 1; pointer-events: auto; }
+    #back-to-top:hover { color: #222; border-color: #888; }
   </style>
 </head>
 <body>
@@ -247,6 +271,8 @@
   <button id="lb-next" class="lb-btn" aria-label="Next">&#x203a;</button>
   <div id="lb-counter"></div>
 </div>
+
+<button id="back-to-top" aria-label="Back to top">↑</button>
 
 <footer>&copy; 2025 Shala Ball</footer>
 
@@ -300,6 +326,10 @@
     if (e.key === 'ArrowLeft') prev();
     if (e.key === 'ArrowRight') next();
   });
+
+  const btt = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 300));
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 </script>
 
 </body>
