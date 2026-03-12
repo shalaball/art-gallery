@@ -57,19 +57,20 @@
 | Order | Filename | Title | Description |
 |-------|----------|-------|-------------|
 | 1 | IMG_6046.jpeg | Helix Becoming | Acrylic on Canvas, 24" x 48" |
-| 2 | 2F98DB7B-9452-4B93-A751-52B1A96700F3.png |  |  |
+| 2 | 2F98DB7B-9452-4B93-A751-52B1A96700F3.png | Helix Becoming | Acrylic on Canvas, 24" x 48" |
 | 3 | IMG_6201.jpeg | When the River Became Two | Acrylic on Canvas, 36"x 36" Diptych |
-| 4 | IMG_9358.jpeg | Strata I - III | Paper Series |
-| 5 | IMG_6221.jpeg | Strata I - III | Paper Series |
-| 6 | IMG_6142.jpeg |  |  |
-| 7 | IMG_6219.jpeg | Impromptu #4 | Acrylic on Canvas, 14"x11" |
-| 8 | IMG_0570.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
-| 9 | AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
-| 10 | IMG_5991.jpeg | Greenland's House | Acrylic Ink on Paper, 8"x10" |
-| 11 | IMG_4195.jpeg | Upon Reflection | Acrylic on Canvas, 14" x11" |
-| 12 | IMG_0861-2.jpeg | Crimson Drift | Acrylic on Canvas, 36" x 36" |
-| 13 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage, 14"x11" |
-| 14 | IMG_4869.jpeg | Untitled | Ink on Paper Collage, 8" x 10" |
+| 4 | IMG_4195.jpeg | Upon Reflection | Acrylic on Canvas, 14" x 11" |
+| 5 | IMG_9358.jpeg | Strata I - III | Paper Series |
+| 6 | IMG_6221.jpeg | Strata I - III | Paper Series |
+| 7 | EE722A36-C1FD-44EA-9DAC-0ACFF389B986.png | Crimson Drift | Acrylic on Canvas, 36" x 36" |
+| 8 | 239C4041-1AB5-4DA9-8813-56A4021C8BD0.jpeg | Crimson Drift | Acrylic on Canvas, 36" x 36" |
+| 9 | IMG_6142.jpeg | Impromptu #4 | Acrylic on Canvas, 14" x 11" |
+| 10 | IMG_6219.jpeg | Impromptu #4 | Acrylic on Canvas, 14"x11" |
+| 11 | IMG_0570.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
+| 12 | AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
+| 13 | IMG_5991.jpeg | Greenland's House | Acrylic Ink on Paper, 8"x10" |
+| 14 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage, 14"x11" |
+| 15 | IMG_4869.jpeg | Untitled | Ink on Paper Collage, 8" x 10" |
 
 ---
 
@@ -108,15 +109,16 @@
 | 27 | IMG_4195.jpeg | Upon Reflection | Acrylic on Canvas, 14" x 11" |
 | 28 | IMG_9358.jpeg | Strata I - III | Paper Series |
 | 29 | IMG_6221.jpeg | Strata I - III | Paper Series |
-| 30 | IMG_5991.jpeg | Greenland's House | Acrylic Ink on Paper, 8" x 10" |
-| 31 | IMG_0861.jpeg | Crimson Drift | Acrylic on Canvas, 36" x 36" |
-| 32 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper |
-| 33 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper |
-| 34 | IMG_6369.jpeg | Triana District | Acrylic on Paper |
-| 35 | IMG_3622.jpeg | Catalonian Dream | Ink on Paper |
-| 36 | IMG_4869.jpeg | Untitled #3 | Ink on Paper Collage |
-| 37 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage |
-| 38 | IMG_6452.jpeg | Paper Tiles | Cyanotype on Paper, 20" x 14" |
+| 30 | EE722A36-C1FD-44EA-9DAC-0ACFF389B986.png | Crimson Drift | Acrylic on Canvas, 36" x 36" |
+| 31 | 239C4041-1AB5-4DA9-8813-56A4021C8BD0.jpeg | Crimson Drift | Acrylic on Canvas, 36" x 36" |
+| 32 | IMG_5991.jpeg | Greenland's House | Acrylic Ink on Paper, 8" x 10" |
+| 33 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper |
+| 34 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper |
+| 35 | IMG_6369.jpeg | Triana District | Acrylic on Paper |
+| 36 | IMG_3622.jpeg | Catalonian Dream | Ink on Paper |
+| 37 | IMG_4869.jpeg | Untitled #3 | Ink on Paper Collage |
+| 38 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage |
+| 39 | IMG_6452.jpeg | Paper Tiles | Cyanotype on Paper, 20" x 14" |
 
 ---
 
