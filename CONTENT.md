@@ -24,15 +24,11 @@
 
 | Order | Filename | Title | Description |
 |-------|----------|-------|-------------|
-| 1 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Untitled |  |
-| 2 | IMG_3189.jpeg | Untitled 2 |  |
-| 3 | IMG_9358.jpeg | Untitled 6 |  |
-| 4 | IMG_6221.jpeg |  |  |
-| 5 | image (3).png |  |  |
-| 6 | IMG_6046.jpeg |  |  |
-| 7 | IMG_6369.jpeg |  |  |
-| 8 | IMG_3622.jpeg |  |  |
-| 9 | IMG_4869.jpeg |  |  |
+| 1 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Untitled | Photo Collage, 14" x 11" |
+| 2 | IMG_6046.jpeg | Helix Becoming | Acrylic on Canvas, 24" x 48" |
+| 3 | IMG_6369.jpeg | Triana District | Acrylic on Paper, 8" x 10" |
+| 4 | IMG_3622.jpeg | Catalonian Heroes | Ink on Paper, 10" x 8" |
+| 5 | IMG_4869.jpeg | Unititled #3 | Ink on Paper, 10" x 8" |
 
 ---
 
@@ -80,10 +76,11 @@
 | 15 | FullSizeRender.heic | Cobalt River Canyon | Acrylic on Canvas, 60" x 40" |
 | 16 | IMG_6382.jpeg | Cobalt River Canyon | Acrylic on Canvas, 60" x 40" |
 | 17 | IMG_6481.jpeg | Verdant Arc | Acrylic on Canvas, 32" x 48" |
-| 18 | IMG_6493.jpeg | Verdant Bloom | Acrylic on Canvas, 32" x 48" |
-| 19 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper, |
-| 20 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper, |
-| 21 | IMG_6452.jpeg | Cyanotype Study #8 | Cyanotype, 20" x 14" |
+| 18 | IMG_6501.jpeg |  |  |
+| 19 | IMG_6493.jpeg | Verdant Bloom | Acrylic on Canvas, 32" x 48" |
+| 20 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper, |
+| 21 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper, |
+| 22 | IMG_6452.jpeg | Cyanotype Study #8 | Cyanotype, 20" x 14" |
 
 ---
 
@@ -128,6 +125,7 @@
 | 33 | IMG_4869.jpeg | Untitled #3 | Ink on Paper Collage |
 | 34 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage |
 | 35 | IMG_6452.jpeg | Paper Tiles | Cyanotype on Paper, 20" x 14" |
+| 36 | IMG_6501.jpeg |  |  |
 
 ---
 

@@ -19,6 +19,7 @@ const LABELS = [
   { filename: "FullSizeRender.heic", title: "Cobalt River Canyon", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "IMG_6382.jpeg", title: "Cobalt River Canyon", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "IMG_6481.jpeg", title: "Verdant Arc", desc: "Acrylic on Canvas, 32\" x 48\"" },
+  { filename: "IMG_6501.jpeg", title: "", desc: "" },
   { filename: "IMG_6493.jpeg", title: "Verdant Bloom", desc: "Acrylic on Canvas, 32\" x 48\"" },
   { filename: "IMG_6344.jpeg", title: "Simple Song", desc: "Alcohol Ink on Yupo Paper," },
   { filename: "IMG_6350.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper," },
