@@ -41,4 +41,6 @@ const LABELS = [
   { filename: "IMG_4869.jpeg", title: "Untitled #3", desc: "Ink on Paper Collage" },
   { filename: "22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg", title: "Saturday on the F", desc: "Photo Collage" },
   { filename: "IMG_6452.jpeg", title: "Paper Tiles", desc: "Cyanotype on Paper, 20\" x 14\"" },
+  { filename: "8452FC30-6F6C-48E1-B9C4-9E6051876814.jpeg", title: "", desc: "" },
+  { filename: "C015E4F8-F2D5-47A7-995F-B7A9C3FEA8D4.png", title: "", desc: "" },
 ];

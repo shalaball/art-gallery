@@ -44,9 +44,11 @@
 | 18 | F3C25FD5-E52E-4212-8E78-D6FB57F49A5B.png | Verdant Arc | Acrylic on Canvas, 48" x 32" |
 | 19 | IMG_6493.jpeg | Verdant Bloom | Acrylic on Canvas, 48" x 32" |
 | 20 | 37034FE0-0E39-49E0-8424-F4CEC66808FC.png | Verdant Bloom | Acrylic on Canvas, 48" x 32" |
-| 21 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper, |
-| 22 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper, |
-| 23 | IMG_6452.jpeg | Cyanotype Study #8 | Cyanotype, 20" x 14" |
+| 21 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper, 11" x 18" |
+| 22 | C015E4F8-F2D5-47A7-995F-B7A9C3FEA8D4.png | Simple Song | Alcohol Ink on Yupo Paper, 11" x 18" |
+| 23 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper, 30" x 19" |
+| 24 | 8452FC30-6F6C-48E1-B9C4-9E6051876814.jpeg | All of Our Days | Alcohol Ink on Yupo Paper, 30" x 19" |
+| 25 | IMG_6452.jpeg | Cyanotype Study #6 | Cyanotype, 20" x 14" |
 
 ---
 
@@ -119,6 +121,8 @@
 | 37 | IMG_4869.jpeg | Untitled #3 | Ink on Paper Collage |
 | 38 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage |
 | 39 | IMG_6452.jpeg | Paper Tiles | Cyanotype on Paper, 20" x 14" |
+| 40 | 8452FC30-6F6C-48E1-B9C4-9E6051876814.jpeg |  |  |
+| 41 | C015E4F8-F2D5-47A7-995F-B7A9C3FEA8D4.png |  |  |
 
 ---
 

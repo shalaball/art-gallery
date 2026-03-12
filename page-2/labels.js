@@ -22,7 +22,9 @@ const LABELS = [
   { filename: "F3C25FD5-E52E-4212-8E78-D6FB57F49A5B.png", title: "Verdant Arc", desc: "Acrylic on Canvas, 48\" x 32\"" },
   { filename: "IMG_6493.jpeg", title: "Verdant Bloom", desc: "Acrylic on Canvas, 48\" x 32\"" },
   { filename: "37034FE0-0E39-49E0-8424-F4CEC66808FC.png", title: "Verdant Bloom", desc: "Acrylic on Canvas, 48\" x 32\"" },
-  { filename: "IMG_6344.jpeg", title: "Simple Song", desc: "Alcohol Ink on Yupo Paper," },
-  { filename: "IMG_6350.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper," },
-  { filename: "IMG_6452.jpeg", title: "Cyanotype Study #8", desc: "Cyanotype, 20\" x 14\"" },
+  { filename: "IMG_6344.jpeg", title: "Simple Song", desc: "Alcohol Ink on Yupo Paper, 11\" x 18\"" },
+  { filename: "C015E4F8-F2D5-47A7-995F-B7A9C3FEA8D4.png", title: "Simple Song", desc: "Alcohol Ink on Yupo Paper, 11\" x 18\"" },
+  { filename: "IMG_6350.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper, 30\" x 19\"" },
+  { filename: "8452FC30-6F6C-48E1-B9C4-9E6051876814.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper, 30\" x 19\"" },
+  { filename: "IMG_6452.jpeg", title: "Cyanotype Study #6", desc: "Cyanotype, 20\" x 14\"" },
 ];
