@@ -493,7 +493,17 @@ app.get('/api/home', (req, res) => {
     const title    = (html.match(/<h1>([^<]*)<\/h1>/)    || [])[1] || '';
     const subtitle = (html.match(/<header>[^]*?<p>([^<]*)<\/p>/) || [])[1] || '';
     const footer   = (html.match(/<footer>([^<]*)<\/footer>/)  || [])[1] || '';
-    res.json({ title, subtitle, footer, repoPath: GALLERY });
+    // Parse CTA block
+    const ctaBlock   = html.match(/<div id="cta"([^>]*)>([\s\S]*?)<\/div>/);
+    const ctaVisible = ctaBlock ? !/display:none/.test(ctaBlock[1]) : false;
+    const ctaAnchor  = ctaBlock ? ctaBlock[2].match(/<a href="([^"]*)" style="([^"]*)">([\s\S]*?)<\/a>/) : null;
+    const ctaHref    = ctaAnchor ? ctaAnchor[1] : '';
+    const ctaStyle   = ctaAnchor ? ctaAnchor[2] : '';
+    const ctaText    = ctaAnchor ? ctaAnchor[3] : '';
+    const ctaColor   = (ctaStyle.match(/color:([^;]+)/) || [])[1] || '#888888';
+    const ctaFont    = (ctaStyle.match(/font-family:'([^']+)'/) || [])[1] || 'Cormorant Garamond';
+    const ctaSize    = parseFloat((ctaStyle.match(/font-size:([0-9.]+)rem/) || [])[1] || '1');
+    res.json({ title, subtitle, footer, repoPath: GALLERY, ctaText, ctaHref, ctaColor, ctaFont, ctaSize, ctaVisible });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -502,12 +512,19 @@ app.get('/api/home', (req, res) => {
 // Save home page text
 app.post('/api/home', (req, res) => {
   try {
-    const { title, subtitle, footer } = req.body;
+    const { title, subtitle, footer, ctaText, ctaHref, ctaColor, ctaFont, ctaSize, ctaVisible } = req.body;
     const homeFile = path.join(GALLERY, 'index.html');
     let html = fs.readFileSync(homeFile, 'utf8');
     if (title    !== undefined) html = html.replace(/(<h1>)[^<]*(<\/h1>)/,    `$1${title}$2`);
     if (subtitle !== undefined) html = html.replace(/(<header>[^]*?<p>)[^<]*(<\/p>)/, `$1${subtitle}$2`);
     if (footer   !== undefined) html = html.replace(/(<footer>)[^<]*(<\/footer>)/, `$1${footer}$2`);
+    if (ctaText  !== undefined) {
+      const serifFonts = ['Cormorant Garamond','Playfair Display','EB Garamond','Lora'];
+      const fallback   = serifFonts.includes(ctaFont) ? 'serif' : 'sans-serif';
+      const display    = ctaVisible ? '' : 'display:none';
+      const newCta     = `<div id="cta"${display ? ` style="${display}"` : ''}><a href="${ctaHref || ''}" style="font-family:'${ctaFont}',${fallback};color:${ctaColor};font-size:${ctaSize}rem;letter-spacing:0.05em;text-decoration:none;transition:opacity 0.2s;">${ctaText}</a></div>`;
+      html = html.replace(/<div id="cta"[^>]*>[\s\S]*?<\/div>/, newCta);
+    }
     fs.writeFileSync(homeFile, html);
     res.json({ ok: true });
   } catch (err) {

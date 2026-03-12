@@ -394,6 +394,14 @@ function renderHomeMain(home, settings = {}) {
     .map(f => `<option${f===tf?' selected':''}>${f}</option>`).join('');
   const bodyOpts  = ['Montserrat','Lato','Open Sans','Raleway']
     .map(f => `<option${f===bf?' selected':''}>${f}</option>`).join('');
+  const ctaText    = home.ctaText    || '';
+  const ctaHref    = home.ctaHref    || '';
+  const ctaColor   = home.ctaColor   || '#888888';
+  const ctaFont    = home.ctaFont    || 'Cormorant Garamond';
+  const ctaSize    = home.ctaSize    != null ? home.ctaSize : 1;
+  const ctaVisible = home.ctaVisible || false;
+  const ctaFontOpts = ['Cormorant Garamond','Playfair Display','EB Garamond','Lora','Montserrat','Lato','Open Sans','Raleway']
+    .map(f => `<option${f===ctaFont?' selected':''}>${f}</option>`).join('');
 
   document.getElementById('main').innerHTML = `
     <div style="background:#fffbe6;border:1px solid #ffe58f;border-radius:6px;padding:12px 16px;margin-bottom:24px;font-size:15px;line-height:1.7;color:#555">
@@ -422,6 +430,49 @@ function renderHomeMain(home, settings = {}) {
       <div style="margin-bottom:32px">
         <label ${lbl}>Footer Text</label>
         <input id="home-footer" type="text" value="${esc(home.footer)}" ${inp} oninput="markUnsaved()">
+      </div>
+
+      <div style="border-top:1px solid #eee;padding-top:24px;margin-bottom:24px">
+        <div style="font-size:13px;font-weight:700;color:#aaa;letter-spacing:.07em;text-transform:uppercase;margin-bottom:4px">Call to Action</div>
+        <div style="font-size:13px;color:#aaa;margin-bottom:16px">Optional text link shown below the gallery buttons</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
+          <input type="checkbox" id="cta-visible" ${ctaVisible ? 'checked' : ''} onchange="markUnsaved()" style="width:16px;height:16px;cursor:pointer">
+          <label for="cta-visible" style="font-size:14px;color:#555;cursor:pointer">Show on home page</label>
+        </div>
+        <div style="margin-bottom:12px">
+          <label ${lbl}>Text</label>
+          <input id="cta-text" type="text" value="${esc(ctaText)}" ${inp} placeholder="e.g. Interested in a commission? Learn more →" oninput="markUnsaved()">
+        </div>
+        <div style="margin-bottom:12px">
+          <label ${lbl}>Link URL</label>
+          <input id="cta-href" type="text" value="${esc(ctaHref)}" ${inp} placeholder="e.g. about/" oninput="markUnsaved()">
+        </div>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end;margin-bottom:12px">
+          <div>
+            <label ${lbl}>Font</label>
+            <select id="cta-font" ${sel} onchange="markUnsaved()">${ctaFontOpts}</select>
+          </div>
+          <div>
+            <label ${lbl}>Size</label>
+            <div style="display:flex;align-items:center;gap:6px">
+              <input type="number" id="cta-size" value="${ctaSize}" min="0.6" max="3" step="0.05"
+                oninput="markUnsaved()"
+                style="width:64px;border:1px solid #e0e0e0;border-radius:4px;padding:7px 8px;font-size:15px;font-family:inherit;outline:none;background:#fafafa;text-align:center">
+              <span style="font-size:13px;color:#999">rem</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <label ${lbl}>Color</label>
+          <div style="display:flex;align-items:center;gap:8px">
+            <input type="color" id="cta-color" value="${ctaColor}"
+              oninput="syncColorText('cta-color','cta-color-text');markUnsaved()"
+              style="width:36px;height:34px;border:1px solid #e0e0e0;border-radius:4px;padding:2px;cursor:pointer;background:none">
+            <input type="text" id="cta-color-text" value="${ctaColor}"
+              oninput="syncColorPicker('cta-color-text','cta-color');markUnsaved()"
+              style="width:90px;border:1px solid #e0e0e0;border-radius:4px;padding:8px 10px;font-size:15px;font-family:monospace;outline:none;background:#fafafa">
+          </div>
+        </div>
       </div>
 
       <div style="border-top:1px solid #eee;padding-top:24px;margin-bottom:24px">
@@ -487,9 +538,15 @@ function renderHomeMain(home, settings = {}) {
 
 async function saveHome() {
   const homePayload = {
-    title:    document.getElementById('home-title').value,
-    subtitle: document.getElementById('home-subtitle').value,
-    footer:   document.getElementById('home-footer').value,
+    title:      document.getElementById('home-title').value,
+    subtitle:   document.getElementById('home-subtitle').value,
+    footer:     document.getElementById('home-footer').value,
+    ctaText:    document.getElementById('cta-text').value,
+    ctaHref:    document.getElementById('cta-href').value,
+    ctaFont:    document.getElementById('cta-font').value,
+    ctaSize:    parseFloat(document.getElementById('cta-size').value),
+    ctaColor:   document.getElementById('cta-color-text').value,
+    ctaVisible: document.getElementById('cta-visible').checked,
   };
   const requests = [
     fetch('/api/home', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(homePayload) }),
