@@ -29,11 +29,11 @@
 | 3 | 3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg | Paper Planes / No Borders | Acrylic on Canvas, 60" x 40" |
 | 4 | 02BBE9A4-15A1-4D91-83F7-8DFFFB72B0BC.png | Paper Planes / No Borders | Acrylic on Canvas, 60" x 40" |
 | 5 | IMG_6418.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
-| 6 | IMG_6379-2.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
+| 6 | 292EB5D7-449C-4ABA-8E3D-7AB4835BBCB1.png | Fire Mother | Acrylic on Canvas, 60" x 40" |
 | 7 | IMG_6157.heic | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
 | 8 | 11274E0A-CA19-426D-8AF6-97C6E800C750.png | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
 | 9 | IMG_0725.heic | Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 48" x 24" |
-| 10 | IMG_6370.jpeg | Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 48" x 24" |
+| 10 | 68781A68-2BFE-45F8-A517-C15465BBB6A2.png | Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 48" x 24" |
 | 11 | IMG_6386.jpeg | The Last Bright Conversation | Acrylic on Canvas, 60" x 48" |
 | 12 | 8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg | The Last Bright Conversation | Acrylic on Canvas, 60" x 48" |
 | 13 | IMG_6346.jpeg | Wildflowers Don't Care | Acrylic on Canvas, 36" x 36" |
@@ -92,11 +92,11 @@
 | 8 | 3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg | Paper Planes / No Borders | Acrylic on Canvas, 60" x 40" |
 | 9 | 02BBE9A4-15A1-4D91-83F7-8DFFFB72B0BC.png | Paper Planes / No Borders | Acrylic on Canvas, 60" x 40" |
 | 10 | IMG_0725.heic | Hidden Princess (Collab With Carter Hackett | Acrylic on Canvas, 48" x 24" |
-| 11 | IMG_6370.jpeg | Hidden Princess (Collab With Carter Hackett | Acrylic on Canvas, 48" x 24" |
+| 11 | 68781A68-2BFE-45F8-A517-C15465BBB6A2.png | UntitledHidden Princess (Collab With Carter Hackett | Acrylic on Canvas, 48" x 24" |
 | 12 | IMG_6157.heic | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
 | 13 | 11274E0A-CA19-426D-8AF6-97C6E800C750.png | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
 | 14 | IMG_6418.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
-| 15 | IMG_6379-2.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
+| 15 | 292EB5D7-449C-4ABA-8E3D-7AB4835BBCB1.png | Fire Mother | Acrylic on Canvas, 60" x 40" |
 | 16 | IMG_6346.jpeg | Wildflowers Don't Care | Acrylic on Canvas, 36" x 36" |
 | 17 | C1F22FBD-1F9F-414E-8FDF-10BB01AB5FE1.png | Wildflowers Don't Care | Acrylic on Canvas, 36" x 36" |
 | 18 | FullSizeRender.heic | Ultramarine Valley | Acrylic on Canvas, 60" x 40" |
@@ -114,15 +114,15 @@
 | 30 | EE722A36-C1FD-44EA-9DAC-0ACFF389B986.png | Crimson Drift | Acrylic on Canvas, 36" x 36" |
 | 31 | 239C4041-1AB5-4DA9-8813-56A4021C8BD0.jpeg | Crimson Drift | Acrylic on Canvas, 36" x 36" |
 | 32 | IMG_5991.jpeg | Greenland's House | Acrylic Ink on Paper, 8" x 10" |
-| 33 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper |
-| 34 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper |
-| 35 | IMG_6369.jpeg | Triana District | Acrylic on Paper |
-| 36 | IMG_3622.jpeg | Catalonian Dream | Ink on Paper |
-| 37 | IMG_4869.jpeg | Untitled #3 | Ink on Paper Collage |
-| 38 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage |
-| 39 | IMG_6452.jpeg | Paper Tiles | Cyanotype on Paper, 20" x 14" |
-| 40 | 8452FC30-6F6C-48E1-B9C4-9E6051876814.jpeg |  |  |
-| 41 | C015E4F8-F2D5-47A7-995F-B7A9C3FEA8D4.png |  |  |
+| 33 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper, 11" x 18" |
+| 34 | C015E4F8-F2D5-47A7-995F-B7A9C3FEA8D4.png | Simple Song | Alcohol Ink on Yupo Paper, 11" x 18" |
+| 35 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper, 30" x 19" |
+| 36 | 8452FC30-6F6C-48E1-B9C4-9E6051876814.jpeg |  |  |
+| 37 | IMG_6369.jpeg | Triana District | Acrylic on Paper |
+| 38 | IMG_3622.jpeg | Catalonian Dream | Ink on Paper |
+| 39 | IMG_4869.jpeg | Untitled #3 | Ink on Paper Collage |
+| 40 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage |
+| 41 | IMG_6452.jpeg | Paper Tiles | Cyanotype on Paper, 20" x 14" |
 
 ---
 
