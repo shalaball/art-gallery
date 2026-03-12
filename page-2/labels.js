@@ -1,5 +1,4 @@
-// Auto-generated from CONTENT.md — do not edit directly.
-// To update labels or order, use the admin UI or edit CONTENT.md.
+// Auto-generated — do not edit directly.
 
 const LABELS = [
   { filename: "IMG_6410-2.jpeg", title: "Too Wild for Still Water", desc: "Acrylic on Canvas, 60\" x 48\"" },

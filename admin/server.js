@@ -12,6 +12,7 @@ const PORT       = process.env.PORT || 3000;
 // electron-main.js sets GALLERY_DIR to the actual art-gallery folder in that case.
 const GALLERY    = process.env.GALLERY_DIR || path.resolve(__dirname, '..');
 const CONTENT_MD = path.join(GALLERY, 'CONTENT.md');
+const METADATA_PATH = path.join(GALLERY, 'photos', 'metadata.json');
 const UPLOAD_TMP = path.join(GALLERY, 'admin', 'uploads_tmp');
 
 app.use(express.json());
@@ -47,12 +48,12 @@ function parseContent(raw) {
       const photos = [];
       while (j < lines.length && lines[j].startsWith('|')) {
         const cols = lines[j].split('|').slice(1, -1).map(c => c.trim());
-        if (cols.length >= 3 && /^\d+$/.test(cols[0])) {
+        if (cols.length >= 2 && /^\d+$/.test(cols[0]) && cols[1]) {
           if (hasDesc) {
-            photos.push({ filename: cols[1], title: cols[2], desc: cols[3] || '' });
+            photos.push({ filename: cols[1], title: cols[2] || '', desc: cols[3] || '' });
           } else {
-            // Caption column treated as title for backwards compatibility
-            photos.push({ filename: cols[1], title: cols[2], desc: '' });
+            // New format (Order | Filename only) or old caption-only format
+            photos.push({ filename: cols[1], title: cols[2] || '', desc: '' });
           }
         }
         j++;
@@ -72,8 +73,8 @@ function parseContent(raw) {
 
 function serializeContent(data) {
   let out = `# Site Content\n\n`;
-  out += `> This file is the source of truth for all page names and photo labels.\n`;
-  out += `> Edit the tables below, then ask Claude to rebuild the site from this file.\n\n---\n\n`;
+  out += `> Source of truth for page photo order.\n`;
+  out += `> Photo titles, descriptions, and zoom are stored in photos/metadata.json.\n\n---\n\n`;
   out += `## Pages\n\n| Page | Name | URL |\n|------|------|-----|\n`;
   out += `| Home | Art Gallery | https://shalaball.com/ |\n`;
 
@@ -83,10 +84,9 @@ function serializeContent(data) {
 
   for (const p of data.pages) {
     out += `\n---\n\n## ${p.name} Page (\`${p.dir}/\`)\n\n`;
-    out += `> Layout: Single-column centered, max 720px. Photos display in the order listed. Title and optional description appear below each photo.\n\n`;
-    out += `| Order | Filename | Title | Description |\n|-------|----------|-------|-------------|\n`;
+    out += `| Order | Filename |\n|-------|----------|\n`;
     p.photos.forEach((ph, i) => {
-      out += `| ${i + 1} | ${ph.filename} | ${ph.title || ''} | ${ph.desc || ''} |\n`;
+      out += `| ${i + 1} | ${ph.filename} |\n`;
     });
   }
 
@@ -96,15 +96,16 @@ function serializeContent(data) {
 // ─── labels.js rebuilder ──────────────────────────────────────────────────────
 
 function rebuildLabels(data) {
+  const meta = readPhotoMetadata();
   for (const p of data.pages) {
     const dest = path.join(GALLERY, p.dir, 'labels.js');
     if (!fs.existsSync(path.dirname(dest))) continue;
-
     const entries = p.photos.map(ph => {
-      const zoom = ph.zoom && ph.zoom !== 1 ? `, zoom: ${ph.zoom}` : '';
-      return `  { filename: ${JSON.stringify(ph.filename)}, title: ${JSON.stringify(ph.title || '')}, desc: ${JSON.stringify(ph.desc || '')}${zoom} },`;
+      const m    = meta[ph.filename] || {};
+      const zoom = m.zoom && m.zoom !== 1 ? `, zoom: ${m.zoom}` : '';
+      return `  { filename: ${JSON.stringify(ph.filename)}, title: ${JSON.stringify(m.title || '')}, desc: ${JSON.stringify(m.desc || '')}${zoom} },`;
     }).join('\n');
-    const content = `// Auto-generated from CONTENT.md — do not edit directly.\n// To update labels or order, use the admin UI or edit CONTENT.md.\n\nconst LABELS = [\n${entries}\n];\n`;
+    const content = `// Auto-generated — do not edit directly.\n\nconst LABELS = [\n${entries}\n];\n`;
     fs.writeFileSync(dest, content);
   }
 }
@@ -250,6 +251,20 @@ async function toSharpInput(filePath) {
   return filePath;
 }
 
+// ─── Photo metadata (shared store) ───────────────────────────────────────────
+
+function readPhotoMetadata() {
+  try {
+    if (fs.existsSync(METADATA_PATH)) return JSON.parse(fs.readFileSync(METADATA_PATH, 'utf8'));
+  } catch (_) {}
+  return {};
+}
+
+function writePhotoMetadata(meta) {
+  fs.writeFileSync(METADATA_PATH, JSON.stringify(meta, null, 2));
+}
+
+
 // ─── API routes ───────────────────────────────────────────────────────────────
 
 // Get all content
@@ -258,16 +273,15 @@ app.get('/api/content', (req, res) => {
     const raw  = fs.readFileSync(CONTENT_MD, 'utf8');
     const data = parseContent(raw);
 
-    // Merge zoom values from labels.js (zoom is stored there, not in CONTENT.md)
+    // Merge title/desc/zoom from shared metadata store
+    const meta = readPhotoMetadata();
     for (const p of data.pages) {
-      const labelsPath = path.join(GALLERY, p.dir, 'labels.js');
-      if (!fs.existsSync(labelsPath)) continue;
-      const src = fs.readFileSync(labelsPath, 'utf8');
-      const zoomMap = {};
-      for (const m of src.matchAll(/filename:\s*"([^"]+)"[^}]*zoom:\s*([0-9.]+)/g)) {
-        zoomMap[m[1]] = parseFloat(m[2]);
+      for (const ph of p.photos) {
+        const m = meta[ph.filename] || {};
+        ph.title = m.title || '';
+        ph.desc  = m.desc  || '';
+        ph.zoom  = m.zoom  || 1;
       }
-      for (const ph of p.photos) ph.zoom = zoomMap[ph.filename] || 1;
     }
 
     // Detect layout from each page's index.html
@@ -360,7 +374,9 @@ app.post('/api/upload/:page', upload.array('photos'), async (req, res) => {
         .toFile(dest);
       fs.unlinkSync(file.path);
 
-      pageData.photos.push({ filename, title: 'Untitled', desc: '' });
+      pageData.photos.push({ filename });
+      const meta = readPhotoMetadata();
+      if (!meta[filename]) { meta[filename] = { title: '', desc: '', zoom: 1 }; writePhotoMetadata(meta); }
       added.push(filename);
     }
 
@@ -598,6 +614,8 @@ app.post('/api/upload-library', upload.array('photos'), async (req, res) => {
         .toFile(dest);
       fs.unlinkSync(file.path);
       added.push(filename);
+      const meta = readPhotoMetadata();
+      if (!meta[filename]) { meta[filename] = { title: '', desc: '', zoom: 1 }; writePhotoMetadata(meta); }
     }
     rebuildLibraryLabels();
     res.json({ ok: true, added });
@@ -615,14 +633,17 @@ const PHOTOS_DIR = path.join(GALLERY, 'photos');
 
 function rebuildLibraryLabels() {
   if (!fs.existsSync(PHOTOS_DIR)) return;
+  const meta  = readPhotoMetadata();
   const files = fs.readdirSync(PHOTOS_DIR)
     .filter(f => /\.(jpe?g|png|gif|webp|heic|heif)$/i.test(f))
     .map(f => ({ filename: f, mtime: fs.statSync(path.join(PHOTOS_DIR, f)).mtimeMs }))
     .sort((a, b) => b.mtime - a.mtime);
 
-  const entries = files.map(f =>
-    `  { filename: ${JSON.stringify(f.filename)}, title: "", desc: "" },`
-  ).join('\n');
+  const entries = files.map(f => {
+    const m    = meta[f.filename] || {};
+    const zoom = m.zoom && m.zoom !== 1 ? `, zoom: ${m.zoom}` : '';
+    return `  { filename: ${JSON.stringify(f.filename)}, title: ${JSON.stringify(m.title || '')}, desc: ${JSON.stringify(m.desc || '')}${zoom} },`;
+  }).join('\n');
   const content = `// Auto-generated — do not edit directly.\n\nconst LABELS = [\n${entries}\n];\n`;
 
   const libDir = path.join(GALLERY, 'library');
@@ -646,16 +667,47 @@ app.get('/api/library', (req, res) => {
       }
     }
 
+    const meta  = readPhotoMetadata();
     const files = fs.readdirSync(PHOTOS_DIR)
       .filter(f => /\.(jpe?g|png|gif|webp|heic|heif)$/i.test(f))
-      .map(f => ({
-        filename: f,
-        mtime: fs.statSync(path.join(PHOTOS_DIR, f)).mtimeMs,
-        pages: pageMap[f] || [],
-      }))
+      .map(f => {
+        const m = meta[f] || {};
+        return {
+          filename: f,
+          mtime: fs.statSync(path.join(PHOTOS_DIR, f)).mtimeMs,
+          pages: pageMap[f] || [],
+          title: m.title || '',
+          desc:  m.desc  || '',
+          zoom:  m.zoom  || 1,
+        };
+      })
       .sort((a, b) => b.mtime - a.mtime);
 
     res.json(files);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Save photo metadata from Library admin
+app.post('/api/photo-metadata', (req, res) => {
+  try {
+    const updates = req.body; // { filename: { title, desc, zoom } }
+    const meta = readPhotoMetadata();
+    for (const [filename, d] of Object.entries(updates)) {
+      meta[filename] = {
+        title: d.title || '',
+        desc:  d.desc  || '',
+        zoom:  typeof d.zoom === 'number' ? d.zoom : 1,
+      };
+    }
+    writePhotoMetadata(meta);
+    // Rebuild all labels so changes are reflected on every page
+    const raw = fs.readFileSync(CONTENT_MD, 'utf8');
+    const contentData = parseContent(raw);
+    rebuildLabels(contentData);
+    rebuildLibraryLabels();
+    res.json({ ok: true });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -711,7 +763,9 @@ app.post('/api/library/assign', (req, res) => {
     if (!pageData) return res.status(404).json({ error: 'Page not found' });
 
     if (!pageData.photos.find(p => p.filename === filename)) {
-      pageData.photos.push({ filename, title: '', desc: '' });
+      pageData.photos.push({ filename });
+      const meta = readPhotoMetadata();
+      if (!meta[filename]) { meta[filename] = { title: '', desc: '', zoom: 1 }; writePhotoMetadata(meta); }
       fs.writeFileSync(CONTENT_MD, serializeContent(data));
       rebuildLabels(data);
     }

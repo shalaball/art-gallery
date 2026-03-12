@@ -140,8 +140,19 @@ async function renderLibraryMain(items) {
     `<option value="${esc(p.id)}">${esc(p.name)}</option>`
   ).join('');
 
+  // Initialize zoom levels from stored metadata
+  items.forEach(item => {
+    if (item.zoom && item.zoom !== 1) {
+      thumbZoomLevel[item.filename] = Math.round(Math.log(item.zoom) / Math.log(1.3));
+    } else {
+      thumbZoomLevel[item.filename] = 0;
+    }
+  });
+
   const cards = items.map(item => {
     const thumb = `/preview/photos/${esc(item.filename)}?t=${Date.now()}`;
+    const zoomScale = Math.pow(1.3, thumbZoomLevel[item.filename] || 0);
+    const zoomStyle = zoomScale !== 1 ? `style="transform:scale(${zoomScale})"` : '';
     const usedOn = item.pages.length
       ? 'Used on: ' + item.pages.map(id => {
           const p = data.pages.find(pg => pg.id === id);
@@ -150,14 +161,28 @@ async function renderLibraryMain(items) {
       : 'Not on any page';
     return `
       <div class="lib-card" data-filename="${esc(item.filename)}">
-        <img class="lib-thumb" src="${thumb}" alt="${esc(item.filename)}" loading="lazy">
+        <div class="lib-thumb-wrap">
+          <img class="lib-thumb" src="${thumb}" alt="${esc(item.filename)}" loading="lazy" ${zoomStyle}>
+        </div>
         <div class="lib-info">
           <div class="lib-filename">${esc(item.filename)}</div>
           <div class="lib-pages">${usedOn}</div>
+          <div class="lib-meta-inputs">
+            <label>Title</label>
+            <input type="text" class="lib-title-input" value="${esc(item.title || '')}" placeholder="Title…" oninput="markUnsaved()">
+            <label>Description</label>
+            <input type="text" class="lib-desc-input" value="${esc(item.desc || '')}" placeholder="Optional description…" oninput="markUnsaved()">
+          </div>
           <select class="lib-page-select" onchange="assignToPage('${esc(item.filename)}', this)">
             <option value="">Add to page…</option>
             ${pageOptions}
           </select>
+          <div class="lib-rotate-row">
+            <button class="lib-rotate-btn" title="Rotate left" onclick="rotateLibPhoto('${esc(item.filename)}','ccw')">↺</button>
+            <button class="lib-rotate-btn" title="Rotate right" onclick="rotateLibPhoto('${esc(item.filename)}','cw')">↻</button>
+            <button class="lib-rotate-btn" title="Zoom out" onclick="zoomLibThumb('${esc(item.filename)}',-1)">−</button>
+            <button class="lib-rotate-btn" title="Zoom in" onclick="zoomLibThumb('${esc(item.filename)}',+1)">+</button>
+          </div>
         </div>
         <div class="lib-actions">
           <a class="btn btn-ghost" style="font-size:14px;padding:4px 10px;color:#555;text-decoration:none"
@@ -172,7 +197,7 @@ async function renderLibraryMain(items) {
     <div class="page-header">
       <div class="page-header-left">
         <h2>Photo Library</h2>
-        <div class="page-sub">${items.length} photo${items.length !== 1 ? 's' : ''} · newest first</div>
+        <div class="page-sub">${items.length} photo${items.length !== 1 ? 's' : ''} · newest first · edit title &amp; zoom here</div>
       </div>
       <div class="page-header-right">
         <label class="btn btn-primary" style="cursor:pointer">
@@ -193,6 +218,63 @@ async function renderLibraryMain(items) {
   overlay.id = 'drop-overlay';
   overlay.textContent = 'Drop photos to add to library';
   document.getElementById('main').appendChild(overlay);
+
+  markClean();
+}
+
+async function rotateLibPhoto(filename, direction) {
+  try {
+    const res = await fetch(`/api/rotate/library/${encodeURIComponent(filename)}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ direction }),
+    });
+    if (res.ok) {
+      const card = document.querySelector(`.lib-card[data-filename="${CSS.escape(filename)}"]`);
+      if (card) {
+        const img = card.querySelector('.lib-thumb');
+        img.src = img.src.split('?')[0] + '?t=' + Date.now();
+      }
+    } else {
+      const r = await res.json();
+      setStatus('Rotate error: ' + r.error, false, true);
+    }
+  } catch (e) {
+    setStatus('Rotate error: ' + e.message, false, true);
+  }
+}
+
+function zoomLibThumb(filename, delta) {
+  const card = document.querySelector(`.lib-card[data-filename="${CSS.escape(filename)}"]`);
+  if (!card) return;
+  const current = thumbZoomLevel[filename] || 0;
+  const next = Math.max(-3, Math.min(6, current + delta));
+  thumbZoomLevel[filename] = next;
+  const scale = Math.pow(1.3, next);
+  card.querySelector('.lib-thumb').style.transform = `scale(${scale})`;
+  markUnsaved();
+}
+
+async function saveLibrary() {
+  const updates = {};
+  document.querySelectorAll('.lib-card').forEach(card => {
+    const filename = card.dataset.filename;
+    const title    = card.querySelector('.lib-title-input')?.value || '';
+    const desc     = card.querySelector('.lib-desc-input')?.value  || '';
+    const zoom     = parseFloat(Math.pow(1.3, thumbZoomLevel[filename] || 0).toFixed(4));
+    updates[filename] = { title, desc, zoom };
+  });
+  try {
+    const res = await fetch('/api/photo-metadata', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updates),
+    });
+    if (res.ok) markClean();
+    else setStatus('Error saving metadata', false, true);
+  } catch (e) {
+    setStatus('Error: ' + e.message, false, true);
+  }
 }
 
 async function uploadToLibrary(files) {
@@ -568,15 +650,6 @@ function renderEmptyMain(msg) {
 }
 
 function renderMain(page) {
-  // Restore saved zoom levels so the admin thumbnails reflect what's on the live site
-  page.photos.forEach(ph => {
-    if (ph.zoom && ph.zoom !== 1) {
-      thumbZoomLevel[ph.filename] = Math.round(Math.log(ph.zoom) / Math.log(1.3));
-    } else {
-      delete thumbZoomLevel[ph.filename];
-    }
-  });
-
   const count = page.photos.length;
 
   document.getElementById('main').innerHTML = `
@@ -627,15 +700,6 @@ function renderMain(page) {
   overlay.textContent = 'Drop photos to upload';
   document.getElementById('main').appendChild(overlay);
 
-  // Apply saved zoom to each thumbnail
-  document.querySelectorAll('.photo-card').forEach(card => {
-    const filename = card.dataset.filename;
-    const level = thumbZoomLevel[filename] || 0;
-    if (level !== 0) {
-      card.querySelector('.photo-thumb').style.transform = `scale(${Math.pow(1.3, level)})`;
-    }
-  });
-
   initSortable();
   markClean();
 }
@@ -644,29 +708,24 @@ function renderMain(page) {
 
 function renderCard(page, photo) {
   const thumb = `/preview/photos/${esc(photo.filename)}?t=${Date.now()}`;
-  const inputs = `<label>Title</label>
-       <input type="text" class="title-input" value="${esc(photo.title || '')}" placeholder="Title…" oninput="markUnsaved()">
-       <label>Description</label>
-       <input type="text" class="desc-input" value="${esc(photo.desc || '')}" placeholder="Optional description…" oninput="markUnsaved()">`;
+  const zoomStyle = photo.zoom && photo.zoom !== 1 ? `style="transform:scale(${photo.zoom})"` : '';
+  const titleHtml = photo.title
+    ? `<div class="card-meta-title">${esc(photo.title)}</div>`
+    : `<div class="card-meta-title" style="color:#ccc;font-style:italic">No title</div>`;
+  const descHtml = photo.desc ? `<div class="card-meta-desc">${esc(photo.desc)}</div>` : '';
 
   return `
     <div class="photo-card" data-filename="${esc(photo.filename)}">
       <div class="drag-handle" title="Drag to reorder">⠿</div>
-      <button class="remove-btn" title="Remove photo" onclick="removePhoto('${esc(photo.filename)}')">×</button>
+      <button class="remove-btn" title="Remove from page" onclick="removePhoto('${esc(photo.filename)}')">×</button>
       <div class="thumb-wrap">
-        <img class="photo-thumb" src="${thumb}" alt="${esc(photo.filename)}" loading="lazy">
+        <img class="photo-thumb" src="${thumb}" alt="${esc(photo.filename)}" loading="lazy" ${zoomStyle}>
       </div>
       <div class="card-body">
-        <div class="rotate-row">
-          <button class="rotate-btn" title="Rotate left" onclick="rotatePhoto('${esc(photo.filename)}','ccw')">↺</button>
-          <button class="rotate-btn" title="Rotate right" onclick="rotatePhoto('${esc(photo.filename)}','cw')">↻</button>
-        </div>
-        <div class="rotate-row">
-          <button class="rotate-btn" title="Zoom out" onclick="zoomThumb('${esc(photo.filename)}',-1)">−</button>
-          <button class="rotate-btn" title="Zoom in" onclick="zoomThumb('${esc(photo.filename)}',+1)">+</button>
-        </div>
-        ${inputs}
+        ${titleHtml}
+        ${descHtml}
         <div class="card-filename">${esc(photo.filename)}</div>
+        <div class="card-meta-hint">Edit title &amp; zoom in Library</div>
         <a class="download-btn" href="/preview/photos/${esc(photo.filename)}" download="${esc(photo.filename)}" title="Download original">⬇ Download</a>
       </div>
     </div>
@@ -698,16 +757,7 @@ function collectState() {
   if (nameInput) page.name = nameInput.value;
 
   const cards = document.querySelectorAll('.photo-card');
-  page.photos = Array.from(cards).map(card => {
-    const filename = card.dataset.filename;
-    const zoom = parseFloat((Math.pow(1.3, thumbZoomLevel[filename] || 0)).toFixed(4));
-    return {
-      filename,
-      title: card.querySelector('.title-input').value,
-      desc:  card.querySelector('.desc-input').value,
-      zoom,
-    };
-  });
+  page.photos = Array.from(cards).map(card => ({ filename: card.dataset.filename }));
 }
 
 // ── Save ───────────────────────────────────────────────────────────────────────
@@ -1012,9 +1062,10 @@ function checkUnsaved() {
 }
 
 function saveCurrentPage() {
-  if (currentPageId === 'home') saveHome();
-  else if (currentPageId === 'about') saveAbout();
-  else if (currentPageId !== 'library') saveChanges();
+  if (currentPageId === 'home') return saveHome();
+  if (currentPageId === 'about') return saveAbout();
+  if (currentPageId === 'library') return saveLibrary();
+  return saveChanges();
 }
 
 function setStatus(msg, ok, err) {
