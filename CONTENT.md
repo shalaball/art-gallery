@@ -57,7 +57,7 @@
 | Order | Filename | Title | Description |
 |-------|----------|-------|-------------|
 | 1 | IMG_6046.jpeg | Helix Becoming | Acrylic on Canvas, 24" x 48" |
-| 2 | IMG_6506.jpeg | Helix Becoming | Acrylic on Canvas, 24" x 48" |
+| 2 | 2F98DB7B-9452-4B93-A751-52B1A96700F3.png |  |  |
 | 3 | IMG_6201.jpeg | When the River Became Two | Acrylic on Canvas, 36"x 36" Diptych |
 | 4 | IMG_9358.jpeg | Strata I - III | Paper Series |
 | 5 | IMG_6221.jpeg | Strata I - III | Paper Series |
@@ -82,12 +82,12 @@
 | 1 | IMG_6386.jpeg | The Last Bright Conversation | Acrylic on Canvas, 60" x 48" |
 | 2 | 8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg | The Last Bright Conversation | Acrylic on Canvas, 60" x 48" |
 | 3 | IMG_6046.jpeg | Helix Becoming | Acrylic on Canvas, 24" x 48" |
-| 4 | IMG_6506.jpeg | Helix Becoming | Acrylic on Canvas, 24" x 48" |
+| 4 | 2F98DB7B-9452-4B93-A751-52B1A96700F3.png | Helix Becoming | Acrylic on Canvas, 24" x 48" |
 | 5 | IMG_6201.jpeg | When the River Became Two | Acrylic on Canvas, 36" x 36" Diptych |
 | 6 | IMG_6410-2.jpeg | Too Wild for Still Water | Acrylic on Canvas, 60" x 48" |
 | 7 | IMG_6371.jpeg | Too Wild for Still Water | Acrylic on Canvas, 60" x 48" |
 | 8 | 3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg | Paper Planes / No Borders | Acrylic on Canvas, 60" x 40" |
-| 9 | 02BBE9A4-15A1-4D91-83F7-8DFFFB72B0BC.png | Untitled |  |
+| 9 | 02BBE9A4-15A1-4D91-83F7-8DFFFB72B0BC.png | Paper Planes / No Borders | Acrylic on Canvas, 60" x 40" |
 | 10 | IMG_0725.heic | Hidden Princess (Collab With Carter Hackett | Acrylic on Canvas, 48" x 24" |
 | 11 | IMG_6370.jpeg | Hidden Princess (Collab With Carter Hackett | Acrylic on Canvas, 48" x 24" |
 | 12 | IMG_6157.heic | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
@@ -145,3 +145,4 @@
 | 3 | IMG_6352.png | Simple Song | 4"x 6" Photo Card |
 | 4 | IMG_6346-2.jpeg | Wildflowers Don't Care Where they Grow | 5"x 5" Photo Card |
 | 5 | IMG_6142.jpeg | Impromptu #4 | 4"x 6" Photo Card |
+| 6 | IMG_6346.jpeg |  |  |
