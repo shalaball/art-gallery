@@ -3,6 +3,7 @@
 
 const LABELS = [
   { filename: "IMG_6046.jpeg", title: "Helix Becoming", desc: "Acrylic on Canvas, 24\" x 48\"" },
+  { filename: "IMG_6506.jpeg", title: "Helix Becoming", desc: "Acrylic on Canvas, 24\" x 48\"" },
   { filename: "IMG_6201.jpeg", title: "When the River Became Two", desc: "Acrylic on Canvas, 36\"x 36\" Diptych" },
   { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: "Paper Series" },
   { filename: "IMG_6221.jpeg", title: "Strata I - III", desc: "Paper Series" },

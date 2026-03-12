@@ -1,13 +1,21 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
+  { filename: "C1F22FBD-1F9F-414E-8FDF-10BB01AB5FE1.png", title: "", desc: "" },
+  { filename: "F3C25FD5-E52E-4212-8E78-D6FB57F49A5B.png", title: "", desc: "" },
+  { filename: "IMG_6493.jpeg", title: "", desc: "" },
+  { filename: "11274E0A-CA19-426D-8AF6-97C6E800C750.png", title: "", desc: "" },
+  { filename: "37034FE0-0E39-49E0-8424-F4CEC66808FC.png", title: "", desc: "" },
+  { filename: "02BBE9A4-15A1-4D91-83F7-8DFFFB72B0BC.png", title: "", desc: "" },
+  { filename: "D657F7BB-791B-4F66-B2F6-269B9833F8B5.png", title: "", desc: "" },
+  { filename: "D15BD262-B5C0-4286-8C95-9684C28A2277.jpeg", title: "", desc: "" },
+  { filename: "IMG_6506.jpeg", title: "", desc: "" },
   { filename: "IMG_6504.jpeg", title: "", desc: "" },
   { filename: "IMG_6142.jpeg", title: "", desc: "" },
   { filename: "IMG_6346-2.jpeg", title: "", desc: "" },
   { filename: "IMG_6351-2.png", title: "", desc: "" },
   { filename: "IMG_6352.png", title: "", desc: "" },
   { filename: "IMG_6501.jpeg", title: "", desc: "" },
-  { filename: "IMG_6493.jpeg", title: "", desc: "" },
   { filename: "IMG_6481.jpeg", title: "", desc: "" },
   { filename: "IMG_6350.jpeg", title: "", desc: "" },
   { filename: "IMG_6379-2.jpeg", title: "", desc: "" },
