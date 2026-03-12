@@ -31,13 +31,13 @@
 | 5 | IMG_6418.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
 | 6 | IMG_6379-2.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
 | 7 | IMG_6157.heic | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
-| 8 | 11274E0A-CA19-426D-8AF6-97C6E800C750.png |  |  |
+| 8 | 11274E0A-CA19-426D-8AF6-97C6E800C750.png | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
 | 9 | IMG_0725.heic | Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 48" x 24" |
 | 10 | IMG_6370.jpeg | Hidden Princess (Collab with Carter Hackett) | Acrylic on Canvas, 48" x 24" |
 | 11 | IMG_6386.jpeg | The Last Bright Conversation | Acrylic on Canvas, 60" x 48" |
 | 12 | 8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg | The Last Bright Conversation | Acrylic on Canvas, 60" x 48" |
-| 13 | IMG_6346.jpeg | Wildflowers Don't Care Where They Grow | Acrylic on Canvas, 36" x 36" |
-| 14 | C1F22FBD-1F9F-414E-8FDF-10BB01AB5FE1.png | UntitleWildflowers Don't Care Where They Growd | Acrylic on Canvas, 36" x 36" |
+| 13 | IMG_6346.jpeg | Wildflowers Don't Care | Acrylic on Canvas, 36" x 36" |
+| 14 | C1F22FBD-1F9F-414E-8FDF-10BB01AB5FE1.png | Wildflowers Don't Care | Acrylic on Canvas, 36" x 36" |
 | 15 | FullSizeRender.heic | Ultramarine Valley | Acrylic on Canvas, 60" x 40" |
 | 16 | D657F7BB-791B-4F66-B2F6-269B9833F8B5.png | Ultramarine Valley | Acrylic on Canvas, 60" x 40" |
 | 17 | IMG_6481.jpeg | Verdant Arc | Acrylic on Canvas, 48" x 32" |
@@ -94,8 +94,8 @@
 | 13 | 11274E0A-CA19-426D-8AF6-97C6E800C750.png | Emerald Audrey | Acrylic on Canvas, 40" x 60" |
 | 14 | IMG_6418.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
 | 15 | IMG_6379-2.jpeg | Fire Mother | Acrylic on Canvas, 60" x 40" |
-| 16 | IMG_6346.jpeg | Wildflowers Don't Care Where They Grow | Acrylic on Canvas, 36" x 36" |
-| 17 | C1F22FBD-1F9F-414E-8FDF-10BB01AB5FE1.png | Wildflowers Don't Care Where They Grow | Acrylic on Canvas, 36" x 36" |
+| 16 | IMG_6346.jpeg | Wildflowers Don't Care | Acrylic on Canvas, 36" x 36" |
+| 17 | C1F22FBD-1F9F-414E-8FDF-10BB01AB5FE1.png | Wildflowers Don't Care | Acrylic on Canvas, 36" x 36" |
 | 18 | FullSizeRender.heic | Ultramarine Valley | Acrylic on Canvas, 60" x 40" |
 | 19 | D657F7BB-791B-4F66-B2F6-269B9833F8B5.png | Ultramarine Valley | Acrylic on Canvas, 60" x 40" |
 | 20 | IMG_6493.jpeg | Verdant Bloom | Acrylic on Canvas, 48" x 32" |
