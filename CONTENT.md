@@ -42,14 +42,15 @@
 | 2 | IMG_6201.jpeg | When the River Became Two | Acrylic on Canvas, 36"x 36" Diptych |
 | 3 | IMG_9358.jpeg | Strata I - III | Paper Series |
 | 4 | IMG_6221.jpeg | Strata I - III | Paper Series |
-| 5 | IMG_5991.jpeg | Greenland's House | Acrylic Ink on Paper, 8"x10" |
+| 5 | IMG_6142.jpeg |  |  |
 | 6 | IMG_6219.jpeg | Impromptu #4 | Acrylic on Canvas, 14"x11" |
 | 7 | IMG_0570.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
 | 8 | AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4"x6" |
-| 9 | IMG_4195.jpeg | Upon Reflection | Acrylic on Canvas, 14" x11" |
-| 10 | IMG_0861-2.jpeg | Crimson Drift | Acrylic on Canvas, 36" x 36" |
-| 11 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage, 14"x11" |
-| 12 | IMG_4869.jpeg | Untitled | Ink on Paper Collage, 8" x 10" |
+| 9 | IMG_5991.jpeg | Greenland's House | Acrylic Ink on Paper, 8"x10" |
+| 10 | IMG_4195.jpeg | Upon Reflection | Acrylic on Canvas, 14" x11" |
+| 11 | IMG_0861-2.jpeg | Crimson Drift | Acrylic on Canvas, 36" x 36" |
+| 12 | 22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg | Saturday on the F | Photo Collage, 14"x11" |
+| 13 | IMG_4869.jpeg | Untitled | Ink on Paper Collage, 8" x 10" |
 
 ---
 
