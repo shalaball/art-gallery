@@ -79,10 +79,10 @@
 | 14 | 62009220-FFE9-4148-9A41-C63545910216.png | Wildflowers Don't Care Where They Grow | Acrylic on Canvas, 36" x 36" |
 | 15 | FullSizeRender.heic | Cobalt River Canyon | Acrylic on Canvas, 60" x 40" |
 | 16 | IMG_6382.jpeg | Cobalt River Canyon | Acrylic on Canvas, 60" x 40" |
-| 17 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper, |
-| 18 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper, |
-| 19 | IMG_3473.jpeg | Verdant Arc | Acrylic on Canvas, 36" x 24" |
-| 20 | IMG_3471.jpeg | Verdant Bloom | Acrylic on Canvas, 36" x 24" |
+| 17 | IMG_6481.jpeg | Verdant Arc | Acrylic on Canvas, 32" x 48" |
+| 18 | IMG_6493.jpeg | Verdant Bloom | Acrylic on Canvas, 32" x 48" |
+| 19 | IMG_6344.jpeg | Simple Song | Alcohol Ink on Yupo Paper, |
+| 20 | IMG_6350.jpeg | All of Our Days | Alcohol Ink on Yupo Paper, |
 | 21 | IMG_6452.jpeg | Cyanotype Study #8 | Cyanotype, 20" x 14" |
 
 ---
@@ -111,8 +111,8 @@
 | 16 | 62009220-FFE9-4148-9A41-C63545910216.png | Wildflowers Don't Care Where They Grow |  |
 | 17 | FullSizeRender.heic | Cobalt River Canyon | Acrylic on Canvas, 60" x 40" |
 | 18 | IMG_3568.jpeg | Cobalt River Canyon | Acrylic on Canvas, 60" x 40" |
-| 19 | IMG_3473.jpeg | Verdant Arc | Acrylic on Canvas, 24" x 36" |
-| 20 | IMG_3471.jpeg | Verdant Bloom | Acrylic on Canvas, 24" x 36" |
+| 19 | IMG_6493.jpeg | Verdant Bloom | Acrylic on Canvas, 48" x32" |
+| 20 | IMG_6481.jpeg | Verdant Arc | Acrylic on Canvas, 48" x32" |
 | 21 | IMG_0570.jpeg | The Secret Red | Alcohol Ink on Yupo Paper, 4" x 6" |
 | 22 | AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg | The Secret Red | hol Ink on Yupo Paper, 4" x 6" |
 | 23 | IMG_6219.jpeg | Etude #8 | Acrylic on Canvas, 14" x 11" |

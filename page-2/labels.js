@@ -18,9 +18,9 @@ const LABELS = [
   { filename: "62009220-FFE9-4148-9A41-C63545910216.png", title: "Wildflowers Don't Care Where They Grow", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "FullSizeRender.heic", title: "Cobalt River Canyon", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "IMG_6382.jpeg", title: "Cobalt River Canyon", desc: "Acrylic on Canvas, 60\" x 40\"" },
+  { filename: "IMG_6481.jpeg", title: "Verdant Arc", desc: "Acrylic on Canvas, 32\" x 48\"" },
+  { filename: "IMG_6493.jpeg", title: "Verdant Bloom", desc: "Acrylic on Canvas, 32\" x 48\"" },
   { filename: "IMG_6344.jpeg", title: "Simple Song", desc: "Alcohol Ink on Yupo Paper," },
   { filename: "IMG_6350.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper," },
-  { filename: "IMG_3473.jpeg", title: "Verdant Arc", desc: "Acrylic on Canvas, 36\" x 24\"" },
-  { filename: "IMG_3471.jpeg", title: "Verdant Bloom", desc: "Acrylic on Canvas, 36\" x 24\"" },
   { filename: "IMG_6452.jpeg", title: "Cyanotype Study #8", desc: "Cyanotype, 20\" x 14\"" },
 ];
