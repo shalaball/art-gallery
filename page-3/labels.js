@@ -8,7 +8,7 @@ const LABELS = [
   { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: "Paper Series" },
   { filename: "IMG_6221.jpeg", title: "Strata I - III", desc: "Paper Series" },
   { filename: "EE722A36-C1FD-44EA-9DAC-0ACFF389B986.png", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
-  { filename: "239C4041-1AB5-4DA9-8813-56A4021C8BD0.jpeg", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
+  { filename: "7E75C3BB-B366-42B6-B127-BA12405395AA.png", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "IMG_6142.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\" x 11\"" },
   { filename: "IMG_6219.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\"x11\"" },
   { filename: "IMG_0570.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x6\"" },
