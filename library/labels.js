@@ -26,7 +26,7 @@ const LABELS = [
   { filename: "IMG_6379-2.jpeg", title: "", desc: "" },
   { filename: "IMG_6046.jpeg", title: "Helix Becoming", desc: "Acrylic on Canvas, 24\" x 48\"" },
   { filename: "8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg", title: "The Last Bright Conversation", desc: "Acrylic on Canvas, 60\" x 48\"" },
-  { filename: "IMG_6452.jpeg", title: "Cyanotype Study #6", desc: "Cyanotype, 20\" x 14\"" },
+  { filename: "IMG_6452.jpeg", title: "Azulejo Sunprint", desc: "Cyanotype, 20\" x 14\"" },
   { filename: "FullSizeRender.heic", title: "Ultramarine Valley", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg", title: "Paper Planes / No Borders", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "IMG_6418.jpeg", title: "Fire Mother", desc: "Acrylic on Canvas, 60\" x 40\"" },

@@ -41,6 +41,6 @@ const LABELS = [
   { filename: "IMG_3622.jpeg", title: "Catalonian Dream", desc: "Ink on Paper" },
   { filename: "IMG_4869.jpeg", title: "Untitled", desc: "Ink on Paper Collage, 8\" x 10\"" },
   { filename: "22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg", title: "Saturday on the F", desc: "Photo Collage, 14\"x11\"" },
-  { filename: "IMG_6452.jpeg", title: "Cyanotype Study #6", desc: "Cyanotype, 20\" x 14\"" },
+  { filename: "IMG_6452.jpeg", title: "Azulejo Sunprint", desc: "Cyanotype, 20\" x 14\"" },
   { filename: "EEBF050B-5D99-458F-B192-5CC4BC9D5F02.png", title: "Saturday on The F", desc: "Photo Collage, 14\" x 11\"" },
 ];

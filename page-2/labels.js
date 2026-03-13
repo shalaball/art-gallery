@@ -25,5 +25,5 @@ const LABELS = [
   { filename: "C015E4F8-F2D5-47A7-995F-B7A9C3FEA8D4.png", title: "Simple Song", desc: "Alcohol Ink on Yupo Paper, 11\" x 18\"" },
   { filename: "IMG_6350.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper, 30\" x 19\"" },
   { filename: "8452FC30-6F6C-48E1-B9C4-9E6051876814.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper, 30\" x 19\"" },
-  { filename: "IMG_6452.jpeg", title: "Cyanotype Study #6", desc: "Cyanotype, 20\" x 14\"" },
+  { filename: "IMG_6452.jpeg", title: "Azulejo Sunprint", desc: "Cyanotype, 20\" x 14\"" },
 ];
