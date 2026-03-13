@@ -1,7 +1,7 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
-  { filename: "IMG_6493.jpeg", title: "Scarlet Unfolding", desc: "Acrylic on Canvas, 48\" x 32\"" },
+  { filename: "IMG_6493.jpeg", title: "Scarlet Petals Falling", desc: "Acrylic on Canvas, 48\" x 32\"" },
   { filename: "EEBF050B-5D99-458F-B192-5CC4BC9D5F02.png", title: "Saturday on The F", desc: "Photo Collage, 14\" x 11\"" },
   { filename: "68781A68-2BFE-45F8-A517-C15465BBB6A2.png", title: "Hidden Princess (Collab with Carter Hackett)", desc: "Acrylic on Canvas, 48\" x 24\"" },
   { filename: "292EB5D7-449C-4ABA-8E3D-7AB4835BBCB1.png", title: "Fire Mother", desc: "Acrylic on Canvas, 60\" x 40\"" },
@@ -13,7 +13,7 @@ const LABELS = [
   { filename: "C1F22FBD-1F9F-414E-8FDF-10BB01AB5FE1.png", title: "Wildflowers Don't Care", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "F3C25FD5-E52E-4212-8E78-D6FB57F49A5B.png", title: "Scarlet Pollination", desc: "Acrylic on Canvas, 48\" x 32\"" },
   { filename: "11274E0A-CA19-426D-8AF6-97C6E800C750.png", title: "Emerald Audrey", desc: "Acrylic on Canvas, 40\" x 60\"" },
-  { filename: "37034FE0-0E39-49E0-8424-F4CEC66808FC.png", title: "Scarlet Unfolding", desc: "Acrylic on Canvas, 48\" x 32\"" },
+  { filename: "37034FE0-0E39-49E0-8424-F4CEC66808FC.png", title: "Scarlet Petals Falling", desc: "Acrylic on Canvas, 48\" x 32\"" },
   { filename: "02BBE9A4-15A1-4D91-83F7-8DFFFB72B0BC.png", title: "Paper Planes / No Borders", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "D657F7BB-791B-4F66-B2F6-269B9833F8B5.png", title: "Ultramarine Valley", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "IMG_6506.jpeg", title: "", desc: "" },
