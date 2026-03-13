@@ -20,7 +20,7 @@ const LABELS = [
   { filename: "C1F22FBD-1F9F-414E-8FDF-10BB01AB5FE1.png", title: "Wildflowers Don't Care", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "FullSizeRender.heic", title: "Ultramarine Valley", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "D657F7BB-791B-4F66-B2F6-269B9833F8B5.png", title: "Ultramarine Valley", desc: "Acrylic on Canvas, 60\" x 40\"" },
-  { filename: "IMG_6481.jpeg", title: "Scarlet Pollination", desc: "Acrylic on Canvas, 48\" x 32\"" },
+  { filename: "IMG_6481.jpeg", title: "Scarlet Released", desc: "Acrylic on Canvas, 48\" x 32\"" },
   { filename: "F3C25FD5-E52E-4212-8E78-D6FB57F49A5B.png", title: "Scarlet Released", desc: "Acrylic on Canvas, 48\" x 32\"" },
   { filename: "IMG_6493.jpeg", title: "Scarlet Unfurled", desc: "Acrylic on Canvas, 48\" x 32\"" },
   { filename: "37034FE0-0E39-49E0-8424-F4CEC66808FC.png", title: "Scarlet Unfurled", desc: "Acrylic on Canvas, 48\" x 32\"" },

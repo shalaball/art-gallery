@@ -21,7 +21,7 @@ const LABELS = [
   { filename: "IMG_6346-2.jpeg", title: "Wildflowers Don't Care Where they Grow", desc: "5\"x 5\" Photo Card" },
   { filename: "IMG_6351-2.png", title: "", desc: "" },
   { filename: "IMG_6352.png", title: "Simple Song", desc: "4\"x 6\" Photo Card" },
-  { filename: "IMG_6481.jpeg", title: "Scarlet Pollination", desc: "Acrylic on Canvas, 48\" x 32\"" },
+  { filename: "IMG_6481.jpeg", title: "Scarlet Released", desc: "Acrylic on Canvas, 48\" x 32\"" },
   { filename: "IMG_6350.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper, 30\" x 19\"" },
   { filename: "IMG_6379-2.jpeg", title: "", desc: "" },
   { filename: "IMG_6046.jpeg", title: "Helix Becoming", desc: "Acrylic on Canvas, 24\" x 48\"" },
