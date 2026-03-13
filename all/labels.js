@@ -32,7 +32,7 @@ const LABELS = [
   { filename: "IMG_6221.jpeg", title: "Strata I - III", desc: "Paper Series" },
   { filename: "EE722A36-C1FD-44EA-9DAC-0ACFF389B986.png", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "239C4041-1AB5-4DA9-8813-56A4021C8BD0.jpeg", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
-  { filename: "IMG_5991.jpeg", title: "At Greenland's House", desc: "Acrylic Ink on Paper, 8\"x10\"" },
+  { filename: "IMG_5991.jpeg", title: "Greenland's House", desc: "Acrylic Ink on Paper, 8\"x10\"" },
   { filename: "IMG_6344.jpeg", title: "Simple Song", desc: "Alcohol Ink on Yupo Paper, 11\" x 18\"" },
   { filename: "C015E4F8-F2D5-47A7-995F-B7A9C3FEA8D4.png", title: "Simple Song", desc: "Alcohol Ink on Yupo Paper, 11\" x 18\"" },
   { filename: "IMG_6350.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper, 30\" x 19\"" },

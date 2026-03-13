@@ -52,6 +52,6 @@ const LABELS = [
   { filename: "IMG_6221.jpeg", title: "Strata I - III", desc: "Paper Series" },
   { filename: "IMG_6219.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\"x11\"" },
   { filename: "IMG_6201.jpeg", title: "When the River Became Two", desc: "Acrylic on Canvas, 36\"x 36\" Diptych" },
-  { filename: "IMG_5991.jpeg", title: "At Greenland's House", desc: "Acrylic Ink on Paper, 8\"x10\"" },
+  { filename: "IMG_5991.jpeg", title: "Greenland's House", desc: "Acrylic Ink on Paper, 8\"x10\"" },
   { filename: "22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg", title: "Saturday on the F", desc: "Photo Collage, 14\"x11\"" },
 ];
