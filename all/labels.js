@@ -26,6 +26,7 @@ const LABELS = [
   { filename: "37034FE0-0E39-49E0-8424-F4CEC66808FC.png", title: "Scarlet Unfurling", desc: "Acrylic on Canvas, 48\" x 32\"" },
   { filename: "IMG_0570.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x6\"" },
   { filename: "AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x6\"" },
+  { filename: "IMG_6142.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\" x 11\"" },
   { filename: "IMG_6219.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\"x11\"" },
   { filename: "IMG_4195.jpeg", title: "Upon Reflection", desc: "Acrylic on Canvas, 14\" x 11\"" },
   { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: "Paper Series" },

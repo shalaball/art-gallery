@@ -10,7 +10,6 @@ const LABELS = [
   { filename: "292EB5D7-449C-4ABA-8E3D-7AB4835BBCB1.png", title: "Fire Mother", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "8452FC30-6F6C-48E1-B9C4-9E6051876814.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper, 30\" x 19\"" },
   { filename: "C015E4F8-F2D5-47A7-995F-B7A9C3FEA8D4.png", title: "Simple Song", desc: "Alcohol Ink on Yupo Paper, 11\" x 18\"" },
-  { filename: "239C4041-1AB5-4DA9-8813-56A4021C8BD0.jpeg", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "EE722A36-C1FD-44EA-9DAC-0ACFF389B986.png", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "2F98DB7B-9452-4B93-A751-52B1A96700F3.png", title: "Helix Becoming", desc: "Acrylic on Canvas, 24\" x 48\"" },
   { filename: "C1F22FBD-1F9F-414E-8FDF-10BB01AB5FE1.png", title: "Wildflowers Don't Care", desc: "Acrylic on Canvas, 36\" x 36\"" },
