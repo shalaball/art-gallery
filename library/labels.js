@@ -1,6 +1,7 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
+  { filename: "IMG_6386-2.jpeg", title: "The Last Bright Conversation", desc: "Acrylic on Canvas, 60\" x 48\"" },
   { filename: "B0AB3B06-237A-4639-8CBA-5AB4540043D0.png", title: "Azulejo Sunprint", desc: "Cyanotype on Paper, 14\" x 20\"" },
   { filename: "IMG_6493.jpeg", title: "Scarlet Unfurling", desc: "Acrylic on Canvas, 48\" x 32\"" },
   { filename: "EEBF050B-5D99-458F-B192-5CC4BC9D5F02.png", title: "Saturday on The F", desc: "Photo Collage, 14\" x 11\"" },

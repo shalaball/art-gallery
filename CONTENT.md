@@ -32,7 +32,7 @@
 | 8 | 11274E0A-CA19-426D-8AF6-97C6E800C750.png |
 | 9 | IMG_0725.heic |
 | 10 | 68781A68-2BFE-45F8-A517-C15465BBB6A2.png |
-| 11 | IMG_6386.jpeg |
+| 11 | IMG_6386-2.jpeg |
 | 12 | 8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg |
 | 13 | IMG_6346.jpeg |
 | 14 | C1F22FBD-1F9F-414E-8FDF-10BB01AB5FE1.png |
@@ -77,7 +77,7 @@
 
 | Order | Filename |
 |-------|----------|
-| 1 | IMG_6386.jpeg |
+| 1 | IMG_6386-2.jpeg |
 | 2 | 8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg |
 | 3 | IMG_6046.jpeg |
 | 4 | 2F98DB7B-9452-4B93-A751-52B1A96700F3.png |

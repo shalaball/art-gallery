@@ -11,7 +11,7 @@ const LABELS = [
   { filename: "11274E0A-CA19-426D-8AF6-97C6E800C750.png", title: "Emerald Audrey", desc: "Acrylic on Canvas, 40\" x 60\"" },
   { filename: "IMG_0725.heic", title: "Hidden Princess (Collab with Carter Hackett)", desc: "Acrylic on Canvas, 48\" x 24\"" },
   { filename: "68781A68-2BFE-45F8-A517-C15465BBB6A2.png", title: "Hidden Princess (Collab with Carter Hackett)", desc: "Acrylic on Canvas, 48\" x 24\"" },
-  { filename: "IMG_6386.jpeg", title: "The Last Bright Conversation", desc: "Acrylic on Canvas, 60\" x 48\"" },
+  { filename: "IMG_6386-2.jpeg", title: "The Last Bright Conversation", desc: "Acrylic on Canvas, 60\" x 48\"" },
   { filename: "8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg", title: "The Last Bright Conversation", desc: "Acrylic on Canvas, 60\" x 48\"" },
   { filename: "IMG_6346.jpeg", title: "Wildflowers Don't Care", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "C1F22FBD-1F9F-414E-8FDF-10BB01AB5FE1.png", title: "Wildflowers Don't Care", desc: "Acrylic on Canvas, 36\" x 36\"" },

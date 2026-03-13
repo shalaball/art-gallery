@@ -1,7 +1,7 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
-  { filename: "IMG_6386.jpeg", title: "The Last Bright Conversation", desc: "Acrylic on Canvas, 60\" x 48\"" },
+  { filename: "IMG_6386-2.jpeg", title: "The Last Bright Conversation", desc: "Acrylic on Canvas, 60\" x 48\"" },
   { filename: "8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg", title: "The Last Bright Conversation", desc: "Acrylic on Canvas, 60\" x 48\"" },
   { filename: "IMG_6046.jpeg", title: "Helix Becoming", desc: "Acrylic on Canvas, 24\" x 48\"" },
   { filename: "2F98DB7B-9452-4B93-A751-52B1A96700F3.png", title: "Helix Becoming", desc: "Acrylic on Canvas, 24\" x 48\"" },
