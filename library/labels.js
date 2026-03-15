@@ -1,6 +1,7 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
+  { filename: "D92CFCB9-C127-479D-81B6-54968513BDAB.jpeg", title: "Upon Reflection", desc: "Acrylic on Canvas, 14\" x 11\"" },
   { filename: "IMG_6142.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\" x 11\"" },
   { filename: "7E75C3BB-B366-42B6-B127-BA12405395AA.png", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "IMG_6386-2.jpeg", title: "The Last Bright Conversation", desc: "Acrylic on Canvas, 60\" x 48\"" },
