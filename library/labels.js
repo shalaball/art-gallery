@@ -1,6 +1,7 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
+  { filename: "IMG_6142.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\" x 11\"" },
   { filename: "7E75C3BB-B366-42B6-B127-BA12405395AA.png", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "IMG_6386-2.jpeg", title: "The Last Bright Conversation", desc: "Acrylic on Canvas, 60\" x 48\"" },
   { filename: "B0AB3B06-237A-4639-8CBA-5AB4540043D0.png", title: "Azulejo Sunprint", desc: "Cyanotype on Paper, 14\" x 20\"" },
@@ -19,7 +20,6 @@ const LABELS = [
   { filename: "02BBE9A4-15A1-4D91-83F7-8DFFFB72B0BC.png", title: "Paper Planes / No Borders", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "D657F7BB-791B-4F66-B2F6-269B9833F8B5.png", title: "Ultramarine Valley", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "IMG_6506.jpeg", title: "", desc: "" },
-  { filename: "IMG_6142.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\" x 11\"" },
   { filename: "IMG_6346-2.jpeg", title: "Wildflowers Don't Care Where they Grow", desc: "5\"x 5\" Photo Card" },
   { filename: "IMG_6351-2.png", title: "", desc: "" },
   { filename: "IMG_6352.png", title: "Simple Song", desc: "4\"x 6\" Photo Card" },
