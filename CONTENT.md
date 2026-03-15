@@ -138,6 +138,8 @@
 
 ## Cards (Under Construction) Page (`cards/`)
 
+Hidden: true
+
 | Order | Filename |
 |-------|----------|
 | 1 | IMG_6381.jpeg |

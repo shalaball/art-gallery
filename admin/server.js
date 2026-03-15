@@ -36,9 +36,13 @@ function parseContent(raw) {
       const name = m[1].trim();
       const dir  = m[2].replace(/\/$/, '');
 
-      // Advance to table header
+      // Scan lines between header and table for Hidden flag
       let j = i + 1;
-      while (j < lines.length && !lines[j].startsWith('| Order')) j++;
+      let hidden = false;
+      while (j < lines.length && !lines[j].startsWith('| Order')) {
+        if (/^Hidden:\s*true/i.test(lines[j])) hidden = true;
+        j++;
+      }
       if (j >= lines.length) { i++; continue; }
 
       const headerCols = lines[j].split('|').map(c => c.trim()).filter(Boolean);
@@ -59,7 +63,7 @@ function parseContent(raw) {
         j++;
       }
 
-      pages.push({ id: dir, name, dir, photos });
+      pages.push({ id: dir, name, dir, photos, hidden });
       i = j;
       continue;
     }
@@ -84,6 +88,7 @@ function serializeContent(data) {
 
   for (const p of data.pages) {
     out += `\n---\n\n## ${p.name} Page (\`${p.dir}/\`)\n\n`;
+    if (p.hidden) out += `Hidden: true\n\n`;
     out += `| Order | Filename |\n|-------|----------|\n`;
     p.photos.forEach((ph, i) => {
       out += `| ${i + 1} | ${ph.filename} |\n`;
@@ -128,10 +133,11 @@ function rebuildPageTitles(data) {
 function updateNav(data) {
   // Read about page title dynamically so nav reflects whatever the admin has set
   const aboutTitle = readAbout().title || 'About the Artist';
+  const visiblePages = data.pages.filter(p => !p.hidden);
 
   // Build nav link list for each context
-  const homeNavLinks     = [...data.pages.map(p => `  <a href="${p.dir}/">${p.name}</a>`), `  <a href="about/">${aboutTitle}</a>`].join('\n');
-  const homeGalleryLinks = data.pages.map(p => `  <a class="gallery-link" href="${p.dir}/">${p.name}</a>`).join('\n');
+  const homeNavLinks     = [...visiblePages.map(p => `  <a href="${p.dir}/">${p.name}</a>`), `  <a href="about/">${aboutTitle}</a>`].join('\n');
+  const homeGalleryLinks = visiblePages.map(p => `  <a class="gallery-link" href="${p.dir}/">${p.name}</a>`).join('\n');
 
   // Update home index.html
   const homeFile = path.join(GALLERY, 'index.html');
@@ -143,7 +149,7 @@ function updateNav(data) {
   // Build shared gallery nav (used for library page — library is admin-only, no active item)
   const sharedGalleryNavLinks = [
     `  <a href="../">Home</a>`,
-    ...data.pages.map(q => `  <a href="../${q.dir}/">${q.name}</a>`),
+    ...visiblePages.map(q => `  <a href="../${q.dir}/">${q.name}</a>`),
     `  <a href="../about/">${aboutTitle}</a>`
   ].join('\n');
 
@@ -155,7 +161,7 @@ function updateNav(data) {
     fs.writeFileSync(libraryFile, libHtml);
   }
 
-  // Update each gallery page's nav
+  // Update each gallery page's nav (all pages, including hidden — they're still accessible by URL)
   for (const p of data.pages) {
     const pageFile = path.join(GALLERY, p.dir, 'index.html');
     if (!fs.existsSync(pageFile)) continue;
@@ -163,7 +169,7 @@ function updateNav(data) {
 
     const galleryNavLinks = [
       `  <a href="../">Home</a>`,
-      ...data.pages.map(q =>
+      ...visiblePages.map(q =>
         `  <a href="../${q.dir}/"${q.id === p.id ? ' class="active"' : ''}>${q.name}</a>`
       ),
       `  <a href="../about/">${aboutTitle}</a>`
@@ -178,7 +184,7 @@ function updateNav(data) {
   if (fs.existsSync(aboutFile)) {
     const aboutNavLinks = [
       `  <a href="../">Home</a>`,
-      ...data.pages.map(q => `  <a href="../${q.dir}/">${q.name}</a>`),
+      ...visiblePages.map(q => `  <a href="../${q.dir}/">${q.name}</a>`),
       `  <a href="../about/" class="active">${aboutTitle}</a>`
     ].join('\n');
     let aboutHtml = fs.readFileSync(aboutFile, 'utf8');
@@ -312,6 +318,22 @@ app.post('/api/layout/:pageId', (req, res) => {
     }
     fs.writeFileSync(pageFile, html);
     res.json({ ok: true, layout });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Toggle page visibility (hidden removes from nav + home, page still accessible by URL)
+app.post('/api/page-visibility', express.json(), (req, res) => {
+  try {
+    const { pageId, hidden } = req.body;
+    const data = parseContent(fs.readFileSync(CONTENT_MD, 'utf8'));
+    const page = data.pages.find(p => p.id === pageId);
+    if (!page) return res.status(404).json({ error: 'Page not found' });
+    page.hidden = !!hidden;
+    fs.writeFileSync(CONTENT_MD, serializeContent(data));
+    updateNav(data);
+    res.json({ ok: true, hidden: page.hidden });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

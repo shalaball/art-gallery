@@ -94,8 +94,8 @@ function renderSidebar() {
       <span class="page-icon">✦</span> About the Artist
     </li>`;
   const pageItems = data.pages.map(p => `
-    <li class="${p.id === currentPageId ? 'active' : ''}" data-id="${esc(p.id)}" onclick="selectPage('${esc(p.id)}')">
-      <span class="page-icon">▤</span> ${esc(p.name)}
+    <li class="${p.id === currentPageId ? 'active' : ''}${p.hidden ? ' page-hidden' : ''}" data-id="${esc(p.id)}" onclick="selectPage('${esc(p.id)}')">
+      <span class="page-icon">${p.hidden ? '○' : '▤'}</span> ${esc(p.name)}${p.hidden ? ' <span style="font-size:10px;color:#bbb;font-style:italic">(hidden)</span>' : ''}
     </li>
   `).join('');
   list.innerHTML = homeItem + pageItems;
@@ -722,6 +722,9 @@ function renderMain(page) {
         <div class="page-sub">${count} photo${count !== 1 ? 's' : ''}</div>
       </div>
       <div class="actions">
+        <button class="btn btn-dark btn-sm" onclick="togglePageVisibility('${esc(page.id)}', ${!!page.hidden})" title="${page.hidden ? 'Page is hidden from nav and home — click to show' : 'Hide from nav and home page'}">
+          ${page.hidden ? '👁 Show Page' : '⊘ Hide Page'}
+        </button>
         <button class="btn btn-danger btn-sm" onclick="deletePage('${esc(page.id)}')">Delete Page</button>
         <select class="btn btn-dark btn-sm" onchange="toggleLayout('${esc(page.id)}', this.value)" style="cursor:pointer">
           <option value="one-column" ${page.layout !== 'two-column' ? 'selected' : ''}>One Column</option>
@@ -926,6 +929,25 @@ async function toggleLayout(pageId, newLayout) {
   if (!res.ok) { alert('Failed to update layout'); return; }
   const page = data.pages.find(p => p.id === pageId);
   if (page) { page.layout = newLayout; renderMain(page); }
+}
+
+// ── Toggle page visibility ─────────────────────────────────────────────────────
+
+async function togglePageVisibility(pageId, currentlyHidden) {
+  const newHidden = !currentlyHidden;
+  const page = data.pages.find(p => p.id === pageId);
+  const label = page ? page.name : pageId;
+  const action = newHidden ? `hide "${label}" from the nav and home page` : `show "${label}" on the nav and home page`;
+  if (!confirm(`This will ${action}. Continue?`)) return;
+  const res = await fetch('/api/page-visibility', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ pageId, hidden: newHidden })
+  });
+  if (!res.ok) { alert('Failed to update page visibility'); return; }
+  if (page) page.hidden = newHidden;
+  renderSidebar();
+  renderMain(page);
 }
 
 // ── Delete page ────────────────────────────────────────────────────────────────
