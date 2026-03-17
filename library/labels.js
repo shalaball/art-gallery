@@ -48,7 +48,7 @@ const LABELS = [
   { filename: "IMG_6344.jpeg", title: "Simple Song", desc: "Alcohol Ink on Yupo Paper, 11\" x 18\"" },
   { filename: "IMG_6346.jpeg", title: "Wildflowers Don't Care", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "IMG_0570.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x6\"" },
-  { filename: "IMG_3622.jpeg", title: "Catalonian Dream", desc: "Ink on Paper" },
+  { filename: "IMG_3622.jpeg", title: "Catalonian Heroes", desc: "Ink on Paper, 10\" x 10\"" },
   { filename: "IMG_4869.jpeg", title: "Untitled", desc: "Ink on Paper Collage, 8\" x 10\"" },
   { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: "Paper Series" },
   { filename: "IMG_6221.jpeg", title: "Strata I - III", desc: "Paper Series" },
