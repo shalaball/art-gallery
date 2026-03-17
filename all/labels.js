@@ -46,4 +46,5 @@ const LABELS = [
   { filename: "EEBF050B-5D99-458F-B192-5CC4BC9D5F02.png", title: "Saturday on The F", desc: "Photo Collage, 14\" x 11\"" },
   { filename: "IMG_6452.jpeg", title: "Azulejo Sunprint", desc: "Cyanotype, 20\" x 14\"" },
   { filename: "B0AB3B06-237A-4639-8CBA-5AB4540043D0.png", title: "Azulejo Sunprint", desc: "Cyanotype on Paper, 14\" x 20\"" },
+  { filename: "78E9C1DB-8C49-4899-B678-1330D44D4AE2.png", title: "Too Wild for Still Water", desc: "Acrylic on Canvas, 60\" x 48\"" },
 ];

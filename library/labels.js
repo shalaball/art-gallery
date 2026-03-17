@@ -1,6 +1,7 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
+  { filename: "78E9C1DB-8C49-4899-B678-1330D44D4AE2.png", title: "Too Wild for Still Water", desc: "Acrylic on Canvas, 60\" x 48\"" },
   { filename: "D92CFCB9-C127-479D-81B6-54968513BDAB.jpeg", title: "Upon Reflection", desc: "Acrylic on Canvas, 14\" x 11\"" },
   { filename: "IMG_6142.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\" x 11\"" },
   { filename: "7E75C3BB-B366-42B6-B127-BA12405395AA.png", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
