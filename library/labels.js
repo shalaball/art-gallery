@@ -42,7 +42,6 @@ const LABELS = [
   { filename: "IMG_0725.heic", title: "Hidden Princess (Collab with Carter Hackett)", desc: "Acrylic on Canvas, 48\" x 24\"" },
   { filename: "AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x6\"" },
   { filename: "IMG_6157.heic", title: "Emerald Audrey", desc: "Acrylic on Canvas, 40\" x 60\"" },
-  { filename: "IMG_6371.jpeg", title: "Too Wild for Still Water", desc: "Acrylic on Canvas, 60\" x 48\"" },
   { filename: "IMG_6370.jpeg", title: "", desc: "" },
   { filename: "IMG_4195.jpeg", title: "Upon Reflection", desc: "Acrylic on Canvas, 14\" x 11\"" },
   { filename: "IMG_6369.jpeg", title: "Triana District", desc: "Acrylic on Paper" },

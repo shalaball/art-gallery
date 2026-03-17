@@ -7,7 +7,7 @@ const LABELS = [
   { filename: "2F98DB7B-9452-4B93-A751-52B1A96700F3.png", title: "Helix Becoming", desc: "Acrylic on Canvas, 24\" x 48\"" },
   { filename: "IMG_6201.jpeg", title: "When the River Became Two", desc: "Acrylic on Canvas, 36\"x 36\" Diptych" },
   { filename: "IMG_6410-2.jpeg", title: "Too Wild for Still Water", desc: "Acrylic on Canvas, 60\" x 48\"" },
-  { filename: "IMG_6371.jpeg", title: "Too Wild for Still Water", desc: "Acrylic on Canvas, 60\" x 48\"" },
+  { filename: "78E9C1DB-8C49-4899-B678-1330D44D4AE2.png", title: "Too Wild for Still Water", desc: "Acrylic on Canvas, 60\" x 48\"" },
   { filename: "3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg", title: "Paper Planes / No Borders", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "02BBE9A4-15A1-4D91-83F7-8DFFFB72B0BC.png", title: "Paper Planes / No Borders", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "IMG_0725.heic", title: "Hidden Princess (Collab with Carter Hackett)", desc: "Acrylic on Canvas, 48\" x 24\"" },
@@ -46,5 +46,4 @@ const LABELS = [
   { filename: "EEBF050B-5D99-458F-B192-5CC4BC9D5F02.png", title: "Saturday on The F", desc: "Photo Collage, 14\" x 11\"" },
   { filename: "IMG_6452.jpeg", title: "Azulejo Sunprint", desc: "Cyanotype, 20\" x 14\"" },
   { filename: "B0AB3B06-237A-4639-8CBA-5AB4540043D0.png", title: "Azulejo Sunprint", desc: "Cyanotype on Paper, 14\" x 20\"" },
-  { filename: "78E9C1DB-8C49-4899-B678-1330D44D4AE2.png", title: "Too Wild for Still Water", desc: "Acrylic on Canvas, 60\" x 48\"" },
 ];
