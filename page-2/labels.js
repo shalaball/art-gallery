@@ -27,4 +27,8 @@ const LABELS = [
   { filename: "8452FC30-6F6C-48E1-B9C4-9E6051876814.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper, 30\" x 19\"" },
   { filename: "IMG_6452.jpeg", title: "Azulejo Sunprint", desc: "Cyanotype, 20\" x 14\"" },
   { filename: "B0AB3B06-237A-4639-8CBA-5AB4540043D0.png", title: "Azulejo Sunprint", desc: "Cyanotype on Paper, 14\" x 20\"" },
+  { filename: "IMG_6684-2.jpeg", title: "Corazon", desc: "Acrylic on Canvas, 14\" x 11\" (1/1 Diptych)" },
+  { filename: "E7CBA163-1506-45FA-8A45-BD8DC15820E8.png", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/1 Diptych)" },
+  { filename: "IMG_6681.jpeg", title: "Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)" },
+  { filename: "7FD81D2A-A2DE-4AFD-84C0-38DD2ABF570A.png", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)" },
 ];

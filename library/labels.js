@@ -1,6 +1,11 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
+  { filename: "IMG_6684-2.jpeg", title: "Corazon", desc: "Acrylic on Canvas, 14\" x 11\" (1/1 Diptych)" },
+  { filename: "IMG_6681.jpeg", title: "Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)" },
+  { filename: "7FD81D2A-A2DE-4AFD-84C0-38DD2ABF570A.png", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)" },
+  { filename: "E7CBA163-1506-45FA-8A45-BD8DC15820E8.png", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/1 Diptych)" },
+  { filename: "IMG_6684.jpeg", title: "Corazon", desc: "Acrylic on Canvas, 14\" x 11\" (1/1 Diptych)" },
   { filename: "78E9C1DB-8C49-4899-B678-1330D44D4AE2.png", title: "Too Wild for Still Water", desc: "Acrylic on Canvas, 60\" x 48\"" },
   { filename: "D92CFCB9-C127-479D-81B6-54968513BDAB.jpeg", title: "Upon Reflection", desc: "Acrylic on Canvas, 14\" x 11\"" },
   { filename: "IMG_6142.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\" x 11\"" },
