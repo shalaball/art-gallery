@@ -9,6 +9,8 @@ const LABELS = [
   { filename: "Untitled.png", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: "Paper Series" },
   { filename: "IMG_6221.jpeg", title: "Strata I - III", desc: "Paper Series" },
+  { filename: "IMG_6715.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
+  { filename: "IMG_6707.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
   { filename: "IMG_6201.jpeg", title: "When the River Became Two", desc: "Acrylic on Canvas, 36\"x 36\" Diptych" },
   { filename: "IMG_5991.jpeg", title: "Greenland's House", desc: "Acrylic Ink on Paper, 8\"x10\"" },
   { filename: "IMG_6142.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\" x 11\"" },

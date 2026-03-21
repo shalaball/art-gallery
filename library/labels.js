@@ -1,6 +1,8 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
+  { filename: "IMG_6715.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
+  { filename: "IMG_6707.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
   { filename: "Untitled.png", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "IMG_6684-2.jpeg", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/1 Diptych)" },
   { filename: "IMG_6681.jpeg", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)" },

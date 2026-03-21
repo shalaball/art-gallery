@@ -50,4 +50,6 @@ const LABELS = [
   { filename: "E7CBA163-1506-45FA-8A45-BD8DC15820E8.png", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/1 Diptych)" },
   { filename: "7FD81D2A-A2DE-4AFD-84C0-38DD2ABF570A.png", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)" },
   { filename: "IMG_6681.jpeg", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)" },
+  { filename: "IMG_6715.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
+  { filename: "IMG_6707.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
 ];
