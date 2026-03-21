@@ -1,6 +1,7 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
+  { filename: "IMG_6707-3.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
   { filename: "IMG_6715.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
   { filename: "IMG_6707.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
   { filename: "Untitled.png", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
@@ -60,7 +61,7 @@ const LABELS = [
   { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: "Paper Series" },
   { filename: "IMG_6221.jpeg", title: "Strata I - III", desc: "Paper Series" },
   { filename: "IMG_6219.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\"x11\"" },
-  { filename: "IMG_6201.jpeg", title: "When the River Became Two", desc: "Acrylic on Canvas, 36\"x 36\" Diptych" },
+  { filename: "IMG_6201.jpeg", title: "When the River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
   { filename: "IMG_5991.jpeg", title: "Greenland's House", desc: "Acrylic Ink on Paper, 8\"x10\"" },
   { filename: "22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg", title: "Saturday on the F", desc: "Photo Collage, 14\"x11\"" },
 ];

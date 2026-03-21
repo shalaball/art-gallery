@@ -5,7 +5,9 @@ const LABELS = [
   { filename: "8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg", title: "The Last Bright Conversation", desc: "Acrylic on Canvas, 60\" x 48\"" },
   { filename: "IMG_6046.jpeg", title: "Helix Becoming", desc: "Acrylic on Canvas, 24\" x 48\"" },
   { filename: "2F98DB7B-9452-4B93-A751-52B1A96700F3.png", title: "Helix Becoming", desc: "Acrylic on Canvas, 24\" x 48\"" },
-  { filename: "IMG_6201.jpeg", title: "When the River Became Two", desc: "Acrylic on Canvas, 36\"x 36\" Diptych" },
+  { filename: "IMG_6715.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
+  { filename: "IMG_6707.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
+  { filename: "IMG_6201.jpeg", title: "When the River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
   { filename: "IMG_6410-2.jpeg", title: "Too Wild for Still Water", desc: "Acrylic on Canvas, 60\" x 48\"" },
   { filename: "78E9C1DB-8C49-4899-B678-1330D44D4AE2.png", title: "Too Wild for Still Water", desc: "Acrylic on Canvas, 60\" x 48\"" },
   { filename: "3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg", title: "Paper Planes / No Borders", desc: "Acrylic on Canvas, 60\" x 40\"" },
@@ -50,6 +52,4 @@ const LABELS = [
   { filename: "E7CBA163-1506-45FA-8A45-BD8DC15820E8.png", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/1 Diptych)" },
   { filename: "7FD81D2A-A2DE-4AFD-84C0-38DD2ABF570A.png", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)" },
   { filename: "IMG_6681.jpeg", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)" },
-  { filename: "IMG_6715.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
-  { filename: "IMG_6707.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
 ];
