@@ -1,6 +1,7 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
+  { filename: "Untitled.png", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "IMG_6684-2.jpeg", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/1 Diptych)" },
   { filename: "IMG_6681.jpeg", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)" },
   { filename: "7FD81D2A-A2DE-4AFD-84C0-38DD2ABF570A.png", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)" },
@@ -34,7 +35,7 @@ const LABELS = [
   { filename: "IMG_6379-2.jpeg", title: "", desc: "" },
   { filename: "IMG_6046.jpeg", title: "Helix Becoming", desc: "Acrylic on Canvas, 24\" x 48\"" },
   { filename: "8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg", title: "The Last Bright Conversation", desc: "Acrylic on Canvas, 60\" x 48\"" },
-  { filename: "IMG_6452.jpeg", title: "Azulejo Sunprint", desc: "Cyanotype, 20\" x 14\"" },
+  { filename: "IMG_6452.jpeg", title: "Azulejo Sunprint", desc: "Cyanotype on Paper, 20\" x 14\"" },
   { filename: "FullSizeRender.heic", title: "Ultramarine Valley", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg", title: "Paper Planes / No Borders", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "IMG_6418.jpeg", title: "Fire Mother", desc: "Acrylic on Canvas, 60\" x 40\"" },

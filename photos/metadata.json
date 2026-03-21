@@ -121,7 +121,7 @@
   },
   "IMG_6452.jpeg": {
     "title": "Azulejo Sunprint",
-    "desc": "Cyanotype, 20\" x 14\"",
+    "desc": "Cyanotype on Paper, 20\" x 14\"",
     "zoom": 1
   },
   "IMG_6046.jpeg": {
@@ -342,6 +342,11 @@
   "IMG_6684-2.jpeg": {
     "title": "Corazon / Carmesi",
     "desc": "Acrylic on Canvas, 14\" x 11\" (1/1 Diptych)",
+    "zoom": 1
+  },
+  "Untitled.png": {
+    "title": "Crimson Drift",
+    "desc": "Acrylic on Canvas, 36\" x 36\"",
     "zoom": 1
   }
 }
