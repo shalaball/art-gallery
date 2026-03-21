@@ -10,15 +10,15 @@
 | Page | Name | URL |
 |------|------|-----|
 | Home | Art Gallery | https://shalaball.com/ |
-| On Display in San Diego | On Display in San Diego | https://shalaball.com/page-2/ |
-| On Display in the San Francisco Bay Area | On Display in the San Francisco Bay Area | https://shalaball.com/page-3/ |
+| In Private Collections in San Diego | In Private Collections in San Diego | https://shalaball.com/page-2/ |
+| In Private Collections in the San Francisco Bay Area | In Private Collections in the San Francisco Bay Area | https://shalaball.com/page-3/ |
 | All | All | https://shalaball.com/all/ |
 | New Art | New Art | https://shalaball.com/page-1/ |
 | Cards (Under Construction) | Cards (Under Construction) | https://shalaball.com/cards/ |
 
 ---
 
-## On Display in San Diego Page (`page-2/`)
+## In Private Collections in San Diego Page (`page-2/`)
 
 | Order | Filename |
 |-------|----------|
@@ -55,7 +55,7 @@
 
 ---
 
-## On Display in the San Francisco Bay Area Page (`page-3/`)
+## In Private Collections in the San Francisco Bay Area Page (`page-3/`)
 
 | Order | Filename |
 |-------|----------|
@@ -124,17 +124,17 @@
 | 38 | C015E4F8-F2D5-47A7-995F-B7A9C3FEA8D4.png |
 | 39 | IMG_6350.jpeg |
 | 40 | 8452FC30-6F6C-48E1-B9C4-9E6051876814.jpeg |
-| 41 | IMG_6369.jpeg |
-| 42 | IMG_3622.jpeg |
-| 43 | IMG_4869.jpeg |
-| 44 | EEBF050B-5D99-458F-B192-5CC4BC9D5F02.png |
-| 45 | IMG_6452.jpeg |
-| 46 | B0AB3B06-237A-4639-8CBA-5AB4540043D0.png |
-| 47 | IMG_6684-2.jpeg |
-| 48 | E7CBA163-1506-45FA-8A45-BD8DC15820E8.png |
-| 49 | 7FD81D2A-A2DE-4AFD-84C0-38DD2ABF570A.png |
-| 50 | IMG_6681.jpeg |
-| 51 | IMG_5109.jpeg |
+| 41 | IMG_5109.jpeg |
+| 42 | EEBF050B-5D99-458F-B192-5CC4BC9D5F02.png |
+| 43 | IMG_6452.jpeg |
+| 44 | B0AB3B06-237A-4639-8CBA-5AB4540043D0.png |
+| 45 | IMG_6684-2.jpeg |
+| 46 | E7CBA163-1506-45FA-8A45-BD8DC15820E8.png |
+| 47 | IMG_6681.jpeg |
+| 48 | 7FD81D2A-A2DE-4AFD-84C0-38DD2ABF570A.png |
+| 49 | IMG_3622.jpeg |
+| 50 | IMG_4869.jpeg |
+| 51 | IMG_6369.jpeg |
 
 ---
 
