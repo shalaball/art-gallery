@@ -276,7 +276,7 @@
   },
   "EEBF050B-5D99-458F-B192-5CC4BC9D5F02.png": {
     "title": "Saturday on The F",
-    "desc": "Photo Collage, 14\" x 11\"",
+    "desc": "Photo Collage, 20\" x 16\"",
     "zoom": 1
   },
   "82B62E10-2E80-44D8-B4A0-A381CE7F5CD8.png": {
@@ -367,6 +367,11 @@
   "IMG_6707-3.jpeg": {
     "title": "When The River Became Two",
     "desc": "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side",
+    "zoom": 1
+  },
+  "IMG_5109.jpeg": {
+    "title": "Saturday on the \"F\"",
+    "desc": "Photo Collage, 20\" x 16\"",
     "zoom": 1
   }
 }
