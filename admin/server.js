@@ -534,7 +534,9 @@ app.get('/api/home', (req, res) => {
     const ctaColor   = (ctaStyle.match(/color:([^;]+)/) || [])[1] || '#888888';
     const ctaFont    = (ctaStyle.match(/font-family:'([^']+)'/) || [])[1] || 'Cormorant Garamond';
     const ctaSize    = parseFloat((ctaStyle.match(/font-size:([0-9.]+)rem/) || [])[1] || '1');
-    res.json({ title, subtitle, footer, repoPath: GALLERY, ctaText, ctaHref, ctaColor, ctaFont, ctaSize, ctaVisible });
+    const ctaWeight  = (ctaStyle.match(/font-weight:(\w+)/) || [])[1] || '400';
+    const ctaFontStyle = (ctaStyle.match(/font-style:(\w+)/) || [])[1] || 'normal';
+    res.json({ title, subtitle, footer, repoPath: GALLERY, ctaText, ctaHref, ctaColor, ctaFont, ctaSize, ctaWeight, ctaStyle: ctaFontStyle, ctaVisible });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -543,17 +545,19 @@ app.get('/api/home', (req, res) => {
 // Save home page text
 app.post('/api/home', (req, res) => {
   try {
-    const { title, subtitle, footer, ctaText, ctaHref, ctaColor, ctaFont, ctaSize, ctaVisible } = req.body;
+    const { title, subtitle, footer, ctaText, ctaHref, ctaColor, ctaFont, ctaSize, ctaWeight, ctaStyle, ctaVisible } = req.body;
     const homeFile = path.join(GALLERY, 'index.html');
     let html = fs.readFileSync(homeFile, 'utf8');
     if (title    !== undefined) html = html.replace(/(<h1>)[^<]*(<\/h1>)/,    `$1${title}$2`);
     if (subtitle !== undefined) html = html.replace(/(<header>[^]*?<p>)[^<]*(<\/p>)/, `$1${subtitle}$2`);
     if (footer   !== undefined) html = html.replace(/(<footer>)[^<]*(<\/footer>)/, `$1${footer}$2`);
     if (ctaText  !== undefined) {
-      const serifFonts = ['Cormorant Garamond','Playfair Display','EB Garamond','Lora'];
+      const serifFonts = Object.keys(TITLE_FONT_PARAMS);
       const fallback   = serifFonts.includes(ctaFont) ? 'serif' : 'sans-serif';
       const display    = ctaVisible ? '' : 'display:none';
-      const newCta     = `<div id="cta"${display ? ` style="${display}"` : ''}><a href="${ctaHref || ''}" style="font-family:'${ctaFont}',${fallback};color:${ctaColor};font-size:${ctaSize}rem;letter-spacing:0.05em;text-decoration:none;transition:opacity 0.2s;">${ctaText}</a></div>`;
+      const weight     = ctaWeight || '400';
+      const style      = ctaStyle  || 'normal';
+      const newCta     = `<div id="cta"${display ? ` style="${display}"` : ''}><a href="${ctaHref || ''}" style="font-family:'${ctaFont}',${fallback};color:${ctaColor};font-size:${ctaSize}rem;font-weight:${weight};font-style:${style};letter-spacing:0.05em;text-decoration:none;transition:opacity 0.2s;">${ctaText}</a></div>`;
       html = html.replace(/<div id="cta"[^>]*>[\s\S]*?<\/div>/, newCta);
     }
     fs.writeFileSync(homeFile, html);
@@ -587,6 +591,11 @@ app.get('/api/settings', (req, res) => {
     const capDescWeightM  = html.match(/\.caption \.desc\s*\{[^}]*font-weight:\s*(\w+)/);
     const capDescStyleM   = html.match(/\.caption \.desc\s*\{[^}]*font-style:\s*(\w+)/);
     const capAlignM       = html.match(/\.caption\s*\{[^}]*text-align:\s*(\w+)/);
+    // Subtitle (header p) settings
+    const subFontM   = html.match(/header p\s*\{[^}]*font-family:\s*'([^']+)'/);
+    const subSizeM   = html.match(/header p\s*\{[^}]*font-size:\s*([0-9.]+)rem/);
+    const subWeightM = html.match(/header p\s*\{[^}]*font-weight:\s*(\w+)/);
+    const subStyleM  = html.match(/header p\s*\{[^}]*font-style:\s*(\w+)/);
     res.json({
       bgColor:     bgMatch    ? bgMatch[1]              : '#ffffff',
       textColor:   colorMatch ? colorMatch[1]           : '#222222',
@@ -607,6 +616,10 @@ app.get('/api/settings', (req, res) => {
       capDescWeight:  capDescWeightM  ? capDescWeightM[1]            : '300',
       capDescStyle:   capDescStyleM   ? capDescStyleM[1]             : 'italic',
       capAlign:       capAlignM       ? capAlignM[1]                : 'center',
+      subFont:        subFontM   ? subFontM[1]             : 'Montserrat',
+      subSize:        subSizeM   ? parseFloat(subSizeM[1]) : 0.7,
+      subWeight:      subWeightM ? subWeightM[1]           : '400',
+      subStyle:       subStyleM  ? subStyleM[1]            : 'normal',
     });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -617,7 +630,8 @@ app.get('/api/settings', (req, res) => {
 app.post('/api/settings', (req, res) => {
   try {
     const { bgColor, textColor, titleFont, bodyFont, titleSize, bodySize, titleWeight, titleStyle, bodyWeight, bodyStyle,
-            capTitleFont, capTitleSize, capTitleWeight, capTitleStyle, capDescFont, capDescSize, capDescWeight, capDescStyle, capAlign } = req.body;
+            capTitleFont, capTitleSize, capTitleWeight, capTitleStyle, capDescFont, capDescSize, capDescWeight, capDescStyle, capAlign,
+            subFont, subSize, subWeight, subStyle } = req.body;
     const ALL_FONTS = { ...TITLE_FONT_PARAMS, ...BODY_FONT_PARAMS };
     if (!ALL_FONTS[titleFont] || !ALL_FONTS[bodyFont]) return res.status(400).json({ error: 'Unknown font' });
 
@@ -625,6 +639,7 @@ app.post('/api/settings', (req, res) => {
     const fontSet = new Set([ALL_FONTS[titleFont], ALL_FONTS[bodyFont]]);
     if (capTitleFont && ALL_FONTS[capTitleFont]) fontSet.add(ALL_FONTS[capTitleFont]);
     if (capDescFont  && ALL_FONTS[capDescFont])  fontSet.add(ALL_FONTS[capDescFont]);
+    if (subFont      && ALL_FONTS[subFont])      fontSet.add(ALL_FONTS[subFont]);
     const fontsUrl = `https://fonts.googleapis.com/css2?${[...fontSet].join('&')}&display=swap`;
     for (const filePath of getAllHtmlFiles()) {
       let html = fs.readFileSync(filePath, 'utf8');
@@ -724,6 +739,33 @@ app.post('/api/settings', (req, res) => {
       // Update caption alignment
       if (capAlign) {
         html = html.replace(/(\.caption\s*\{[^}]*)text-align:\s*\w+/, `$1text-align: ${capAlign}`);
+      }
+      // ── Subtitle (header p) ──
+      if (subFont) {
+        const serifFonts = Object.keys(TITLE_FONT_PARAMS);
+        const fallback = serifFonts.includes(subFont) ? 'serif' : 'sans-serif';
+        if (html.match(/header p\s*\{[^}]*font-family:/)) {
+          html = html.replace(/(header p\s*\{[^}]*)font-family:\s*'[^']+',\s*\w+-?\w*/, `$1font-family: '${subFont}', ${fallback}`);
+        } else {
+          html = html.replace(/(header p\s*\{)/, `$1\n      font-family: '${subFont}', ${fallback};`);
+        }
+      }
+      if (subSize) {
+        html = html.replace(/(header p\s*\{[^}]*)font-size:\s*[0-9.]+rem/, `$1font-size: ${subSize}rem`);
+      }
+      if (subWeight) {
+        if (html.match(/header p\s*\{[^}]*font-weight:/)) {
+          html = html.replace(/(header p\s*\{[^}]*)font-weight:\s*\w+/, `$1font-weight: ${subWeight}`);
+        } else {
+          html = html.replace(/(header p\s*\{[^}]*font-size:\s*[0-9.]+rem;)/, `$1\n      font-weight: ${subWeight};`);
+        }
+      }
+      if (subStyle) {
+        if (html.match(/header p\s*\{[^}]*font-style:/)) {
+          html = html.replace(/(header p\s*\{[^}]*)font-style:\s*\w+/, `$1font-style: ${subStyle}`);
+        } else {
+          html = html.replace(/(header p\s*\{[^}]*font-size:\s*[0-9.]+rem;)/, `$1\n      font-style: ${subStyle};`);
+        }
       }
       fs.writeFileSync(filePath, html);
     }

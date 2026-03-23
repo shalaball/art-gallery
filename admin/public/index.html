@@ -454,6 +454,10 @@ function renderHomeMain(home, settings = {}) {
   const ctWt  = settings.capTitleWeight || '400';
   const ctSt  = settings.capTitleStyle  || 'normal';
   const capAlign = settings.capAlign || 'center';
+  const stf  = settings.subFont    || 'Montserrat';
+  const stSz = settings.subSize    != null ? settings.subSize : 0.7;
+  const stWt = settings.subWeight  || '400';
+  const stSt = settings.subStyle   || 'normal';
   const cdf   = settings.capDescFont    || 'Montserrat';
   const cdSz  = settings.capDescSize    != null ? settings.capDescSize : 0.75;
   const cdWt  = settings.capDescWeight  || '300';
@@ -477,8 +481,8 @@ function renderHomeMain(home, settings = {}) {
   const ctaFont    = home.ctaFont    || 'Cormorant Garamond';
   const ctaSize    = home.ctaSize    != null ? home.ctaSize : 1;
   const ctaVisible = home.ctaVisible || false;
-  const ctaFontOpts = ['Cormorant Garamond','Playfair Display','EB Garamond','Lora','Montserrat','Lato','Open Sans','Raleway']
-    .map(f => `<option${f===ctaFont?' selected':''}>${f}</option>`).join('');
+  const ctaWeight  = home.ctaWeight  || '400';
+  const ctaStyle   = home.ctaStyle   || 'normal';
 
   document.getElementById('main').innerHTML = `
     <div style="background:#fffbe6;border:1px solid #ffe58f;border-radius:6px;padding:12px 16px;margin-bottom:24px;font-size:15px;line-height:1.7;color:#555">
@@ -499,10 +503,32 @@ function renderHomeMain(home, settings = {}) {
       <div style="margin-bottom:20px">
         <label ${lbl}>Site Title</label>
         <input id="home-title" type="text" value="${esc(home.title)}" ${inp} oninput="markUnsaved()">
+        <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+          <select id="design-title-font" ${sel} style="flex:1" onchange="markUnsaved()">${fontOpts(tf)}</select>
+          <input type="number" id="design-title-size" value="${tSz}" min="1.5" max="6" step="0.25"
+            oninput="markUnsaved()"
+            style="width:64px;border:1px solid #e0e0e0;border-radius:4px;padding:7px 8px;font-size:15px;font-family:inherit;outline:none;background:#fafafa;text-align:center">
+          <span style="font-size:13px;color:#999;white-space:nowrap">rem</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+          <select id="design-title-weight" ${sel} style="flex:1" onchange="markUnsaved()">${weightOpts(tWt)}</select>
+          <select id="design-title-style" ${sel} style="flex:1" onchange="markUnsaved()">${styleOpts(tSt)}</select>
+        </div>
       </div>
       <div style="margin-bottom:20px">
         <label ${lbl}>Subtitle</label>
         <input id="home-subtitle" type="text" value="${esc(home.subtitle)}" ${inp} oninput="markUnsaved()">
+        <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+          <select id="design-sub-font" ${sel} style="flex:1" onchange="markUnsaved()">${fontOpts(stf)}</select>
+          <input type="number" id="design-sub-size" value="${stSz}" min="0.5" max="3" step="0.05"
+            oninput="markUnsaved()"
+            style="width:64px;border:1px solid #e0e0e0;border-radius:4px;padding:7px 8px;font-size:15px;font-family:inherit;outline:none;background:#fafafa;text-align:center">
+          <span style="font-size:13px;color:#999;white-space:nowrap">rem</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+          <select id="design-sub-weight" ${sel} style="flex:1" onchange="markUnsaved()">${weightOpts(stWt)}</select>
+          <select id="design-sub-style" ${sel} style="flex:1" onchange="markUnsaved()">${styleOpts(stSt)}</select>
+        </div>
       </div>
       <div style="margin-bottom:32px">
         <label ${lbl}>Footer Text</label>
@@ -524,19 +550,18 @@ function renderHomeMain(home, settings = {}) {
           <label ${lbl}>Link URL</label>
           <input id="cta-href" type="text" value="${esc(ctaHref)}" ${inp} placeholder="e.g. about/" oninput="markUnsaved()">
         </div>
-        <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end;margin-bottom:12px">
-          <div>
-            <label ${lbl}>Font</label>
-            <select id="cta-font" ${sel} onchange="markUnsaved()">${ctaFontOpts}</select>
+        <div style="margin-bottom:12px">
+          <label ${lbl}>CTA Font</label>
+          <div style="display:flex;align-items:center;gap:8px">
+            <select id="cta-font" ${sel} style="flex:1" onchange="markUnsaved()">${fontOpts(ctaFont)}</select>
+            <input type="number" id="cta-size" value="${ctaSize}" min="0.6" max="3" step="0.05"
+              oninput="markUnsaved()"
+              style="width:64px;border:1px solid #e0e0e0;border-radius:4px;padding:7px 8px;font-size:15px;font-family:inherit;outline:none;background:#fafafa;text-align:center">
+            <span style="font-size:13px;color:#999;white-space:nowrap">rem</span>
           </div>
-          <div>
-            <label ${lbl}>Size</label>
-            <div style="display:flex;align-items:center;gap:6px">
-              <input type="number" id="cta-size" value="${ctaSize}" min="0.6" max="3" step="0.05"
-                oninput="markUnsaved()"
-                style="width:64px;border:1px solid #e0e0e0;border-radius:4px;padding:7px 8px;font-size:15px;font-family:inherit;outline:none;background:#fafafa;text-align:center">
-              <span style="font-size:13px;color:#999">rem</span>
-            </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+            <select id="cta-weight" ${sel} style="flex:1" onchange="markUnsaved()">${weightOpts(ctaWeight)}</select>
+            <select id="cta-style" ${sel} style="flex:1" onchange="markUnsaved()">${styleOpts(ctaStyle)}</select>
           </div>
         </div>
         <div>
@@ -580,20 +605,6 @@ function renderHomeMain(home, settings = {}) {
           </div>
         </div>
 
-        <div style="margin-bottom:16px">
-          <label ${lbl}>Page Title Font</label>
-          <div style="display:flex;align-items:center;gap:8px">
-            <select id="design-title-font" ${sel} style="flex:1" oninput="markUnsaved()">${fontOpts(tf)}</select>
-            <input type="number" id="design-title-size" value="${tSz}" min="1.5" max="6" step="0.25"
-              oninput="markUnsaved()"
-              style="width:64px;border:1px solid #e0e0e0;border-radius:4px;padding:7px 8px;font-size:15px;font-family:inherit;outline:none;background:#fafafa;text-align:center">
-            <span style="font-size:13px;color:#999;white-space:nowrap">rem</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
-            <select id="design-title-weight" ${sel} style="flex:1" onchange="markUnsaved()">${weightOpts(tWt)}</select>
-            <select id="design-title-style" ${sel} style="flex:1" onchange="markUnsaved()">${styleOpts(tSt)}</select>
-          </div>
-        </div>
         <div style="margin-bottom:8px">
           <label ${lbl}>Body Font</label>
           <div style="display:flex;align-items:center;gap:8px">
@@ -672,6 +683,8 @@ async function saveHome() {
     ctaFont:    document.getElementById('cta-font').value,
     ctaSize:    parseFloat(document.getElementById('cta-size').value),
     ctaColor:   document.getElementById('cta-color-text').value,
+    ctaWeight:  document.getElementById('cta-weight').value,
+    ctaStyle:   document.getElementById('cta-style').value,
     ctaVisible: document.getElementById('cta-visible').checked,
   };
   const requests = [
@@ -698,6 +711,10 @@ async function saveHome() {
       capDescWeight:  document.getElementById('design-cap-desc-weight').value,
       capDescStyle:   document.getElementById('design-cap-desc-style').value,
       capAlign:       document.getElementById('design-cap-align').value,
+      subFont:        document.getElementById('design-sub-font').value,
+      subSize:        parseFloat(document.getElementById('design-sub-size').value),
+      subWeight:      document.getElementById('design-sub-weight').value,
+      subStyle:       document.getElementById('design-sub-style').value,
     };
     requests.push(
       fetch('/api/settings', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(designPayload) })
@@ -1209,11 +1226,12 @@ async function quitApp() {
 }
 
 async function openPreview() {
-  await saveCurrentPage();
   const url = (!currentPageId || currentPageId === 'home')
     ? '/preview/'
     : `/preview/${currentPageId}/`;
-  window.open(url, '_blank');
+  const win = window.open('about:blank', '_blank');
+  await saveCurrentPage();
+  win.location = url;
 }
 
 
