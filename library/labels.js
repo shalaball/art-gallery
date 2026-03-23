@@ -1,12 +1,11 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
-  { filename: "IMG_6046-3.jpeg", title: "2", desc: "" },
-  { filename: "IMG_6046-2.jpeg", title: "3", desc: "" },
+  { filename: "292EB5D7-449C-4ABA-8E3D-7AB4835BBCB1.jpeg", title: "Fire Mother", desc: "Acrylic on Canvas. 60\" x 40\"" },
   { filename: "0C980E9E-9EDE-4676-AF8C-0237C1BEE825.png", title: "Unwritten Language", desc: "Ink on Paper Collage, 8\" x 10\"" },
   { filename: "174EDD0D-C820-407D-A308-5168D5E636EE.png", title: "Chlorophyll Dreaming", desc: "Alcohol Ink on Yupo Paper, 30\" x 10\"" },
   { filename: "IMG_6721.jpeg", title: "Chlorophyll Dreaming", desc: "Alcohol Ink on Yupo Paper, 30\" x 10\"" },
-  { filename: "IMG_5109.jpeg", title: "Saturday on the \"F\"", desc: "Photo Collage, 20\" x 16\"" },
+  { filename: "IMG_5109.jpeg", title: "Saturday on the F", desc: "Photo Collage, 20\" x 16\"" },
   { filename: "IMG_6715.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
   { filename: "IMG_6707.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
   { filename: "Untitled.png", title: "Crimson Drift", desc: "Acrylic on Canvas, 36\" x 36\"" },
@@ -54,7 +53,7 @@ const LABELS = [
   { filename: "IMG_6369.jpeg", title: "Triana District", desc: "Acrylic on Paper" },
   { filename: "IMG_6344.jpeg", title: "Simple Song", desc: "Alcohol Ink on Yupo Paper, 11\" x 18\"" },
   { filename: "IMG_6346.jpeg", title: "Wildflowers Don't Care", desc: "Acrylic on Canvas, 36\" x 36\"" },
-  { filename: "IMG_0570.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x6\"" },
+  { filename: "IMG_0570.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x 6\"" },
   { filename: "IMG_3622.jpeg", title: "Catalonian Heroes", desc: "Ink on Paper, 10\" x 10\"" },
   { filename: "IMG_4869.jpeg", title: "Unwritten Language", desc: "Ink on Paper Collage, 8\" x 10\"" },
   { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: "Paper Series" },

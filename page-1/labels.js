@@ -3,7 +3,7 @@
 const LABELS = [
   { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: "Paper Series" },
   { filename: "IMG_6221.jpeg", title: "Strata I - III", desc: "Paper Series" },
-  { filename: "IMG_5109.jpeg", title: "Saturday on the \"F\"", desc: "Photo Collage, 20\" x 16\"" },
+  { filename: "IMG_5109.jpeg", title: "Saturday on the F", desc: "Photo Collage, 20\" x 16\"" },
   { filename: "EEBF050B-5D99-458F-B192-5CC4BC9D5F02.png", title: "Saturday on The F", desc: "Photo Collage, 20\" x 16\"" },
   { filename: "IMG_6452.jpeg", title: "Azulejo Sunprint", desc: "Cyanotype on Paper, 20\" x 14\"" },
   { filename: "B0AB3B06-237A-4639-8CBA-5AB4540043D0.png", title: "Azulejo Sunprint", desc: "Cyanotype on Paper, 14\" x 20\"" },

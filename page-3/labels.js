@@ -8,6 +8,6 @@ const LABELS = [
   { filename: "IMG_6350.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper, 30\" x 19\"" },
   { filename: "8452FC30-6F6C-48E1-B9C4-9E6051876814.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper, 30\" x 19\"" },
   { filename: "AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x6\"" },
-  { filename: "IMG_0570.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x6\"" },
+  { filename: "IMG_0570.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x 6\"" },
   { filename: "IMG_5991.jpeg", title: "Greenland's House", desc: "Acrylic Ink on Paper, 8\"x10\"" },
 ];

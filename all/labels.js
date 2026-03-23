@@ -26,7 +26,7 @@ const LABELS = [
   { filename: "F3C25FD5-E52E-4212-8E78-D6FB57F49A5B.png", title: "Scarlet Releasing", desc: "Acrylic on Canvas, 48\" x 32\"" },
   { filename: "IMG_6493.jpeg", title: "Scarlet Unfurling", desc: "Acrylic on Canvas, 48\" x 32\"" },
   { filename: "37034FE0-0E39-49E0-8424-F4CEC66808FC.png", title: "Scarlet Unfurling", desc: "Acrylic on Canvas, 48\" x 32\"" },
-  { filename: "IMG_0570.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x6\"" },
+  { filename: "IMG_0570.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x 6\"" },
   { filename: "AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x6\"" },
   { filename: "IMG_6142.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\" x 11\"" },
   { filename: "IMG_6219.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\"x11\"" },
@@ -41,7 +41,7 @@ const LABELS = [
   { filename: "C015E4F8-F2D5-47A7-995F-B7A9C3FEA8D4.png", title: "Simple Song", desc: "Alcohol Ink on Yupo Paper, 11\" x 18\"" },
   { filename: "IMG_6350.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper, 30\" x 19\"" },
   { filename: "8452FC30-6F6C-48E1-B9C4-9E6051876814.jpeg", title: "All of Our Days", desc: "Alcohol Ink on Yupo Paper, 30\" x 19\"" },
-  { filename: "IMG_5109.jpeg", title: "Saturday on the \"F\"", desc: "Photo Collage, 20\" x 16\"" },
+  { filename: "IMG_5109.jpeg", title: "Saturday on the F", desc: "Photo Collage, 20\" x 16\"" },
   { filename: "EEBF050B-5D99-458F-B192-5CC4BC9D5F02.png", title: "Saturday on The F", desc: "Photo Collage, 20\" x 16\"" },
   { filename: "IMG_6452.jpeg", title: "Azulejo Sunprint", desc: "Cyanotype on Paper, 20\" x 14\"" },
   { filename: "B0AB3B06-237A-4639-8CBA-5AB4540043D0.png", title: "Azulejo Sunprint", desc: "Cyanotype on Paper, 14\" x 20\"" },
@@ -55,4 +55,5 @@ const LABELS = [
   { filename: "0C980E9E-9EDE-4676-AF8C-0237C1BEE825.png", title: "Unwritten Language", desc: "Ink on Paper Collage, 8\" x 10\"" },
   { filename: "IMG_3622.jpeg", title: "Catalonian Heroes", desc: "Ink on Paper, 10\" x 10\"" },
   { filename: "IMG_6369.jpeg", title: "Triana District", desc: "Acrylic on Paper" },
+  { filename: "292EB5D7-449C-4ABA-8E3D-7AB4835BBCB1.jpeg", title: "Fire Mother", desc: "Acrylic on Canvas. 60\" x 40\"" },
 ];

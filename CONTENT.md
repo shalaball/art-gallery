@@ -14,7 +14,7 @@
 | Paintings | Paintings | https://shalaball.com/page-2/ |
 | Paint Inks | Paint Inks | https://shalaball.com/page-3/ |
 | Mixed Media | Mixed Media | https://shalaball.com/page-1/ |
-| Cards (Under Construction) | Cards (Under Construction) | https://shalaball.com/cards/ |
+| Available Work | Available Work | https://shalaball.com/cards/ |
 
 ---
 
@@ -76,6 +76,7 @@
 | 52 | 0C980E9E-9EDE-4676-AF8C-0237C1BEE825.png |
 | 53 | IMG_3622.jpeg |
 | 54 | IMG_6369.jpeg |
+| 55 | 292EB5D7-449C-4ABA-8E3D-7AB4835BBCB1.jpeg |
 
 ---
 
@@ -90,7 +91,7 @@
 | 5 | 3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg |
 | 6 | 02BBE9A4-15A1-4D91-83F7-8DFFFB72B0BC.png |
 | 7 | IMG_6418.jpeg |
-| 8 | 292EB5D7-449C-4ABA-8E3D-7AB4835BBCB1.png |
+| 8 | 292EB5D7-449C-4ABA-8E3D-7AB4835BBCB1.jpeg |
 | 9 | IMG_6157.heic |
 | 10 | 11274E0A-CA19-426D-8AF6-97C6E800C750.png |
 | 11 | IMG_6386-2.jpeg |
@@ -154,16 +155,22 @@
 
 ---
 
-## Cards (Under Construction) Page (`cards/`)
+## Available Work Page (`cards/`)
 
 Hidden: true
 
 | Order | Filename |
 |-------|----------|
-| 1 | IMG_6381.jpeg |
-| 2 | IMG_6351.png |
-| 3 | IMG_6352.png |
-| 4 | IMG_6346-2.jpeg |
-| 5 | IMG_6142.jpeg |
-| 6 | IMG_6346.jpeg |
-| 7 | IMG_5109.jpeg |
+| 1 | IMG_6346.jpeg |
+| 2 | C1F22FBD-1F9F-414E-8FDF-10BB01AB5FE1.png |
+| 3 | IMG_6142.jpeg |
+| 4 | IMG_6219.jpeg |
+| 5 | IMG_6721.jpeg |
+| 6 | 174EDD0D-C820-407D-A308-5168D5E636EE.png |
+| 7 | EE722A36-C1FD-44EA-9DAC-0ACFF389B986.png |
+| 8 | Untitled.png |
+| 9 | IMG_6157.heic |
+| 10 | 11274E0A-CA19-426D-8AF6-97C6E800C750.png |
+| 11 | IMG_6418.jpeg |
+| 12 | 292EB5D7-449C-4ABA-8E3D-7AB4835BBCB1.jpeg |
+| 13 | IMG_6369.jpeg |

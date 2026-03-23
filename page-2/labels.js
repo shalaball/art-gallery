@@ -8,7 +8,7 @@ const LABELS = [
   { filename: "3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg", title: "Paper Planes / No Borders", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "02BBE9A4-15A1-4D91-83F7-8DFFFB72B0BC.png", title: "Paper Planes / No Borders", desc: "Acrylic on Canvas, 60\" x 40\"" },
   { filename: "IMG_6418.jpeg", title: "Fire Mother", desc: "Acrylic on Canvas, 60\" x 40\"" },
-  { filename: "292EB5D7-449C-4ABA-8E3D-7AB4835BBCB1.png", title: "Fire Mother", desc: "Acrylic on Canvas, 60\" x 40\"" },
+  { filename: "292EB5D7-449C-4ABA-8E3D-7AB4835BBCB1.jpeg", title: "Fire Mother", desc: "Acrylic on Canvas. 60\" x 40\"" },
   { filename: "IMG_6157.heic", title: "Emerald Audrey", desc: "Acrylic on Canvas, 40\" x 60\"" },
   { filename: "11274E0A-CA19-426D-8AF6-97C6E800C750.png", title: "Emerald Audrey", desc: "Acrylic on Canvas, 40\" x 60\"" },
   { filename: "IMG_6386-2.jpeg", title: "The Last Bright Conversation", desc: "Acrylic on Canvas, 60\" x 48\"" },
