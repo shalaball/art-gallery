@@ -32,7 +32,7 @@ const LABELS = [
   { filename: "IMG_6219.jpeg", title: "Impromptu #4", desc: ["Acrylic on Canvas, 14\"x11\""] },
   { filename: "IMG_4195.jpeg", title: "Upon Reflection", desc: ["Acrylic on Canvas, 14\" x 11\""] },
   { filename: "D92CFCB9-C127-479D-81B6-54968513BDAB.jpeg", title: "Upon Reflection", desc: ["Acrylic on Canvas, 14\" x 11\""] },
-  { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: ["Paper Series","(not for sale)"] },
+  { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: ["Paper Series"] },
   { filename: "IMG_6221.jpeg", title: "Strata I - III", desc: ["Paper Series"] },
   { filename: "EE722A36-C1FD-44EA-9DAC-0ACFF389B986.png", title: "Crimson Drift", desc: ["Acrylic on Canvas, 36\" x 36\""] },
   { filename: "Untitled.png", title: "Crimson Drift", desc: ["Acrylic on Canvas, 36\" x 36\""] },

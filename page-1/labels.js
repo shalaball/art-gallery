@@ -1,7 +1,7 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
-  { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: ["Paper Series","(not for sale)"] },
+  { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: ["Paper Series"] },
   { filename: "IMG_6221.jpeg", title: "Strata I - III", desc: ["Paper Series"] },
   { filename: "IMG_5109.jpeg", title: "Saturday on the F", desc: ["Photo Collage, 20\" x 16\""] },
   { filename: "EEBF050B-5D99-458F-B192-5CC4BC9D5F02.png", title: "Saturday on The F", desc: ["Photo Collage, 20\" x 16\""] },
