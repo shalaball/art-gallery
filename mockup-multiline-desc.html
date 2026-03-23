@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Multi-line Description Mockup</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: #222;
+  background: #f5f5f5;
+  padding: 40px 24px;
+}
+h2 { font-size: 18px; font-weight: 600; margin-bottom: 20px; }
+.note { font-size: 13px; color: #888; margin-bottom: 24px; line-height: 1.6; }
+
+/* ── Library card (matches admin style) ─── */
+.lib-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  max-width: 720px;
+}
+.lib-thumb-wrap {
+  width: 144px; height: 144px; flex-shrink: 0;
+  overflow: hidden; border-radius: 4px; background: #e8e8e8;
+  display: flex; align-items: center; justify-content: center;
+  color: #bbb; font-size: 13px;
+}
+.lib-info { flex: 1; min-width: 0; }
+.lib-filename { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 4px; }
+.lib-meta-inputs label {
+  display: block; font-size: 11px; font-weight: 700; color: #aaa;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  margin-bottom: 3px; margin-top: 6px;
+}
+.lib-meta-inputs input[type="text"] {
+  width: 100%; border: 1px solid #e0e0e0; border-radius: 3px;
+  padding: 4px 7px; font-size: 13px; font-family: inherit;
+  color: #222; outline: none; background: #fafafa;
+}
+.lib-meta-inputs input[type="text"]:focus {
+  border-color: #999; background: #fff;
+}
+
+/* ── Multi-line desc ─── */
+.desc-label-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  margin-bottom: 3px;
+}
+.desc-label-row label {
+  font-size: 11px; font-weight: 700; color: #aaa;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  margin: 0;
+}
+.desc-line {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.desc-line input[type="text"] {
+  flex: 1; border: 1px solid #e0e0e0; border-radius: 3px;
+  padding: 4px 7px; font-size: 13px; font-family: inherit;
+  color: #222; outline: none; background: #fafafa;
+}
+.desc-line input[type="text"]:focus {
+  border-color: #999; background: #fff;
+}
+.desc-remove-btn {
+  width: 22px; height: 22px;
+  border: 1px solid #e0e0e0; border-radius: 3px;
+  background: #fafafa; color: #c44;
+  font-size: 14px; line-height: 1;
+  cursor: pointer; display: flex;
+  align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s, border-color 0.15s;
+}
+.desc-remove-btn:hover { background: #fdd; border-color: #c44; }
+.desc-add-btn {
+  display: inline-flex; align-items: center; gap: 3px;
+  border: 1px dashed #ccc; border-radius: 3px;
+  background: none; color: #999;
+  font-size: 12px; padding: 3px 8px;
+  cursor: pointer; font-family: inherit;
+  transition: border-color 0.15s, color 0.15s;
+  margin-top: 2px;
+}
+.desc-add-btn:hover { border-color: #888; color: #555; }
+
+/* ── "Used on" + "Add to page" row ─── */
+.lib-page-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+.lib-pages-text {
+  font-size: 13px;
+  color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  padding: 4px 7px;
+  background: #fafafa;
+}
+.lib-page-select {
+  font-size: 13px;
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fafafa;
+  color: #555;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── Rotate row ─── */
+.lib-rotate-row {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+.lib-rotate-btn {
+  flex: 1;
+  background: #f4f4f4;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  font-size: 15px;
+  padding: 2px 0;
+  cursor: pointer;
+  color: #666;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1.4;
+  font-family: inherit;
+}
+.lib-rotate-btn:hover { background: #e4e4e4; color: #222; }
+
+/* ── Separator ─── */
+.section-sep { border: none; border-top: 1px solid #ddd; margin: 32px 0 24px; max-width: 720px; }
+
+/* ── Site preview ─── */
+.gallery-preview {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.gallery-item {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.gallery-item .img-placeholder {
+  width: 100%; max-width: 480px; aspect-ratio: 4/3;
+  background: #e8e8e8; border-radius: 4px;
+  margin: 0 auto 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: #bbb; font-size: 13px;
+}
+.caption .title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 400; color: #222;
+  margin-bottom: 2px;
+}
+.caption .desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; color: #555; font-style: italic;
+  line-height: 1.5;
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h2>Mockup: Multi-line Descriptions + "Used on" Row</h2>
+<div class="note">
+  Two changes shown here:<br>
+  1. Multi-line descriptions with [+ add line] / [×] buttons<br>
+  2. "Used on" moved to a row alongside the "Add to page" dropdown
+</div>
+
+<!-- ═══════ ADMIN CARD 1: single desc line, used on one page ═══════ -->
+<div class="lib-card" id="card1">
+  <div class="lib-thumb-wrap">Photo 1</div>
+  <div class="lib-info">
+    <div class="lib-filename">IMG_6452.jpeg</div>
+    <div class="lib-meta-inputs">
+      <label>Title</label>
+      <input type="text" value="Azulejo Sunprint" oninput="updatePreview()">
+      <div class="desc-label-row"><label>Description</label></div>
+      <div class="desc-lines">
+        <div class="desc-line">
+          <input type="text" value="Cyanotype on Paper, 20&quot; x 14&quot;" placeholder="Description line…" oninput="updatePreview()">
+          <button class="desc-remove-btn" title="Remove line" onclick="removeLine(this)">×</button>
+        </div>
+      </div>
+      <button class="desc-add-btn" onclick="addLine(this)">+ add line</button>
+    </div>
+    <div class="lib-page-row">
+      <span class="lib-pages-text">Used on: New Art</span>
+      <select class="lib-page-select">
+        <option value="">Add to page…</option>
+        <option>New Art</option>
+        <option>San Diego Art</option>
+        <option>Art on Display in SF</option>
+      </select>
+    </div>
+    <div class="lib-rotate-row">
+      <button class="lib-rotate-btn" title="Rotate left">↺</button>
+      <button class="lib-rotate-btn" title="Rotate right">↻</button>
+      <button class="lib-rotate-btn" title="Zoom out">−</button>
+      <button class="lib-rotate-btn" title="Zoom in">+</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ ADMIN CARD 2: multi-line desc, used on multiple pages ═══════ -->
+<div class="lib-card" id="card2">
+  <div class="lib-thumb-wrap">Photo 2</div>
+  <div class="lib-info">
+    <div class="lib-filename">IMG_3622.jpeg</div>
+    <div class="lib-meta-inputs">
+      <label>Title</label>
+      <input type="text" value="Catalonian Heroes" oninput="updatePreview()">
+      <div class="desc-label-row"><label>Description</label></div>
+      <div class="desc-lines">
+        <div class="desc-line">
+          <input type="text" value="Ink on Paper, 10&quot; x 10&quot;" placeholder="Description line…" oninput="updatePreview()">
+          <button class="desc-remove-btn" title="Remove line" onclick="removeLine(this)">×</button>
+        </div>
+        <div class="desc-line">
+          <input type="text" value="Collection of Shala Ball" placeholder="Description line…" oninput="updatePreview()">
+          <button class="desc-remove-btn" title="Remove line" onclick="removeLine(this)">×</button>
+        </div>
+        <div class="desc-line">
+          <input type="text" value="Not for sale" placeholder="Description line…" oninput="updatePreview()">
+          <button class="desc-remove-btn" title="Remove line" onclick="removeLine(this)">×</button>
+        </div>
+      </div>
+      <button class="desc-add-btn" onclick="addLine(this)">+ add line</button>
+    </div>
+    <div class="lib-page-row">
+      <span class="lib-pages-text">Used on: New Art, San Diego Art</span>
+      <select class="lib-page-select">
+        <option value="">Add to page…</option>
+        <option>New Art</option>
+        <option>San Diego Art</option>
+        <option>Art on Display in SF</option>
+      </select>
+    </div>
+    <div class="lib-rotate-row">
+      <button class="lib-rotate-btn" title="Rotate left">↺</button>
+      <button class="lib-rotate-btn" title="Rotate right">↻</button>
+      <button class="lib-rotate-btn" title="Zoom out">−</button>
+      <button class="lib-rotate-btn" title="Zoom in">+</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ ADMIN CARD 3: not on any page ═══════ -->
+<div class="lib-card" id="card3">
+  <div class="lib-thumb-wrap">Photo 3</div>
+  <div class="lib-info">
+    <div class="lib-filename">IMG_9999.jpeg</div>
+    <div class="lib-meta-inputs">
+      <label>Title</label>
+      <input type="text" value="Untitled Work" oninput="updatePreview()">
+      <div class="desc-label-row"><label>Description</label></div>
+      <div class="desc-lines">
+        <div class="desc-line">
+          <input type="text" value="" placeholder="Description line…" oninput="updatePreview()">
+          <button class="desc-remove-btn" title="Remove line" onclick="removeLine(this)">×</button>
+        </div>
+      </div>
+      <button class="desc-add-btn" onclick="addLine(this)">+ add line</button>
+    </div>
+    <div class="lib-page-row">
+      <span class="lib-pages-text" style="color:#999;font-style:italic">Not on any page</span>
+      <select class="lib-page-select">
+        <option value="">Add to page…</option>
+        <option>New Art</option>
+        <option>San Diego Art</option>
+        <option>Art on Display in SF</option>
+      </select>
+    </div>
+    <div class="lib-rotate-row">
+      <button class="lib-rotate-btn" title="Rotate left">↺</button>
+      <button class="lib-rotate-btn" title="Rotate right">↻</button>
+      <button class="lib-rotate-btn" title="Zoom out">−</button>
+      <button class="lib-rotate-btn" title="Zoom in">+</button>
+    </div>
+  </div>
+</div>
+
+<hr class="section-sep">
+
+<h2>Live Preview — How it looks on the gallery page</h2>
+<div class="note">Updates as you type in cards 1 and 2 above.</div>
+
+<div class="gallery-preview" id="gallery-preview"></div>
+
+<script>
+function addLine(btn) {
+  const container = btn.previousElementSibling; // .desc-lines
+  const line = document.createElement('div');
+  line.className = 'desc-line';
+  line.innerHTML = `
+    <input type="text" value="" placeholder="Description line…" oninput="updatePreview()">
+    <button class="desc-remove-btn" title="Remove line" onclick="removeLine(this)">×</button>
+  `;
+  container.appendChild(line);
+  line.querySelector('input').focus();
+  updatePreview();
+}
+
+function removeLine(btn) {
+  const line = btn.parentElement;
+  const container = line.parentElement;
+  if (container.querySelectorAll('.desc-line').length <= 1) {
+    line.querySelector('input').value = '';
+    updatePreview();
+    return;
+  }
+  line.remove();
+  updatePreview();
+}
+
+function getCardData(card) {
+  const title = card.querySelector('.lib-meta-inputs > input[type="text"]').value;
+  const lines = [...card.querySelectorAll('.desc-line input')].map(i => i.value).filter(v => v.trim());
+  const filename = card.querySelector('.lib-filename').textContent;
+  return { filename, title, desc: lines };
+}
+
+function updatePreview() {
+  const cards = [document.getElementById('card1'), document.getElementById('card2')];
+  const data = cards.map(getCardData);
+
+  const previewEl = document.getElementById('gallery-preview');
+  previewEl.innerHTML = data.map(d => `
+    <div class="gallery-item">
+      <div class="img-placeholder">${d.filename}</div>
+      <div class="caption">
+        <div class="title">${d.title}</div>
+        ${d.desc.map(line => `<div class="desc">${line}</div>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+updatePreview();
+</script>
+</body>
+</html>

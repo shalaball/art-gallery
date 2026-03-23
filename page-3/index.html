@@ -285,7 +285,9 @@
     const div = document.createElement('div');
     div.className = 'gallery-item';
     const zoom = (item.zoom && item.zoom !== 1) ? ` style="transform:scale(${item.zoom})"` : '';
-    div.innerHTML = `<div class="img-wrap"><img src="../photos/${item.filename}" loading="lazy" alt="${item.title || ''}"${zoom}></div><div class="caption"><div class="title">${item.title || ''}</div><div class="desc">${item.desc || ''}</div></div>`;
+    const descArr = Array.isArray(item.desc) ? item.desc : (item.desc ? [item.desc] : []);
+    const descHtml = descArr.map(d => `<div class="desc">${d}</div>`).join('');
+    div.innerHTML = `<div class="img-wrap"><img src="../photos/${item.filename}" loading="lazy" alt="${item.title || ''}"${zoom}></div><div class="caption"><div class="title">${item.title || ''}</div>${descHtml}</div>`;
     gallery.appendChild(div);
   });
   const items = Array.from(document.querySelectorAll('.gallery-item'));

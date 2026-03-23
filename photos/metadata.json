@@ -1,7 +1,9 @@
 {
   "IMG_6410-2.jpeg": {
     "title": "Too Wild for Still Water",
-    "desc": "Acrylic on Canvas, 60\" x 48\"",
+    "desc": [
+      "Acrylic on Canvas, 60\" x 48\""
+    ],
     "zoom": 1
   },
   "IMG_6371.jpeg": {
@@ -11,42 +13,58 @@
   },
   "3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg": {
     "title": "Paper Planes / No Borders",
-    "desc": "Acrylic on Canvas, 60\" x 40\"",
+    "desc": [
+      "Acrylic on Canvas, 60\" x 40\""
+    ],
     "zoom": 1
   },
   "02BBE9A4-15A1-4D91-83F7-8DFFFB72B0BC.png": {
     "title": "Paper Planes / No Borders",
-    "desc": "Acrylic on Canvas, 60\" x 40\"",
+    "desc": [
+      "Acrylic on Canvas, 60\" x 40\""
+    ],
     "zoom": 1
   },
   "IMG_6418.jpeg": {
     "title": "Fire Mother",
-    "desc": "Acrylic on Canvas, 60\" x 40\"",
+    "desc": [
+      "Acrylic on Canvas, 60\" x 40\""
+    ],
     "zoom": 1
   },
   "292EB5D7-449C-4ABA-8E3D-7AB4835BBCB1.png": {
     "title": "Fire Mother",
-    "desc": "Acrylic on Canvas, 60\" x 40\"",
+    "desc": [
+      "Acrylic on Canvas, 60\" x 40\""
+    ],
     "zoom": 1
   },
   "IMG_6157.heic": {
     "title": "Emerald Audrey",
-    "desc": "Acrylic on Canvas, 40\" x 60\"",
+    "desc": [
+      "Acrylic on Canvas, 40\" x 60\""
+    ],
     "zoom": 1
   },
   "11274E0A-CA19-426D-8AF6-97C6E800C750.png": {
     "title": "Emerald Audrey",
-    "desc": "Acrylic on Canvas, 40\" x 60\"",
+    "desc": [
+      "Acrylic on Canvas, 40\" x 60\""
+    ],
     "zoom": 1
   },
   "IMG_0725.heic": {
     "title": "Hidden Princess (Collab with Carter Hackett)",
-    "desc": "Acrylic on Canvas, 48\" x 24\"",
+    "desc": [
+      "Acrylic on Canvas, 48\" x 24\""
+    ],
     "zoom": 1
   },
   "68781A68-2BFE-45F8-A517-C15465BBB6A2.png": {
     "title": "Hidden Princess (Collab with Carter Hackett)",
-    "desc": "Acrylic on Canvas, 48\" x 24\"",
+    "desc": [
+      "Acrylic on Canvas, 48\" x 24\""
+    ],
     "zoom": 1
   },
   "IMG_6386.jpeg": {
@@ -56,107 +74,150 @@
   },
   "8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg": {
     "title": "The Last Bright Conversation",
-    "desc": "Acrylic on Canvas, 60\" x 48\"",
+    "desc": [
+      "Acrylic on Canvas, 60\" x 48\""
+    ],
     "zoom": 1
   },
   "IMG_6346.jpeg": {
     "title": "Wildflowers Don't Care",
-    "desc": "Acrylic on Canvas, 36\" x 36\"",
+    "desc": [
+      "Acrylic on Canvas, 36\" x 36\""
+    ],
     "zoom": 1
   },
   "C1F22FBD-1F9F-414E-8FDF-10BB01AB5FE1.png": {
     "title": "Wildflowers Don't Care",
-    "desc": "Acrylic on Canvas, 36\" x 36\"",
+    "desc": [
+      "Acrylic on Canvas, 36\" x 36\""
+    ],
     "zoom": 1
   },
   "FullSizeRender.heic": {
     "title": "Ultramarine Valley",
-    "desc": "Acrylic on Canvas, 60\" x 40\"",
+    "desc": [
+      "Acrylic on Canvas, 60\" x 40\""
+    ],
     "zoom": 1
   },
   "D657F7BB-791B-4F66-B2F6-269B9833F8B5.png": {
     "title": "Ultramarine Valley",
-    "desc": "Acrylic on Canvas, 60\" x 40\"",
+    "desc": [
+      "Acrylic on Canvas, 60\" x 40\""
+    ],
     "zoom": 1
   },
   "IMG_6481.jpeg": {
     "title": "Scarlet Releasing",
-    "desc": "Acrylic on Canvas, 48\" x 32\"",
+    "desc": [
+      "Acrylic on Canvas, 48\" x 32\""
+    ],
     "zoom": 1
   },
   "F3C25FD5-E52E-4212-8E78-D6FB57F49A5B.png": {
     "title": "Scarlet Releasing",
-    "desc": "Acrylic on Canvas, 48\" x 32\"",
+    "desc": [
+      "Acrylic on Canvas, 48\" x 32\""
+    ],
     "zoom": 1
   },
   "IMG_6493.jpeg": {
     "title": "Scarlet Unfurling",
-    "desc": "Acrylic on Canvas, 48\" x 32\"",
+    "desc": [
+      "Acrylic on Canvas, 48\" x 32\""
+    ],
     "zoom": 1
   },
   "37034FE0-0E39-49E0-8424-F4CEC66808FC.png": {
     "title": "Scarlet Unfurling",
-    "desc": "Acrylic on Canvas, 48\" x 32\"",
+    "desc": [
+      "Acrylic on Canvas, 48\" x 32\""
+    ],
     "zoom": 1
   },
   "IMG_6344.jpeg": {
     "title": "Simple Song",
-    "desc": "Alcohol Ink on Yupo Paper, 11\" x 18\"",
+    "desc": [
+      "Alcohol Ink on Yupo Paper, 11\" x 18\""
+    ],
     "zoom": 1
   },
   "C015E4F8-F2D5-47A7-995F-B7A9C3FEA8D4.png": {
     "title": "Simple Song",
-    "desc": "Alcohol Ink on Yupo Paper, 11\" x 18\"",
+    "desc": [
+      "Alcohol Ink on Yupo Paper, 11\" x 18\""
+    ],
     "zoom": 1
   },
   "IMG_6350.jpeg": {
     "title": "All of Our Days",
-    "desc": "Alcohol Ink on Yupo Paper, 30\" x 19\"",
+    "desc": [
+      "Alcohol Ink on Yupo Paper, 30\" x 19\""
+    ],
     "zoom": 1
   },
   "8452FC30-6F6C-48E1-B9C4-9E6051876814.jpeg": {
     "title": "All of Our Days",
-    "desc": "Alcohol Ink on Yupo Paper, 30\" x 19\"",
+    "desc": [
+      "Alcohol Ink on Yupo Paper, 30\" x 19\""
+    ],
     "zoom": 1
   },
   "IMG_6452.jpeg": {
     "title": "Azulejo Sunprint",
-    "desc": "Cyanotype on Paper, 20\" x 14\"",
+    "desc": [
+      "Cyanotype on Paper, 20\" x 14\""
+    ],
     "zoom": 1
   },
   "IMG_6046.jpeg": {
     "title": "Helix Becoming",
-    "desc": "Acrylic on Canvas, 24\" x 48\"",
+    "desc": [
+      "Acrylic on Canvas, 24\" x 48\""
+    ],
     "zoom": 1
   },
   "2F98DB7B-9452-4B93-A751-52B1A96700F3.png": {
     "title": "Helix Becoming",
-    "desc": "Acrylic on Canvas, 24\" x 48\"",
+    "desc": [
+      "Acrylic on Canvas, 24\" x 48\""
+    ],
     "zoom": 1
   },
   "IMG_6201.jpeg": {
     "title": "When the River Became Two",
-    "desc": "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side",
+    "desc": [
+      "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side"
+    ],
     "zoom": 1
   },
   "IMG_4195.jpeg": {
     "title": "Upon Reflection",
-    "desc": "Acrylic on Canvas, 14\" x 11\"",
+    "desc": [
+      "Acrylic on Canvas, 14\" x 11\""
+    ],
     "zoom": 1
   },
   "IMG_9358.jpeg": {
     "title": "Strata I - III",
-    "desc": "Paper Series",
+    "desc": [
+      "Paper Series",
+      "(not for sale)"
+    ],
     "zoom": 1
   },
   "IMG_6221.jpeg": {
     "title": "Strata I - III",
-    "desc": "Paper Series",
+    "desc": [
+      "Paper Series"
+    ],
     "zoom": 1
   },
   "EE722A36-C1FD-44EA-9DAC-0ACFF389B986.png": {
     "title": "Crimson Drift",
-    "desc": "Acrylic on Canvas, 36\" x 36\"",
+    "desc": [
+      "Acrylic on Canvas, 36\" x 36\""
+    ],
     "zoom": 1
   },
   "239C4041-1AB5-4DA9-8813-56A4021C8BD0.jpeg": {
@@ -166,27 +227,37 @@
   },
   "IMG_6142.jpeg": {
     "title": "Impromptu #4",
-    "desc": "Acrylic on Canvas, 14\" x 11\"",
+    "desc": [
+      "Acrylic on Canvas, 14\" x 11\""
+    ],
     "zoom": 1
   },
   "IMG_6219.jpeg": {
     "title": "Impromptu #4",
-    "desc": "Acrylic on Canvas, 14\"x11\"",
+    "desc": [
+      "Acrylic on Canvas, 14\"x11\""
+    ],
     "zoom": 1
   },
   "IMG_0570.jpeg": {
     "title": "The Secret Red",
-    "desc": "Alcohol Ink on Yupo Paper, 4\"x 6\"",
+    "desc": [
+      "Alcohol Ink on Yupo Paper, 4\"x 6\""
+    ],
     "zoom": 1
   },
   "AD21225A-EB38-4FE3-884B-A01928051BA6_1_105_c.jpeg": {
     "title": "The Secret Red",
-    "desc": "Alcohol Ink on Yupo Paper, 4\"x6\"",
+    "desc": [
+      "Alcohol Ink on Yupo Paper, 4\"x6\""
+    ],
     "zoom": 1
   },
   "IMG_5991.jpeg": {
     "title": "Greenland's House",
-    "desc": "Acrylic Ink on Paper, 8\"x10\"",
+    "desc": [
+      "Acrylic Ink on Paper, 8\"x10\""
+    ],
     "zoom": 1
   },
   "22C10F17-3C11-49C7-8E31-3913FC97D56E_1_105_c.jpeg": {
@@ -196,37 +267,51 @@
   },
   "IMG_4869.jpeg": {
     "title": "Unwritten Language",
-    "desc": "Ink on Paper Collage, 8\" x 10\"",
+    "desc": [
+      "Ink on Paper Collage, 8\" x 10\""
+    ],
     "zoom": 1
   },
   "IMG_6369.jpeg": {
     "title": "Triana District",
-    "desc": "Acrylic on Paper",
+    "desc": [
+      "Acrylic on Paper"
+    ],
     "zoom": 1
   },
   "IMG_3622.jpeg": {
     "title": "Catalonian Heroes",
-    "desc": "Ink on Paper, 10\" x 10\"",
+    "desc": [
+      "Ink on Paper, 10\" x 10\""
+    ],
     "zoom": 1
   },
   "IMG_6381.jpeg": {
     "title": "Victorian Queen",
-    "desc": "4\" x 6\" Card",
+    "desc": [
+      "4\" x 6\" Card"
+    ],
     "zoom": 1
   },
   "IMG_6351.png": {
     "title": "All of Our Days",
-    "desc": "4\"x 6\" Photo Card",
+    "desc": [
+      "4\"x 6\" Photo Card"
+    ],
     "zoom": 1
   },
   "IMG_6352.png": {
     "title": "Simple Song",
-    "desc": "4\"x 6\" Photo Card",
+    "desc": [
+      "4\"x 6\" Photo Card"
+    ],
     "zoom": 1
   },
   "IMG_6346-2.jpeg": {
     "title": "Wildflowers Don't Care Where they Grow",
-    "desc": "5\"x 5\" Photo Card",
+    "desc": [
+      "5\"x 5\" Photo Card"
+    ],
     "zoom": 1
   },
   "IMG_6506.jpeg": {
@@ -251,7 +336,7 @@
   },
   "CCEB4742-B019-4881-8737-D6D343421707.jpeg": {
     "title": "",
-    "desc": "",
+    "desc": [],
     "zoom": 1
   },
   "IMG_6370.jpeg": {
@@ -276,7 +361,9 @@
   },
   "EEBF050B-5D99-458F-B192-5CC4BC9D5F02.png": {
     "title": "Saturday on The F",
-    "desc": "Photo Collage, 20\" x 16\"",
+    "desc": [
+      "Photo Collage, 20\" x 16\""
+    ],
     "zoom": 1
   },
   "82B62E10-2E80-44D8-B4A0-A381CE7F5CD8.png": {
@@ -286,7 +373,9 @@
   },
   "B0AB3B06-237A-4639-8CBA-5AB4540043D0.png": {
     "title": "Azulejo Sunprint",
-    "desc": "Cyanotype on Paper, 14\" x 20\"",
+    "desc": [
+      "Cyanotype on Paper, 14\" x 20\""
+    ],
     "zoom": 1
   },
   "IMG_6544.jpeg": {
@@ -301,7 +390,9 @@
   },
   "IMG_6386-2.jpeg": {
     "title": "The Last Bright Conversation",
-    "desc": "Acrylic on Canvas, 60\" x 48\"",
+    "desc": [
+      "Acrylic on Canvas, 60\" x 48\""
+    ],
     "zoom": 1
   },
   "7E75C3BB-B366-42B6-B127-BA12405395AA.png": {
@@ -311,12 +402,16 @@
   },
   "D92CFCB9-C127-479D-81B6-54968513BDAB.jpeg": {
     "title": "Upon Reflection",
-    "desc": "Acrylic on Canvas, 14\" x 11\"",
+    "desc": [
+      "Acrylic on Canvas, 14\" x 11\""
+    ],
     "zoom": 1
   },
   "78E9C1DB-8C49-4899-B678-1330D44D4AE2.png": {
     "title": "Too Wild for Still Water",
-    "desc": "Acrylic on Canvas, 60\" x 48\"",
+    "desc": [
+      "Acrylic on Canvas, 60\" x 48\""
+    ],
     "zoom": 1
   },
   "IMG_6684.jpeg": {
@@ -326,37 +421,51 @@
   },
   "E7CBA163-1506-45FA-8A45-BD8DC15820E8.png": {
     "title": "Corazon / Carmesi",
-    "desc": "Acrylic on Canvas, 14\" x 11\" (1/1 Diptych)",
+    "desc": [
+      "Acrylic on Canvas, 14\" x 11\" (1/1 Diptych)"
+    ],
     "zoom": 1
   },
   "7FD81D2A-A2DE-4AFD-84C0-38DD2ABF570A.png": {
     "title": "Corazon / Carmesi",
-    "desc": "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)",
+    "desc": [
+      "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)"
+    ],
     "zoom": 1
   },
   "IMG_6681.jpeg": {
     "title": "Corazon / Carmesi",
-    "desc": "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)",
+    "desc": [
+      "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)"
+    ],
     "zoom": 1
   },
   "IMG_6684-2.jpeg": {
     "title": "Corazon / Carmesi",
-    "desc": "Acrylic on Canvas, 14\" x 11\" (1/1 Diptych)",
+    "desc": [
+      "Acrylic on Canvas, 14\" x 11\" (1/1 Diptych)"
+    ],
     "zoom": 1
   },
   "Untitled.png": {
     "title": "Crimson Drift",
-    "desc": "Acrylic on Canvas, 36\" x 36\"",
+    "desc": [
+      "Acrylic on Canvas, 36\" x 36\""
+    ],
     "zoom": 1
   },
   "IMG_6707.jpeg": {
     "title": "When The River Became Two",
-    "desc": "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side",
+    "desc": [
+      "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side"
+    ],
     "zoom": 1
   },
   "IMG_6715.jpeg": {
     "title": "When The River Became Two",
-    "desc": "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side",
+    "desc": [
+      "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side"
+    ],
     "zoom": 1
   },
   "IMG_6707-2.jpeg": {
@@ -371,12 +480,16 @@
   },
   "IMG_5109.jpeg": {
     "title": "Saturday on the F",
-    "desc": "Photo Collage, 20\" x 16\"",
+    "desc": [
+      "Photo Collage, 20\" x 16\""
+    ],
     "zoom": 1
   },
   "IMG_6721.jpeg": {
     "title": "Chlorophyll Dreaming",
-    "desc": "Alcohol Ink on Yupo Paper, 30\" x 10\"",
+    "desc": [
+      "Alcohol Ink on Yupo Paper, 30\" x 10\""
+    ],
     "zoom": 1
   },
   "IMG_6727.jpeg": {
@@ -386,12 +499,16 @@
   },
   "174EDD0D-C820-407D-A308-5168D5E636EE.png": {
     "title": "Chlorophyll Dreaming",
-    "desc": "Alcohol Ink on Yupo Paper, 30\" x 10\"",
+    "desc": [
+      "Alcohol Ink on Yupo Paper, 30\" x 10\""
+    ],
     "zoom": 1
   },
   "0C980E9E-9EDE-4676-AF8C-0237C1BEE825.png": {
     "title": "Unwritten Language",
-    "desc": "Ink on Paper Collage, 8\" x 10\"",
+    "desc": [
+      "Ink on Paper Collage, 8\" x 10\""
+    ],
     "zoom": 1
   },
   "IMG_6046-2.jpeg": {
@@ -406,7 +523,9 @@
   },
   "292EB5D7-449C-4ABA-8E3D-7AB4835BBCB1.jpeg": {
     "title": "Fire Mother",
-    "desc": "Acrylic on Canvas. 60\" x 40\"",
+    "desc": [
+      "Acrylic on Canvas. 60\" x 40\""
+    ],
     "zoom": 1
   }
 }

@@ -159,6 +159,14 @@ async function renderLibraryMain(items) {
           return p ? esc(p.name) : id;
         }).join(', ')
       : 'Not on any page';
+    // Normalize desc to array
+    const descLines = Array.isArray(item.desc) ? item.desc : (item.desc ? [item.desc] : ['']);
+    const descLinesHtml = descLines.map(line => `
+              <div class="desc-line">
+                <input type="text" class="lib-desc-input" value="${esc(line)}" placeholder="Description line…" oninput="markUnsaved()">
+                <button class="desc-remove-btn" title="Remove line" onclick="removeDescLine(this)">×</button>
+              </div>`).join('');
+    const usedOnStyle = item.pages.length ? '' : ' style="color:#999;font-style:italic"';
     return `
       <div class="lib-card" data-filename="${esc(item.filename)}">
         <div class="lib-thumb-wrap">
@@ -166,17 +174,21 @@ async function renderLibraryMain(items) {
         </div>
         <div class="lib-info">
           <div class="lib-filename">${esc(item.filename)}</div>
-          <div class="lib-pages">${usedOn}</div>
           <div class="lib-meta-inputs">
             <label>Title</label>
             <input type="text" class="lib-title-input" value="${esc(item.title || '')}" placeholder="Title…" oninput="markUnsaved()">
-            <label>Description</label>
-            <input type="text" class="lib-desc-input" value="${esc(item.desc || '')}" placeholder="Optional description…" oninput="markUnsaved()">
+            <div class="desc-label-row"><label>Description</label></div>
+            <div class="desc-lines">${descLinesHtml}
+            </div>
+            <button class="desc-add-btn" onclick="addDescLine(this)">+ add line</button>
           </div>
-          <select class="lib-page-select" onchange="assignToPage('${esc(item.filename)}', this)">
-            <option value="">Add to page…</option>
-            ${pageOptions}
-          </select>
+          <div class="lib-page-row">
+            <span class="lib-pages-text"${usedOnStyle}>${usedOn}</span>
+            <select class="lib-page-select" onchange="assignToPage('${esc(item.filename)}', this)">
+              <option value="">Add to page…</option>
+              ${pageOptions}
+            </select>
+          </div>
           <div class="lib-rotate-row">
             <button class="lib-rotate-btn" title="Rotate left" onclick="rotateLibPhoto('${esc(item.filename)}','ccw')">↺</button>
             <button class="lib-rotate-btn" title="Rotate right" onclick="rotateLibPhoto('${esc(item.filename)}','cw')">↻</button>
@@ -222,6 +234,31 @@ async function renderLibraryMain(items) {
   markClean();
 }
 
+function addDescLine(btn) {
+  const container = btn.previousElementSibling; // .desc-lines
+  const line = document.createElement('div');
+  line.className = 'desc-line';
+  line.innerHTML = `
+    <input type="text" class="lib-desc-input" value="" placeholder="Description line…" oninput="markUnsaved()">
+    <button class="desc-remove-btn" title="Remove line" onclick="removeDescLine(this)">×</button>
+  `;
+  container.appendChild(line);
+  line.querySelector('input').focus();
+  markUnsaved();
+}
+
+function removeDescLine(btn) {
+  const line = btn.parentElement;
+  const container = line.parentElement;
+  if (container.querySelectorAll('.desc-line').length <= 1) {
+    line.querySelector('input').value = '';
+    markUnsaved();
+    return;
+  }
+  line.remove();
+  markUnsaved();
+}
+
 async function rotateLibPhoto(filename, direction) {
   try {
     const res = await fetch(`/api/rotate/library/${encodeURIComponent(filename)}`, {
@@ -260,7 +297,8 @@ async function saveLibrary() {
   document.querySelectorAll('.lib-card').forEach(card => {
     const filename = card.dataset.filename;
     const title    = card.querySelector('.lib-title-input')?.value || '';
-    const desc     = card.querySelector('.lib-desc-input')?.value  || '';
+    const descInputs = card.querySelectorAll('.lib-desc-input');
+    const desc     = [...descInputs].map(i => i.value).filter(v => v.trim());
     const zoom     = parseFloat(Math.pow(1.3, thumbZoomLevel[filename] || 0).toFixed(4));
     updates[filename] = { title, desc, zoom };
   });
@@ -772,7 +810,8 @@ function renderCard(page, photo) {
   const titleHtml = photo.title
     ? `<div class="card-meta-title">${esc(photo.title)}</div>`
     : `<div class="card-meta-title" style="color:#ccc;font-style:italic">No title</div>`;
-  const descHtml = photo.desc ? `<div class="card-meta-desc">${esc(photo.desc)}</div>` : '';
+  const descArr = Array.isArray(photo.desc) ? photo.desc : (photo.desc ? [photo.desc] : []);
+  const descHtml = descArr.filter(d => d.trim()).map(d => `<div class="card-meta-desc">${esc(d)}</div>`).join('');
 
   return `
     <div class="photo-card" data-filename="${esc(photo.filename)}">

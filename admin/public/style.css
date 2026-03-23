@@ -561,10 +561,89 @@ main {
   text-overflow: ellipsis;
 }
 
-.lib-pages {
+/* ── Multi-line description ─── */
+
+.desc-label-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  margin-bottom: 3px;
+}
+
+.desc-label-row label {
+  margin: 0 !important;
+}
+
+.desc-line {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.desc-line input[type="text"] {
+  flex: 1;
+}
+
+.desc-remove-btn {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  background: #fafafa;
+  color: #c44;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.desc-remove-btn:hover { background: #fdd; border-color: #c44; }
+
+.desc-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  border: 1px dashed #ccc;
+  border-radius: 3px;
+  background: none;
+  color: #999;
+  font-size: 12px;
+  padding: 3px 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, color 0.15s;
+  margin-top: 2px;
+}
+
+.desc-add-btn:hover { border-color: #888; color: #555; }
+
+/* ── "Used on" + "Add to page" row ─── */
+
+.lib-page-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.lib-pages-text {
   font-size: 13px;
   color: #222;
-  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  padding: 4px 7px;
+  background: #fafafa;
 }
 
 .lib-actions {
@@ -575,15 +654,14 @@ main {
 }
 
 .lib-page-select {
-  font-size: 14px;
+  font-size: 13px;
   padding: 4px 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
   background: #fafafa;
   color: #555;
   cursor: pointer;
-  margin-top: 8px;
-  display: block;
+  flex-shrink: 0;
 }
 
 .lib-meta-inputs {

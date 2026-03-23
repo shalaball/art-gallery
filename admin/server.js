@@ -108,7 +108,8 @@ function rebuildLabels(data) {
     const entries = p.photos.map(ph => {
       const m    = meta[ph.filename] || {};
       const zoom = m.zoom && m.zoom !== 1 ? `, zoom: ${m.zoom}` : '';
-      return `  { filename: ${JSON.stringify(ph.filename)}, title: ${JSON.stringify(m.title || '')}, desc: ${JSON.stringify(m.desc || '')}${zoom} },`;
+      const desc = Array.isArray(m.desc) ? m.desc : (m.desc ? [m.desc] : []);
+      return `  { filename: ${JSON.stringify(ph.filename)}, title: ${JSON.stringify(m.title || '')}, desc: ${JSON.stringify(desc)}${zoom} },`;
     }).join('\n');
     const content = `// Auto-generated — do not edit directly.\n\nconst LABELS = [\n${entries}\n];\n`;
     fs.writeFileSync(dest, content);
@@ -285,7 +286,7 @@ app.get('/api/content', (req, res) => {
       for (const ph of p.photos) {
         const m = meta[ph.filename] || {};
         ph.title = m.title || '';
-        ph.desc  = m.desc  || '';
+        ph.desc  = Array.isArray(m.desc) ? m.desc : (m.desc ? [m.desc] : []);
         ph.zoom  = m.zoom  || 1;
       }
     }
@@ -398,7 +399,7 @@ app.post('/api/upload/:page', upload.array('photos'), async (req, res) => {
 
       pageData.photos.push({ filename });
       const meta = readPhotoMetadata();
-      if (!meta[filename]) { meta[filename] = { title: '', desc: '', zoom: 1 }; writePhotoMetadata(meta); }
+      if (!meta[filename]) { meta[filename] = { title: '', desc: [], zoom: 1 }; writePhotoMetadata(meta); }
       added.push(filename);
     }
 
@@ -654,7 +655,7 @@ app.post('/api/upload-library', upload.array('photos'), async (req, res) => {
       fs.unlinkSync(file.path);
       added.push(filename);
       const meta = readPhotoMetadata();
-      if (!meta[filename]) { meta[filename] = { title: '', desc: '', zoom: 1 }; writePhotoMetadata(meta); }
+      if (!meta[filename]) { meta[filename] = { title: '', desc: [], zoom: 1 }; writePhotoMetadata(meta); }
     }
     rebuildLibraryLabels();
     res.json({ ok: true, added });
@@ -681,7 +682,8 @@ function rebuildLibraryLabels() {
   const entries = files.map(f => {
     const m    = meta[f.filename] || {};
     const zoom = m.zoom && m.zoom !== 1 ? `, zoom: ${m.zoom}` : '';
-    return `  { filename: ${JSON.stringify(f.filename)}, title: ${JSON.stringify(m.title || '')}, desc: ${JSON.stringify(m.desc || '')}${zoom} },`;
+    const desc = Array.isArray(m.desc) ? m.desc : (m.desc ? [m.desc] : []);
+    return `  { filename: ${JSON.stringify(f.filename)}, title: ${JSON.stringify(m.title || '')}, desc: ${JSON.stringify(desc)}${zoom} },`;
   }).join('\n');
   const content = `// Auto-generated — do not edit directly.\n\nconst LABELS = [\n${entries}\n];\n`;
 
@@ -716,7 +718,7 @@ app.get('/api/library', (req, res) => {
           mtime: fs.statSync(path.join(PHOTOS_DIR, f)).mtimeMs,
           pages: pageMap[f] || [],
           title: m.title || '',
-          desc:  m.desc  || '',
+          desc:  Array.isArray(m.desc) ? m.desc : (m.desc ? [m.desc] : []),
           zoom:  m.zoom  || 1,
         };
       })
@@ -734,9 +736,11 @@ app.post('/api/photo-metadata', (req, res) => {
     const updates = req.body; // { filename: { title, desc, zoom } }
     const meta = readPhotoMetadata();
     for (const [filename, d] of Object.entries(updates)) {
+      // desc can be a string (legacy) or array of strings
+      const desc = Array.isArray(d.desc) ? d.desc.filter(s => s.trim()) : (d.desc ? [d.desc] : []);
       meta[filename] = {
         title: d.title || '',
-        desc:  d.desc  || '',
+        desc:  desc,
         zoom:  typeof d.zoom === 'number' ? d.zoom : 1,
       };
     }
@@ -804,7 +808,7 @@ app.post('/api/library/assign', (req, res) => {
     if (!pageData.photos.find(p => p.filename === filename)) {
       pageData.photos.push({ filename });
       const meta = readPhotoMetadata();
-      if (!meta[filename]) { meta[filename] = { title: '', desc: '', zoom: 1 }; writePhotoMetadata(meta); }
+      if (!meta[filename]) { meta[filename] = { title: '', desc: [], zoom: 1 }; writePhotoMetadata(meta); }
       fs.writeFileSync(CONTENT_MD, serializeContent(data));
       rebuildLabels(data);
     }
