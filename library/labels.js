@@ -1,6 +1,9 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
+  { filename: "0C980E9E-9EDE-4676-AF8C-0237C1BEE825.png", title: "Unwritten Language", desc: "Ink on Paper Collage, 8\" x 10\"" },
+  { filename: "174EDD0D-C820-407D-A308-5168D5E636EE.png", title: "Chlorophyll Dreaming", desc: "Alcohol Ink on Yupo Paper, 30\" x 10\"" },
+  { filename: "IMG_6721.jpeg", title: "Chlorophyll Dreaming", desc: "Alcohol Ink on Yupo Paper, 30\" x 10\"" },
   { filename: "IMG_5109.jpeg", title: "Saturday on the \"F\"", desc: "Photo Collage, 20\" x 16\"" },
   { filename: "IMG_6707-3.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
   { filename: "IMG_6715.jpeg", title: "When The River Became Two", desc: "Acrylic on Canvas, Diptych (2 panels), each 36\" x 36\" / 72\" x 36\" side-by-side" },
@@ -58,7 +61,7 @@ const LABELS = [
   { filename: "IMG_6346.jpeg", title: "Wildflowers Don't Care", desc: "Acrylic on Canvas, 36\" x 36\"" },
   { filename: "IMG_0570.jpeg", title: "The Secret Red", desc: "Alcohol Ink on Yupo Paper, 4\"x6\"" },
   { filename: "IMG_3622.jpeg", title: "Catalonian Heroes", desc: "Ink on Paper, 10\" x 10\"" },
-  { filename: "IMG_4869.jpeg", title: "Untitled", desc: "Ink on Paper Collage, 8\" x 10\"" },
+  { filename: "IMG_4869.jpeg", title: "Unwritten Language", desc: "Ink on Paper Collage, 8\" x 10\"" },
   { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: "Paper Series" },
   { filename: "IMG_6221.jpeg", title: "Strata I - III", desc: "Paper Series" },
   { filename: "IMG_6219.jpeg", title: "Impromptu #4", desc: "Acrylic on Canvas, 14\"x11\"" },

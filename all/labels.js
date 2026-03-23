@@ -50,6 +50,8 @@ const LABELS = [
   { filename: "IMG_6681.jpeg", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)" },
   { filename: "7FD81D2A-A2DE-4AFD-84C0-38DD2ABF570A.png", title: "Corazon / Carmesi", desc: "Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)" },
   { filename: "IMG_3622.jpeg", title: "Catalonian Heroes", desc: "Ink on Paper, 10\" x 10\"" },
-  { filename: "IMG_4869.jpeg", title: "Untitled", desc: "Ink on Paper Collage, 8\" x 10\"" },
+  { filename: "IMG_4869.jpeg", title: "Unwritten Language", desc: "Ink on Paper Collage, 8\" x 10\"" },
   { filename: "IMG_6369.jpeg", title: "Triana District", desc: "Acrylic on Paper" },
+  { filename: "IMG_6721.jpeg", title: "Chlorophyll Dreaming", desc: "Alcohol Ink on Yupo Paper, 30\" x 10\"" },
+  { filename: "174EDD0D-C820-407D-A308-5168D5E636EE.png", title: "Chlorophyll Dreaming", desc: "Alcohol Ink on Yupo Paper, 30\" x 10\"" },
 ];
