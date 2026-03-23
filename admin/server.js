@@ -233,17 +233,25 @@ function getAllHtmlFiles() {
 // ─── Font config ──────────────────────────────────────────────────────────────
 
 const TITLE_FONT_PARAMS = {
-  'Cormorant Garamond': 'family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300',
-  'Playfair Display':   'family=Playfair+Display:ital,wght@0,400;0,700;1,400',
-  'EB Garamond':        'family=EB+Garamond:ital,wght@0,400;1,400',
-  'Lora':               'family=Lora:ital,wght@0,400;0,700;1,400',
+  'Cormorant Garamond': 'family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700',
+  'Playfair Display':   'family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700',
+  'EB Garamond':        'family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700',
+  'Lora':               'family=Lora:ital,wght@0,400;0,700;1,400;1,700',
+  'Libre Baskerville':  'family=Libre+Baskerville:ital,wght@0,400;0,700;1,400',
+  'Crimson Text':       'family=Crimson+Text:ital,wght@0,400;0,700;1,400;1,700',
+  'DM Serif Display':   'family=DM+Serif+Display:ital@0;1',
+  'Josefin Slab':       'family=Josefin+Slab:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700',
 };
 
 const BODY_FONT_PARAMS = {
-  'Montserrat': 'family=Montserrat:wght@300;400',
-  'Lato':       'family=Lato:wght@300;400',
-  'Open Sans':  'family=Open+Sans:wght@300;400',
-  'Raleway':    'family=Raleway:wght@300;400',
+  'Montserrat':    'family=Montserrat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700',
+  'Lato':          'family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700',
+  'Open Sans':     'family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700',
+  'Raleway':       'family=Raleway:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700',
+  'Source Sans 3': 'family=Source+Sans+3:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700',
+  'Nunito':        'family=Nunito:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700',
+  'Karla':         'family=Karla:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700',
+  'Work Sans':     'family=Work+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700',
 };
 
 // ─── HEIC helper ──────────────────────────────────────────────────────────────
@@ -563,15 +571,42 @@ app.get('/api/settings', (req, res) => {
     const colorMatch = html.match(/body\s*\{[^}]*\bcolor:\s*(#[a-fA-F0-9]{3,6})/);
     const bodyFontM  = html.match(/body\s*\{[^}]*font-family:\s*'([^']+)'/);
     const titleFontM = html.match(/header h1\s*\{[^}]*font-family:\s*'([^']+)'/);
-    const titleSizeM = html.match(/header h1\s*\{[^}]*font-size:\s*([0-9.]+)rem/);
-    const bodySizeM  = html.match(/body\s*\{[^}]*font-size:\s*([0-9.]+)px/);
+    const titleSizeM   = html.match(/header h1\s*\{[^}]*font-size:\s*([0-9.]+)rem/);
+    const bodySizeM    = html.match(/body\s*\{[^}]*font-size:\s*([0-9.]+)px/);
+    const titleWeightM = html.match(/header h1\s*\{[^}]*font-weight:\s*(\w+)/);
+    const titleStyleM  = html.match(/header h1\s*\{[^}]*font-style:\s*(\w+)/);
+    const bodyWeightM  = html.match(/body\s*\{[^}]*font-weight:\s*(\w+)/);
+    const bodyStyleM   = html.match(/body\s*\{[^}]*font-style:\s*(\w+)/);
+    // Caption (photo title/desc) settings
+    const capTitleFontM   = html.match(/\.caption \.title\s*\{[^}]*font-family:\s*'([^']+)'/);
+    const capTitleSizeM   = html.match(/\.caption \.title\s*\{[^}]*font-size:\s*([0-9.]+)rem/);
+    const capTitleWeightM = html.match(/\.caption \.title\s*\{[^}]*font-weight:\s*(\w+)/);
+    const capTitleStyleM  = html.match(/\.caption \.title\s*\{[^}]*font-style:\s*(\w+)/);
+    const capDescFontM    = html.match(/\.caption \.desc\s*\{[^}]*font-family:\s*'([^']+)'/);
+    const capDescSizeM    = html.match(/\.caption \.desc\s*\{[^}]*font-size:\s*([0-9.]+)rem/);
+    const capDescWeightM  = html.match(/\.caption \.desc\s*\{[^}]*font-weight:\s*(\w+)/);
+    const capDescStyleM   = html.match(/\.caption \.desc\s*\{[^}]*font-style:\s*(\w+)/);
+    const capAlignM       = html.match(/\.caption\s*\{[^}]*text-align:\s*(\w+)/);
     res.json({
-      bgColor:   bgMatch    ? bgMatch[1]              : '#ffffff',
-      textColor: colorMatch ? colorMatch[1]           : '#222222',
-      bodyFont:  bodyFontM  ? bodyFontM[1]            : 'Montserrat',
-      titleFont: titleFontM ? titleFontM[1]           : 'Cormorant Garamond',
-      titleSize: titleSizeM ? parseFloat(titleSizeM[1]) : 3,
-      bodySize:  bodySizeM  ? parseInt(bodySizeM[1])    : 14,
+      bgColor:     bgMatch    ? bgMatch[1]              : '#ffffff',
+      textColor:   colorMatch ? colorMatch[1]           : '#222222',
+      bodyFont:    bodyFontM  ? bodyFontM[1]            : 'Montserrat',
+      titleFont:   titleFontM ? titleFontM[1]           : 'Cormorant Garamond',
+      titleSize:   titleSizeM ? parseFloat(titleSizeM[1]) : 3,
+      bodySize:    bodySizeM  ? parseInt(bodySizeM[1])    : 14,
+      titleWeight: titleWeightM ? titleWeightM[1]       : '300',
+      titleStyle:  titleStyleM  ? titleStyleM[1]        : 'normal',
+      bodyWeight:  bodyWeightM  ? bodyWeightM[1]        : '300',
+      bodyStyle:   bodyStyleM   ? bodyStyleM[1]         : 'normal',
+      capTitleFont:   capTitleFontM   ? capTitleFontM[1]             : 'Cormorant Garamond',
+      capTitleSize:   capTitleSizeM   ? parseFloat(capTitleSizeM[1]) : 1.2,
+      capTitleWeight: capTitleWeightM ? capTitleWeightM[1]           : '400',
+      capTitleStyle:  capTitleStyleM  ? capTitleStyleM[1]            : 'normal',
+      capDescFont:    capDescFontM    ? capDescFontM[1]              : 'Montserrat',
+      capDescSize:    capDescSizeM    ? parseFloat(capDescSizeM[1])  : 0.75,
+      capDescWeight:  capDescWeightM  ? capDescWeightM[1]            : '300',
+      capDescStyle:   capDescStyleM   ? capDescStyleM[1]             : 'italic',
+      capAlign:       capAlignM       ? capAlignM[1]                : 'center',
     });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -581,12 +616,16 @@ app.get('/api/settings', (req, res) => {
 // Save site design settings
 app.post('/api/settings', (req, res) => {
   try {
-    const { bgColor, textColor, titleFont, bodyFont, titleSize, bodySize } = req.body;
-    const titleParam = TITLE_FONT_PARAMS[titleFont];
-    const bodyParam  = BODY_FONT_PARAMS[bodyFont];
-    if (!titleParam || !bodyParam) return res.status(400).json({ error: 'Unknown font' });
+    const { bgColor, textColor, titleFont, bodyFont, titleSize, bodySize, titleWeight, titleStyle, bodyWeight, bodyStyle,
+            capTitleFont, capTitleSize, capTitleWeight, capTitleStyle, capDescFont, capDescSize, capDescWeight, capDescStyle, capAlign } = req.body;
+    const ALL_FONTS = { ...TITLE_FONT_PARAMS, ...BODY_FONT_PARAMS };
+    if (!ALL_FONTS[titleFont] || !ALL_FONTS[bodyFont]) return res.status(400).json({ error: 'Unknown font' });
 
-    const fontsUrl = `https://fonts.googleapis.com/css2?${titleParam}&${bodyParam}&display=swap`;
+    // Collect all unique font families needed
+    const fontSet = new Set([ALL_FONTS[titleFont], ALL_FONTS[bodyFont]]);
+    if (capTitleFont && ALL_FONTS[capTitleFont]) fontSet.add(ALL_FONTS[capTitleFont]);
+    if (capDescFont  && ALL_FONTS[capDescFont])  fontSet.add(ALL_FONTS[capDescFont]);
+    const fontsUrl = `https://fonts.googleapis.com/css2?${[...fontSet].join('&')}&display=swap`;
     for (const filePath of getAllHtmlFiles()) {
       let html = fs.readFileSync(filePath, 'utf8');
       // Update Google Fonts link
@@ -595,10 +634,15 @@ app.post('/api/settings', (req, res) => {
       html = html.replace(/(body\s*\{[^}]*)background:\s*#[a-fA-F0-9]{3,6}/, `$1background: ${bgColor}`);
       // Update body text color
       html = html.replace(/(body\s*\{[^}]*)\bcolor:\s*#[a-fA-F0-9]{3,6}/, `$1color: ${textColor}`);
-      // Update all sans-serif families (body font)
-      html = html.replace(/font-family:\s*'[^']+',\s*sans-serif/g, `font-family: '${bodyFont}', sans-serif`);
-      // Update all serif families (title font)
-      html = html.replace(/font-family:\s*'[^']+',\s*serif/g, `font-family: '${titleFont}', serif`);
+      // Update body font-family
+      const serifTitle = Object.keys(TITLE_FONT_PARAMS);
+      const bodyFallback = serifTitle.includes(bodyFont) ? 'serif' : 'sans-serif';
+      html = html.replace(/(body\s*\{[^}]*)font-family:\s*'[^']+',\s*\w+-?\w*/, `$1font-family: '${bodyFont}', ${bodyFallback}`);
+      // Update nav font-family (follows body)
+      html = html.replace(/(nav a\s*\{[^}]*)font-family:\s*'[^']+',\s*\w+-?\w*/g, `$1font-family: '${bodyFont}', ${bodyFallback}`);
+      // Update header h1 font-family
+      const titleFallback = serifTitle.includes(titleFont) ? 'serif' : 'sans-serif';
+      html = html.replace(/(header h1\s*\{[^}]*)font-family:\s*'[^']+',\s*\w+-?\w*/, `$1font-family: '${titleFont}', ${titleFallback}`);
       // Update title (h1) font size
       if (titleSize !== undefined) {
         html = html.replace(/(header h1\s*\{[^}]*)font-size:\s*[0-9.]+rem/, `$1font-size: ${titleSize}rem`);
@@ -610,6 +654,76 @@ app.post('/api/settings', (req, res) => {
         } else {
           html = html.replace(/(body\s*\{[^}]*\bcolor:\s*#[a-fA-F0-9]{3,6};)/, `$1\n      font-size: ${bodySize}px;`);
         }
+      }
+      // Update title (h1) font-weight
+      if (titleWeight) {
+        html = html.replace(/(header h1\s*\{[^}]*)font-weight:\s*\w+/, `$1font-weight: ${titleWeight}`);
+      }
+      // Update title (h1) font-style (inject after font-weight if not present)
+      if (titleStyle) {
+        if (html.match(/header h1\s*\{[^}]*font-style:/)) {
+          html = html.replace(/(header h1\s*\{[^}]*)font-style:\s*\w+/, `$1font-style: ${titleStyle}`);
+        } else {
+          html = html.replace(/(header h1\s*\{[^}]*font-weight:\s*\w+;)/, `$1\n      font-style: ${titleStyle};`);
+        }
+      }
+      // Update body font-weight
+      if (bodyWeight) {
+        html = html.replace(/(body\s*\{[^}]*)font-weight:\s*\w+/, `$1font-weight: ${bodyWeight}`);
+      }
+      // Update body font-style (inject after font-weight if not present)
+      if (bodyStyle) {
+        if (html.match(/body\s*\{[^}]*font-style:/)) {
+          html = html.replace(/(body\s*\{[^}]*)font-style:\s*\w+/, `$1font-style: ${bodyStyle}`);
+        } else {
+          html = html.replace(/(body\s*\{[^}]*font-weight:\s*\w+;)/, `$1\n      font-style: ${bodyStyle};`);
+        }
+      }
+      // ── Caption title (.caption .title) ──
+      if (capTitleFont) {
+        const serifFonts = Object.keys(TITLE_FONT_PARAMS);
+        const fallback = serifFonts.includes(capTitleFont) ? 'serif' : 'sans-serif';
+        html = html.replace(/(\.caption \.title\s*\{[^}]*)font-family:\s*'[^']+',\s*\w+/, `$1font-family: '${capTitleFont}', ${fallback}`);
+      }
+      if (capTitleSize) {
+        html = html.replace(/(\.caption \.title\s*\{[^}]*)font-size:\s*[0-9.]+rem/, `$1font-size: ${capTitleSize}rem`);
+      }
+      if (capTitleWeight) {
+        html = html.replace(/(\.caption \.title\s*\{[^}]*)font-weight:\s*\w+/, `$1font-weight: ${capTitleWeight}`);
+      }
+      if (capTitleStyle) {
+        if (html.match(/\.caption \.title\s*\{[^}]*font-style:/)) {
+          html = html.replace(/(\.caption \.title\s*\{[^}]*)font-style:\s*\w+/, `$1font-style: ${capTitleStyle}`);
+        } else {
+          html = html.replace(/(\.caption \.title\s*\{[^}]*font-weight:\s*\w+;)/, `$1\n      font-style: ${capTitleStyle};`);
+        }
+      }
+      // ── Caption description (.caption .desc) ──
+      if (capDescFont) {
+        const serifFonts = Object.keys(TITLE_FONT_PARAMS);
+        const fallback = serifFonts.includes(capDescFont) ? 'serif' : 'sans-serif';
+        if (html.match(/\.caption \.desc\s*\{[^}]*font-family:/)) {
+          html = html.replace(/(\.caption \.desc\s*\{[^}]*)font-family:\s*'[^']+',\s*\w+/, `$1font-family: '${capDescFont}', ${fallback}`);
+        } else {
+          html = html.replace(/(\.caption \.desc\s*\{)/, `$1\n      font-family: '${capDescFont}', ${fallback};`);
+        }
+      }
+      if (capDescSize) {
+        html = html.replace(/(\.caption \.desc\s*\{[^}]*)font-size:\s*[0-9.]+rem/, `$1font-size: ${capDescSize}rem`);
+      }
+      if (capDescWeight) {
+        if (html.match(/\.caption \.desc\s*\{[^}]*font-weight:/)) {
+          html = html.replace(/(\.caption \.desc\s*\{[^}]*)font-weight:\s*\w+/, `$1font-weight: ${capDescWeight}`);
+        } else {
+          html = html.replace(/(\.caption \.desc\s*\{[^}]*font-style:\s*\w+;)/, `$1\n      font-weight: ${capDescWeight};`);
+        }
+      }
+      if (capDescStyle) {
+        html = html.replace(/(\.caption \.desc\s*\{[^}]*)font-style:\s*\w+/, `$1font-style: ${capDescStyle}`);
+      }
+      // Update caption alignment
+      if (capAlign) {
+        html = html.replace(/(\.caption\s*\{[^}]*)text-align:\s*\w+/, `$1text-align: ${capAlign}`);
       }
       fs.writeFileSync(filePath, html);
     }

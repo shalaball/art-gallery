@@ -4,16 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Photo Library</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background: #ebebeb;
       color: #222;
-      font-size: 18px;
+      font-size: 22px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 300;
+      font-style: normal;
       min-height: 100vh;
     }
 
@@ -49,7 +50,8 @@
 
     header h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
+      font-weight: 400;
+      font-style: normal;
       font-size: 3.25rem;
       letter-spacing: 0.15em;
       color: #222;
@@ -95,21 +97,24 @@
 
     .caption {
       margin-top: 1rem;
-      text-align: center;
+      text-align: left;
     }
 
     .caption .title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Cormorant Garamond', serif-serif;
       font-size: 1.2rem;
       font-weight: 400;
+      font-style: normal;
       letter-spacing: 0.08em;
       color: #222;
     }
 
     .caption .desc {
+      font-family: 'Montserrat', sans-serif-serif-serif-serif;
       font-size: 0.75rem;
       color: #777;
       font-style: italic;
+      font-weight: 300;
       margin-top: 0.4rem;
       line-height: 1.6;
       letter-spacing: 0.05em;
@@ -264,7 +269,7 @@
     div.className = 'gallery-item';
     const zoom = (item.zoom && item.zoom !== 1) ? ` style="transform:scale(${item.zoom})"` : '';
     const descArr = Array.isArray(item.desc) ? item.desc : (item.desc ? [item.desc] : []);
-    const descHtml = descArr.map(d => `<div class="desc">${d}</div>`).join('');
+    const descHtml = descArr.map(d => `<div class="desc">${d.replace(/\n/g, '<br>')}</div>`).join('');
     div.innerHTML = `<div class="img-wrap"><img src="../photos/${item.filename}" loading="lazy" alt="${item.title || item.filename}"${zoom}></div><div class="caption"><div class="title">${item.title || ''}</div>${descHtml}</div>`;
     gallery.appendChild(div);
   });

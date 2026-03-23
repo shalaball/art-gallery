@@ -586,6 +586,28 @@ main {
   flex: 1;
 }
 
+.lib-desc-textarea {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  padding: 4px 7px;
+  font-size: 13px;
+  font-family: inherit;
+  color: #222;
+  outline: none;
+  background: #fafafa;
+  transition: border-color 0.15s;
+  resize: none;
+  overflow: hidden;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.lib-desc-textarea:focus {
+  border-color: #999;
+  background: #fff;
+}
+
 .desc-remove-btn {
   width: 22px;
   height: 22px;

@@ -28,7 +28,7 @@ const LABELS = [
   { filename: "IMG_6681.jpeg", title: "Corazon / Carmesi", desc: ["Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)"] },
   { filename: "7FD81D2A-A2DE-4AFD-84C0-38DD2ABF570A.png", title: "Corazon / Carmesi", desc: ["Acrylic on Canvas, 14\" x 11\" (1/2 Diptych)"] },
   { filename: "EE722A36-C1FD-44EA-9DAC-0ACFF389B986.png", title: "Crimson Drift", desc: ["Acrylic on Canvas, 36\" x 36\""] },
-  { filename: "Untitled.png", title: "Crimson Drift", desc: ["Acrylic on Canvas, 36\" x 36\""] },
+  { filename: "Untitled.png", title: "Crimson Drift", desc: ["Acrylic on Canvas, 36\" x 36\"\n\n(not for sale)\n\n\nI worked on this listening to Back and was inspired to making something sweeping and grand.  Whenever I work in this way it always comes out super great"] },
   { filename: "IMG_4195.jpeg", title: "Upon Reflection", desc: ["Acrylic on Canvas, 14\" x 11\""] },
   { filename: "D92CFCB9-C127-479D-81B6-54968513BDAB.jpeg", title: "Upon Reflection", desc: ["Acrylic on Canvas, 14\" x 11\""] },
   { filename: "IMG_6142.jpeg", title: "Impromptu #4", desc: ["Acrylic on Canvas, 14\" x 11\""] },

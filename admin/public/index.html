@@ -161,11 +161,20 @@ async function renderLibraryMain(items) {
       : 'Not on any page';
     // Normalize desc to array
     const descLines = Array.isArray(item.desc) ? item.desc : (item.desc ? [item.desc] : ['']);
-    const descLinesHtml = descLines.map(line => `
+    const descLinesHtml = descLines.map((line, idx) => {
+      if (idx === 0) {
+        return `
+              <div class="desc-line">
+                <textarea class="lib-desc-input lib-desc-textarea" placeholder="Description…" oninput="autoGrow(this); markUnsaved()" rows="1">${esc(line)}</textarea>
+                <button class="desc-remove-btn" title="Remove line" onclick="removeDescLine(this)">×</button>
+              </div>`;
+      }
+      return `
               <div class="desc-line">
                 <input type="text" class="lib-desc-input" value="${esc(line)}" placeholder="Description line…" oninput="markUnsaved()">
                 <button class="desc-remove-btn" title="Remove line" onclick="removeDescLine(this)">×</button>
-              </div>`).join('');
+              </div>`;
+    }).join('');
     const usedOnStyle = item.pages.length ? '' : ' style="color:#999;font-style:italic"';
     return `
       <div class="lib-card" data-filename="${esc(item.filename)}">
@@ -231,7 +240,15 @@ async function renderLibraryMain(items) {
   overlay.textContent = 'Drop photos to add to library';
   document.getElementById('main').appendChild(overlay);
 
+  // Auto-size any textareas with existing content
+  document.querySelectorAll('.lib-desc-textarea').forEach(ta => autoGrow(ta));
+
   markClean();
+}
+
+function autoGrow(el) {
+  el.style.height = 'auto';
+  el.style.height = el.scrollHeight + 'px';
 }
 
 function addDescLine(btn) {
@@ -428,10 +445,32 @@ function renderHomeMain(home, settings = {}) {
   const bf    = settings.bodyFont  || 'Montserrat';
   const tSz   = settings.titleSize != null ? settings.titleSize : 3;
   const bSz   = settings.bodySize  != null ? settings.bodySize  : 14;
-  const titleOpts = ['Cormorant Garamond','Playfair Display','EB Garamond','Lora']
+  const tWt   = settings.titleWeight || '300';
+  const tSt   = settings.titleStyle  || 'normal';
+  const bWt   = settings.bodyWeight  || '300';
+  const bSt   = settings.bodyStyle   || 'normal';
+  const ctf   = settings.capTitleFont   || 'Cormorant Garamond';
+  const ctSz  = settings.capTitleSize   != null ? settings.capTitleSize : 1.2;
+  const ctWt  = settings.capTitleWeight || '400';
+  const ctSt  = settings.capTitleStyle  || 'normal';
+  const capAlign = settings.capAlign || 'center';
+  const cdf   = settings.capDescFont    || 'Montserrat';
+  const cdSz  = settings.capDescSize    != null ? settings.capDescSize : 0.75;
+  const cdWt  = settings.capDescWeight  || '300';
+  const cdSt  = settings.capDescStyle   || 'italic';
+  const allFonts = ['Cormorant Garamond','Playfair Display','EB Garamond','Lora','Libre Baskerville','Crimson Text','DM Serif Display','Josefin Slab','Montserrat','Lato','Open Sans','Raleway','Source Sans 3','Nunito','Karla','Work Sans'];
+  const titleOpts = ['Cormorant Garamond','Playfair Display','EB Garamond','Lora','Libre Baskerville','Crimson Text','DM Serif Display','Josefin Slab']
     .map(f => `<option${f===tf?' selected':''}>${f}</option>`).join('');
-  const bodyOpts  = ['Montserrat','Lato','Open Sans','Raleway']
+  const bodyOpts  = ['Montserrat','Lato','Open Sans','Raleway','Source Sans 3','Nunito','Karla','Work Sans']
     .map(f => `<option${f===bf?' selected':''}>${f}</option>`).join('');
+  const fontOpts = (sel) => allFonts.map(f => `<option${f===sel?' selected':''}>${f}</option>`).join('');
+  const weightOpts = (sel) => ['300','400','700'].map(w => {
+    const label = w === '300' ? 'Light' : w === '400' ? 'Normal' : 'Bold';
+    return `<option value="${w}"${w===sel?' selected':''}>${label}</option>`;
+  }).join('');
+  const styleOpts = (sel) => ['normal','italic'].map(s =>
+    `<option value="${s}"${s===sel?' selected':''}>${s.charAt(0).toUpperCase()+s.slice(1)}</option>`
+  ).join('');
   const ctaText    = home.ctaText    || '';
   const ctaHref    = home.ctaHref    || '';
   const ctaColor   = home.ctaColor   || '#888888';
@@ -542,24 +581,73 @@ function renderHomeMain(home, settings = {}) {
         </div>
 
         <div style="margin-bottom:16px">
-          <label ${lbl}>Title Font</label>
+          <label ${lbl}>Page Title Font</label>
           <div style="display:flex;align-items:center;gap:8px">
-            <select id="design-title-font" ${sel} style="flex:1" oninput="markUnsaved()">${titleOpts}</select>
+            <select id="design-title-font" ${sel} style="flex:1" oninput="markUnsaved()">${fontOpts(tf)}</select>
             <input type="number" id="design-title-size" value="${tSz}" min="1.5" max="6" step="0.25"
               oninput="markUnsaved()"
               style="width:64px;border:1px solid #e0e0e0;border-radius:4px;padding:7px 8px;font-size:15px;font-family:inherit;outline:none;background:#fafafa;text-align:center">
             <span style="font-size:13px;color:#999;white-space:nowrap">rem</span>
           </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+            <select id="design-title-weight" ${sel} style="flex:1" onchange="markUnsaved()">${weightOpts(tWt)}</select>
+            <select id="design-title-style" ${sel} style="flex:1" onchange="markUnsaved()">${styleOpts(tSt)}</select>
+          </div>
         </div>
         <div style="margin-bottom:8px">
           <label ${lbl}>Body Font</label>
           <div style="display:flex;align-items:center;gap:8px">
-            <select id="design-body-font" ${sel} style="flex:1" oninput="markUnsaved()">${bodyOpts}</select>
+            <select id="design-body-font" ${sel} style="flex:1" oninput="markUnsaved()">${fontOpts(bf)}</select>
             <input type="number" id="design-body-size" value="${bSz}" min="10" max="22" step="1"
               oninput="markUnsaved()"
               style="width:64px;border:1px solid #e0e0e0;border-radius:4px;padding:7px 8px;font-size:15px;font-family:inherit;outline:none;background:#fafafa;text-align:center">
             <span style="font-size:13px;color:#999;white-space:nowrap">px</span>
           </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+            <select id="design-body-weight" ${sel} style="flex:1" onchange="markUnsaved()">${weightOpts(bWt)}</select>
+            <select id="design-body-style" ${sel} style="flex:1" onchange="markUnsaved()">${styleOpts(bSt)}</select>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid #eee;padding-top:24px;margin-bottom:24px">
+        <div style="font-size:13px;font-weight:700;color:#aaa;letter-spacing:.07em;text-transform:uppercase;margin-bottom:20px">Photo Title &amp; Description Fonts</div>
+
+        <div style="margin-bottom:16px">
+          <label ${lbl}>Photo Title</label>
+          <div style="display:flex;align-items:center;gap:8px">
+            <select id="design-cap-title-font" ${sel} style="flex:1" onchange="markUnsaved()">${fontOpts(ctf)}</select>
+            <input type="number" id="design-cap-title-size" value="${ctSz}" min="0.5" max="3" step="0.05"
+              oninput="markUnsaved()"
+              style="width:64px;border:1px solid #e0e0e0;border-radius:4px;padding:7px 8px;font-size:15px;font-family:inherit;outline:none;background:#fafafa;text-align:center">
+            <span style="font-size:13px;color:#999;white-space:nowrap">rem</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+            <select id="design-cap-title-weight" ${sel} style="flex:1" onchange="markUnsaved()">${weightOpts(ctWt)}</select>
+            <select id="design-cap-title-style" ${sel} style="flex:1" onchange="markUnsaved()">${styleOpts(ctSt)}</select>
+          </div>
+        </div>
+        <div style="margin-bottom:8px">
+          <label ${lbl}>Photo Description</label>
+          <div style="display:flex;align-items:center;gap:8px">
+            <select id="design-cap-desc-font" ${sel} style="flex:1" onchange="markUnsaved()">${fontOpts(cdf)}</select>
+            <input type="number" id="design-cap-desc-size" value="${cdSz}" min="0.5" max="3" step="0.05"
+              oninput="markUnsaved()"
+              style="width:64px;border:1px solid #e0e0e0;border-radius:4px;padding:7px 8px;font-size:15px;font-family:inherit;outline:none;background:#fafafa;text-align:center">
+            <span style="font-size:13px;color:#999;white-space:nowrap">rem</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+            <select id="design-cap-desc-weight" ${sel} style="flex:1" onchange="markUnsaved()">${weightOpts(cdWt)}</select>
+            <select id="design-cap-desc-style" ${sel} style="flex:1" onchange="markUnsaved()">${styleOpts(cdSt)}</select>
+          </div>
+        </div>
+        <div style="margin-top:16px">
+          <label ${lbl}>Alignment</label>
+          <select id="design-cap-align" ${sel} onchange="markUnsaved()">
+            <option value="left"${capAlign==='left'?' selected':''}>Left</option>
+            <option value="center"${capAlign==='center'?' selected':''}>Center</option>
+            <option value="right"${capAlign==='right'?' selected':''}>Right</option>
+          </select>
         </div>
       </div>
     </div>
@@ -591,12 +679,25 @@ async function saveHome() {
   ];
   if (document.getElementById('design-bg')) {
     const designPayload = {
-      bgColor:   document.getElementById('design-bg-text').value,
-      textColor: document.getElementById('design-text-text').value,
-      titleFont: document.getElementById('design-title-font').value,
-      bodyFont:  document.getElementById('design-body-font').value,
-      titleSize: parseFloat(document.getElementById('design-title-size').value),
-      bodySize:  parseInt(document.getElementById('design-body-size').value),
+      bgColor:        document.getElementById('design-bg-text').value,
+      textColor:      document.getElementById('design-text-text').value,
+      titleFont:      document.getElementById('design-title-font').value,
+      bodyFont:       document.getElementById('design-body-font').value,
+      titleSize:      parseFloat(document.getElementById('design-title-size').value),
+      bodySize:       parseInt(document.getElementById('design-body-size').value),
+      titleWeight:    document.getElementById('design-title-weight').value,
+      titleStyle:     document.getElementById('design-title-style').value,
+      bodyWeight:     document.getElementById('design-body-weight').value,
+      bodyStyle:      document.getElementById('design-body-style').value,
+      capTitleFont:   document.getElementById('design-cap-title-font').value,
+      capTitleSize:   parseFloat(document.getElementById('design-cap-title-size').value),
+      capTitleWeight: document.getElementById('design-cap-title-weight').value,
+      capTitleStyle:  document.getElementById('design-cap-title-style').value,
+      capDescFont:    document.getElementById('design-cap-desc-font').value,
+      capDescSize:    parseFloat(document.getElementById('design-cap-desc-size').value),
+      capDescWeight:  document.getElementById('design-cap-desc-weight').value,
+      capDescStyle:   document.getElementById('design-cap-desc-style').value,
+      capAlign:       document.getElementById('design-cap-align').value,
     };
     requests.push(
       fetch('/api/settings', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(designPayload) })

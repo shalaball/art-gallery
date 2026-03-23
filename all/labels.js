@@ -35,7 +35,7 @@ const LABELS = [
   { filename: "IMG_9358.jpeg", title: "Strata I - III", desc: ["Paper Series"] },
   { filename: "IMG_6221.jpeg", title: "Strata I - III", desc: ["Paper Series"] },
   { filename: "EE722A36-C1FD-44EA-9DAC-0ACFF389B986.png", title: "Crimson Drift", desc: ["Acrylic on Canvas, 36\" x 36\""] },
-  { filename: "Untitled.png", title: "Crimson Drift", desc: ["Acrylic on Canvas, 36\" x 36\""] },
+  { filename: "Untitled.png", title: "Crimson Drift", desc: ["Acrylic on Canvas, 36\" x 36\"\n\n(not for sale)\n\n\nI worked on this listening to Back and was inspired to making something sweeping and grand.  Whenever I work in this way it always comes out super great"] },
   { filename: "IMG_5991.jpeg", title: "Greenland's House", desc: ["Acrylic Ink on Paper, 8\"x10\""] },
   { filename: "IMG_6344.jpeg", title: "Simple Song", desc: ["Alcohol Ink on Yupo Paper, 11\" x 18\""] },
   { filename: "C015E4F8-F2D5-47A7-995F-B7A9C3FEA8D4.png", title: "Simple Song", desc: ["Alcohol Ink on Yupo Paper, 11\" x 18\""] },
