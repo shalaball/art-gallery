@@ -25,7 +25,7 @@ const LABELS = [
   { filename: "D92CFCB9-C127-479D-81B6-54968513BDAB.jpeg", title: "Upon Reflection", desc: ["Acrylic on Canvas","14 × 11inches","2025","Signed on verso"] },
   { filename: "IMG_6346.jpeg", title: "Wildflowers Don't Care", desc: ["Acrylic on Canvas","36 × 36 inches","2025","Signed on verso"] },
   { filename: "C1F22FBD-1F9F-414E-8FDF-10BB01AB5FE1.png", title: "", desc: [] },
-  { filename: "IMG_6481.jpeg", title: "Scarlet Releasing", desc: ["Acrylic on Canvas","48 × 32 inches","2024","Signed on verso"] },
+  { filename: "IMG_6481.jpeg", title: "Scarlet Releasing", desc: ["Set of Two","Acrylic on Canvas","48 × 32 inches","2024","Signed on verso"] },
   { filename: "F3C25FD5-E52E-4212-8E78-D6FB57F49A5B.png", title: "", desc: [] },
   { filename: "IMG_6493.jpeg", title: "Scarlet Unfurling", desc: ["Set of Two","Acrylic on Canvas","48 × 32 inches","2024","Signed on verso"] },
   { filename: "37034FE0-0E39-49E0-8424-F4CEC66808FC.png", title: "", desc: [] },

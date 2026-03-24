@@ -32,7 +32,7 @@ const LABELS = [
   { filename: "37034FE0-0E39-49E0-8424-F4CEC66808FC.png", title: "", desc: [] },
   { filename: "02BBE9A4-15A1-4D91-83F7-8DFFFB72B0BC.png", title: "", desc: [] },
   { filename: "D657F7BB-791B-4F66-B2F6-269B9833F8B5.png", title: "", desc: [] },
-  { filename: "IMG_6481.jpeg", title: "Scarlet Releasing", desc: ["Acrylic on Canvas","48 × 32 inches","2024","Signed on verso"] },
+  { filename: "IMG_6481.jpeg", title: "Scarlet Releasing", desc: ["Set of Two","Acrylic on Canvas","48 × 32 inches","2024","Signed on verso"] },
   { filename: "IMG_6350.jpeg", title: "All of Our Days", desc: ["Alcohol Ink on Yupo Paper","30 × 19 inches","2025","Signed"] },
   { filename: "IMG_6046.jpeg", title: "Helix Becoming", desc: ["Acrylic on Canvas","24 × 48 inches","2026","Signed on verso"] },
   { filename: "8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg", title: "", desc: [] },

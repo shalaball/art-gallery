@@ -22,7 +22,7 @@ const LABELS = [
   { filename: "C1F22FBD-1F9F-414E-8FDF-10BB01AB5FE1.png", title: "", desc: [] },
   { filename: "FullSizeRender.heic", title: "Ultramarine Valley", desc: ["Acrylic on Canvas","60 × 40 inches","2024"," Signed on verso"] },
   { filename: "D657F7BB-791B-4F66-B2F6-269B9833F8B5.png", title: "", desc: [] },
-  { filename: "IMG_6481.jpeg", title: "Scarlet Releasing", desc: ["Acrylic on Canvas","48 × 32 inches","2024","Signed on verso"] },
+  { filename: "IMG_6481.jpeg", title: "Scarlet Releasing", desc: ["Set of Two","Acrylic on Canvas","48 × 32 inches","2024","Signed on verso"] },
   { filename: "F3C25FD5-E52E-4212-8E78-D6FB57F49A5B.png", title: "", desc: [] },
   { filename: "IMG_6493.jpeg", title: "Scarlet Unfurling", desc: ["Set of Two","Acrylic on Canvas","48 × 32 inches","2024","Signed on verso"] },
   { filename: "37034FE0-0E39-49E0-8424-F4CEC66808FC.png", title: "", desc: [] },
