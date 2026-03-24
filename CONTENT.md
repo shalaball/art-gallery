@@ -11,7 +11,7 @@
 |------|------|-----|
 | Home | Art Gallery | https://shalaball.com/ |
 | Paintings | Paintings | https://shalaball.com/page-2/ |
-| Paint Inks | Paint Inks | https://shalaball.com/page-3/ |
+| Works on Paper | Works on Paper | https://shalaball.com/page-3/ |
 | Mixed Media | Mixed Media | https://shalaball.com/page-1/ |
 | All | All | https://shalaball.com/all/ |
 | Available Work | Available Work | https://shalaball.com/cards/ |
@@ -60,7 +60,7 @@
 
 ---
 
-## Paint Inks Page (`page-3/`)
+## Works on Paper Page (`page-3/`)
 
 | Order | Filename |
 |-------|----------|
