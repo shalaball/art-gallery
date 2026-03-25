@@ -571,6 +571,13 @@ app.post('/api/home', (req, res) => {
 app.get('/api/settings', (req, res) => {
   try {
     const html       = fs.readFileSync(path.join(GALLERY, 'index.html'), 'utf8');
+    // Read caption styles from a gallery page (index.html has no .caption rules)
+    const galleryDirs = ['page-2', 'page-1', 'page-3'];
+    let galleryHtml = '';
+    for (const dir of galleryDirs) {
+      const gp = path.join(GALLERY, dir, 'index.html');
+      if (fs.existsSync(gp)) { galleryHtml = fs.readFileSync(gp, 'utf8'); break; }
+    }
     const bgMatch    = html.match(/body\s*\{[^}]*background:\s*(#[a-fA-F0-9]{3,6})/);
     const colorMatch = html.match(/body\s*\{[^}]*\bcolor:\s*(#[a-fA-F0-9]{3,6})/);
     const bodyFontM  = html.match(/body\s*\{[^}]*font-family:\s*'([^']+)'/);
@@ -581,16 +588,16 @@ app.get('/api/settings', (req, res) => {
     const titleStyleM  = html.match(/header h1\s*\{[^}]*font-style:\s*(\w+)/);
     const bodyWeightM  = html.match(/body\s*\{[^}]*font-weight:\s*(\w+)/);
     const bodyStyleM   = html.match(/body\s*\{[^}]*font-style:\s*(\w+)/);
-    // Caption (photo title/desc) settings
-    const capTitleFontM   = html.match(/\.caption \.title\s*\{[^}]*font-family:\s*'([^']+)'/);
-    const capTitleSizeM   = html.match(/\.caption \.title\s*\{[^}]*font-size:\s*([0-9.]+)rem/);
-    const capTitleWeightM = html.match(/\.caption \.title\s*\{[^}]*font-weight:\s*(\w+)/);
-    const capTitleStyleM  = html.match(/\.caption \.title\s*\{[^}]*font-style:\s*(\w+)/);
-    const capDescFontM    = html.match(/\.caption \.desc\s*\{[^}]*font-family:\s*'([^']+)'/);
-    const capDescSizeM    = html.match(/\.caption \.desc\s*\{[^}]*font-size:\s*([0-9.]+)rem/);
-    const capDescWeightM  = html.match(/\.caption \.desc\s*\{[^}]*font-weight:\s*(\w+)/);
-    const capDescStyleM   = html.match(/\.caption \.desc\s*\{[^}]*font-style:\s*(\w+)/);
-    const capAlignM       = html.match(/\.caption\s*\{[^}]*text-align:\s*(\w+)/);
+    // Caption (photo title/desc) settings — read from gallery page, not home
+    const capTitleFontM   = galleryHtml.match(/\.caption \.title\s*\{[^}]*font-family:\s*'([^']+)'/);
+    const capTitleSizeM   = galleryHtml.match(/\.caption \.title\s*\{[^}]*font-size:\s*([0-9.]+)rem/);
+    const capTitleWeightM = galleryHtml.match(/\.caption \.title\s*\{[^}]*font-weight:\s*(\w+)/);
+    const capTitleStyleM  = galleryHtml.match(/\.caption \.title\s*\{[^}]*font-style:\s*(\w+)/);
+    const capDescFontM    = galleryHtml.match(/\.caption \.desc\s*\{[^}]*font-family:\s*'([^']+)'/);
+    const capDescSizeM    = galleryHtml.match(/\.caption \.desc\s*\{[^}]*font-size:\s*([0-9.]+)rem/);
+    const capDescWeightM  = galleryHtml.match(/\.caption \.desc\s*\{[^}]*font-weight:\s*(\w+)/);
+    const capDescStyleM   = galleryHtml.match(/\.caption \.desc\s*\{[^}]*font-style:\s*(\w+)/);
+    const capAlignM       = galleryHtml.match(/\.caption\s*\{[^}]*text-align:\s*(\w+)/);
     // Subtitle (header p) settings
     const subFontM   = html.match(/header p\s*\{[^}]*font-family:\s*'([^']+)'/);
     const subSizeM   = html.match(/header p\s*\{[^}]*font-size:\s*([0-9.]+)rem/);
