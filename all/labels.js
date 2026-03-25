@@ -55,5 +55,4 @@ const LABELS = [
   { filename: "0C980E9E-9EDE-4676-AF8C-0237C1BEE825.png", title: "Unwritten Language", desc: ["Ink on Paper Collage","8 × 10 inches","2025"] },
   { filename: "IMG_3622.jpeg", title: "Catalonian Heroes", desc: ["Ink on Paper","10 × 10 inches","2025"] },
   { filename: "IMG_6369.jpeg", title: "Triana District", desc: ["Acrylic on Paper","8 × 10 inches","2026"] },
-  { filename: "tempImageca3cOp.jpeg", title: "", desc: [] },
 ];
