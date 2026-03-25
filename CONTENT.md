@@ -9,7 +9,7 @@
 
 | Page | Name | URL |
 |------|------|-----|
-| Home | Art Gallery | https://shalaball.com/ |
+| Art Gallery | Art Gallery | https://shalaball.com/ |
 | Paintings | Paintings | https://shalaball.com/page-2/ |
 | Works on Paper | Works on Paper | https://shalaball.com/page-3/ |
 | Mixed Media | Mixed Media | https://shalaball.com/page-1/ |
