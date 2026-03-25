@@ -3,7 +3,7 @@
 const LABELS = [
   { filename: "IMG_6386-2.jpeg", title: "The Last Bright Conversation", desc: ["Acrylic on Canvas","60 × 48 inches","2024","Signed on verso"] },
   { filename: "8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg", title: "", desc: [] },
-  { filename: "IMG_6046.jpeg", title: "Helix Becoming", desc: ["Acrylic on Canvas","24 × 48 inches","2026","Signed on verso"] },
+  { filename: "IMG_6046.jpeg", title: "Helix Becoming Bold", desc: ["Acrylic on Canvas","24 × 48 inches","2026","Signed on verso"] },
   { filename: "2F98DB7B-9452-4B93-A751-52B1A96700F3.png", title: "", desc: [] },
   { filename: "IMG_6715.jpeg", title: "When The River Became Two (Diptych)", desc: ["Acrylic on Canvas","Each panel: 36 × 36 inches","Overall: 72 × 36 inches","2024","Signed on verso"] },
   { filename: "IMG_6707.jpeg", title: "When The River Became Two (Diptych)", desc: ["Acrylic on Canvas","Each panel: 36 × 36 inches","Overall: 72 × 36 inches","2024","Signed on verso"] },

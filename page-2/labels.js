@@ -1,7 +1,7 @@
 // Auto-generated — do not edit directly.
 
 const LABELS = [
-  { filename: "IMG_6046.jpeg", title: "Helix Becoming", desc: ["Acrylic on Canvas","24 × 48 inches","2026","Signed on verso"] },
+  { filename: "IMG_6046.jpeg", title: "Helix Becoming Bold", desc: ["Acrylic on Canvas","24 × 48 inches","2026","Signed on verso"] },
   { filename: "2F98DB7B-9452-4B93-A751-52B1A96700F3.png", title: "", desc: [] },
   { filename: "IMG_6410-2.jpeg", title: "Too Wild for Still Water", desc: ["Acrylic on Canvas","60 × 48 inches","2024","Signed on verso"] },
   { filename: "78E9C1DB-8C49-4899-B678-1330D44D4AE2.png", title: "", desc: [] },
