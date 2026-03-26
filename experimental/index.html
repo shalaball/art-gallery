@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Works on Paper</title>
+  <title>Experimental</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -105,15 +105,15 @@
     }
 
     .gallery-item img {
-      display: block;
       width: 100%;
       height: auto;
+      display: block;
       transition: opacity 0.3s ease;
       opacity: 1;
     }
 
     .gallery-item:hover img {
-      opacity: 0.85;
+      opacity: 0.88;
     }
 
     .caption {
@@ -198,7 +198,6 @@
       color: #bbb;
       font-size: 1.5rem;
       cursor: pointer;
-      letter-spacing: 0.1em;
       font-family: 'Montserrat', sans-serif;
       font-weight: 300;
       transition: color 0.2s;
@@ -255,21 +254,20 @@
 
 <nav>
   <a href="../">Home</a>
-  <a href="../page-2/">Paintings</a>
-  <a href="../page-3/" class="active">Works on Paper</a>
+  <a href="../page-2/" class="active">Paintings</a>
+  <a href="../page-3/">Works on Paper</a>
   <a href="../page-1/">Mixed Media</a>
   <a href="../all/">All</a>
-  <a href="../experimental/">Experimental</a>
   <a href="../about/">About the Artist</a>
 </nav>
 
 <header>
-  <h1>Works on Paper</h1>
+  <h1>Experimental</h1>
 </header>
 
 <div class="divider"></div>
 
-<div class="gallery two-column" id="gallery"></div>
+<div class="gallery" id="gallery"></div>
 
 <div id="lightbox">
   <button id="lb-close" aria-label="Close">&#x2715;</button>

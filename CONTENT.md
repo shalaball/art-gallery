@@ -15,6 +15,7 @@
 | Mixed Media | Mixed Media | https://shalaball.com/page-1/ |
 | All | All | https://shalaball.com/all/ |
 | Available Work | Available Work | https://shalaball.com/cards/ |
+| Experimental | Experimental | https://shalaball.com/experimental/ |
 
 ---
 
@@ -173,3 +174,10 @@ Hidden: true
 | 11 | IMG_6418.jpeg |
 | 12 | 292EB5D7-449C-4ABA-8E3D-7AB4835BBCB1.jpeg |
 | 13 | IMG_6369.jpeg |
+
+---
+
+## Experimental Page (`experimental/`)
+
+| Order | Filename |
+|-------|----------|
