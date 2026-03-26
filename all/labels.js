@@ -10,7 +10,7 @@ const LABELS = [
   { filename: "IMG_6201.jpeg", title: "", desc: [] },
   { filename: "IMG_6410-2.jpeg", title: "Too Wild for Still Water", desc: ["Acrylic on Canvas","60 × 48 inches","2024","Signed on verso"] },
   { filename: "78E9C1DB-8C49-4899-B678-1330D44D4AE2.png", title: "", desc: [] },
-  { filename: "3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg", title: "Paper Planes With No Borders", desc: ["Acrylic on Canvas","60 × 40 inches","2024","Signed on verso"] },
+  { filename: "3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg", title: "Paper Planes / No Borders", desc: ["Acrylic on Canvas","60 × 40 inches","2024","Signed on verso"] },
   { filename: "02BBE9A4-15A1-4D91-83F7-8DFFFB72B0BC.png", title: "", desc: [] },
   { filename: "IMG_0725.heic", title: "Hidden Princess (Collab with Carter Hackett)", desc: ["Acrylic on Canvas","48 × 24 inches","2024","Signed on verso"] },
   { filename: "68781A68-2BFE-45F8-A517-C15465BBB6A2.png", title: "", desc: [] },

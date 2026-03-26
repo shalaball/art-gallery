@@ -1,3 +1,5 @@
-// Auto-generated from CONTENT.md
+// Auto-generated — do not edit directly.
 
-const LABELS = [];
+const LABELS = [
+,
+];
