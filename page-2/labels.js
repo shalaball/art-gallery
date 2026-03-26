@@ -5,7 +5,7 @@ const LABELS = [
   { filename: "2F98DB7B-9452-4B93-A751-52B1A96700F3.png", title: "", desc: [] },
   { filename: "IMG_6410-2.jpeg", title: "Too Wild for Still Water", desc: ["Acrylic on Canvas","60 × 48 inches","2024","Signed on verso"] },
   { filename: "78E9C1DB-8C49-4899-B678-1330D44D4AE2.png", title: "", desc: [] },
-  { filename: "3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg", title: "Paper Planes No Borders", desc: ["Acrylic on Canvas","60 × 40 inches","2024","Signed on verso"] },
+  { filename: "3F6DE66B-B2C7-4032-A27A-9E9A2D109C27.jpeg", title: "Paper Planes With No Borders", desc: ["Acrylic on Canvas","60 × 40 inches","2024","Signed on verso"] },
   { filename: "02BBE9A4-15A1-4D91-83F7-8DFFFB72B0BC.png", title: "", desc: [] },
   { filename: "IMG_6386-2.jpeg", title: "The Last Bright Conversation", desc: ["Acrylic on Canvas","60 × 48 inches","2024","Signed on verso"] },
   { filename: "8923CF4A-CF82-4566-BD82-ED9D887A63E9.jpeg", title: "", desc: [] },
